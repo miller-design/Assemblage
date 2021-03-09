@@ -1,0 +1,292 @@
+/* ==========================================================================================================
+	Character Style Mixins
+=========================================================================================================== */
+
+// font setups
+@mixin FakProNormal() {
+	font-family: $FaktPro-Normal;
+	font-style: normal;
+	font-weight: 400;
+
+	em {
+		font-style: normal;
+	}
+}
+
+@mixin FakProBlond() {
+	font-family: $FaktPro-Blond;
+	font-style: normal;
+	font-weight: 400;
+
+	em {
+		font-style: normal;
+	}
+}
+
+// header base
+@mixin H1() {
+
+	@include FakProNormal;
+	@include v-type(50px, 140px, 170px);
+}
+
+@mixin H2() {
+
+	@include FakProNormal;
+	@include v-type(40px, 100px, 100px);
+}
+
+@mixin H3() {
+
+	@include FakProNormal;
+	@include v-type(30px, 65px, 65px);
+}
+
+@mixin H4() {
+
+	@include FakProNormal;
+	@include v-type(25px, 50px, 55px);
+}
+
+// paragraph setups
+@mixin P1($blond: false) {
+
+	@include v-type(20px, 35px, 45px);
+
+	@if $blond == true {
+
+		@include FakProBlond;
+
+	} @else {
+
+		@include FakProNormal;
+
+	}
+}
+
+@mixin P2($blond: false) {
+
+	@include v-type(16px, 25px, 35px);
+
+	@if $blond == true {
+
+		@include FakProBlond;
+
+	} @else {
+
+		@include FakProNormal;
+
+	}
+}
+
+@mixin P3($blond: false) {
+
+	@include v-type(14px, 18px, 25px);
+
+	@if $blond == true {
+
+		@include FakProBlond;
+
+	} @else {
+
+		@include FakProNormal;
+
+	}
+}
+
+@mixin P4() {
+
+	@include FakProNormal;
+	@include v-type(12px, 14px, 20px);
+}
+
+@mixin P5() {
+
+	@include FakProNormal;
+	@include v-type(10px, 12px, 18px);
+}
+
+@mixin body() {
+
+	@include P1(true);
+
+	strong {
+		text-transform: uppercase;
+
+		@include P1;
+	}
+
+	em {
+		font-style: normal;
+	}
+}
+
+
+// default hyperlink - with draw in underline fx
+@mixin link($underline:true) {
+	text-decoration: none;
+	color: $c-blue;
+	cursor: pointer;
+
+	@if $underline == true {
+		background-image: linear-gradient(currentColor, currentColor);
+		background-position: 0% 100%;
+		background-repeat: no-repeat;
+		background-size: 0% 1px;
+		transition: background-size 0.3s;
+
+	} @else {
+
+		@include site-transition(color);
+	}
+
+	&:hover,
+	&:focus {
+
+		@if $underline == true {
+			background-size: 100% 1px;
+
+		} @else {
+			color: #e40dae; // change this!
+		}
+	}
+}
+
+// square button
+@mixin button-square() {
+	outline: none;
+	background-color: $c-white;
+	border: 1px solid $c-black;
+	color: $c-black;
+	cursor: pointer;
+	padding-top: 13px;
+	padding-right: 41px;
+	padding-bottom: 9px;
+	padding-left: 41px;
+
+	@include P3(false);
+	@include site-transition;
+	@include site-transition(opacity, 500ms);
+	line-height: 1; // line height override
+
+	@media (hover: hover) {
+
+		&:hover {
+			opacity: 0.3;
+		}
+	}
+}
+
+// round button variation
+@mixin button-round() {
+	outline: none;
+	color: $c-black;
+	background-color: transparent;
+	border: 0;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+
+	@include P3(false);
+	@include site-transition;
+	@include site-transition(opacity, 500ms);
+	line-height: 1; // line height override
+
+	svg {
+		width: 30px;
+		height: 30px;
+		position: relative;
+		top: -3px;
+		margin-right: 10px;
+	}
+
+	@media (hover: hover) {
+
+		&:hover {
+			opacity: 0.3;
+		}
+	}
+}
+
+// tag styles
+@mixin tag($large_tag: false) {
+	outline: none;
+	color: $c-black;
+	background-color: $c-white;
+	border-radius: 60px;
+	border: 1px solid $c-black;
+	cursor: pointer;
+
+	@include site-transition(opacity, 500ms);
+
+	@if $large_tag == true {
+
+		@include v-spacing(padding-top, 13px, 19px);
+		@include v-spacing(padding-right, 20px, 30px);
+		@include v-spacing(padding-bottom, 7px, 6px);
+		@include v-spacing(padding-left, 20px, 30px);
+		@include H3();
+
+	} @else {
+		padding-top: 8px;
+		padding-right: 10px;
+		padding-bottom: 4px;
+		padding-left: 10px;
+
+		@include P3(true);
+	}
+
+	line-height: 1; // line height override
+
+	@media (hover: hover) {
+
+		&:hover {
+			opacity: 0.5;
+		}
+	}
+}
+
+// basic list styles
+@mixin list-styles() {
+
+	ul,
+	ol {
+		width: 100%;
+		position: relative;
+
+		> li {
+			position: relative;
+
+			@include P1(true);
+			@include v-spacing(padding-left, $VSM2, $VSD3);
+		}
+	}
+
+	ol > li {
+		counter-increment: list-number;
+
+		&::before {
+			content: counter(list-number) ".";
+			position: absolute;
+			left: 0;
+			transform: scale(0.5);
+			transform-origin: 50% 50%;
+		}
+	}
+
+	ul > li {
+
+		&::before {
+			content: "";
+			width: 5px;
+			height: 5px;
+			border-radius: 50%;
+			background-color: $c-black;
+			position: absolute;
+			left: 0;
+			top: 16px;
+		}
+	}
+}

@@ -1,0 +1,51 @@
+body:not(.wp-admin) {
+
+	.c-Form {
+
+		@include form-base;
+	}
+
+	.c-Form__row {
+
+		@include form-row;
+	}
+
+	.c-Form__row--split {
+
+		@include form-row("split");
+	}
+
+	input[type="text"].form-control,
+	input[type="email"].form-control {
+		padding: 10px 15px 0;
+		font-size: 16px !important;
+		background: transparent;
+		z-index: 2;
+		position: relative;
+	}
+
+	.wpcf7-form-control-wrap {
+		background: #fff;
+		height: 100%;
+		display: block;
+	}
+
+	label {
+		transform: translateY(-100%);
+		z-index: 1;
+		font-size: 16px;
+		font-style: italic;
+		color: #9b9b9b;
+		line-height: 42px;
+		position: absolute;
+		padding: 0 17px;
+		transition: all 0.2s ease;
+	}
+
+	.c-Form__row.active > label {
+		transform: translateY(-125%);
+		color: #9b9b9b;
+		font-size: 12px;
+		padding: 0 16px;
+	}
+}

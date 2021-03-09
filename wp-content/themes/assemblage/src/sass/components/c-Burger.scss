@@ -1,0 +1,87 @@
+/* stylelint-disable no-descending-specificity */
+
+@import "../base";
+
+/* ==========================================================================
+	Burger Component
+========================================================================== */
+
+.c-Burger {
+	width: 20px;
+	height: 12px;
+	cursor: pointer;
+	position: relative;
+	z-index: $z-level-three;
+	transition: 400ms opacity $standard-curve;
+	pointer-events: auto;
+
+	@media (hover: hover) {
+
+		&:hover {
+			opacity: 0.5;
+		}
+	}
+
+	&.is-active {
+
+		.c-Burger__row {
+			transition:
+				200ms background-color $standard-curve,
+				200ms transform 200ms $standard-curve,
+				0ms opacity 200ms $standard-curve,
+				200ms top $standard-curve;
+		}
+
+		.c-Burger__row:nth-of-type(1) {
+			top: 50%;
+			transform: translateY(-50%) rotate(-45deg);
+		}
+
+		.c-Burger__row:nth-of-type(2) {
+			opacity: 0;
+		}
+
+		.c-Burger__row:nth-of-type(3) {
+			top: 50%;
+			transform: translateY(-50%) rotate(45deg);
+		}
+	}
+}
+
+.c-Burger__row {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background-color: $c-white;
+	transition:
+		200ms background-color $standard-curve,
+		200ms transform $standard-curve,
+		0ms opacity 200ms $standard-curve,
+		200ms top 200ms $standard-curve;
+	transform-origin: center, center;
+	transform: translateY(-50%);
+
+	&.c-Burger__row:nth-of-type(1) {
+		top: 1px;
+	}
+
+	&.c-Burger__row:nth-of-type(2) {
+		top: 6px;
+	}
+
+	&.c-Burger__row:nth-of-type(3) {
+		top: 11px;
+	}
+
+	.dark-state & {
+		background-color: $c-black;
+	}
+}
+
+.js-menu-active-dark-state {
+
+	.c-Burger__row {
+		background-color: $c-black;
+	}
+}

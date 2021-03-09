@@ -1,0 +1,118 @@
+
+/*
+Form Mixins
+Create mixins first so they can be reused on Woo forms or other places where you can't add your own classes
+========================================================================== */
+@mixin form-base() {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: flex-start;
+	flex-wrap: wrap;
+}
+
+@mixin form-row($row: "full") {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+
+	@if $row == "fill" {
+		width: 100%;
+		flex-wrap: wrap;
+	}
+
+	@if $row == "split" {
+		width: 50%;
+		flex-wrap: nowrap;
+	}
+}
+
+@mixin six-form-number() {
+
+	input[type="number"] {
+
+		@include body;
+		line-height: normal;
+		background-color: transparent;
+		border: 3px solid $c-black;
+		padding: 5px;
+		width: 50px;
+		text-align: center;
+	}
+
+	// just hide spinners for now
+	input[type="number"]::-webkit-outer-spin-button,
+	input[type="number"]::-webkit-inner-spin-button {
+		height: 30px;
+	}
+
+	input[type="number"]:focus {
+		outline: 0;
+		border: 3px solid $c-grey;
+	}
+
+}
+
+@mixin six-form-checkbox() {
+
+	input[type="checkbox"] {
+		display: none;
+	}
+
+	// normally we want the label to follow the input (input + label)
+	// that may not always be possible, so use * selector to cover all bases (eg. input + span)
+	input[type="checkbox"] + * {
+		cursor: pointer;
+		margin-bottom: 5px;
+		display: block;
+	}
+
+	input[type="checkbox"] + *::before {
+		content: "";
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		border: 3px solid $c-black;
+		background-color: transparent;
+		margin-right: $grid_col_gutter_mobile;
+		vertical-align: bottom;
+	}
+
+
+	input[type="checkbox"]:checked + *::before {
+		background-color: $c-black;
+	}
+}
+
+@mixin six-form-radio() {
+
+	input[type="radio"] {
+		display: none;
+	}
+
+	// normally we want the label to follow the input (input + label)
+	// that may not always be possible, so use * selector to cover all bases (eg. input + span)
+	input[type="radio"] + * {
+		cursor: pointer;
+		margin-bottom: 3px;
+		display: block;
+	}
+
+	input[type="radio"] + *::before {
+		content: "";
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		border: 3px solid $c-black;
+		background-color: transparent;
+		margin-right: $grid_col_gutter_mobile;
+		vertical-align: bottom;
+	}
+
+
+	input[type="radio"]:checked + *::before {
+		background-color: $c-black;
+	}
+}

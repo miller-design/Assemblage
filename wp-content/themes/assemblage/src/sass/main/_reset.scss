@@ -1,0 +1,81 @@
+
+/* ==========================================================================
+	CSS Reset
+	Based on https://dev.to/hankchizljaw/a-modern-css-reset-6p3
+	with minor tweaks
+========================================================================== */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+/* Remove default padding on lists with classes */
+ul,
+ol {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+figure,
+blockquote,
+dl,
+dd {
+	margin: 0;
+}
+
+/* Set core root defaults */
+html {
+	scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+	min-height: 100vh;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+}
+
+
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+	max-width: 100%;
+	display: block;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+
+	* {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+:root {
+	--lh-t-adjust: 1;
+	--lh-b-adjust: 1;
+}

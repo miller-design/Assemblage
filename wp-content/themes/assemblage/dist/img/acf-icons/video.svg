@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="144" height="94" viewBox="0 0 144 94">
+  <defs>
+    <clipPath id="clip-Video">
+      <rect width="144" height="94"/>
+    </clipPath>
+  </defs>
+  <g id="Video" clip-path="url(#clip-Video)">
+    <rect width="144" height="94" fill="#fff"/>
+    <rect id="Rectangle_4" data-name="Rectangle 4" width="144" height="71" fill="#e8e8e8"/>
+    <g id="Group_2" data-name="Group 2" transform="translate(75 3)">
+      <g id="Rectangle_1" data-name="Rectangle 1" transform="translate(-54 27)" fill="#fff" stroke="#000" stroke-width="1">
+        <rect width="107" height="59" stroke="none"/>
+        <rect x="0.5" y="0.5" width="106" height="58" fill="none"/>
+      </g>
+    </g>
+    <g id="Group_1" data-name="Group 1" transform="translate(18 -32.35)">
+      <g id="Rectangle_2" data-name="Rectangle 2" transform="translate(20 43.35)" stroke="#000" stroke-width="1">
+        <rect width="68" height="4" stroke="none"/>
+        <rect x="0.5" y="0.5" width="67" height="3" fill="none"/>
+      </g>
+      <g id="Rectangle_3" data-name="Rectangle 3" transform="translate(45 49.35)" stroke="#000" stroke-width="1">
+        <rect width="18" height="1" stroke="none"/>
+        <rect x="0.5" y="0.5" width="17" fill="none"/>
+      </g>
+    </g>
+    <path id="Polygon_1" data-name="Polygon 1" d="M3,0,6,5H0Z" transform="translate(77 57) rotate(90)"/>
+  </g>
+</svg>

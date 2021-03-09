@@ -1,0 +1,21 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": ["wordpress", "plugin:prettier/recommended"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2016,
+    "sourceType": "module"
+  },
+  "no-mixed-spaces-and-tabs": "off",
+  "globals": {
+    "wp": true,
+    "jQuery": true
+  }
+}

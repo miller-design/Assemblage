@@ -1,0 +1,11 @@
+/*
+Styles for the Block Editor
+main.css doesn't load in WP Admin pages, so add anything essential in here
+Don't worry about duplication too much, this isn't loaded on frontend
+========================================================================== */
+
+@import "base";
+@import "main/lazyimage";             // for LazyImage class
+
+
+// add stuff like filickity here and your font defs

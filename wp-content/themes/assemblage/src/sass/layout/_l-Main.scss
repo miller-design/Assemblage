@@ -1,0 +1,17 @@
+/* ==========================================================================
+	Main
+=========================================================================== */
+
+/* Blocks */
+.l-Main {
+	background-color: $c-white;
+	position: relative;
+	z-index: 1;
+	min-height: 100vh;
+
+	@include grid;
+
+	article {
+		grid-column: 1/-1;
+	}
+}

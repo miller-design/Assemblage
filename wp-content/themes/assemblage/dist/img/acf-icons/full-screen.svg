@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="144" height="94" viewBox="0 0 144 94">
+  <defs>
+    <clipPath id="clip-Full_Screen">
+      <rect width="144" height="94"/>
+    </clipPath>
+  </defs>
+  <g id="Full_Screen" data-name="Full Screen" clip-path="url(#clip-Full_Screen)">
+    <rect width="144" height="94" fill="#fff"/>
+    <g id="Group_3" data-name="Group 3">
+      <g id="Rectangle_1" data-name="Rectangle 1" fill="#fff" stroke="#000" stroke-width="1">
+        <rect width="144" height="94" stroke="none"/>
+        <rect x="0.5" y="0.5" width="143" height="93" fill="none"/>
+      </g>
+      <path id="Path_1" data-name="Path 1" d="M314,101l143.267,93.241" transform="translate(-314 -101)" fill="none" stroke="#000" stroke-width="1"/>
+      <path id="Path_2" data-name="Path 2" d="M314,194.241l143.847-93.055" transform="translate(-314 -101)" fill="none" stroke="#000" stroke-width="1"/>
+    </g>
+    <g id="Group_1" data-name="Group 1" transform="translate(0 -4)">
+      <g id="Rectangle_2" data-name="Rectangle 2" transform="translate(37 43)" stroke="#000" stroke-width="1">
+        <rect width="70" height="9" stroke="none"/>
+        <rect x="0.5" y="0.5" width="69" height="8" fill="none"/>
+      </g>
+      <g id="Rectangle_3" data-name="Rectangle 3" transform="translate(53 56)" stroke="#000" stroke-width="1">
+        <rect width="38" height="2" stroke="none"/>
+        <rect x="0.5" y="0.5" width="37" height="1" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

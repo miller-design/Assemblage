@@ -1,0 +1,151 @@
+{
+    "key": "group_6044f2d0b6e29",
+    "title": "c-2xImage",
+    "fields": [
+        {
+            "key": "field_6045e65ae9fe3",
+            "label": "Image Layout",
+            "name": "image_layout",
+            "type": "radio",
+            "instructions": "Select the layout you would like to use for this module.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "article-images-icons",
+                "id": ""
+            },
+            "choices": {
+                "v1": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/staggered-images.svg'>",
+                "v2": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/same-width-images.svg'>"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_6044f2da2b2fe",
+            "label": "Image Left",
+            "name": "image_left",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_6044f2ef2b2ff",
+            "label": "Image Right",
+            "name": "image_right",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_6044f30e2b300",
+            "label": "Caption Left",
+            "name": "caption_left",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6045e65ae9fe3",
+                        "operator": "==",
+                        "value": "v1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6044f3162b301",
+            "label": "Caption Right",
+            "name": "caption_right",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6045e65ae9fe3",
+                        "operator": "==",
+                        "value": "v1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "is_acf_component": 1,
+    "acf_component_defaults": {
+        "repeatable": "0",
+        "min": "",
+        "max": "",
+        "layout": "block",
+        "button_label": "",
+        "appearances": ""
+    },
+    "modified": 1615226139
+}

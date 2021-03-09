@@ -1,0 +1,189 @@
+{
+    "key": "group_60473372a4128",
+    "title": "Front Page",
+    "fields": [
+        {
+            "key": "field_604733896c837",
+            "label": "Hero Featured Article",
+            "name": "hero_featured_article",
+            "type": "post_object",
+            "instructions": "Select the article you would like to feature at the top of your home page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "journal"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "id",
+            "ui": 1
+        },
+        {
+            "key": "field_604733aa6c838",
+            "label": "Featured Article",
+            "name": "featured_article",
+            "type": "component_field",
+            "instructions": "select the featured article you would like to appear",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "field_group_key": "group_6044f3a929944",
+            "repeatable": 0,
+            "layout": "block",
+            "button_label": "",
+            "appearances": "",
+            "min": null,
+            "max": null,
+            "collapsed": "",
+            "sub_fields": []
+        },
+        {
+            "key": "field_6047344ce5161",
+            "label": "Our Vision",
+            "name": "our_vision",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_6047346de5162",
+            "label": "Our Vision Link",
+            "name": "our_vision_link",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_60473485e5163",
+            "label": "Our Vision Link Text",
+            "name": "our_vision_link_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_604734a9e5164",
+            "label": "Featured Article",
+            "name": "featured_article_second",
+            "type": "component_field",
+            "instructions": "select the featured article you would like to appear",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "field_group_key": "group_6044f3a929944",
+            "repeatable": 0,
+            "layout": "block",
+            "button_label": "",
+            "appearances": "",
+            "min": null,
+            "max": null,
+            "collapsed": "",
+            "sub_fields": []
+        },
+        {
+            "key": "field_604734fde5165",
+            "label": "Recommended Reads",
+            "name": "recommended_reads",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "journal"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": 6,
+            "max": 10,
+            "return_format": "id"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "permalink",
+        "the_content",
+        "excerpt",
+        "discussion",
+        "comments",
+        "revisions",
+        "slug",
+        "author",
+        "format"
+    ],
+    "active": true,
+    "description": "",
+    "is_acf_component": 0,
+    "acf_component_defaults": {
+        "repeatable": "0",
+        "min": "",
+        "max": "",
+        "layout": "block",
+        "button_label": "",
+        "appearances": ""
+    },
+    "modified": 1615279574
+}

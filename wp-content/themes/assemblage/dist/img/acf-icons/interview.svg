@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="144" height="94" viewBox="0 0 144 94">
+  <defs>
+    <clipPath id="clip-Interview">
+      <rect width="144" height="94"/>
+    </clipPath>
+  </defs>
+  <g id="Interview" clip-path="url(#clip-Interview)">
+    <rect width="144" height="94" fill="#fff"/>
+    <rect id="Rectangle_4" data-name="Rectangle 4" width="73" height="79" fill="#e8e8e8"/>
+    <g id="Group_2" data-name="Group 2" transform="translate(72)">
+      <g id="Rectangle_1" data-name="Rectangle 1" fill="#fff" stroke="#000" stroke-width="1">
+        <rect width="72" height="94" stroke="none"/>
+        <rect x="0.5" y="0.5" width="71" height="93" fill="none"/>
+      </g>
+      <path id="Path_1" data-name="Path 1" d="M314.636,101.589l70.632,92.652" transform="translate(-314 -101)" fill="none" stroke="#000" stroke-width="1"/>
+      <path id="Path_2" data-name="Path 2" d="M314.555,194.39,341.5,158.618l44.343-57.432" transform="translate(-314 -101)" fill="none" stroke="#000" stroke-width="1"/>
+    </g>
+    <g id="Group_1" data-name="Group 1" transform="translate(-17 -32.35)">
+      <g id="Rectangle_2" data-name="Rectangle 2" transform="translate(37 43.35)" stroke="#000" stroke-width="1">
+        <rect width="34" height="4" stroke="none"/>
+        <rect x="0.5" y="0.5" width="33" height="3" fill="none"/>
+      </g>
+      <g id="Rectangle_3" data-name="Rectangle 3" transform="translate(45 49.35)" stroke="#000" stroke-width="1">
+        <rect width="18" height="1" stroke="none"/>
+        <rect x="0.5" y="0.5" width="17" fill="none"/>
+      </g>
+    </g>
+    <g id="Group_4" data-name="Group 4" transform="translate(-17 20.65)">
+      <g id="Rectangle_2-2" data-name="Rectangle 2" transform="translate(37 43.35)" stroke="#000" stroke-width="1">
+        <rect width="34" height="2" stroke="none"/>
+        <rect x="0.5" y="0.5" width="33" height="1" fill="none"/>
+      </g>
+      <g id="Rectangle_6" data-name="Rectangle 6" transform="translate(43 47.35)" stroke="#000" stroke-width="1">
+        <rect width="22" height="2" stroke="none"/>
+        <rect x="0.5" y="0.5" width="21" height="1" fill="none"/>
+      </g>
+      <g id="Rectangle_5" data-name="Rectangle 5" transform="translate(45 40.35)" stroke="#000" stroke-width="1">
+        <rect width="18" height="1" stroke="none"/>
+        <rect x="0.5" y="0.5" width="17" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

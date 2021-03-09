@@ -1,0 +1,85 @@
+/* ==============================================================================================
+	WYSIWYG Mixin and class
+	Apply to content that is using a WYSIWYG editor field.
+	Redefines all the typographic HTML elements that TinyMce outputs. (h1,img,p,ul etc.)
+=============================================================================================== */
+
+@mixin wysiwyg() {
+
+	p {
+		margin-bottom: 2rem;
+	}
+
+	em {
+		font-style: italic;
+	}
+
+	p,
+	ul,
+	ol,
+	figure,
+	dl,
+	dd {
+
+		@include body;
+	}
+
+	h1 {
+		margin-top: 0;
+		margin-bottom: 2rem;
+
+		@include H1;
+	}
+
+	h2 {
+		margin-top: 0;
+		margin-bottom: 2rem;
+
+		@include H2;
+	}
+
+	h3 {
+		margin-top: 0;
+		margin-bottom: 2rem;
+
+		@include H3;
+	}
+
+	h4,
+	h5,
+	h6 {
+		margin-top: 0;
+		margin-bottom: 2rem;
+
+		@include H4;
+	}
+
+	@include list-styles;
+
+	ul,
+	ol {
+		margin-bottom: 2rem;
+	}
+
+	blockquote {
+		margin-bottom: 2rem;
+		border-left: 2px solid $c-black;
+
+		@include v-spacing(margin-left, 15px, 25px);
+		@include v-spacing(padding-left, 15px, 25px);
+	}
+
+	a:not(.button) {
+
+		@include link;
+	}
+
+	.button,
+	p > a.button {
+
+		@include button-square; // reapply button
+		@include v-spacing(margin-top, $VSM2, $VSD2);
+		@include v-spacing(margin-bottom, $VSM2, $VSD2);
+	}
+
+}

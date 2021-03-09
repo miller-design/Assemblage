@@ -1,0 +1,27 @@
+# ===== GLOBAL =====
+
+*~
+.DS_Store
+.svn
+.cvs
+*.bak
+*.swp
+Thumbs.db
+*.scssc
+*.log
+tmp/
+.sass-cache/
+node_modules/
+
+# ===== ASSETS =====
+
+.codekit-cache/
+config.codekit
+
+# ===== LOGS =====
+
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

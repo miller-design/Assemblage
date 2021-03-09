@@ -1,0 +1,63 @@
+@import "base";
+
+/* Font Definitions */
+@font-face {
+	font-family: FaktPro-Normal;
+	font-style: normal;
+	font-display: fallback;
+	font-weight: 400;
+	src:
+		url(../fonts/fakPro/FaktPro-Normal.ttf) format("ttf"),
+		url(../fonts/fakPro/FaktPro-Normal.woff2) format("woff2"),
+		url(../fonts/fakPro/FaktPro-Normal.woff) format("woff");
+}
+
+@font-face {
+	font-family: FaktPro-Blond;
+	font-style: normal;
+	font-display: fallback;
+	font-weight: 400;
+	src:
+		url(../fonts/fakPro/FaktPro-Blond.ttf) format("ttf"),
+		url(../fonts/fakPro/FaktPro-Blond.woff2) format("woff2"),
+		url(../fonts/fakPro/FaktPro-Blond.woff) format("woff");
+}
+
+
+// CSS Reset, based on https://dev.to/hankchizljaw/a-modern-css-reset-6p3
+@import "main/reset.scss";
+//@import "~flickity/dist/flickity.css"; 	// uif referencig node_modules, use the ~ as shown
+@import "main/lazyimage";             		// for LazyImage class
+@import "main/tables";
+@import "main/print";               		// Print styles
+@import "main/forms";							// Styles for all forms (inc Gravity and WooCommece) WIP
+
+
+/* ============================================================================================
+	Layout
+============================================================================================= */
+@import "layout/l-Header";
+@import "layout/l-Footer";
+@import "layout/l-Main";
+@import "layout/l-JournalSingle";
+@import "layout/l-IssueArchive";
+
+
+/* ============================================================================================
+Pages - Keep these to a minimum. Use components and modifiers where possible.
+============================================================================================ */
+@import "pages/styleguide";
+
+
+/* ============================================================================================
+Classes/Elements - These need a better home!
+============================================================================================= */
+body {
+
+	@include body;
+}
+
+p {
+
+	@include body;
+}

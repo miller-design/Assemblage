@@ -1,0 +1,15 @@
+/*
+Base mixins and Functions ONLY in here
+No CSS output!
+Remember these tools/utilities will be made availabe to all your components,
+any CSS you output in here will add massive bloat to your project.
+If you need common css, add to main.scss
+========================================================================== */
+@import "base/config";
+@import "~include-media/dist/include-media"; // for applying breakpoints https://eduardoboucas.github.io/include-media
+@import "~include-media-export/dist/include-media-export";
+@import "base/grid";
+@import "base/mixins";
+@import "base/type";
+@import "base/wysiwyg";								// Type styles for WYSIWYG content
+@import "base/forms-mixins";					// Styles for all forms (inc Gravity and WooCommece) WIP

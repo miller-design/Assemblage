@@ -1,0 +1,49 @@
+body:not(.wp-admin) table:not(.variations) {
+
+	text-transform: uppercase;
+	text-align: left;
+	width: 100%;
+
+	@include media("<medium") {
+
+		th {
+			display: none;
+		}
+
+		td {
+			display: block;
+
+			// &:last-child {
+			// 	padding-bottom: $VSM3;
+			// }
+
+			&::before {
+				content: attr(data-title);
+				display: inline-block;
+				//margin-right: $grid_col_gutter_mobile;
+				width: 20%;
+			}
+		}
+	}
+
+	tr {
+		border-bottom: 1px solid $c-black;
+	}
+
+	th,
+	td {
+
+		@include body;
+		@include v-spacing(padding-top, $VSM1, $VSD2);
+		@include v-spacing(padding-bottom, $VSM1, $VSD2);
+		//padding-left: $grid_col_gutter_mobile;
+		//padding-right: $grid_col_gutter_mobile;
+		vertical-align: top;
+	}
+
+	a {
+
+		@include link;
+	}
+
+}

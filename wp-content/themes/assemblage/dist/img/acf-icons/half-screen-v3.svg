@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="144" height="94" viewBox="0 0 144 94">
+  <defs>
+    <clipPath id="clip-half-screen-v3">
+      <rect width="144" height="94"/>
+    </clipPath>
+  </defs>
+  <g id="half-screen-v3" clip-path="url(#clip-half-screen-v3)">
+    <rect width="144" height="94" fill="#fff"/>
+    <rect id="Rectangle_12" data-name="Rectangle 12" width="73" height="94" fill="#e8e8e8"/>
+    <g id="Group_2" data-name="Group 2" transform="translate(72)">
+      <g id="Rectangle_1" data-name="Rectangle 1" fill="#fff" stroke="#000" stroke-width="1">
+        <rect width="72" height="94" stroke="none"/>
+        <rect x="0.5" y="0.5" width="71" height="93" fill="none"/>
+      </g>
+      <path id="Path_1" data-name="Path 1" d="M385.267,101.589l-70.632,92.652" transform="translate(-313.903 -101)" fill="none" stroke="#000" stroke-width="1"/>
+      <path id="Path_2" data-name="Path 2" d="M385.353,194.39,358.4,158.618l-43.849-57.084" transform="translate(-313.908 -101)" fill="none" stroke="#000" stroke-width="1"/>
+    </g>
+    <g id="Group_5" data-name="Group 5" transform="translate(19 70)">
+      <g id="Rectangle_2" data-name="Rectangle 2" transform="translate(0 3)" stroke="#000" stroke-width="1">
+        <rect width="34" height="2" stroke="none"/>
+        <rect x="0.5" y="0.5" width="33" height="1" fill="none"/>
+      </g>
+      <g id="Rectangle_9" data-name="Rectangle 9" transform="translate(0 7)" stroke="#000" stroke-width="1">
+        <rect width="34" height="2" stroke="none"/>
+        <rect x="0.5" y="0.5" width="33" height="1" fill="none"/>
+      </g>
+      <g id="Rectangle_10" data-name="Rectangle 10" transform="translate(4 11)" stroke="#000" stroke-width="1">
+        <rect width="26" height="2" stroke="none"/>
+        <rect x="0.5" y="0.5" width="25" height="1" fill="none"/>
+      </g>
+      <g id="Rectangle_5" data-name="Rectangle 5" transform="translate(8 0)" stroke="#000" stroke-width="1">
+        <rect width="18" height="1" stroke="none"/>
+        <rect x="0.5" y="0.5" width="17" fill="none"/>
+      </g>
+    </g>
+    <g id="Group_1" data-name="Group 1" transform="translate(19 10)">
+      <g id="Rectangle_2-2" data-name="Rectangle 2" stroke="#000" stroke-width="1">
+        <rect width="34" height="4" stroke="none"/>
+        <rect x="0.5" y="0.5" width="33" height="3" fill="none"/>
+      </g>
+      <g id="Rectangle_7" data-name="Rectangle 7" transform="translate(0 6)" stroke="#000" stroke-width="1">
+        <rect width="34" height="4" stroke="none"/>
+        <rect x="0.5" y="0.5" width="33" height="3" fill="none"/>
+      </g>
+      <g id="Rectangle_8" data-name="Rectangle 8" transform="translate(5 12)" stroke="#000" stroke-width="1">
+        <rect width="24" height="4" stroke="none"/>
+        <rect x="0.5" y="0.5" width="23" height="3" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

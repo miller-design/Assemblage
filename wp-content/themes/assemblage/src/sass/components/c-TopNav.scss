@@ -1,0 +1,189 @@
+@import "../base";
+
+/* ==========================================================================
+	TopNav
+========================================================================== */
+.c-TopNav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: $z-level-one;
+	padding-left: $grid_margin_mobile;
+	padding-right: $grid_margin_mobile;
+	transition:
+		300ms top 300ms linear,
+		padding 300ms $standard-curve;
+
+	@include v-spacing(padding-top, $VSM4, $VSD5);
+	@include v-spacing(padding-bottom, $VSM4, $VSD5);
+
+	// using this breakpoint to match when grid switches
+	@include media(">=medium") {
+		padding-left: $grid_margin_desktop;
+		padding-right: $grid_margin_desktop;
+	}
+}
+
+.c-TopNav__inner {
+	display: flex;
+	align-items: center;
+	align-content: center;
+	justify-content: space-between;
+
+	.c-TopNav__left {
+		float: left;
+	}
+
+	.c-TopNav__center {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	.c-TopNav__right {
+		float: right;
+		display: flex;
+	}
+}
+
+// elements
+.c-TopNav__logo {
+	display: flex;
+	color: $c-white;
+
+	.dark-state & {
+		color: $c-black;
+	}
+
+	> svg {
+		display: flex;
+
+		@include v-spacing(width, 128px, 170px);
+		@include v-spacing(height, 12px, 16px);
+	}
+}
+
+.c-TopNav__menu,
+.c-TopNav__sub-menu {
+	display: none;
+
+	@include media(">=medium") {
+		display: flex;
+		color: $c-white;
+		text-decoration: none;
+
+		@include P3;
+
+		.dark-state & {
+			color: $c-black;
+		}
+	}
+
+	a {
+		color: $c-white;
+		text-decoration: none;
+
+		@include P3;
+		@include site-transition(opacity, 500ms);
+
+		@media (hover: hover) {
+
+			&:hover {
+				opacity: 0.3;
+			}
+		}
+
+		.dark-state & {
+			color: $c-black;
+		}
+	}
+}
+
+.c-TopNav__menu {
+
+	> li:not(:first-child) {
+
+		@include v-spacing(padding-left, $VSM2, $VSD4);
+	}
+}
+
+.c-TopNav__sub-menu {
+
+	> li {
+
+		@include v-spacing(padding-right, $VSM2, $VSD4);
+	}
+
+}
+
+.c-TopNav__search {
+	display: flex;
+	cursor: pointer;
+
+	@include site-transition(opacity, 500ms);
+
+	@media (hover: hover) {
+
+		&:hover {
+			opacity: 0.3;
+		}
+	}
+
+	span {
+		display: none;
+
+		@include media(">=medium") {
+			display: flex;
+			color: $c-white;
+			text-decoration: none;
+
+			@include P3;
+
+			.dark-state & {
+				color: $c-black;
+			}
+		}
+
+		a {
+			color: $c-white;
+			text-decoration: none;
+
+			@include P3;
+
+			.dark-state & {
+				color: $c-black;
+			}
+		}
+	}
+}
+
+
+.c-TopNav__search-icon {
+	width: 17px;
+	height: 17px;
+	color: $c-white;
+	display: flex;
+
+	@include media(">=medium") {
+		margin-left: 10px;
+	}
+
+	.dark-state & {
+		color: $c-black;
+	}
+}
+
+// modifiers
+.c-TopNav.c-TopNav--shrunk {
+
+	@include v-spacing(padding-top, 30px, 31px);
+	@include v-spacing(padding-bottom, 29px, 33px);
+}
+
+.c-TopNav.c-TopNav--is-pinned {
+	transition:
+		top 300ms linear,
+		padding 300ms $standard-curve;
+	top: -130px;
+}

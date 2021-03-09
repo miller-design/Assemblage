@@ -1,0 +1,46 @@
+img {
+
+	&.lazy {
+
+		@include site-transition(opacity, 600ms);
+		opacity: 0;
+	}
+
+	&.lazyloaded {
+		opacity: 1;
+	}
+}
+
+/* Makes LazyImage rules work with Flickity lazyloading. Fade in image when loaded */
+img.flickity-will-lazyload {
+
+	@include site-transition(opacity);
+	opacity: 1;
+}
+
+img.flickity-will-lazyload.flickity-lazyloaded,
+img.flickity-will-lazyload.flickity-lazyerror {
+	opacity: 1;
+}
+
+.intrinsic-image {
+	backface-visibility: hidden;
+	background: $c-grey;
+	position: relative;
+	transform: translate3d(0, 0, 0);
+
+	&.image--bg-transparent,
+	.image--bg-transparent & {
+		background: transparent;
+	}
+
+	img {
+		backface-visibility: hidden;
+		display: block;
+		height: auto;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+}

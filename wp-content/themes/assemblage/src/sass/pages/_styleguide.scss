@@ -1,0 +1,128 @@
+body.styleguide {
+
+	.l-Header,
+	.l-Footer {
+		display: none;
+	}
+
+	.sg-type,
+	.sg-element {
+		width: 100%;
+		border-top: 1px solid #ff0062;
+		margin: 2.5em auto 2.5em auto;
+		padding-top: 1rem;
+		position: relative;
+
+		@include grid-col(1, -1);
+
+		@include media(">=large") {
+			padding-right: 20vw;
+		}
+
+		&::before {
+			content: attr(data-title);
+			font-size: 14px;
+			font-weight: 400;
+			top: -2em;
+			color: #ff0062;
+			position: absolute;
+			font-family: "Helvetica Neue", sans-serif;
+		}
+	}
+
+	.sg-element {
+		border: 0;
+
+		&::after {
+			content: none;
+		}
+
+		.button-square {
+
+			@include button-square;
+		}
+
+		.button-round {
+
+			@include button-round;
+		}
+
+		.button-tag {
+
+			@include tag;
+		}
+
+		.button-tag-large {
+
+			@include tag(true);
+		}
+
+		.wysiwyg {
+
+			@include wysiwyg;
+		}
+	}
+
+	.sg-type {
+
+		.h1 {
+
+			@include H1();
+		}
+
+		.h2 {
+
+			@include H2();
+		}
+
+		.h3 {
+
+			@include H3();
+		}
+
+		.h4 {
+
+			@include H4();
+		}
+
+		.p1 {
+
+			@include P1;
+		}
+
+		.p1-blond {
+
+			@include P1($blond: true);
+		}
+
+		.p2 {
+
+			@include P2;
+		}
+
+		.p2-blond {
+
+			@include P2($blond: true);
+		}
+
+		.p3 {
+
+			@include P3;
+		}
+
+		.p3-blond {
+
+			@include P3($blond: true);
+		}
+
+		.p4 {
+
+			@include P4;
+		}
+
+		.p5 {
+
+			@include P5;
+		}
+	}
+}
