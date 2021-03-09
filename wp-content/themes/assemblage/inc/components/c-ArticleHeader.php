@@ -20,7 +20,7 @@ class ArticleHeader {
 		SiteBase::insert_component_css(Self::class);
 
 		$default_options = array(
-			"text" => 'Default Text'
+			"header" => 'Default Text'
 		);
 
 		$this->options = $default_options;
@@ -36,7 +36,7 @@ class ArticleHeader {
 
 		<div class="[ c-ArticleHeader ]">
 			<div class="[ c-ArticleHeader__text ]">
-				<?php echo $this->options['text']; ?>
+				<?php echo $this->options['header']; ?>
 			</div>
 		</div><?php
 	}
