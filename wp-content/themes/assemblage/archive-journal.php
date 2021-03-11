@@ -4,11 +4,7 @@
 
 		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 			<a href="<?php echo get_permalink(get_the_id()); ?>">
-				<h1><?php the_title(); ?></h1><?php
-				echo Journal::estimated_reading_time();
-				echo '<br/>';
-				echo Journal::get_post_term_links(get_the_id(), 'issues');
-				?>
+				<h1><?php the_title(); ?></h1>
 			</a>
 
 		</article>

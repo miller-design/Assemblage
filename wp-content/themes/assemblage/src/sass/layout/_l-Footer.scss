@@ -6,16 +6,9 @@
 .l-Footer {
 	width: 100%;
 	background-color: $c-red;
-	padding-left: $grid_margin_mobile;
-	padding-right: $grid_margin_mobile;
+	padding-left: var(--site-margin);
+	padding-right: var(--site-margin);
 
 	@include v-spacing(padding-top, $VSM5, 80px);
 	@include v-spacing(padding-bottom, 46px, 45px);
-
-	// using this breakpoint to match when grid switches
-	@include media(">=medium") {
-		padding-left: $grid_margin_desktop;
-		padding-right: $grid_margin_desktop;
-	}
 }
-

@@ -2,52 +2,27 @@
 	Grid Mixins
 =========================================================================================================== */
 
-@mixin grid($inner: false) {
+@mixin grid-container($inner: false) {
 	display: block;
 
 	.ie-11 & {
 
-		@include media(">=medium") {
-
-			@if $inner == false {
-				padding-left: $grid_margin_mobile;
-				padding-right: $grid_margin_mobile;
-			}
-		}
-
-		@include media(">=large") {
-
-			@if $inner == false {
-				padding-left: $grid_margin_desktop;
-				padding-right: $grid_margin_desktop;
-			}
+		@if $inner == false {
+			padding-left: var(--site-margin);
+			padding-right: var(--site-margin);
 		}
 	}
 
 	@supports (display: grid) {
 		display: -ms-grid;
 		display: grid;
-		grid-template-columns: repeat($grid_col_mobile, 1fr);
-		column-gap: $grid_col_gutter_mobile;
+		grid-template-columns: repeat(var(--site-cols), 1fr);
+		column-gap: var(--site-gutter);
 		box-sizing: border-box;
 
 		@if $inner == false {
-			padding-left: $grid_margin_mobile;
-			padding-right: $grid_margin_mobile;
-		}
-
-		@include media(">=medium") {
-			grid-template-columns: repeat($grid_col_desktop, 1fr);
-			column-gap: $grid_col_gutter_tablet;
-
-			@if $inner == false {
-				padding-left: $grid_margin_desktop;
-				padding-right: $grid_margin_desktop;
-			}
-		}
-
-		@include media(">=large") {
-			column-gap: $grid_col_gutter_desktop;
+			padding-left: var(--site-margin);
+			padding-right: var(--site-margin);
 		}
 	}
 }
@@ -65,44 +40,20 @@
 
 @mixin grid-col-full-bleed($direction: "left") {
 	position: relative;
+	width: calc(100% + #{var(--site-margin)});
+	grid-column: content-start / content-end;
 
 	@if ($direction == "left") {
-		left: -$grid_margin_mobile;
-		right: 0;
-		width: calc(100% + #{$grid_margin_mobile});
+		left: calc(#{var(--site-margin)} * -1);
 	}
 
 	@if ($direction == "right") {
-		right: -$grid_margin_mobile;
-		left: 0;
-		width: calc(100% + #{$grid_margin_mobile});
+		right: calc(#{var(--site-margin)} * -1);
 	}
 
 	@if ($direction == "both") {
-		left: -$grid_margin_mobile;
-		right: -$grid_margin_mobile;
-		grid-column: content-start / content-end;
-		width: calc(100% + (#{$grid_margin_mobile} * 2));
-	}
-
-	@include media(">=medium") {
-
-		@if ($direction == "left") {
-			left: -$grid_margin_desktop;
-			right: 0;
-			width: calc(100% + #{$grid_margin_desktop});
-		}
-
-		@if ($direction == "right") {
-			right: -$grid_margin_desktop;
-			left: 0;
-			width: calc(100% + #{$grid_margin_desktop});
-		}
-
-		@if ($direction == "both") {
-			left: -$grid_margin_desktop;
-			right: -$grid_margin_desktop;
-			width: calc(100% + (#{$grid_margin_desktop} * 2));
-		}
+		left: calc(#{var(--site-margin)} * -1);
+		right: calc(#{var(--site-margin)} * -1);
+		width: calc(100% + (#{var(--site-margin)} * 2));
 	}
 }

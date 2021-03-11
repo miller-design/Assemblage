@@ -111,44 +111,65 @@ class Journal {
 		return $query;
 	}
 
-	public static function estimated_reading_time() {
+	public static function estimated_reading_time($ID, $short_hand = false) {
 
-		global $post;
+		if (get_field('modules', $ID)) {
 
-		if ( has_blocks( $post->post_content ) ) {
-			$blocks = parse_blocks( $post->post_content );
+			$modules = get_field('modules', $ID);
 			$content = '';
 
-			foreach ( $blocks as $block) {
-				if($block['blockName'] === 'acf/textblock') {
-					$content .= $block['attrs']['data']['text_block'];
+			// loop through all flexible modules on the page
+			foreach($modules as $module) {
+
+				$blocks = $module['blocks'];
+				// loop through all nested text blocks
+				foreach($blocks as $block) {
+					// add blocks to the content variable
+					$content .= $block['text_area'];
 				}
 			}
 
 			$word_count = str_word_count(strip_tags($content));
 			$read_time = ceil($word_count / 250);
 
-
-			if ($read_time == 1) {
-				$suffix = 'minute read time';
-			} else {
-				$suffix = 'minutes read time';
-			}
+			$suffix = ($short_hand === true) ? 'min read' : 'minute read time';
 
 			return '<span class="read-time">' . $read_time . ' ' . $suffix . '</span>';
 		}
 	}
 
-	public static function get_post_term_links($post_id, $tax) {
+	public static function get_post_topic($post_id) {
+
+		$topic_tax = wp_get_object_terms($post_id, 'topic');
+		$output = '';
+
+		if (!empty($topic_tax)) {
+
+			foreach ($topic_tax as $topic) {
+
+				$output .= $topic->name;
+
+			}
+
+			return $output;
+		}
+	}
+
+	public static function get_post_term($post_id, $tax) {
 
 		$issues_tax = wp_get_object_terms($post_id, $tax);
-		$output = '';
+
+		$output = [
+			"link" => '',
+			"name" => '',
+		];
 
 		if (!empty($issues_tax)) {
 
 			foreach ($issues_tax as $issue) {
 
-				$output .= '<a href="' . get_term_link($issue) . '">Issue ' . $issue->name . '</a>';
+				$output['link'] = get_term_link($issue);
+				$output['name'] = $issue->name;
 
 			}
 

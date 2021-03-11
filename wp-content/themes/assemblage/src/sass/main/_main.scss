@@ -1,0 +1,53 @@
+/* =========================================================================
+  Font declarations
+========================================================================== */
+
+@font-face {
+	font-family: FaktPro-Normal;
+	font-style: normal;
+	font-display: fallback;
+	font-weight: 400;
+	src:
+		url(../fonts/fakPro/FaktPro-Normal.ttf) format("ttf"),
+		url(../fonts/fakPro/FaktPro-Normal.woff2) format("woff2"),
+		url(../fonts/fakPro/FaktPro-Normal.woff) format("woff");
+}
+
+@font-face {
+	font-family: FaktPro-Blond;
+	font-style: normal;
+	font-display: fallback;
+	font-weight: 400;
+	src:
+		url(../fonts/fakPro/FaktPro-Blond.ttf) format("ttf"),
+		url(../fonts/fakPro/FaktPro-Blond.woff2) format("woff2"),
+		url(../fonts/fakPro/FaktPro-Blond.woff) format("woff");
+}
+
+
+/* =========================================================================
+  CSS Global Variables
+========================================================================== */
+
+:root {
+
+	@each $breakpoint-key, $breakpoint-var in $breakpoints {
+
+		@include site-get-var-loop("#{$breakpoint-key}");
+	}
+}
+
+
+/* ============================================================================================
+	Global classes and styles
+============================================================================================= */
+
+body {
+
+	@include body;
+}
+
+p {
+
+	@include body;
+}

@@ -9,7 +9,7 @@
 	z-index: 1;
 	min-height: 100vh;
 
-	@include grid;
+	@include grid-container;
 
 	article {
 		grid-column: 1/-1;

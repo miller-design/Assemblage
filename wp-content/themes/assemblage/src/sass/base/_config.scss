@@ -58,21 +58,6 @@ $z-level-three: 30;
 
 
 /* =========================================================================
-  Grid Variables
-========================================================================== */
-// coloumn count
-$grid_col_mobile: 10;
-$grid_col_desktop: 20;
-// coloumn gutter
-$grid_col_gutter_mobile: 16px;
-$grid_col_gutter_tablet: 26px;
-$grid_col_gutter_desktop: 40px;
-// coloumn margins
-$grid_margin_mobile: 35px;
-$grid_margin_desktop: 100px;
-
-
-/* =========================================================================
   cubic-bezier curve variables
 ========================================================================== */
 $standard-curve: cubic-bezier(0.25, 1, 0.5, 1);
@@ -86,3 +71,26 @@ $FaktPro-Blond: "FaktPro-Blond", sans-serif;
 
 $f-body: $FaktPro-Normal;
 $f-header: $FaktPro-Normal;
+
+
+/* =========================================================================
+  Grid Variables (size vars must match the breakpoint vars)
+========================================================================== */
+
+$site-ccs-variables : (
+	cols: (
+		xsmall: 8,
+		medium: 20,
+		large: 24,
+	),
+	margin: (
+		xsmall: 20px,
+		medium: 46px,
+		large: 56px,
+	),
+	gutter: (
+		xsmall: 20px,
+		medium: 30px,
+		large: 40px,
+	),
+);

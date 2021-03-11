@@ -173,3 +173,54 @@ $resolution-range-top: map-get($breakpoints, xxlarge);
 
 	line-height: $unitless-line-height;
 }
+
+/* ==================================================================================
+	used to retreive varbailes from the $site-ccs-variables array
+
+	$type = type is the name you set for your nested varaible array
+	$size = is the nested variable you wish to get.
+	@returns the value of teh specified variable
+=================================================================================== */
+@function site-css-variables($type, $size) {
+
+	@return map-get(map-get($site-ccs-variables, $type), $size);
+}
+
+/* ==================================================================================
+	loops through varbailes from the $site-ccs-variables array & out put css var
+
+	$value = used to get the correct value
+=================================================================================== */
+@mixin site-css-var-loop($value) {
+
+	@each $site-key, $site-top-level in $site-ccs-variables {
+
+		@each $site-child-key, $site-value in $site-top-level {
+
+			@if $site-child-key == $value {
+
+				--site-#{$site-key}: #{site-css-variables(#{$site-key}, $size: #{$site-child-key})};
+			}
+		}
+	}
+}
+
+/* ==================================================================================
+	used to retreive css var based on the breakpoint passed
+
+	$breakpoint = used to specify media query
+=================================================================================== */
+@mixin site-get-var-loop($breakpoint) {
+
+	@if $breakpoint == "xsmall" {
+
+		@include site-css-var-loop($breakpoint);
+
+	} @else {
+
+		@include media(">=#{$breakpoint}") {
+
+			@include site-css-var-loop($breakpoint);
+		}
+	}
+}

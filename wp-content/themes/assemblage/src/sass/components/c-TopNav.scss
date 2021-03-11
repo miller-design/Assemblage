@@ -9,20 +9,14 @@
 	left: 0;
 	width: 100%;
 	z-index: $z-level-one;
-	padding-left: $grid_margin_mobile;
-	padding-right: $grid_margin_mobile;
+	padding-left: var(--site-margin);
+	padding-right: var(--site-margin);
 	transition:
 		300ms top 300ms linear,
 		padding 300ms $standard-curve;
 
 	@include v-spacing(padding-top, $VSM4, $VSD5);
 	@include v-spacing(padding-bottom, $VSM4, $VSD5);
-
-	// using this breakpoint to match when grid switches
-	@include media(">=medium") {
-		padding-left: $grid_margin_desktop;
-		padding-right: $grid_margin_desktop;
-	}
 }
 
 .c-TopNav__inner {
