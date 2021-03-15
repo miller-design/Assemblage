@@ -1,0 +1,65 @@
+/* ==========================================================================
+	Paragraph Blocks
+========================================================================== */
+
+/* Blocks */
+.l-ParagraphBlocks {
+	//
+	@include grid-col(1, -1);
+}
+
+.l-ParagraphBlocks__inner {
+
+	@include grid-container(true);
+}
+
+.l-ParagraphBlocks__col-left {
+	background-color: rgb(8, 94, 94);
+	align-self: flex-start;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 30px;
+
+	@include grid-col(1, -1);
+
+	@include media(">=medium") {
+
+		@include grid-col(1, 6);
+	}
+
+	@include media(">=large") {
+
+		@include grid-col(1, 5);
+	}
+}
+
+.l-ParagraphBlocks__col-right {
+	background-color: rgb(199, 83, 30);
+
+	@include grid-col(1, -1);
+
+	@include media(">=medium") {
+
+		@include grid-col(10, -1);
+	}
+
+	@include media(">=large") {
+
+		@include grid-col(12, -1);
+	}
+}
+
+.l-ParagraphBlocks--left {
+
+	.l-ParagraphBlocks__inner {
+		direction: rtl;
+	}
+
+	.l-ParagraphBlocks__col-left {
+		direction: ltr;
+	}
+
+	.l-ParagraphBlocks__col-right {
+		direction: ltr;
+	}
+}

@@ -22,15 +22,72 @@
             "key": "field_6044f002e5649",
             "label": "featured Image",
             "name": "featured_image",
-            "type": "image",
+            "type": "image_aspect_ratio_crop",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "100",
+                "width": "33",
                 "class": "",
                 "id": ""
             },
+            "crop_type": "aspect_ratio",
+            "aspect_ratio_width": 16,
+            "aspect_ratio_height": 10,
+            "return_format": "id",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_604f1a60057e4",
+            "label": "featured Image Square",
+            "name": "featured_image_square",
+            "type": "image_aspect_ratio_crop",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "crop_type": "aspect_ratio",
+            "aspect_ratio_width": 2,
+            "aspect_ratio_height": 2,
+            "return_format": "id",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_604f1aa3057e5",
+            "label": "featured Image Portrait",
+            "name": "featured_image_portrait",
+            "type": "image_aspect_ratio_crop",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "crop_type": "aspect_ratio",
+            "aspect_ratio_width": 4,
+            "aspect_ratio_height": 5,
             "return_format": "id",
             "preview_size": "thumbnail",
             "library": "all",
@@ -1063,5 +1120,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1615452920
+    "modified": 1615797113
 }

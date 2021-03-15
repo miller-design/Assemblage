@@ -75,6 +75,7 @@
     "gia": "^1.0.1",
     "include-media-export": "^1.0.3",
     "lazysizes": "^5.2.2",
-    "scroll-lock": "^2.1.5"
+    "scroll-lock": "^2.1.5",
+    "video.js": "^7.11.4"
   }
 }

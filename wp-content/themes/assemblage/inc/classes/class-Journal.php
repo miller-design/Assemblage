@@ -82,9 +82,6 @@ class Journal {
 		);
 	}
 
-	public static function block_editor_disable_core_patterns() {
-		remove_theme_support( 'core-block-patterns' );
-	}
 
 	public static function change_taxonomy_title($title) {
     if (is_tax('issues')) {
@@ -92,6 +89,7 @@ class Journal {
     }
     return $title;
 	}
+
 
 	// change post count
 	public static function limit_posts_per_page($query) {
@@ -110,6 +108,7 @@ class Journal {
 
 		return $query;
 	}
+
 
 	public static function estimated_reading_time($ID, $short_hand = false) {
 
@@ -138,6 +137,7 @@ class Journal {
 		}
 	}
 
+
 	public static function get_post_topic($post_id) {
 
 		$topic_tax = wp_get_object_terms($post_id, 'topic');
@@ -154,6 +154,7 @@ class Journal {
 			return $output;
 		}
 	}
+
 
 	public static function get_post_term($post_id, $tax) {
 
@@ -175,5 +176,40 @@ class Journal {
 
 			return $output;
 		}
+	}
+
+
+	/* ================================================================
+	 	Social Media Share Links
+	================================================================ */
+
+	public static function share_buttons($postID) {
+
+		$url = urlencode(get_the_permalink($postID));
+		$title = urlencode(html_entity_decode(get_the_title($postID), ENT_COMPAT, 'UTF-8'));
+		$media = urlencode(wp_get_attachment_url(get_field('featured_image', $postID)));
+
+		include get_template_directory() . '/templates/social-share-list.php';
+
+	}
+
+
+	/* ================================================================
+	 	Social Media Share Links
+	================================================================ */
+
+	public static function get_next_story($postID) {
+
+		$options = [
+			"image" 	=> get_field('featured_image_portrait', $postID),
+			"header" 	=> get_the_title($postID),
+			"text" 		=> mb_strimwidth(get_field('article_excerpt', $postID), 0, 100, "..."),
+			"link" 		=> get_permalink($postID),
+			"issue"		=> Self::get_post_term(get_the_id(), 'issues'),
+			"tax"			=> Self::get_post_term(get_the_id(), 'topic'),
+		];
+
+		NextPost::add_options($options)->render();
+
 	}
 }

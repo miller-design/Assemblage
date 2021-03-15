@@ -1,0 +1,147 @@
+@import "../base";
+
+/* ==========================================================================
+	Video Player Component
+========================================================================== */
+
+/* blocks */
+.c-Video {
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.c-Video__wrap {
+	position: relative;
+	overflow: hidden;
+	max-width: 100%;
+}
+
+/* elements */
+.video-js {
+	display: none;
+	width: 100%;
+	height: auto !important;
+
+	&.is-loaded {
+		display: block;
+	}
+
+	.vjs-poster {
+		background-size: cover;
+	}
+
+	video,
+	object,
+	embed {
+		width: 100%;
+		display: flex;
+	}
+
+	video:focus {
+		outline: none;
+	}
+
+	.vjs-tech {
+		position: unset;
+		top: unset;
+		left: unset;
+		width: 100%;
+		height: auto;
+	}
+
+	.vjs-big-play-button {
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		border: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(29, 29, 27, 0.2);
+
+		&::before {
+			top: 50%;
+		}
+	}
+
+	.vjs-slider {
+		background-color: unset;
+	}
+
+	.vjs-big-play-button:focus {
+		background: transparent;
+	}
+
+	.vjs-control-bar {
+		visibility: hidden;
+	}
+
+	.vjs-slider:focus {
+		text-shadow: 0 0 0 $c-white;
+		box-shadow: 0 0 0 $c-white;
+	}
+
+	.vjs-load-progress {
+		background: $c-black;
+		mix-blend-mode: multiply;
+		opacity: 0.6;
+	}
+
+	.vjs-load-progress div {
+		display: none;
+	}
+
+	.vjs-resize-manager {
+		display: none;
+	}
+
+	@media (hover: hover) {
+
+		&:hover .vjs-big-play-button {
+			background-color: rgba(29, 29, 27, 0.2);
+		}
+	}
+}
+
+.c-Video__overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: $c-black;
+	z-index: $z-level-three;
+	pointer-events: none;
+	visibility: hidden;
+	opacity: 0;
+	transition:
+		opacity 700ms $standard-curve,
+		visibility 700ms $standard-curve;
+
+	&.is-active {
+		pointer-events: auto;
+		visibility: visible;
+		opacity: 1;
+		cursor: pointer;
+	}
+}
+
+/* stylelint-disable no-descending-specificity */
+.video-js .vjs-time-tooltip,
+.video-js .vjs-text-track-display,
+.video-js .vjs-loading-spinner,
+.video-js .vjs-big-play-button,
+.video-js .vjs-control-bar,
+.video-js .vjs-error-display,
+.video-js .vjs-modal-dialog,
+.video-js .vjs-progress-control:hover .vjs-progress-holder:focus .vjs-time-tooltip,
+.video-js .vjs-mouse-display,
+.video-js .vjs-control-bar .vjs-seek-to-live-control,
+.video-js .vjs-fullscreen-control {
+	display: none !important;
+}
+
+/* modifiers */

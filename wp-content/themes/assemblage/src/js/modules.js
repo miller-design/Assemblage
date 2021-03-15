@@ -3,6 +3,7 @@ import Burger from './c-Burger'
 import BurgerMenu from './c-BurgerMenu'
 import TopNav from './c-TopNav'
 import Form from './Form'
+import Video from './c-Video'
 
 
 // GLOBAL HANDLERs
@@ -17,7 +18,8 @@ const components = {
 	"Burger": Burger,
 	"BurgerMenu": BurgerMenu,
 	"TopNav": TopNav,
-	"Form": Form
+	"Form": Form,
+	"Video": Video,
 }
 
 export default components;

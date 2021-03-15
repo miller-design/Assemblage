@@ -4,8 +4,8 @@
 
 		if(get_field('journal_header')) { ?>
 			<div class="[ l-JournalSingle__section ]"><?php
+
 				$options = [
-					"image" 					=> get_field('featured_image', get_the_id()),
 					"header_text" 		=> get_the_title(get_the_id()),
 					"excerpt" 				=> get_field('article_excerpt', get_the_id()),
 					"issue_number"		=> Journal::get_post_term(get_the_id(), 'issues'),
@@ -16,11 +16,14 @@
 
 				if(get_field('journal_header') === 'half-screen-v1' || get_field('journal_header') === 'half-screen-v2' || get_field('journal_header') === 'half-screen-v3') {
 					$options["additional_text"] = get_field('header_blocks');
+					$options["image"] = get_field('featured_image_square', get_the_id());
 					ArticleSplitHeader::add_options($options)->render();
 				} else if(get_field('journal_header') === 'full-screen' || get_field('journal_header') === 'video') {
+					$options["image"] = get_field('featured_image', get_the_id());
 					ArticleHeader::add_options($options)->render();
 				} else if(get_field('journal_header') === 'interview') {
 					$options["background_colour"] = get_field('background_colour');
+					$options["image"] = get_field('featured_image', get_the_id());
 					InterviewHeader::add_options($options)->render();
 				} ?>
 			</div><?php
@@ -35,10 +38,11 @@
 					if( get_row_layout() == 'paragraph_blocks' ):
 						$side_bar_options = get_sub_field('side_bar_options');
 						$block_alignment = (get_sub_field('block_alignment') === 'right') ? 'l-ParagraphBlocks--right' : 'l-ParagraphBlocks--left';
+						$credit_list = get_field('credit_list');
 						$caption_download = get_sub_field('captions_and_downloads');
 						$quote_text = get_sub_field('quote_text');
 						$image = LazyImage::get_image(get_sub_field('image'), 'l-ParagraphBlocks__sidebar-image');
-						$blocks = get_sub_field('blocks');?>
+						$blocks = get_sub_field('blocks'); ?>
 
 						<div class="[ l-ParagraphBlocks <?= $block_alignment; ?> ]">
 							<div class="[ l-ParagraphBlocks__inner ]">
@@ -50,6 +54,14 @@
 
 										echo '<div class="[ l-ParagraphBlocks__article-details ]">';
 											echo '<p class="[ l-ParagraphBlocks__downloads-text ]">Issue ' . $issue_number['name'] . ' • ' . $read_time . '</p>';
+											echo '<ul>';
+												foreach($credit_list as $credit) {
+													echo '<li class="[ l-ParagraphBlocks__download-link ]">';
+														Credit::add_acf($credit['credit'][0])->render();
+													echo '</li>';
+												}
+											echo '</ul>';
+											Journal::share_buttons(get_the_id());
 										echo '</div>';
 
 									} else if($side_bar_options === 'v2') {
@@ -160,7 +172,9 @@
 			endwhile;
 		endif; ?>
 
-
+		<div class="[ l-JournalSingle__next ]">
+			<?php Journal::get_next_story(get_the_id()); ?>
+		</div>
 	</article>
 
 <?php get_footer(); ?>
