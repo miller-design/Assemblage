@@ -1,0 +1,80 @@
+@import "../base";
+
+/* ==========================================================================
+	Two up Images Component
+========================================================================== */
+.c-TwoUpImages {
+	width: 100%;
+	background-color: #ff0;
+}
+
+.c-TwoUpImages__inner {
+
+	@include grid-container(true);
+}
+
+
+.c-TwoUpImages--equal-images {
+
+	.c-TwoUpImages__left,
+	.c-TwoUpImages__right {
+
+		@include grid-col(1, -1);
+	}
+
+	.c-TwoUpImages__left {
+
+		@include media(">=medium") {
+
+			@include grid-col(1, 10);
+		}
+
+		@include media(">=large") {
+
+			@include grid-col(1, 12);
+		}
+	}
+
+	.c-TwoUpImages__right {
+
+		@include media(">=medium") {
+
+			@include grid-col(11, -1);
+		}
+
+		@include media(">=large") {
+
+			@include grid-col(14, -1);
+		}
+	}
+}
+
+.c-TwoUpImages--offset-images {
+
+	.c-TwoUpImages__left,
+	.c-TwoUpImages__right {
+
+		@include grid-col(1, -1);
+	}
+
+	.c-TwoUpImages__left {
+
+		@include media(">=medium") {
+
+			@include grid-col(1, 8);
+		}
+	}
+
+	.c-TwoUpImages__right {
+
+		@include media(">=medium") {
+
+			@include grid-col(11, -1);
+		}
+
+		@include media(">=large") {
+
+			@include grid-col(14, -1);
+		}
+	}
+}

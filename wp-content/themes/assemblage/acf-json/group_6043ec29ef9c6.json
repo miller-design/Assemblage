@@ -207,6 +207,209 @@
             "save_other_choice": 0
         },
         {
+            "key": "field_6049145ff9e39",
+            "label": "Background Colour",
+            "name": "background_colour",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_604913d5f9e36",
+                        "operator": "==",
+                        "value": "interview"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_604913d5f9e36",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        },
+        {
+            "key": "field_6051ab84055d5",
+            "label": "Spotlight Style",
+            "name": "spotlight_style",
+            "type": "select",
+            "instructions": "select what style you would like the spotlight header to be displayed as",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_604913d5f9e36",
+                        "operator": "==",
+                        "value": "interview"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Default",
+                "name-only": "Name Only",
+                "small-image": "Small Image"
+            },
+            "default_value": "default",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
+        },
+        {
+            "key": "field_6051b2d92fa06",
+            "label": "First Name",
+            "name": "first_name",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6051ab84055d5",
+                        "operator": "==",
+                        "value": "name-only"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6051b2e22fa07",
+            "label": "Last Name",
+            "name": "last_name",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6051ab84055d5",
+                        "operator": "==",
+                        "value": "name-only"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6051aaf6055d4",
+            "label": "Typography Style",
+            "name": "typography_style",
+            "type": "select",
+            "instructions": "Select if you would like the headers to be serif or sans serif",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "serif": "Serif",
+                "sans-serif": "Sans Serif"
+            },
+            "default_value": "serif",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
+        },
+        {
+            "key": "field_6051ac71055d6",
+            "label": "Text Align",
+            "name": "text_align",
+            "type": "select",
+            "instructions": "select how you would like your text to be aligned",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_604913d5f9e36",
+                        "operator": "==",
+                        "value": "full-screen"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "center": "Center",
+                "left": "Left"
+            },
+            "default_value": "center",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
+        },
+        {
+            "key": "field_60491458f9e38",
+            "label": "Video Src",
+            "name": "video_src",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_604913d5f9e36",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_604914b9f9e45",
             "label": "Header Blocks",
             "name": "header_blocks",
@@ -374,56 +577,6 @@
             "button_label": "Add Block",
             "min": "",
             "max": ""
-        },
-        {
-            "key": "field_6049145ff9e39",
-            "label": "Background Colour",
-            "name": "background_colour",
-            "type": "color_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_604913d5f9e36",
-                        "operator": "==",
-                        "value": "interview"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": ""
-        },
-        {
-            "key": "field_60491458f9e38",
-            "label": "Video Src",
-            "name": "video_src",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_604913d5f9e36",
-                        "operator": "==",
-                        "value": "video"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
         },
         {
             "key": "field_6044f1d8bcb74",
@@ -795,6 +948,40 @@
                                     ],
                                     "min": "",
                                     "max": ""
+                                },
+                                "layout_6051ae60ec094": {
+                                    "key": "layout_6051ae60ec094",
+                                    "name": "image",
+                                    "label": "Image",
+                                    "display": "block",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_6051ae8eec095",
+                                            "label": "Image",
+                                            "name": "image",
+                                            "type": "image",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "id",
+                                            "preview_size": "thumbnail",
+                                            "library": "all",
+                                            "min_width": "",
+                                            "min_height": "",
+                                            "min_size": "",
+                                            "max_width": "",
+                                            "max_height": "",
+                                            "max_size": "",
+                                            "mime_types": ""
+                                        }
+                                    ],
+                                    "min": "",
+                                    "max": ""
                                 }
                             },
                             "button_label": "Add Block",
@@ -1120,5 +1307,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1615797113
+    "modified": 1615967006
 }

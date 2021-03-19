@@ -12,8 +12,8 @@
 	padding-left: var(--site-margin);
 	padding-right: var(--site-margin);
 	transition:
-		300ms top 300ms linear,
-		padding 300ms $standard-curve;
+		300ms top linear,
+		300ms padding $standard-curve;
 
 	@include v-spacing(padding-top, $VSM4, $VSD5);
 	@include v-spacing(padding-bottom, $VSM4, $VSD5);
@@ -176,8 +176,5 @@
 }
 
 .c-TopNav.c-TopNav--is-pinned {
-	transition:
-		top 300ms linear,
-		padding 300ms $standard-curve;
 	top: -130px;
 }

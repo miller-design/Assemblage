@@ -1,0 +1,25 @@
+@import "../base";
+
+/* ==========================================================================
+	Featured Image Component
+========================================================================== */
+.c-FeaturedImage {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+
+}
+
+.c-FeaturedImage__inner {
+	width: 100%;
+}
+
+.c-FeaturedImage--left {
+
+	@include grid-col-full-bleed;
+}
+
+.c-FeaturedImage--right {
+
+	@include grid-col-full-bleed("right");
+}

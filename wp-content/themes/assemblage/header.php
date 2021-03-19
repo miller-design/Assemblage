@@ -17,34 +17,11 @@ https://jackmiller.design/
 		<?php wp_head(); ?>
 	</head>
 
-	<body <?php body_class('dark-state'); ?> g-component="BaseTheme"><?php
+	<body <?php body_class('dark-state'); ?> g-component="BaseTheme">
 
-		$social_links = [
-			[
-				"link" => get_field('instagram_url', 'options'),
-				"link_text" => 'In',
-			],
-			[
-				"link" => get_field('twitter_url', 'options'),
-				"link_text" => 'Tw',
-			],
-			[
-				"link" => get_field('facebook_url', 'options'),
-				"link_text" => 'Fb',
-			],
-		]; ?>
-
-		<header><?php
-
-			$options = [
-				"social_links"		=> $social_links,
-				"copyright_text"	=> '©' . date('Y') . ' Assemblage',
-			];
-
-			Burger::add_options()->render();
-			BurgerMenu::add_options($options)->render(); ?>
-		</header>
-
+		<?= TopNav::add_options([
+			"nav"	=> get_field('main_menu', 'options'),
+		])->render(); ?>
 
 		<main class="[ l-Main ]">
 			<!-- content -->

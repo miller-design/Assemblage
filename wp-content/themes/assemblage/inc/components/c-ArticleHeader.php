@@ -21,15 +21,16 @@ class ArticleHeader {
 		SiteBase::insert_component_css(Self::class);
 
 		$default_options = array(
-			"image" 				=> '',
-			"header_text"		=> '',
-			"excerpt" 			=> '',
-			"issue_number"	=> '',
-			"term"					=> '',
-			"read_time"			=> '',
-			"header_type"		=> '',
-			"video_src"			=> '',
-			"classes"				=> '',
+			"image" 						=> '',
+			"header_text"				=> '',
+			"excerpt" 					=> '',
+			"issue_number"			=> '',
+			"term"							=> '',
+			"read_time"					=> '',
+			"header_type"				=> '',
+			"video_src"					=> '',
+			"background_colour" => '',
+			"classes"						=> '',
 		);
 
 		$this->options = $default_options;
@@ -54,29 +55,14 @@ class ArticleHeader {
 		return new self($custom_options);
 	}
 
-	public static function add_acf($acf_item, $acf_override = null) {
-
-		$acf_options = array(
-			"header_type"		=> $acf_item['header_type'],
-			"bg_color"			=> $acf_item['header_colour'],
-			"video_src"			=> $acf_item['video_src'],
-		);
-
-		if($acf_override){
-			$acf_options = array_merge($acf_options, $acf_override);
-		}
-
-		return new self($acf_options);
-	}
-
 	private static function build_full_screen($options) {
 
 		$output = '';
 
-		$output .= LazyImage::get_image($options['image'], 'c-ArticleHeader__image-bg');
+		$output .= LazyImage::get_image($options['image'], 100, 'c-ArticleHeader__image-bg');
 		$output .= '<div class="[ c-ArticleHeader__content ]">';
 			$output .= '<p class="[ c-ArticleHeader__header ]">';
-				$output .= '<span class="[ c-ArticleHeader__header-highlight ]">' . $options['term']['name'] . '</span>';
+				$output .= '<span class="[ c-ArticleHeader__header-highlight ]">' . $options['term']['name'] . ': </span>';
 				$output .= $options['header_text'];
 			$output .= '</p>';
 			$output .= '<p class="[ c-ArticleHeader__details ]">' . $options['term']['name'] . ', Issue ' . $options['issue_number']['name'] . '</p>';
@@ -87,14 +73,19 @@ class ArticleHeader {
 
 	private static function build_video_header($options) {
 
-		$output = '';
+		$vid_options = [
+			"video_url" 				=> $options['video_src'],
+			"autoplay"  				=> false,
+			"echo"							=> false
+		];
 
+		$output = '';
 		$output .= '<div class="[ c-ArticleHeader__content ]">';
 			$output .= '<p class="[ c-ArticleHeader__header ]">' . $options['header_text'] . '</p>';
 			$output .= '<p class="[ c-ArticleHeader__details ]">' . $options['term']['name'] . ', Issue ' . $options['issue_number']['name'] . '</p>';
 		$output .= '</div>';
 		$output .= '<div class="[ c-ArticleHeader__video ]">';
-			$output .= '<p class="[ c-ArticleHeader__details ]">Video Here</p>';
+			$output .= Video::add_options($vid_options)->render();
 		$output .= '</div>';
 
 		return $output;
@@ -102,7 +93,7 @@ class ArticleHeader {
 
 	public function render() { ?>
 
-		<div class="[ c-ArticleHeader <?= $this->options['classes']; ?> ]">
+		<div class="[ c-ArticleHeader <?= $this->options['classes']; ?> ]" style="background-color: <?= $this->options['background_colour']; ?>;">
 			<div class="[ c-ArticleHeader__inner ]">
 				<?= Self::$header; ?>
 			</div>

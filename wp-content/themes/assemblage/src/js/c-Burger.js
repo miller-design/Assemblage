@@ -37,12 +37,11 @@ class Burger extends Component {
 		if ('BurgerTriggerState' in stateChanges) {
 
 			const trigger = this.element
-
-			eventbus.emit("MainMenuTriggered")
 			// eventbus.emit("OverlayTriggered")
 
 			if (this.state.BurgerTriggerState) {
 				trigger.classList.add('is-active')
+				eventbus.emit("MainMenuTriggered")
 			} else {
 				trigger.classList.remove('is-active')
 			}

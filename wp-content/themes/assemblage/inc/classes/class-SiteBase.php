@@ -8,82 +8,9 @@ class SiteBase {
 
 	public static function init() {
 
-		// add the class name of your component that needs the Block Editor to this array
-		// NB. Your component needs  a register_block() method
-		// use - not _ to separate words
-		$block_components = array(
-			//
-		);
-
-		// Register ACF Blocks
-		SiteBase::register_acf_blocks($block_components);
-		// Only these blocks will be allowed
-		SiteBase::allowed_blocks($block_components);
 		// Automatically load all your theme configuration files from 'config' folder
 		SiteBase::include_config_files();
 		SiteBase::site_admin_customisations();
-	}
-
-	public static function register_acf_blocks($block_components){
-
-		add_action('acf/init', function() use ($block_components) {
-
-			// may not be the best place for this... allows blocks to fill full widths in editor
-			add_theme_support('align-wide');
-
-			// check function exists
-			if( function_exists('acf_register_block_type') ) {
-
-				foreach ($block_components as $component) {
-
-					$settings = call_user_func(array($component,'block_settings'));
-					$settings['name'] = $component;
-					$settings['stylesheet_name'] = 'c-' . $component; // added by SIX to get output stylsheet in block
-					$settings['render_callback'] = $component . '::add_block';
-					$settings['mode'] = 'preview';
-					$settings['align'] = 'center';
-					$settings['supports']['align'] = ['center'];
-
-					$settings['enqueue_assets'] = function($settings){
-						if(is_admin()){
-							wp_enqueue_style( 'six-admin-styles', get_stylesheet_directory_uri() . '/dist/wp-admin.css');
-						}
-						wp_register_style($settings['stylesheet_name'], get_stylesheet_directory_uri() . '/dist/'. $settings['stylesheet_name'] .'.css');
-						wp_enqueue_script( 'six_scripts', get_template_directory_uri() . '/dist/main-bundle.js', array(), null, true );
-					};
-
-					acf_register_block_type($settings);
-				}
-
-			}
-
-		}, 100);
-	}
-
-	public static function allowed_blocks($block_components){
-
-		add_filter( 'allowed_block_types', function($allowed_blocks, $post) use ($block_components) {
-
-			// allow these blocks that ship with Gutenberg
-			$allowed_blocks = array(
-				'core/heading',
-				'core/paragraph',
-				'core/list'
-			);
-
-			// add the ACF custom blocks to the whitelist
-			foreach ($block_components as $component) {
-				$allowed_blocks[] = 'acf/' . strtolower($component);
-			}
-
-			// How to limit blocks on certain pages
-			// if( $post->post_type === 'page' ) {
-			// 	$default_blocks[] = 'core/shortcode';
-			// }
-
-			return $allowed_blocks;
-
-		}, 100, 2);
 	}
 
 	public static function insert_component_css($component){

@@ -21,8 +21,8 @@ class BurgerMenu {
 
 		$defaultOptions = array(
 			"nav"							=> '',
-			"social_links"		=> '',
-			"copyright_text"	=> '',
+			"seconday_links"	=> '',
+			"social_links" 		=> '',
 			"classes"					=> '',
 		);
 
@@ -30,57 +30,35 @@ class BurgerMenu {
 		$this->options = array_merge($defaultOptions, $customOptions);
 
 
-		$this->options['nav'] = Self::build_main_menu(Self::get_admin_menu('header_menu'));
-		$this->options['social_links'] = Self::create_social_list($this->options['social_links']);
-		$this->options['copyright_text'] = '<p class="[ c-BurgerMenu__copwrite ]">' . $this->options['copyright_text'] . '</p>';
+		$this->options['nav'] = Self::build_main_menu($this->options['nav']);
+
+		if($this->options['seconday_links']) {
+			$this->options['seconday_links'] = Self::build_sub_menu($this->options['seconday_links']);
+		}
+
+		if($this->options['social_links']) {
+			$this->options['social_links'] = Self::build_sub_menu($this->options['social_links']);
+		}
 	}
 
 	public static function add_options($customOptions = array()){
 		return new self($customOptions);
 	}
 
-	private static function get_admin_menu($menu) {
-
-		$main_menu = wp_nav_menu(array(
-			'theme_location' => $menu,
-			'menu' => 'Header Menu',
-			'items_wrap' => '%3$s',
-			'container' => false,
-			'echo' => false,
-			'fallback_cb' => false
-		));
-
-		return $main_menu;
-	}
-
 	private function build_main_menu($links) {
-
-		$output = null;
-
-		$output .= '<ul class="[ c-BurgerMenu__menu ]">';
-			$output .= $links;
-		$output .= '</ul>';
-
-		return $output;
-
-	}
-
-	private function create_social_list($data) {
 
 		$output = null;
 		$i = 1;
 
-		$output .= '<ul class="[ c-BurgerMenu__social-links ]">';
-			foreach($data as $item) {
+		$output .= '<ul class="[ c-BurgerMenu__main ]">';
+			foreach ($links as $link) {
+				$animation_number = '0.' . $i;
+				$animation_var = ((1000 * $animation_number) + 300) . 'ms';
+				$url = wp_get_attachment_image_src( get_post_thumbnail_id($link), 'large_size_w' )[0];
 
-				$slash = ($i < count($data)) ? ' /' : '';
-
-				$output .= '<li class="[ c-BurgerMenu__social-link ]">';
-					$output .= '<a target="_blank" rel="noopener" href="' . $item['link'] . '">';
-						$output .= $item['link_text'] . $slash;
-					$output .= '</a>';
+				$output .= '<li class="[ c-BurgerMenu__main-item ]" g-ref="hoverLinks" data-img-src="' . $url . '" style="--animation-delay: ' . $animation_var . ';">';
+					$output .= '<a href="' . get_permalink($link) . '">' . get_the_title($link) . '</a>';
 				$output .= '</li>';
-
 				$i++;
 			}
 		$output .= '</ul>';
@@ -88,20 +66,41 @@ class BurgerMenu {
 		return $output;
 	}
 
+	private function build_sub_menu($links) {
+
+		$output = null;
+
+		$output .= '<ul class="[ c-BurgerMenu__secondary ]">';
+			foreach ($links as $link) {
+				$output .= '<li class="[ c-BurgerMenu__secondary-item ]">';
+					$output .= '<a href="' . $link['link'] . '">' . $link['link_text'] . '</a>';
+				$output .= '</li>';
+			}
+		$output .= '</ul>';
+
+		return $output;
+
+	}
 
 	public function render(){ ?>
 
 		<nav class="[ c-BurgerMenu ]" g-component="BurgerMenu">
-			<div class="[ c-BurgerMenu__inner ]">
-				<div class="[ c-BurgerMenu__nav ]">
-					<?php echo $this->options["nav"]; ?>
-				</div>
-				<div class="[ c-BurgerMenu__bottom-section ]">
-					<?php echo $this->options["copyright_text"]; ?>
-					<?php echo $this->options["social_links"]; ?>
+			<div class="[ c-BurgerMenu__image-area ]" g-ref="imageArea"></div>
+			<div class="[ c-BurgerMenu__nav ]">
+				<span class="[ c-BurgerMenu__close ][ u-close-icon ]" g-ref="closeTrigger">
+					<span></span>
+					<span></span>
+				</span>
+				<div class="[ c-BurgerNav__links ]">
+					<div class="[ c-BurgerNav__top ]">
+						<?= $this->options["nav"]; ?>
+					</div>
+					<div class="[ c-BurgerNav__bottom ]">
+						<?= $this->options["seconday_links"]; ?>
+						<?= $this->options["social_links"]; ?>
+					</div>
 				</div>
 			</div>
 		</nav><?php
 	}
 }
-

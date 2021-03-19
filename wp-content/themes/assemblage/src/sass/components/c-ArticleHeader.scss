@@ -1,0 +1,56 @@
+@import "../base";
+
+/* ==========================================================================
+	Article Header Component
+========================================================================== */
+.c-ArticleHeader {
+	width: 100%;
+	display: block;
+	position: relative;
+
+	@include grid-col-full-bleed("both");
+}
+
+.c-ArticleHeader--full-screen {
+	background-color: #f00;
+
+	.c-ArticleHeader__inner {
+
+		@include grid-container(true);
+	}
+
+	.c-ArticleHeader__image-bg {
+
+		@include grid-col(1, -1);
+	}
+
+	.c-ArticleHeader__content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+	}
+}
+
+.c-ArticleHeader--video {
+	background-color: $c-grey;
+
+	.c-ArticleHeader__inner {
+
+		@include grid-container(false);
+	}
+
+	.c-ArticleHeader__content {
+		color: $c-white;
+		text-align: center;
+
+		@include grid-col(1, -1);
+	}
+
+	.c-ArticleHeader__video {
+		text-align: center;
+
+		@include grid-col(1, -1);
+	}
+}

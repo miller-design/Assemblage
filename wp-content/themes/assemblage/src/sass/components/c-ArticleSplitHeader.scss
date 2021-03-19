@@ -1,0 +1,52 @@
+@import "../base";
+
+/* ==========================================================================
+	Article Split Header Component
+========================================================================== */
+.c-ArticleSplitHeader {
+	width: 100%;
+	position: relative;
+	background-color: rgb(255, 102, 0);
+
+	@include grid-col-full-bleed("both");
+}
+
+.c-ArticleSplitHeader__inner {
+
+	@include grid-container(true);
+}
+
+.c-ArticleSplitHeader__image,
+.c-ArticleSplitHeader__content {
+
+	@include grid-col(1, -1);
+
+	@include media(">=medium") {
+
+		@include grid-col(span, 10);
+	}
+
+	@include media(">=large") {
+
+		@include grid-col(span, 12);
+	}
+}
+
+.c-ArticleSplitHeader__content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	position: relative;
+	width: calc(100% + #{var(--site-gutter)});
+	left: calc(#{var(--site-gutter)} * -1);
+	padding: var(--site-margin);
+}
+
+.c-ArticleSplitHeader--with-excerpt {
+
+	.c-ArticleSplitHeader__content {
+		flex-direction: column;
+		justify-content: space-between;
+	}
+}

@@ -40,15 +40,16 @@
 
 @mixin grid-col-full-bleed($direction: "left") {
 	position: relative;
+	grid-column: 1 / -1;
 	width: calc(100% + #{var(--site-margin)});
-	grid-column: content-start / content-end;
 
 	@if ($direction == "left") {
 		left: calc(#{var(--site-margin)} * -1);
 	}
 
 	@if ($direction == "right") {
-		right: calc(#{var(--site-margin)} * -1);
+		// right: calc(#{var(--site-margin)} * -1);
+		right: 0;
 	}
 
 	@if ($direction == "both") {

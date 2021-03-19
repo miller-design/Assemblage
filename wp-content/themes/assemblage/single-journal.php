@@ -19,11 +19,14 @@
 					$options["image"] = get_field('featured_image_square', get_the_id());
 					ArticleSplitHeader::add_options($options)->render();
 				} else if(get_field('journal_header') === 'full-screen' || get_field('journal_header') === 'video') {
+					$options["background_colour"] = get_field('background_colour');
 					$options["image"] = get_field('featured_image', get_the_id());
+					$options["video_src"] = get_field('video_src', get_the_id());
 					ArticleHeader::add_options($options)->render();
 				} else if(get_field('journal_header') === 'interview') {
 					$options["background_colour"] = get_field('background_colour');
-					$options["image"] = get_field('featured_image', get_the_id());
+					$options["image"] = get_field('featured_image_portrait', get_the_id());
+					$options["header_style"] = get_field('spotlight_style', get_the_id());
 					InterviewHeader::add_options($options)->render();
 				} ?>
 			</div><?php
@@ -92,17 +95,17 @@
 
 										if($block['acf_fc_layout'] === 'paragraph') {
 
-											echo '<p class="[ l-ParagraphBlocks__text-block ]">' . $block['text_area'] . '</p>';
+											echo '<div class="[ l-ParagraphBlocks__text-block ]">' . $block['text_area'] . '</div>';
 
 										} else if($block['acf_fc_layout'] === 'large_text') {
 
 											$classes = ($block['quote'] === true) ? 'l-ParagraphBlocks--quote ' : '';
 											$classes .= ($block['align_text_center'] === true) ? 'l-ParagraphBlocks--text-center ' : '';
-											echo '<p class="[ l-ParagraphBlocks__text-block ' . $alignment . ']">' . $block['text_area'] . '</p>';
+											echo '<p class="[ l-ParagraphBlocks__large-text ' . $alignment . ']">' . $block['text_area'] . '</p>';
 
 										} else if($block['acf_fc_layout'] === 'interview_paragraph') {
 
-											echo '<p class="[ l-ParagraphBlocks__interview-block ]"><span class="[ l-ParagraphBlocks__interview-initials ]">' . $block['initials'] . '</span> ' . $block['text_area'] . '</p>';
+											echo '<div class="[ l-ParagraphBlocks__interview-block ]"><span class="[ l-ParagraphBlocks__interview-initials ]">' . $block['initials'] . '</span> ' . $block['text_area'] . '</div>';
 
 										}
 									} ?>

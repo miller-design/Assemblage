@@ -46,6 +46,10 @@ class NextPost {
 		if($this->options['link']) {
 			$this->options['link'] = '<a href="' . $this->options['link'] . '" class="[ c-NextPost__link ]">Read Story</a>';
 		}
+
+		if($this->options['issue'] && $this->options['tax']) {
+			Self::$post_details = '<p class="[ c-NextPost__details ]">' . $this->options['tax']['name'] . ', Issue ' . $this->options['issue']['name'] . '</p>';
+		}
 	}
 
 	public static function add_options($custom_options = array()) {

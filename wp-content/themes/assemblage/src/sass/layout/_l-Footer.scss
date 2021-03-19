@@ -5,10 +5,78 @@
 /* Blocks */
 .l-Footer {
 	width: 100%;
-	background-color: $c-red;
+	background-color: $c-grey;
 	padding-left: var(--site-margin);
 	padding-right: var(--site-margin);
 
-	@include v-spacing(padding-top, $VSM5, 80px);
-	@include v-spacing(padding-bottom, 46px, 45px);
+	@include v-spacing(padding-top, 30px, 40px);
+	@include v-spacing(padding-bottom, 20px, 10px);
+}
+
+.l-Footer__top,
+.l-Footer__bottom {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	align-content: flex-start;
+}
+
+.l-Footer__top {
+
+	@include v-spacing(padding-bottom, 46px, 80px);
+}
+
+.l-Footer__left,
+.l-Footer__right {
+	width: 100%;
+
+	@include media(">=medium") {
+		width: 45%;
+	}
+
+	@include media(">=large") {
+		width: 42%;
+	}
+}
+
+.l-Footer__statement {
+	width: 100%;
+	font-size: 20px;
+	color: $c-white;
+	font-family: serif;
+}
+
+.l-Footer__copyright {
+	color: $c-white;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.l-Footer__links {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-wrap: wrap;
+
+	.l-Footer__link {
+		width: initial;
+		line-height: 1;
+		display: flex;
+
+		@include media("<medium") {
+			width: 100%;
+		}
+
+		@include media(">=medium") {
+			margin-right: 20px;
+		}
+
+		> a {
+			color: $c-white;
+			text-decoration: none;
+			font-size: 14px;
+		}
+	}
 }

@@ -16,11 +16,13 @@ class Video {
 
 	public function __construct($custom_options){
 
+		SiteBase::insert_component_css(Self::class);
+
 		$default_options = array(
 			"video_url" 				=> '',
 			"autoplay"  				=> false,
+			"echo"							=> true,
 			"classes" 					=> '',
-			"echo"							=> false
 		);
 
 		$this->options = $default_options;
@@ -28,7 +30,7 @@ class Video {
 
 	}
 
-	public static function addOptions($custom_options = array()){
+	public static function add_options($custom_options = array()){
 		return new self($custom_options);
 	}
 

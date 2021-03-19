@@ -18,7 +18,6 @@ class Journal {
 		add_action('init', 'Journal::set_up_post_type');
 		add_action('init', 'Journal::set_up_taxonomy');
 		add_filter('pre_get_document_title', 'Journal::change_taxonomy_title');
-		add_action('after_setup_theme', 'Journal::block_editor_disable_core_patterns');
 		add_action('pre_get_posts', 'Journal::limit_posts_per_page');
 	}
 

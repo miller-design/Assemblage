@@ -17,7 +17,9 @@
             },
             "choices": {
                 "left": "Left",
-                "right": "Right"
+                "right": "Right",
+                "center": "Center",
+                "center-small": "Center small"
             },
             "allow_null": 0,
             "other_choice": 0,
@@ -69,5 +71,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1615227194
+    "modified": 1615965740
 }
