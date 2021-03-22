@@ -71,7 +71,7 @@ class InterviewHeader {
 			$output .= '</div>';
 		$output .= '</div>';
 		$output .= '<div class="[ c-InterviewHeader__image ]">';
-			$output .= LazyImage::get_image($data['image'], 'c-InterviewHeader__image-half');
+			$output .= LazyImage::get_image($data['image'], [100], 'c-InterviewHeader__image-half', true, false);
 		$output .= '</div>';
 
 		return $output;
@@ -88,7 +88,7 @@ class InterviewHeader {
 			$output .= '<p class="[ c-InterviewHeader__name last ]">' . $data['first_name'] . '</p>';
 		$output .= '</div>';
 		$output .= '<div class="[ c-InterviewHeader__image ]">';
-			$output .= LazyImage::get_image($data['image'], 'c-InterviewHeader__image-half');
+			$output .= LazyImage::get_image($data['image'], [100], 'c-InterviewHeader__image-half', true, false);
 		$output .= '</div>';
 
 		return $output;
@@ -101,7 +101,7 @@ class InterviewHeader {
 
 		$output .= '<div class="[ c-InterviewHeader__content ]">';
 			$output .= '<p class="[ c-InterviewHeader__header ]">' . $data['header_text'] . '</p>';
-			$output .= LazyImage::get_image($data['image'], 'c-InterviewHeader__small-img');
+			$output .= LazyImage::get_image($data['image'], [50, 100], 'c-InterviewHeader__small-img', true, false);
 			$output .= '<div class="[ c-InterviewHeader__detail-wrap ]">';
 				$output .= '<p class="[ c-InterviewHeader__details ]">' . $data['term']['name'] . ', Issue ' . $data['issue_number']['name'] . '</p>';
 				$output .= '<p class="[ c-InterviewHeader__excerpt ]">' . $data['excerpt'] . '</p>';

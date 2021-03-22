@@ -17,8 +17,9 @@ class Journal {
 
 		add_action('init', 'Journal::set_up_post_type');
 		add_action('init', 'Journal::set_up_taxonomy');
-		add_filter('pre_get_document_title', 'Journal::change_taxonomy_title');
 		add_action('pre_get_posts', 'Journal::limit_posts_per_page');
+		add_action( "issues_edit_form", 'Journal::hide_description_row');
+		add_action( "issues_add_form", 'Journal::hide_description_row');
 	}
 
 	public static function set_up_post_type() {
@@ -81,14 +82,9 @@ class Journal {
 		);
 	}
 
-
-	public static function change_taxonomy_title($title) {
-    if (is_tax('issues')) {
-      // return  'Assemblage Issue';
-    }
-    return $title;
+	public static function hide_description_row() {
+		echo "<style> .term-description-wrap { display:none; } </style>";
 	}
-
 
 	// change post count
 	public static function limit_posts_per_page($query) {

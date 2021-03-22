@@ -2,7 +2,7 @@
 
 get_header(); ?>
 
-	<div class="[ l-IssueArchive ]">
+	<div class="[ l-IssueTax ]">
 
 		<h1><?php echo single_term_title('Issue: '); ?></h1><?php
 

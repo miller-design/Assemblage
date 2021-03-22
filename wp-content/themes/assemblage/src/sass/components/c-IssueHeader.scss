@@ -1,0 +1,12 @@
+@import "../base";
+
+/* ==========================================================================
+	Issue Header Component
+========================================================================== */
+.c-IssueHeader {
+	width: 100%;
+	display: block;
+	position: relative;
+
+	@include grid-col-full-bleed("both");
+}
