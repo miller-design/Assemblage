@@ -1,0 +1,109 @@
+/* ==========================================================================
+	About Page
+=========================================================================== */
+
+.about-header-wrap {
+	width: 100%;
+
+	@include media(">=medium") {
+		width: 90%;
+		position: sticky;
+		position: -webkit-sticky;
+		top: 50px;
+		height: calc(100vh - 100px);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+}
+
+.about-header {
+	width: 100%;
+	margin-bottom: 30px;
+	display: flex;
+}
+
+.about-intro {
+	width: 100%;
+	display: flex;
+}
+
+.about-image {
+	width: 100%;
+}
+
+.about-team-grid {
+	width: 100%;
+
+	@include grid-col(1, -1);
+}
+
+.about-team-grid__header,
+.about-team-grid__header h2 {
+	width: 100%;
+	display: flex;
+}
+
+.about-team-grid__row {
+	width: 100%;
+
+	@include grid-container(true);
+}
+
+.about-team-grid__col {
+
+	&:nth-child(1) {
+
+		@include grid-col(1, -1);
+
+		@include media(">=medium") {
+
+			@include grid-col(1, 9);
+		}
+
+		@include media(">=large") {
+
+			@include grid-col(2, 12);
+		}
+	}
+
+	&:nth-child(2) {
+
+		@include grid-col(1, -1);
+
+		@include media(">=small") {
+
+			@include grid-col(1, 4);
+		}
+
+		@include media(">=medium") {
+
+			@include grid-col(9, 15);
+		}
+
+		@include media(">=large") {
+
+			@include grid-col(12, 18);
+		}
+	}
+
+	&:nth-child(3) {
+
+		@include grid-col(1, -1);
+
+		@include media(">=small") {
+
+			@include grid-col(4, -1);
+		}
+
+		@include media(">=medium") {
+
+			@include grid-col(15, -1);
+		}
+
+		@include media(">=large") {
+
+			@include grid-col(18, 24);
+		}
+	}
+}

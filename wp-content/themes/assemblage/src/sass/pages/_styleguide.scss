@@ -37,92 +37,11 @@ body.styleguide {
 			content: none;
 		}
 
-		.button-square {
 
-			@include button-square;
-		}
-
-		.button-round {
-
-			@include button-round;
-		}
-
-		.button-tag {
-
-			@include tag;
-		}
-
-		.button-tag-large {
-
-			@include tag(true);
-		}
-
-		.wysiwyg {
-
-			@include wysiwyg;
-		}
 	}
 
-	.sg-type {
+	// .sg-type {
 
-		.h1 {
 
-			@include H1();
-		}
-
-		.h2 {
-
-			@include H2();
-		}
-
-		.h3 {
-
-			@include H3();
-		}
-
-		.h4 {
-
-			@include H4();
-		}
-
-		.p1 {
-
-			@include P1;
-		}
-
-		.p1-blond {
-
-			@include P1($blond: true);
-		}
-
-		.p2 {
-
-			@include P2;
-		}
-
-		.p2-blond {
-
-			@include P2($blond: true);
-		}
-
-		.p3 {
-
-			@include P3;
-		}
-
-		.p3-blond {
-
-			@include P3($blond: true);
-		}
-
-		.p4 {
-
-			@include P4;
-		}
-
-		.p5 {
-
-			@include P5;
-		}
-	}
+	// }
 }

@@ -15,8 +15,19 @@
 		300ms top linear,
 		300ms padding $standard-curve;
 
-	@include v-spacing(padding-top, $VSM4, $VSD5);
-	@include v-spacing(padding-bottom, $VSM4, $VSD5);
+	@include v-spacing(padding-top, $VSM1, $VSD2);
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		-webkit-backdrop-filter: blur(2em);
+		backdrop-filter: blur(2em);
+	}
 }
 
 .c-TopNav__inner {
@@ -24,6 +35,8 @@
 	align-items: center;
 	align-content: center;
 	justify-content: space-between;
+	padding-bottom: 10px;
+	border-bottom: 1px solid $c-black;
 
 	.c-TopNav__left {
 		float: left;
@@ -169,12 +182,6 @@
 }
 
 // modifiers
-.c-TopNav.c-TopNav--shrunk {
-
-	@include v-spacing(padding-top, 30px, 31px);
-	@include v-spacing(padding-bottom, 29px, 33px);
-}
-
 .c-TopNav.c-TopNav--is-pinned {
-	top: -130px;
+	top: -70px;
 }

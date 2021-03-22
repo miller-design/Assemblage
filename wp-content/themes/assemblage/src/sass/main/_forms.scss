@@ -1,6 +1,6 @@
 body:not(.wp-admin) {
 
-	.c-Form {
+	.c-Form form {
 
 		@include form-base;
 	}
@@ -8,6 +8,11 @@ body:not(.wp-admin) {
 	.c-Form__row {
 
 		@include form-row;
+		@include form-select;
+
+		.wpcf7-form-control-wrap {
+			width: 100%;
+		}
 	}
 
 	.c-Form__row--split {
@@ -16,36 +21,124 @@ body:not(.wp-admin) {
 	}
 
 	input[type="text"].form-control,
-	input[type="email"].form-control {
-		padding: 10px 15px 0;
+	input[type="email"].form-control,
+	input[type="tel"].form-control {
+		width: 100%;
 		font-size: 16px !important;
 		background: transparent;
 		z-index: 2;
+		padding: 0;
 		position: relative;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+		height: 30px;
+		border-bottom: 1px solid $c-grey;
+		padding-bottom: 10px;
+		transition: 400ms border $standard-curve;
+
+		&:focus {
+			outline: none;
+			border-bottom: 1px solid $c-black;
+		}
+
+		&.wpcf7-not-valid {
+			color: $c-red;
+			border-bottom: 1px solid $c-red;
+		}
+	}
+
+	.your-message + label {
+		padding-top: 5px;
+		left: 5px;
+	}
+
+	textarea {
+		width: 100%;
+		font-size: 16px !important;
+		background: $c-white;
+		resize: none;
+		padding: 5px;
+
+		&:focus {
+			outline: none;
+		}
+
+		&.wpcf7-not-valid {
+			color: $c-red;
+			border: 1px solid $c-red;
+		}
 	}
 
 	.wpcf7-form-control-wrap {
 		background: #fff;
 		height: 100%;
-		display: block;
+		display: flex;
+	}
+
+	.wpcf7-list-item {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		display: flex;
+
+		@include form-checkbox;
 	}
 
 	label {
-		transform: translateY(-100%);
 		z-index: 1;
 		font-size: 16px;
 		font-style: italic;
-		color: #9b9b9b;
-		line-height: 42px;
+		color: $c-black;
 		position: absolute;
-		padding: 0 17px;
 		transition: all 0.2s ease;
+
+		span:not(.wpcf7-list-item-label) {
+			color: $c-red;
+			margin-left: 3px;
+		}
 	}
 
-	.c-Form__row.active > label {
-		transform: translateY(-125%);
-		color: #9b9b9b;
-		font-size: 12px;
-		padding: 0 16px;
+	.c-Form__row.active {
+
+		> label {
+			opacity: 0;
+		}
+	}
+
+	.wpcf7-not-valid-tip {
+		display: none;
+	}
+
+	.wpcf7-response-output {
+		position: fixed;
+		bottom: 10px;
+		left: 10px;
+		width: calc(100% - 20px);
+		color: $c-white;
+		border: none;
+		font-size: 16px;
+		margin: 0;
+		z-index: $z-level-three;
+		padding: 10px 20px;
+	}
+
+	form.invalid {
+
+		.wpcf7-response-output {
+			background-color: $c-red;
+		}
+	}
+
+	form.sent {
+
+		.wpcf7-response-output {
+			background-color: $c-green;
+		}
+	}
+
+	input[type="submit"].btn {
+
+		@include pill;
 	}
 }

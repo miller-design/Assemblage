@@ -10,7 +10,6 @@ class TopNav extends Component {
 		super(element)
 
 
-		global.scrollEvents.push(this.shrinkBar.bind(this))
 		global.scrollEvents.push(this.hideBar.bind(this))
 	}
 
@@ -37,15 +36,6 @@ class TopNav extends Component {
 				this.element.classList.remove('c-TopNav--is-pinned')
 			}
 		}
-  }
-
-	shrinkBar(currentScrollY) {
-
-    if(currentScrollY > 10) {
-			this.setState({isShrunk: true})
-    } else {
-			this.setState({isShrunk: false})
-    }
   }
 
 	hideBar(currentScrollY) {

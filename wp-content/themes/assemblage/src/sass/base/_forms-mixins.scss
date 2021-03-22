@@ -17,6 +17,8 @@ Create mixins first so they can be reused on Woo forms or other places where you
 	display: flex;
 	justify-content: flex-start;
 	flex-wrap: wrap;
+	position: relative;
+	margin-bottom: 30px;
 
 	@if $row == "fill" {
 		width: 100%;
@@ -29,7 +31,7 @@ Create mixins first so they can be reused on Woo forms or other places where you
 	}
 }
 
-@mixin six-form-number() {
+@mixin form-number() {
 
 	input[type="number"] {
 
@@ -55,38 +57,45 @@ Create mixins first so they can be reused on Woo forms or other places where you
 
 }
 
-@mixin six-form-checkbox() {
+@mixin form-checkbox() {
 
 	input[type="checkbox"] {
 		display: none;
 	}
 
-	// normally we want the label to follow the input (input + label)
-	// that may not always be possible, so use * selector to cover all bases (eg. input + span)
 	input[type="checkbox"] + * {
 		cursor: pointer;
-		margin-bottom: 5px;
 		display: block;
 	}
 
 	input[type="checkbox"] + *::before {
 		content: "";
 		display: inline-block;
-		width: 20px;
-		height: 20px;
-		border: 3px solid $c-black;
+		width: 14px;
+		height: 14px;
+		border-radius: 50%;
+		border: 1px solid $c-grey;
 		background-color: transparent;
-		margin-right: $grid_col_gutter_mobile;
-		vertical-align: bottom;
+		margin-right: 5px;
 	}
 
+	input[type="checkbox"] + *::after {
+		content: "";
+		position: absolute;
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		top: 5px;
+		left: 3px;
+		transition: 400ms background-color ease;
+	}
 
-	input[type="checkbox"]:checked + *::before {
+	input[type="checkbox"]:checked + *::after {
 		background-color: $c-black;
 	}
 }
 
-@mixin six-form-radio() {
+@mixin form-radio() {
 
 	input[type="radio"] {
 		display: none;
@@ -114,5 +123,71 @@ Create mixins first so they can be reused on Woo forms or other places where you
 
 	input[type="radio"]:checked + *::before {
 		background-color: $c-black;
+	}
+}
+
+@mixin form-select() {
+
+	select,
+	.ss-main {
+		width: 100%;
+		outline: none;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+		border-bottom: none;
+
+		&.wpcf7-not-valid {
+			color: $c-red;
+			border-bottom: 1px solid $c-red;
+		}
+	}
+
+	.ss-single-selected {
+		font-size: 16px !important;
+		padding: 0;
+		outline: none;
+		border-top: 0;
+		border-right: 0;
+		border-left: 0;
+		border-radius: 0;
+		border-bottom: 1px solid $c-grey;
+		padding-bottom: 10px;
+		color: $c-black;
+	}
+
+	.ss-content {
+		border: 1px solid $c-grey;
+
+		.ss-search {
+			display: none;
+		}
+
+		.ss-list {
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+
+		.ss-option {
+			font-size: 16px !important;
+			line-height: 1.8;
+			padding: 0;
+			color: $c-black;
+
+			@include site-transition(opacity, 500ms);
+
+			&:hover {
+				background-color: transparent;
+				color: $c-black;
+				opacity: 0.4;
+			}
+
+			&.ss-disabled {
+				cursor: pointer;
+				color: $c-black;
+				opacity: 0.4;
+			}
+		}
 	}
 }

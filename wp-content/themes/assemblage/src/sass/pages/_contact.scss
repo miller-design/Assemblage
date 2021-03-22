@@ -1,0 +1,41 @@
+/* ==========================================================================
+	Contact Page
+=========================================================================== */
+
+.contact-header {
+	width: 100%;
+	margin-bottom: 30px;
+	display: flex;
+}
+
+.contact-form {
+	width: 100%;
+
+	@include media(">=medium") {
+		padding-right: 50px;
+	}
+
+	.c-Form__row {
+
+		&.c-Form__row--split {
+
+			&:nth-of-type(even) {
+
+				@include media(">=medium") {
+					padding-right: 15px;
+				}
+			}
+
+			&:nth-of-type(odd) {
+
+				@include media(">=medium") {
+					padding-left: 15px;
+				}
+			}
+		}
+	}
+}
+
+.contact-image {
+	width: 100%;
+}

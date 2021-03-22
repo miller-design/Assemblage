@@ -10,8 +10,6 @@
 	min-height: 100vh;
 
 	@include grid-container;
-
-	article {
-		grid-column: 1/-1;
-	}
+	@include v-spacing(padding-top, 80px, 100px);
+	@include v-spacing(padding-bottom, 80px, 100px);
 }

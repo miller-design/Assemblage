@@ -152,76 +152,18 @@
 	}
 }
 
-// square button
-@mixin button-square() {
-	outline: none;
-	background-color: $c-white;
-	border: 1px solid $c-black;
-	color: $c-black;
-	cursor: pointer;
-	padding-top: 13px;
-	padding-right: 41px;
-	padding-bottom: 9px;
-	padding-left: 41px;
 
-	@include P3(false);
-	@include site-transition;
-	@include site-transition(opacity, 500ms);
-	line-height: 1; // line height override
-
-	@media (hover: hover) {
-
-		&:hover {
-			opacity: 0.3;
-		}
-	}
-}
-
-// round button variation
-@mixin button-round() {
+// pill styles
+@mixin pill($large: false) {
 	outline: none;
 	color: $c-black;
-	background-color: transparent;
-	border: 0;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	align-content: center;
-	justify-content: center;
-
-	@include P3(false);
-	@include site-transition;
-	@include site-transition(opacity, 500ms);
-	line-height: 1; // line height override
-
-	svg {
-		width: 30px;
-		height: 30px;
-		position: relative;
-		top: -3px;
-		margin-right: 10px;
-	}
-
-	@media (hover: hover) {
-
-		&:hover {
-			opacity: 0.3;
-		}
-	}
-}
-
-// tag styles
-@mixin tag($large_tag: false) {
-	outline: none;
-	color: $c-black;
-	background-color: $c-white;
 	border-radius: 60px;
-	border: 1px solid $c-black;
+	border: 1px solid $c-grey;
 	cursor: pointer;
 
-	@include site-transition(opacity, 500ms);
+	@include site-transition(border, 500ms);
 
-	@if $large_tag == true {
+	@if $large == true {
 
 		@include v-spacing(padding-top, 13px, 19px);
 		@include v-spacing(padding-right, 20px, 30px);
@@ -231,9 +173,9 @@
 
 	} @else {
 		padding-top: 8px;
-		padding-right: 10px;
+		padding-right: 12px;
 		padding-bottom: 4px;
-		padding-left: 10px;
+		padding-left: 12px;
 
 		@include P3(true);
 	}
@@ -243,7 +185,7 @@
 	@media (hover: hover) {
 
 		&:hover {
-			opacity: 0.5;
+			border: 1px solid $c-grey;
 		}
 	}
 }

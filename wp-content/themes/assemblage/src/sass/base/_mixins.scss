@@ -224,3 +224,37 @@ $resolution-range-top: map-get($breakpoints, xxlarge);
 		}
 	}
 }
+
+@mixin close-icon() {
+	width: 20px;
+	height: 20px;
+	background-color: #f00;
+	cursor: pointer;
+	transition: 300ms transform $standard-curve;
+
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 20px;
+		height: 2px;
+		background-color: $c-black;
+	}
+
+	&::before {
+		transform: translate(-50%, -50%) rotate(45deg);
+	}
+
+	&::after {
+		transform: translate(-50%, -50%) rotate(-45deg);
+	}
+
+	@media (hover: hover) {
+
+		&:hover {
+			transform: rotate(90deg);
+		}
+	}
+}

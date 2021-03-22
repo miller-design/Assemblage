@@ -22,6 +22,7 @@ class SptlightArticle {
 
 		$default_options = array(
 			"image" 						=> '',
+			"title"							=> '',
 			"header_text"				=> '',
 			"excerpt" 					=> '',
 			"issue_number"			=> '',

@@ -1,4 +1,5 @@
 import Component from 'gia/Component'
+import SlimSelect from 'slim-select'
 
 
 // Wrapper for global Javascript dependencies
@@ -13,13 +14,15 @@ class Form extends Component {
 
 	mount() {
 
-		$(".wpcf7 .form-control").focus(function(){
-			$(this).parent().parent().addClass('active');
-		}).blur(function(){
-			var cval = $(this).val()
-			if(cval.length < 1) {$(this).parent().parent().removeClass('active');
-			}
+		const select = new SlimSelect({
+			select: '.wpcf7-select',
+			showSearch: false,
+			showContent: 'down',
+			hideSelectedOption: true,
 		})
+
+		// setting first option as placeholder
+		select.data.data[0].placeholder = true
 	}
 }
 

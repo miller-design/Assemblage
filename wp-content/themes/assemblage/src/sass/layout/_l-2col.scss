@@ -1,0 +1,27 @@
+/* ==========================================================================
+	2 Col Layout
+========================================================================== */
+
+.l-2col {
+	width: 100%;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+
+	@include grid-col(1, -1);
+
+	@include media("<medium") {
+		flex-wrap: wrap;
+	}
+}
+
+.l-2col__col {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+}
+
+.l-2col__col--space-between {
+	justify-content: space-between;
+}

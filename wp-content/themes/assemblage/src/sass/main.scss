@@ -1,11 +1,14 @@
 @import "base";
 @import "main/main";
 @import "main/reset.scss"; // CSS Reset, based on https://dev.to/hankchizljaw/a-modern-css-reset-6p3
-//@import "~flickity/dist/flickity.css"; 	// uif referencig node_modules, use the ~ as shown
 @import "main/lazyimage";
 @import "main/tables";
 @import "main/print";
 @import "main/forms";
+
+// npm packeges style sheets
+@import "~slim-select/dist/slimselect.min.css";
+//@import "~flickity/dist/flickity.css"; 	// uif referencig node_modules, use the ~ as shown
 
 
 /* ============================================================================================
@@ -17,9 +20,12 @@
 @import "layout/l-JournalSingle";
 @import "layout/l-IssueArchive";
 @import "layout/l-ParagraphBlocks";
+@import "layout/l-2Col";
 
 
 /* ============================================================================================
 Pages - Keep these to a minimum. Use components and modifiers where possible.
 ============================================================================================ */
 @import "pages/styleguide";
+@import "pages/contact";
+@import "pages/about";
