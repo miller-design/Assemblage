@@ -6,5 +6,6 @@ import components from './js/modules'
 import Facebook from './svg/facebook.svg'
 import Twitter from './svg/twitter.svg'
 import Pinterest from './svg/pinterest.svg'
+import logo from './svg/logo.svg'
 
 loadComponents(components)

@@ -85,22 +85,16 @@ class BurgerMenu {
 	public function render(){ ?>
 
 		<nav class="[ c-BurgerMenu ]" g-component="BurgerMenu">
-			<div class="[ c-BurgerMenu__image-area ]" g-ref="imageArea"></div>
-			<div class="[ c-BurgerMenu__nav ]">
-				<span class="[ c-BurgerMenu__close ][ u-close-icon ]" g-ref="closeTrigger">
-					<span></span>
-					<span></span>
-				</span>
-				<div class="[ c-BurgerNav__links ]">
-					<div class="[ c-BurgerNav__top ]">
-						<?= $this->options["nav"]; ?>
-					</div>
-					<div class="[ c-BurgerNav__bottom ]">
-						<?= $this->options["seconday_links"]; ?>
-						<?= $this->options["social_links"]; ?>
-					</div>
+			<div class="[ c-BurgerNav__links ]">
+				<div class="[ c-BurgerNav__top ]">
+					<?= $this->options["nav"]; ?>
+				</div>
+				<div class="[ c-BurgerNav__bottom ]">
+					<?= $this->options["seconday_links"]; ?>
+					<?= $this->options["social_links"]; ?>
 				</div>
 			</div>
+			<div class="[ c-BurgerMenu__image-area ]" g-ref="imageArea"></div>
 		</nav><?php
 	}
 }

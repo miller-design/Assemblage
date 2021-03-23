@@ -40,7 +40,7 @@ class TopNav extends Component {
 
 	hideBar(currentScrollY) {
 
-    if(currentScrollY > 10 && global.scrollDirection === 'down') {
+    if(currentScrollY > 100 && global.scrollDirection === 'down') {
 			this.setState({isHidden: true})
     } else if (this.state.isHidden && global.scrollDirection === 'up') {
 			this.setState({isHidden: false})

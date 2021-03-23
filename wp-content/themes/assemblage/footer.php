@@ -26,43 +26,7 @@
 				"link" => '#',
 				"link_text" => 'Terms & Conditions',
 			],
-		];
-
-		$burger_tertiary_pages = [
-			[
-				"link" => '#',
-				"link_text" => 'Contact',
-			],
-			[
-				"link" => '#',
-				"link_text" => 'Privacy Policy',
-			],
-			[
-				"link" => '#',
-				"link_text" => 'Terms & Conditions',
-			],
-		];
-
-		$burger_social_links = [
-			[
-				"link" => get_field('facebook_url', 'options'),
-				"link_text" => 'Facebook',
-			],
-			[
-				"link" => get_field('twitter_url', 'options'),
-				"link_text" => 'Twitter',
-			],
-			[
-				"link" => get_field('instagram_url', 'options'),
-				"link_text" => 'Instagram',
-			],
-		];
-
-		BurgerMenu::add_options([
-			"nav"							=> get_field('main_menu', 'options'),
-			"seconday_links"	=> $burger_tertiary_pages,
-			"social_links" 		=> $burger_social_links,
-		])->render(); ?>
+		]; ?>
 
 		<span class="[ u-site-overlay ][ js-overlay ]"></span>
 

@@ -225,6 +225,37 @@ $resolution-range-top: map-get($breakpoints, xxlarge);
 	}
 }
 
+/* ==================================================================================
+	SIBLING FADE: fade out siblings around a hovered item
+=================================================================================== */
+@mixin sibling-fade() {
+	// Prevents :hover from triggering in the gaps between items
+	pointer-events: none;
+
+	// Bringing the child items back in, even though the parent is hidden
+	> * {
+		pointer-events: auto;
+		transition: 600ms	opacity 100ms $standard-curve;
+	}
+
+	// Fade out all items when the parent is hovered
+	// Fade in the currently hovered item
+	@media (hover: hover) {
+
+		&:hover > * {
+			opacity: 0.4;
+		}
+
+		> *:hover {
+			opacity: 1;
+			transition-delay: 0ms, 0ms;
+		}
+	}
+}
+
+/* ==================================================================================
+	close icon mixin (needs somehwere else to sit)
+=================================================================================== */
 @mixin close-icon() {
 	width: 20px;
 	height: 20px;

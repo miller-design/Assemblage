@@ -31,11 +31,6 @@ class BurgerMenu extends Component {
 		this.setState({ menuOpen: false })
 		// Attach the listeners
 		eventbus.on('MainMenuTriggered', this.toggleStateChange.bind(this))
-		this.closeBtn.addEventListener("click", () => {
-			this.toggleStateChange()
-			eventbus.emit('resetBurgerState')
-		})
-
 		this.hoverStateSetup()
 	}
 
@@ -70,12 +65,6 @@ class BurgerMenu extends Component {
 			const imageUrl = item.getAttribute('data-img-src')
 			let imgCreated = false
 			let imgElement
-			let timeOutArray = []
-			let timeOutVar
-
-			// for generating random co-ordinates try something like below:
-			// img.style.top = document.body.clientHeight * Math.random() + 'px';
-  		// img.style.left = document.body.clientWidth * Math.random() + 'px';
 
 			item.addEventListener('mouseover', () => {
 
@@ -87,20 +76,16 @@ class BurgerMenu extends Component {
 					imgCreated = true
 				}
 
-				timeOutArray.forEach((timer) => {
-					clearTimeout(timer)
-				})
-
 				imgElement.classList.add('is-active')
+				// generating random co-ordinates for each hover
+				imgElement.style.top = (window.screen.height / 2) * Math.random() + 'px';
+  			imgElement.style.right = (window.screen.width / 2) * Math.random() + 'px';
 			})
 
 			item.addEventListener('mouseleave', () => {
 
 				if(imgCreated) {
-
-					timeOutVar = timeOutArray.push(setTimeout(() => {
-						imgElement.classList.remove('is-active')
-					}, 300))
+					imgElement.classList.remove('is-active')
 				}
 			})
 		})

@@ -44,6 +44,7 @@ class Burger extends Component {
 				eventbus.emit("MainMenuTriggered")
 			} else {
 				trigger.classList.remove('is-active')
+				eventbus.emit("MainMenuTriggered")
 			}
 		}
 	}

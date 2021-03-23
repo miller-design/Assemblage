@@ -45,6 +45,9 @@ class TopNav {
 					$output .= '<a href="' . get_permalink($link) . '">' . get_the_title($link) . '</a>';
 				$output .= '</li>';
 			}
+			$output .= '<li class="[ c-TopNav__menu-item ]">';
+					$output .= '<span>Subscribe</span>';
+				$output .= '</li>';
 		$output .= '</ul>';
 
 		return $output;
@@ -60,7 +63,7 @@ class TopNav {
 				</div>
 				<div class="[ c-TopNav__center ]">
 					<a class="[ c-TopNav__logo ]" href="/">
-						Assemblage Views
+						<svg role="img"><use xlink:href="<?=get_template_directory_uri(); ?>/dist/sprite.svg#logo"></use></svg>
 					</a>
 				</div>
 				<div class="[ c-TopNav__right ]">

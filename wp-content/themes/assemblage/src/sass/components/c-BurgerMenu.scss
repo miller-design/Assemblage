@@ -1,7 +1,7 @@
 @import "../base";
 
 .c-BurgerMenu {
-	pointer-events: none;
+	background-color: $c-white;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -9,15 +9,12 @@
 	width: 100vw;
 	height: 100%;
 	overflow: hidden;
-	display: flex;
+	transform: translate3d(0, -100%, 0);
+	transition: 600ms transform 400ms $standard-curve;
 
 	&.is-active {
-
-		.c-BurgerMenu__nav {
-			pointer-events: auto;
-			transform: translate3d(0, 0, 0);
-			transition: 600ms transform $standard-curve;
-		}
+		transform: translate3d(0, 0, 0);
+		transition: 600ms transform $standard-curve;
 
 		.c-BurgerMenu__image-area {
 			pointer-events: auto;
@@ -40,57 +37,8 @@
 }
 
 // elements
-.c-BurgerMenu__image-area {
-	position: relative;
-	width: 50vw;
-	height: 100%;
-	pointer-events: none;
-	opacity: 0;
-	transition: 600ms opacity 1000ms $standard-curve;
-}
-
-.c-BurgerMenu__featured-image {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	opacity: 0;
-	transition: 400ms opacity ease;
-	pointer-events: none;
-	transform: translate(-50%, -50%);
-
-	&.is-active {
-		opacity: 1;
-	}
-}
-
-.c-BurgerMenu__nav {
-	pointer-events: none;
-	background-color: $c-white;
-	width: 50vw;
-	height: 100%;
-	position: relative;
-	overflow-y: auto;
-	transition: 600ms transform 400ms $standard-curve;
-	// hide scroll bars if overflow kicks in
-	-ms-overflow-style: none;
-	scrollbar-width: none;
-	transform: translate3d(50vw, 0, 0);
-
-	&::-webkit-scrollbar {
-		display: none;
-	}
-}
-
-.c-BurgerMenu__close {
-	position: absolute;
-	top: 0;
-	right: 0;
-}
-
 .c-BurgerNav__links {
+	position: relative;
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -98,6 +46,14 @@
 	justify-content: space-between;
 	align-items: flex-start;
 	align-content: flex-start;
+	overflow-y: auto;
+	// hide scroll bars if overflow kicks in
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
 }
 
 .c-BurgerNav__top,
@@ -107,7 +63,16 @@
 	justify-content: flex-start;
 	align-items: flex-start;
 	align-content: flex-start;
-	padding: 30px;
+	padding-left: var(--site-margin);
+}
+
+.c-BurgerNav__top {
+	padding-top: 115px;
+}
+
+.c-BurgerNav__bottom {
+	padding-top: 70px;
+	padding-bottom: 70px;
 }
 
 .c-BurgerMenu__main,
@@ -117,17 +82,25 @@
 	align-items: flex-start;
 	align-content: flex-start;
 	flex-direction: column;
+}
 
+.c-BurgerMenu__main {
+
+	@include sibling-fade;
 }
 
 .c-BurgerMenu__main-item {
 	width: initial;
 	display: flex;
 	overflow: hidden;
+	font-size: 100px;
+	line-height: 1;
 
 	> a {
+		text-decoration: none;
+		color: $c-black;
 		position: relative;
-		top: 60px;
+		top: -60px;
 		opacity: 0;
 		transition:
 			600ms top $standard-curve,
@@ -138,4 +111,52 @@
 .c-BurgerMenu__secondary {
 	opacity: 0;
 	transition: 600ms opacity $standard-curve;
+
+	&:nth-of-type(2) {
+		margin-left: var(--site-gutter);
+	}
+}
+
+.c-BurgerMenu__secondary-item {
+	font-size: 20px;
+	line-height: 1.2;
+
+	> a {
+		text-decoration: none;
+		color: $c-black;
+		transition: 600ms opacity $standard-curve;
+
+		@media (hover: hover) {
+
+			&:hover {
+				opacity: 0.4;
+			}
+		}
+	}
+}
+
+.c-BurgerMenu__image-area {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 100vw;
+	height: 100%;
+	pointer-events: none;
+	opacity: 0;
+	transition: 600ms opacity 1000ms $standard-curve;
+	z-index: -1;
+}
+
+.c-BurgerMenu__featured-image {
+	position: absolute;
+	top: 0;
+	right: 0;
+	opacity: 0;
+	pointer-events: none;
+	max-width: 30vw; // think this may have to be px value
+	max-height: 80vh; // think this may have to be px value
+
+	&.is-active {
+		opacity: 1;
+	}
 }

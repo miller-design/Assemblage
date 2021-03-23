@@ -8,7 +8,7 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	z-index: $z-level-one;
+	z-index: $z-level-two;
 	padding-left: var(--site-margin);
 	padding-right: var(--site-margin);
 	transition:
@@ -16,18 +16,6 @@
 		300ms padding $standard-curve;
 
 	@include v-spacing(padding-top, $VSM1, $VSD2);
-
-	&::after {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		-webkit-backdrop-filter: blur(2em);
-		backdrop-filter: blur(2em);
-	}
 }
 
 .c-TopNav__inner {
@@ -66,8 +54,8 @@
 	> svg {
 		display: flex;
 
-		@include v-spacing(width, 128px, 170px);
-		@include v-spacing(height, 12px, 16px);
+		@include v-spacing(width, 128px, 250px);
+		@include v-spacing(height, 12px, 20px);
 	}
 }
 
@@ -81,6 +69,7 @@
 		text-decoration: none;
 
 		@include P3;
+		font-size: 15px;
 
 		.dark-state & {
 			color: $c-black;
@@ -91,7 +80,6 @@
 		color: $c-white;
 		text-decoration: none;
 
-		@include P3;
 		@include site-transition(opacity, 500ms);
 
 		@media (hover: hover) {
@@ -111,7 +99,7 @@
 
 	> li:not(:first-child) {
 
-		@include v-spacing(padding-left, $VSM2, $VSD4);
+		@include v-spacing(padding-left, 10px, 30px);
 	}
 }
 
@@ -162,22 +150,6 @@
 				color: $c-black;
 			}
 		}
-	}
-}
-
-
-.c-TopNav__search-icon {
-	width: 17px;
-	height: 17px;
-	color: $c-white;
-	display: flex;
-
-	@include media(">=medium") {
-		margin-left: 10px;
-	}
-
-	.dark-state & {
-		color: $c-black;
 	}
 }
 
