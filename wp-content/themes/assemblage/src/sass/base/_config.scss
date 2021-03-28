@@ -39,14 +39,14 @@ $breakpoints: (
 /* ============================================================================================
 	Colours
 ============================================================================================= */
-$c-black:       	#000;
 $c-white:       	#fff;
-$c-grey:   				#808080;
-$c-hp-yellow:   	#ffedd1;
-$c-blue:					#203fec;
-$c-red:						#a33;
-$c-green:					#008040;
-$c-warning: 				$c-red;
+$c-off-white:   	#f7f6f4;
+$c-grey:   				#d9d9d9;
+$c-black:       	#1d1d1b;
+$c-blue:					#0079a3;
+$c-orange:				#e66c37;
+$c-yellow:				#f7ca46;
+$c-green:					#459967;
 
 
 /* ============================================================================================
@@ -67,11 +67,11 @@ $standard-curve: cubic-bezier(0.25, 1, 0.5, 1);
 /* =========================================================================
   Font variables
 ========================================================================== */
-$FaktPro-Normal: "FaktPro-Normal", sans-serif;
-$FaktPro-Blond: "FaktPro-Blond", sans-serif;
+$NeueHaasUnicaW1GRegular: "NeueHaasUnicaW1GRegular", sans-serif;
+$RecklessNeue-Book: "RecklessNeue-Book", serif;
 
-$f-body: $FaktPro-Normal;
-$f-header: $FaktPro-Normal;
+$f-body: $NeueHaasUnicaW1GRegular;
+$f-header: $RecklessNeue-Book;
 
 
 /* =========================================================================

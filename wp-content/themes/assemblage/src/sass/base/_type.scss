@@ -2,9 +2,12 @@
 	Character Style Mixins
 =========================================================================================================== */
 
+$f-body: $NeueHaasUnicaW1GRegular;
+$f-header: $RecklessNeue-Book;
+
 // font setups
-@mixin FakProNormal() {
-	font-family: $FaktPro-Normal;
+@mixin RecklessNeue-Book() {
+	font-family: $RecklessNeue-Book;
 	font-style: normal;
 	font-weight: 400;
 
@@ -13,8 +16,8 @@
 	}
 }
 
-@mixin FakProBlond() {
-	font-family: $FaktPro-Blond;
+@mixin NeueHaasUnicaW1GRegular() {
+	font-family: $NeueHaasUnicaW1GRegular;
 	font-style: normal;
 	font-weight: 400;
 
@@ -24,91 +27,139 @@
 }
 
 // header base
-@mixin H1() {
+@mixin H1($serif: true) {
 
-	@include FakProNormal;
-	@include v-type(50px, 140px, 170px);
+	@include v-type(40px, 100px, 170px);
+	@include tracking(-40);
+
+	@if $serif == true {
+
+		@include RecklessNeue-Book;
+
+	} @else {
+
+		@include NeueHaasUnicaW1GRegular;
+
+	}
 }
 
-@mixin H2() {
+@mixin H2($serif: true) {
 
-	@include FakProNormal;
-	@include v-type(40px, 100px, 100px);
+	@include v-type(40px, 60px, 68px);
+	@include tracking(-20);
+
+	@if $serif == true {
+
+		@include RecklessNeue-Book;
+
+	} @else {
+
+		@include NeueHaasUnicaW1GRegular;
+
+	}
 }
 
-@mixin H3() {
+@mixin H3($serif: true) {
 
-	@include FakProNormal;
-	@include v-type(30px, 65px, 65px);
+	@include v-type(25px, 50px, 58px);
+	@include tracking(-20);
+
+	@if $serif == true {
+
+		@include RecklessNeue-Book;
+
+	} @else {
+
+		@include NeueHaasUnicaW1GRegular;
+
+	}
 }
 
-@mixin H4() {
+@mixin H4($serif: true) {
 
-	@include FakProNormal;
-	@include v-type(25px, 50px, 55px);
+	@include v-type(25px, 40px, 48px);
+	@include tracking(-10);
+
+	@if $serif == true {
+
+		@include RecklessNeue-Book;
+
+	} @else {
+
+		@include NeueHaasUnicaW1GRegular;
+
+	}
 }
+
+@mixin H5($serif: true) {
+
+	@include v-type(25px, 30px, 38px);
+	@include tracking(0);
+
+	@if $serif == true {
+
+		@include RecklessNeue-Book;
+
+	} @else {
+
+		@include NeueHaasUnicaW1GRegular;
+
+	}
+}
+
 
 // paragraph setups
-@mixin P1($blond: false) {
+@mixin P1($serif: false) {
 
-	@include v-type(20px, 35px, 45px);
+	@include v-type(18px, 20px, 30px);
+	@include tracking(10);
 
-	@if $blond == true {
+	@if $serif == true {
 
-		@include FakProBlond;
+		@include RecklessNeue-Book;
 
 	} @else {
 
-		@include FakProNormal;
+		@include NeueHaasUnicaW1GRegular;
 
 	}
 }
 
-@mixin P2($blond: false) {
+@mixin P2($serif: false) {
 
-	@include v-type(16px, 25px, 35px);
+	@include v-type(14px, 15px, 20px);
+	@include tracking(0);
 
-	@if $blond == true {
+	@if $serif == true {
 
-		@include FakProBlond;
+		@include RecklessNeue-Book;
 
 	} @else {
 
-		@include FakProNormal;
+		@include NeueHaasUnicaW1GRegular;
 
 	}
 }
 
-@mixin P3($blond: false) {
+@mixin P3($serif: false) {
 
-	@include v-type(14px, 18px, 25px);
+	@include v-type(10px, 12px, 22px);
+	@include tracking(90);
 
-	@if $blond == true {
+	@if $serif == true {
 
-		@include FakProBlond;
+		@include RecklessNeue-Book;
 
 	} @else {
 
-		@include FakProNormal;
+		@include NeueHaasUnicaW1GRegular;
 
 	}
-}
-
-@mixin P4() {
-
-	@include FakProNormal;
-	@include v-type(12px, 14px, 20px);
-}
-
-@mixin P5() {
-
-	@include FakProNormal;
-	@include v-type(10px, 12px, 18px);
 }
 
 @mixin body() {
 
-	@include P1(true);
+	@include P1;
 
 	strong {
 		text-transform: uppercase;
@@ -125,29 +176,31 @@
 // default hyperlink - with draw in underline fx
 @mixin link($underline:true) {
 	text-decoration: none;
-	color: $c-blue;
 	cursor: pointer;
 
 	@if $underline == true {
-		background-image: linear-gradient(currentColor, currentColor);
+		background-image: linear-gradient($c-orange, $c-orange);
 		background-position: 0% 100%;
 		background-repeat: no-repeat;
-		background-size: 0% 1px;
-		transition: background-size 0.3s;
+		background-size: 100% 1px;
+		transition: background-size 300ms $standard-curve;
 
 	} @else {
 
 		@include site-transition(color);
 	}
 
-	&:hover,
-	&:focus {
+	@media (hover: hover) {
 
-		@if $underline == true {
-			background-size: 100% 1px;
+		&:hover,
+		&:focus {
 
-		} @else {
-			color: #e40dae; // change this!
+			@if $underline == true {
+				background-size: 0% 1px;
+
+			} @else {
+				color: $c-orange;
+			}
 		}
 	}
 }
@@ -159,25 +212,26 @@
 	color: $c-black;
 	border-radius: 60px;
 	border: 1px solid $c-grey;
+	text-decoration: none;
 	cursor: pointer;
 
+	@include NeueHaasUnicaW1GRegular;
 	@include site-transition(border, 500ms);
 
 	@if $large == true {
+		font-size: 20px;
 
-		@include v-spacing(padding-top, 13px, 19px);
+		@include v-spacing(padding-top, 8px, 10px);
 		@include v-spacing(padding-right, 20px, 30px);
 		@include v-spacing(padding-bottom, 7px, 6px);
 		@include v-spacing(padding-left, 20px, 30px);
-		@include H3();
 
 	} @else {
-		padding-top: 8px;
+		padding-top: 4px;
 		padding-right: 12px;
 		padding-bottom: 4px;
 		padding-left: 12px;
-
-		@include P3(true);
+		font-size: 15px;
 	}
 
 	line-height: 1; // line height override
@@ -185,7 +239,7 @@
 	@media (hover: hover) {
 
 		&:hover {
-			border: 1px solid $c-grey;
+			border: 1px solid $c-black;
 		}
 	}
 }
@@ -201,7 +255,7 @@
 		> li {
 			position: relative;
 
-			@include P1(true);
+			@include P1;
 			@include v-spacing(padding-left, $VSM2, $VSD3);
 		}
 	}

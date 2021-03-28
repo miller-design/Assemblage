@@ -5,5 +5,16 @@
 ========================================================================== */
 
 .c-Credit {
-	background-color: #f80;
+	width: 100%;
+	position: relative;
+}
+
+.c-Credit__text {
+	text-transform: uppercase;
+
+	@include P3;
+
+	span {
+		text-transform: capitalize;
+	}
 }

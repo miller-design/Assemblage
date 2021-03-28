@@ -4,12 +4,15 @@
 
 /* Blocks */
 .l-Main {
-	background-color: $c-white;
+	background-color: $c-off-white;
 	position: relative;
 	z-index: 1;
 	min-height: 100vh;
 
 	@include grid-container;
-	@include v-spacing(padding-top, 80px, 100px);
 	@include v-spacing(padding-bottom, 80px, 100px);
+
+	.single-journal & {
+		padding-bottom: 0;
+	}
 }

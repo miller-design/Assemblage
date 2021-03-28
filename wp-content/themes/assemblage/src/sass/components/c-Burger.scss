@@ -74,8 +74,14 @@
 		top: 11px;
 	}
 
-	.dark-state & {
+	.dark-state &,
+	.white-bg &,
+	.burger-menu-active & {
 		background-color: $c-black;
+	}
+
+	.header-is-pinned & {
+		background-color: $c-black !important;
 	}
 }
 

@@ -80,6 +80,25 @@ class Journal {
 				)
 			)
 		);
+
+		register_taxonomy(
+			'tags',
+			self::PostType,
+			array(
+				'singular_name' => 'Tag Group',
+				'name' => 'Tag Group',
+				'all_items' => 'Tag Groups',
+				'label' => 'Tag Group',
+				'public' => true,
+				'show_ui' => true,
+				'hierarchical' => false,
+				'show_admin_column' => true,
+				'show_in_rest' => true,
+				'rewrite' => array(
+					'slug' => 'tag-group',
+				)
+			)
+		);
 	}
 
 	public static function hide_description_row() {
@@ -132,40 +151,20 @@ class Journal {
 		}
 	}
 
-
-	public static function get_post_topic($post_id) {
-
-		$topic_tax = wp_get_object_terms($post_id, 'topic');
-		$output = '';
-
-		if (!empty($topic_tax)) {
-
-			foreach ($topic_tax as $topic) {
-
-				$output .= $topic->name;
-
-			}
-
-			return $output;
-		}
-	}
-
-
 	public static function get_post_term($post_id, $tax) {
 
 		$issues_tax = wp_get_object_terms($post_id, $tax);
 
-		$output = [
-			"link" => '',
-			"name" => '',
-		];
+		$output = [];
 
 		if (!empty($issues_tax)) {
 
 			foreach ($issues_tax as $issue) {
 
-				$output['link'] = get_term_link($issue);
-				$output['name'] = $issue->name;
+				$output[] = [
+					'link' =>  get_term_link($issue),
+					'name' => $issue->name,
+				];
 
 			}
 
@@ -190,7 +189,7 @@ class Journal {
 
 
 	/* ================================================================
-	 	Social Media Share Links
+	 	Next post Link
 	================================================================ */
 
 	public static function get_next_story($postID) {
@@ -200,11 +199,46 @@ class Journal {
 			"header" 	=> get_the_title($postID),
 			"text" 		=> mb_strimwidth(get_field('article_excerpt', $postID), 0, 100, "..."),
 			"link" 		=> get_permalink($postID),
-			"issue"		=> Self::get_post_term(get_the_id(), 'issues'),
-			"tax"			=> Self::get_post_term(get_the_id(), 'topic'),
+			"issue"		=> Self::get_post_term(get_the_id(), 'issues')[0],
+			"tax"			=> Self::get_post_term(get_the_id(), 'topic')[0],
 		];
 
 		NextPost::add_options($options)->render();
 
+	}
+
+
+	/* ================================================================
+	 	End of article layout
+	================================================================ */
+
+	public static function add_article_end_section($postID, $alignment) {
+
+		$issue = Self::get_post_term($postID, 'issues')[0];
+		$tags = Self::get_post_term($postID, 'tags');
+		$max_tags = count($tags);
+		$count_value = 0;
+
+		echo '<div class="[ l-ArticleEnd ' . $alignment . ' ]">';
+			echo '<div class="[ l-ArticleEnd__inner ]">';
+				echo '<div class="[ l-ArticleEnd__col ]">';
+					echo '<div class="[ l-ArticleEnd__top ]">';
+						echo '<p class="[ l-ArticleEnd__share-label ]">Share Article:</p>';
+						Self::share_buttons($postID);
+					echo '</div>';
+					echo '<div class="[ l-ArticleEnd__bottom ]">';
+						echo '<p class="[ l-ArticleEnd__more-label ]">View More:</p>';
+						echo '<ul class="[ l-ArticleEnd__more-list ]">';
+							echo '<li><a href="' . $issue['link'] . '">Issue ' . $issue['name'] . ',</a></li>';
+							foreach ($tags as $tag) {
+								$comma = ($count_value < ($max_tags - 1)) ? ' ,' : ''; // want it to finish before last <li>
+								echo '<li><a href="' . $tag['link'] . '">' . $tag['name'] . $comma .'</a></li>';
+								$count_value ++;
+							}
+						echo '</ul>';
+					echo '</div>';
+				echo '</div>';
+			echo '</div>';
+		echo '</div>';
 	}
 }

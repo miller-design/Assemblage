@@ -70,11 +70,11 @@ class TwoUpImages {
 					<?= $this->options["image_left"]; ?>
 					<div class="[ c-TwoUpImages__captions ]">
 						<?= $this->options["caption_left"]; ?>
-						<?= $this->options["caption_right"]; ?>
 					</div>
 				</div>
 				<div class="[ c-TwoUpImages__right ]">
 					<?= $this->options["image_right"]; ?>
+					<?= $this->options["caption_right"]; ?>
 				</div>
 			</div>
 		</div><?php

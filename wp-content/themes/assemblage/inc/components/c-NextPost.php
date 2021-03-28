@@ -62,14 +62,14 @@ class NextPost {
 		<div class="[ c-NextPost ]">
 			<div class="[ c-NextPost__inner ]">
 				<div class="[ c-NextPost__left ]">
-					<h5>Next Story</h5>
+					<h5 class="[ c-NextPost__label ]">Next Story</h5>
 				</div>
 				<div class="[ c-NextPost__right ]">
 					<div class="[ c-NextPost__image-wrap ]">
 						<?= $this->options['image']; ?>
 					</div>
 					<div class="[ c-NextPost__content-wrap ]">
-						<div class="[ c-NextPost__details ]">
+						<div class="[ c-NextPost__details-wrap ]">
 							<?= Self::$post_details; ?>
 						</div>
 						<div class="[ c-NextPost__info ]">

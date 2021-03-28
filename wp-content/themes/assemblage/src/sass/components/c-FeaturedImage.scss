@@ -8,6 +8,7 @@
 	display: flex;
 	flex-wrap: wrap;
 
+	@include v-spacing(margin-bottom, 60px, 200px);
 }
 
 .c-FeaturedImage__inner {
@@ -17,9 +18,19 @@
 .c-FeaturedImage--left {
 
 	@include grid-col-full-bleed;
+
+	@include media("<medium") {
+
+		@include grid-col-full-bleed("both");
+	}
 }
 
 .c-FeaturedImage--right {
 
 	@include grid-col-full-bleed("right");
+
+	@include media("<medium") {
+
+		@include grid-col-full-bleed("both");
+	}
 }

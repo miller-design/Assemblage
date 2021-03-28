@@ -40,11 +40,17 @@ class TopNav extends Component {
 
 	hideBar(currentScrollY) {
 
-    if(currentScrollY > 100 && global.scrollDirection === 'down') {
+    if(currentScrollY > window.innerHeight && global.scrollDirection === 'down') {
 			this.setState({isHidden: true})
     } else if (this.state.isHidden && global.scrollDirection === 'up') {
 			this.setState({isHidden: false})
     }
+
+		if(currentScrollY > (window.innerHeight + 100) && !document.body.classList.contains('header-is-pinned')) {
+			document.body.classList.add('header-is-pinned')
+		} else if(currentScrollY < window.innerHeight && document.body.classList.contains('header-is-pinned')) {
+			document.body.classList.remove('header-is-pinned')
+		}
   }
 }
 

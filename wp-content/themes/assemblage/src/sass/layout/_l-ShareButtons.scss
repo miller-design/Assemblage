@@ -1,0 +1,44 @@
+.l-ShareButtons {
+	width: 100%;
+	position: relative;
+
+	.l-ShareButtons__list {
+		width: 100%;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		align-content: center;
+		flex-wrap: wrap;
+		line-height: 1;
+
+		li {
+			margin-right: 12px;
+			display: flex;
+
+			a {
+				color: $c-black;
+				transition: 300ms opacity $standard-curve;
+
+				@media (hover: hover) {
+
+					&:hover {
+						opacity: 0.3;
+					}
+				}
+
+			}
+
+			svg {
+				width: 100%;
+				width: 20px;
+				height: 20px;
+				object-fit: contain;
+			}
+
+			&:first-child {
+				position: relative;
+				top: -1px;
+			}
+		}
+	}
+}

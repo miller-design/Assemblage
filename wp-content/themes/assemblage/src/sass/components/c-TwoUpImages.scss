@@ -5,12 +5,27 @@
 ========================================================================== */
 .c-TwoUpImages {
 	width: 100%;
-	background-color: #ff0;
+
+	@include v-spacing(margin-bottom, 60px, 180px);
 }
 
 .c-TwoUpImages__inner {
 
 	@include grid-container(true);
+}
+
+.c-TwoUpImages__caption {
+	width: 100%;
+	margin-top: 20px;
+
+	@include P3;
+}
+
+.c-TwoUpImages__left {
+
+	@include media("<medium") {
+		margin-bottom: 60px;
+	}
 }
 
 
@@ -26,12 +41,12 @@
 
 		@include media(">=medium") {
 
-			@include grid-col(1, 10);
+			@include grid-col(2, 10);
 		}
 
 		@include media(">=large") {
 
-			@include grid-col(1, 12);
+			@include grid-col(2, 12);
 		}
 	}
 
@@ -39,25 +54,22 @@
 
 		@include media(">=medium") {
 
-			@include grid-col(11, -1);
+			@include grid-col(12, 20);
 		}
 
 		@include media(">=large") {
 
-			@include grid-col(14, -1);
+			@include grid-col(14, 24);
 		}
 	}
 }
 
 .c-TwoUpImages--offset-images {
 
-	.c-TwoUpImages__left,
-	.c-TwoUpImages__right {
-
-		@include grid-col(1, -1);
-	}
 
 	.c-TwoUpImages__left {
+
+		@include grid-col(2, 8);
 
 		@include media(">=medium") {
 
@@ -66,6 +78,18 @@
 	}
 
 	.c-TwoUpImages__right {
+
+		@include grid-col(1, -1);
+
+		@include media("<medium") {
+
+			@include grid-col-full-bleed("both");
+
+			.c-TwoUpImages__caption {
+				padding-left: var(--site-margin);
+				padding-right: var(--site-margin);
+			}
+		}
 
 		@include media(">=medium") {
 

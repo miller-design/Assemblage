@@ -8,6 +8,7 @@
 
 // npm packeges style sheets
 @import "~slim-select/dist/slimselect.min.css";
+@import "~video.js/dist/video-js.min.css";
 //@import "~flickity/dist/flickity.css"; 	// uif referencig node_modules, use the ~ as shown
 
 
@@ -23,6 +24,11 @@
 @import "layout/l-2Col";
 @import "layout/l-4Col";
 @import "layout/l-FeaturedLoop";
+@import "layout/l-ShareButtons";
+@import "layout/l-LargeStatement";
+@import "layout/l-Discoveries";
+@import "layout/l-ArticleEnd";
+@import "layout/l-LargeQuote";
 
 
 /* ============================================================================================

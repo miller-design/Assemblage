@@ -6,47 +6,237 @@
 .c-ArticleSplitHeader {
 	width: 100%;
 	position: relative;
-	background-color: rgb(255, 102, 0);
 
 	@include grid-col-full-bleed("both");
+	@include v-spacing(margin-bottom, 60px, 120px);
 }
 
 .c-ArticleSplitHeader__inner {
-
-	@include grid-container(true);
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
 }
 
 .c-ArticleSplitHeader__image,
-.c-ArticleSplitHeader__content {
+.c-ArticleSplitHeader__right {
 
-	@include grid-col(1, -1);
+	width: 100%;
 
 	@include media(">=medium") {
 
-		@include grid-col(span, 10);
-	}
-
-	@include media(">=large") {
-
-		@include grid-col(span, 12);
+		width: 50%;
 	}
 }
 
-.c-ArticleSplitHeader__content {
+.c-ArticleSplitHeader__image {
+	height: 100%;
+	max-height: 100vh;
+	overflow: hidden;
+	position: sticky;
+	top: 0;
+
+	@include media("<medium") {
+		height: 50vh;
+		position: relative;
+		overflow: hidden;
+		max-height: 450px;
+	}
+
+	@include media(">=medium") {
+		min-height: 650px;
+	}
+
+	> div {
+		height: 100%;
+
+		@include media("<=medium") {
+			width: 100%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+
+	img {
+		height: 100%;
+		object-fit: cover;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		@include media("<medium") {
+			max-height: 450px;
+		}
+
+		@include media(">=medium") {
+			min-height: 650px;
+		}
+	}
+}
+
+.c-ArticleSplitHeader__right {
 	display: flex;
+	flex-wrap: wrap;
+}
+
+.c-ArticleSplitHeader__header-outer-wrapper {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 	position: relative;
-	width: calc(100% + #{var(--site-gutter)});
-	left: calc(#{var(--site-gutter)} * -1);
-	padding: var(--site-margin);
+	padding-left: var(--site-margin);
+	padding-right: var(--site-margin);
+
+	@include v-spacing(padding-top, 50px, 180px);
+	@include v-spacing(padding-bottom, 20px, 130px);
+
+	@include media("<medium") {
+		padding-bottom: 0;
+	}
+
+	@include media(">=medium") {
+		min-height: 100vh;
+	}
+
+}
+
+.c-ArticleSplitHeader__header {
+	width: 100%;
+	margin-bottom: 20px;
+
+	@include media("<medium") {
+		display: none;
+	}
+}
+
+.c-ArticleSplitHeader__header-mobile {
+	width: 100%;
+	padding-top: 105px;
+	margin-bottom: 60px;
+	padding-left: var(--site-margin);
+	padding-right: var(--site-margin);
+	text-align: center;
+
+	@include media(">=medium") {
+		display: none;
+	}
+}
+
+.c-ArticleSplitHeader__detail-wrap {
+	width: 100%;
+
+	@include media(">=medium") {
+		width: 80%;
+		margin: 0 auto;
+	}
+}
+
+.c-ArticleSplitHeader__details {
+	width: 100%;
+	text-transform: uppercase;
+
+	@include P3;
+
+	.dot {
+
+		@include dot;
+	}
+}
+
+.c-ArticleSplitHeader__excerpt {
+	width: 100%;
+	padding-top: 20px;
+
+	@include H5;
+}
+
+.c-ArticleSplitHeader__additional-content {
+	width: 100%;
+
+	@include media(">=medium") {
+		display: grid;
+		grid-template-columns: repeat(9, 1fr);
+		column-gap: var(--site-gutter);
+		box-sizing: border-box;
+	}
+}
+
+.c-ArticleSplitHeader__additional-content-text {
+	width: 100%;
+
+	@include media("<medium") {
+		padding-left: var(--site-margin);
+		padding-right: var(--site-margin);
+	}
+
+	@include media(">=medium") {
+
+		@include grid-col(2, 9);
+	}
+
+	> p {
+
+		@include P1;
+
+		&:not(:nth-child(1)) {
+			text-indent: 8%;
+		}
+	}
+}
+
+.c-ArticleSplitHeader--reversed {
+
+	.c-ArticleSplitHeader__right {
+
+		@include media(">=medium") {
+			order: 1;
+		}
+	}
+
+	.c-ArticleSplitHeader__image {
+
+		@include media(">=medium") {
+			order: 2;
+		}
+	}
 }
 
 .c-ArticleSplitHeader--with-excerpt {
 
-	.c-ArticleSplitHeader__content {
+	.c-ArticleSplitHeader__right {
 		flex-direction: column;
 		justify-content: space-between;
+	}
+
+	.c-ArticleSplitHeader__header-outer-wrapper {
+		align-content: space-between;
+	}
+}
+
+.c-ArticleSplitHeader--no-margin {
+	margin-bottom: 0;
+}
+
+.c-ArticleSplitHeader--serif {
+
+	.c-ArticleSplitHeader__header,
+	.c-ArticleSplitHeader__header-mobile {
+
+		@include H2;
+	}
+}
+
+.c-ArticleSplitHeader--sans-serif {
+
+	.c-ArticleSplitHeader__header,
+	.c-ArticleSplitHeader__header-mobile {
+
+		@include H2(false);
 	}
 }

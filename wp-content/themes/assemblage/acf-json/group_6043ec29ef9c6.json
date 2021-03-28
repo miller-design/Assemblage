@@ -194,7 +194,6 @@
             "choices": {
                 "half-screen-v1": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/half-screen-v1.svg'>",
                 "half-screen-v2": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/half-screen-v2.svg'>",
-                "half-screen-v3": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/half-screen-v3.svg'>",
                 "interview": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/interview.svg'>",
                 "full-screen": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/full-screen.svg'>",
                 "video": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/video.svg'>"
@@ -207,10 +206,44 @@
             "save_other_choice": 0
         },
         {
+            "key": "field_605a431fa6125",
+            "label": "Flip Layout Direction",
+            "name": "flip_layout_direction",
+            "type": "true_false",
+            "instructions": "set to Yes if you would like to reverse the header direction",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_604913d5f9e36",
+                        "operator": "==",
+                        "value": "half-screen-v1"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_604913d5f9e36",
+                        "operator": "==",
+                        "value": "half-screen-v2"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No"
+        },
+        {
             "key": "field_6049145ff9e39",
             "label": "Background Colour",
             "name": "background_colour",
-            "type": "color_picker",
+            "type": "component_field",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
@@ -219,6 +252,11 @@
                         "field": "field_604913d5f9e36",
                         "operator": "==",
                         "value": "interview"
+                    },
+                    {
+                        "field": "field_6051ab84055d5",
+                        "operator": "!=",
+                        "value": "name-only"
                     }
                 ],
                 [
@@ -234,7 +272,47 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": ""
+            "field_group_key": "group_605ae688f03ab",
+            "repeatable": 0,
+            "layout": "block",
+            "button_label": "",
+            "appearances": "",
+            "min": null,
+            "max": null,
+            "collapsed": "",
+            "sub_fields": []
+        },
+        {
+            "key": "field_605b920448405",
+            "label": "Have Black Background",
+            "name": "have_black_background",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_604913d5f9e36",
+                        "operator": "==",
+                        "value": "interview"
+                    },
+                    {
+                        "field": "field_6051ab84055d5",
+                        "operator": "==",
+                        "value": "name-only"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No"
         },
         {
             "key": "field_6051ab84055d5",
@@ -1307,5 +1385,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1615967006
+    "modified": 1616614173
 }

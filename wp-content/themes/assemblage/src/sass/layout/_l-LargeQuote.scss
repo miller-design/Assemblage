@@ -1,0 +1,28 @@
+.l-LargeQuote {
+	width: 100%;
+
+	@include v-spacing(margin-bottom, 60px, 120px);
+}
+
+.l-LargeQuote__inner {
+
+	@include grid-container(true);
+}
+
+.l-LargeQuote__text {
+	text-indent: 40px;
+
+	@include H4;
+	@include grid-col(1, -1);
+
+	@include media(">=medium") {
+		text-indent: 80px;
+
+		@include grid-col(2, 19);
+	}
+
+	@include media(">=large") {
+
+		@include grid-col(2, 18);
+	}
+}

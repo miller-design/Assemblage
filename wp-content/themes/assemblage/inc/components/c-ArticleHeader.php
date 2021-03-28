@@ -30,6 +30,8 @@ class ArticleHeader {
 			"header_type"				=> '',
 			"video_src"					=> '',
 			"background_colour" => '',
+			"type_style"				=> '',
+			"text_alignment"		=> '',
 			"classes"						=> '',
 		);
 
@@ -48,6 +50,33 @@ class ArticleHeader {
 					break;
 			}
 		}
+
+		if($this->options['type_style']) {
+			switch($this->options['type_style']) {
+				case 'serif':
+					$this->options['classes'] .= 'c-ArticleHeader--serif ';
+					break;
+				case 'sans-serif':
+					$this->options['classes'] .= 'c-ArticleHeader--sans-serif ';
+					break;
+			}
+		}
+
+		if($this->options['text_alignment']) {
+			switch($this->options['text_alignment']) {
+				case 'left':
+					$this->options['classes'] .= 'c-ArticleHeader--text-left ';
+					break;
+				case 'center':
+					$this->options['classes'] .= 'c-ArticleHeader--text-center ';
+					break;
+			}
+		}
+
+		if($this->options["background_colour"]) {
+			$this->options['classes'] .= ($this->options["background_colour"]['label'] === 'Black') ? 'c-ArticleHeader--white-text ' : 'c-ArticleHeader--black-text ';
+			$this->options["background_colour"] = $this->options["background_colour"]['value'];
+		}
 	}
 
 	public static function add_options($custom_options = array()) {
@@ -59,13 +88,14 @@ class ArticleHeader {
 
 		$output = '';
 
-		$output .= LazyImage::get_image($options['image'], 100, 'c-ArticleHeader__image-bg');
-		$output .= '<div class="[ c-ArticleHeader__content ]">';
-			$output .= '<p class="[ c-ArticleHeader__header ]">';
-				$output .= '<span class="[ c-ArticleHeader__header-highlight ]">' . $options['term']['name'] . ': </span>';
-				$output .= $options['header_text'];
-			$output .= '</p>';
-			$output .= '<p class="[ c-ArticleHeader__details ]">' . $options['term']['name'] . ', Issue ' . $options['issue_number']['name'] . '</p>';
+		$output .= '<div class="[ c-ArticleHeader__image-wrap ]">';
+			$output .= LazyImage::get_image($options['image'], 100, 'c-ArticleHeader__image-bg', true, false);
+		$output .= '</div>';
+		$output .= '<div class="[ c-ArticleHeader__inner ]">';
+			$output .= '<div class="[ c-ArticleHeader__content ]">';
+				$output .= '<p class="[ c-ArticleHeader__header ]">' . $options['header_text'] . '</p>';
+				$output .= '<p class="[ c-ArticleHeader__details ]">Issue ' . $options['issue_number']['name'] . '&nbsp;&nbsp;<span class="dot"></span>&nbsp;&nbsp;' . $options['read_time'] . '</p>';
+			$output .= '</div>';
 		$output .= '</div>';
 
 		return $output;
@@ -80,12 +110,14 @@ class ArticleHeader {
 		];
 
 		$output = '';
-		$output .= '<div class="[ c-ArticleHeader__content ]">';
-			$output .= '<p class="[ c-ArticleHeader__header ]">' . $options['header_text'] . '</p>';
-			$output .= '<p class="[ c-ArticleHeader__details ]">' . $options['term']['name'] . ', Issue ' . $options['issue_number']['name'] . '</p>';
-		$output .= '</div>';
-		$output .= '<div class="[ c-ArticleHeader__video ]">';
-			$output .= Video::add_options($vid_options)->render();
+		$output .= '<div class="[ c-ArticleHeader__inner ]">';
+			$output .= '<div class="[ c-ArticleHeader__content ]">';
+				$output .= '<p class="[ c-ArticleHeader__header ]">' . $options['header_text'] . '</p>';
+				$output .= '<p class="[ c-ArticleHeader__details ]">Issue ' . $options['issue_number']['name'] . '&nbsp;&nbsp;<span class="dot"></span>&nbsp;&nbsp;Video [<span class="[ js-video-duration ]"></span>]</p>';
+			$output .= '</div>';
+			$output .= '<div class="[ c-ArticleHeader__video ]">';
+				$output .= Video::add_options($vid_options)->render();
+			$output .= '</div>';
 		$output .= '</div>';
 
 		return $output;
@@ -93,10 +125,8 @@ class ArticleHeader {
 
 	public function render() { ?>
 
-		<div class="[ c-ArticleHeader <?= $this->options['classes']; ?> ]" style="background-color: <?= $this->options['background_colour']; ?>;">
-			<div class="[ c-ArticleHeader__inner ]">
-				<?= Self::$header; ?>
-			</div>
+		<div class="[ c-ArticleHeader <?= $this->options['classes']; ?> ]" style="--bg-color: <?= $this->options['background_colour']; ?>;">
+			<?= Self::$header; ?>
 		</div><?php
 	}
 }

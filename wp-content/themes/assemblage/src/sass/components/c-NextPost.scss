@@ -3,3 +3,138 @@
 /* ==========================================================================
 	Next Post Component
 ========================================================================== */
+.c-NextPost {
+	width: 100%;
+	background-color: $c-white;
+
+	@include grid-col-full-bleed("both");
+	@include v-spacing(padding-top, 30px, 50px);
+	@include v-spacing(padding-bottom, 60px, 60px);
+}
+
+.c-NextPost__inner {
+
+	@include grid-container(false);
+}
+
+.c-NextPost__left {
+	display: flex;
+
+	@include grid-col(1, -1);
+
+	@include media(">=medium") {
+
+		@include grid-col(1, 7);
+	}
+
+	@include media(">=large") {
+
+		@include grid-col(1, 7);
+	}
+}
+
+.c-NextPost__right {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: flex-start;
+
+	@include grid-col(1, -1);
+
+	@include media("<small") {
+		flex-wrap: wrap;
+	}
+
+	@include media(">=medium") {
+
+		@include grid-col(8, 18);
+	}
+
+	@include media(">=large") {
+
+		@include grid-col(7, 19);
+	}
+}
+
+.c-NextPost__label {
+	width: 100%;
+	text-transform: capitalize;
+	margin: 0;
+
+	@include H4(false);
+
+	@include media("<medium") {
+		margin-bottom: 25px;
+	}
+}
+
+.c-NextPost__image-wrap {
+	width: 100%;
+
+	@include media(">=medium") {
+		width: 40%;
+	}
+
+	@include media(">=large") {
+		width: 30%;
+	}
+}
+
+.c-NextPost__content-wrap {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-left: var(--site-gutter);
+
+	@include media("<small") {
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		align-content: flex-start;
+		justify-content: space-between;
+		margin-left: 0;
+		margin-top: var(--site-gutter);
+	}
+
+	@include media(">=medium") {
+		width: 60%;
+	}
+
+	@include media(">=large") {
+		width: 70%;
+	}
+}
+
+.c-NextPost__details {
+	text-transform: uppercase;
+
+	@include P3;
+
+	@include media("<small") {
+		margin-bottom: 25px;
+	}
+}
+
+.c-NextPost__header {
+
+	@include H5;
+}
+
+.c-NextPost__text {
+
+	@include P1;
+	@include v-spacing(margin-bottom, 15px, 30px);
+}
+
+.c-NextPost__link {
+
+	@include pill;
+
+	@include media("<small") {
+		width: 100%;
+		display: flex;
+		text-align: center;
+		justify-content: center;
+	}
+}

@@ -54,7 +54,6 @@
 
 	@if ($direction == "both") {
 		left: calc(#{var(--site-margin)} * -1);
-		right: calc(#{var(--site-margin)} * -1);
 		width: calc(100% + (#{var(--site-margin)} * 2));
 	}
 }

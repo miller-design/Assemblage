@@ -68,11 +68,19 @@
 
 .c-BurgerNav__top {
 	padding-top: 115px;
+
+	@include media("<small") {
+		padding-top: 80px;
+	}
 }
 
 .c-BurgerNav__bottom {
 	padding-top: 70px;
 	padding-bottom: 70px;
+
+	@include media("<small") {
+		padding-bottom: 20px;
+	}
 }
 
 .c-BurgerMenu__main,
@@ -93,7 +101,8 @@
 	width: initial;
 	display: flex;
 	overflow: hidden;
-	font-size: 100px;
+
+	@include H1(false);
 	line-height: 1;
 
 	> a {
@@ -118,8 +127,8 @@
 }
 
 .c-BurgerMenu__secondary-item {
-	font-size: 20px;
-	line-height: 1.2;
+
+	@include P1;
 
 	> a {
 		text-decoration: none;

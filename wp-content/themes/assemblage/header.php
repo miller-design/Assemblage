@@ -3,7 +3,7 @@
 
 Designed by Joe Small
 https://cargocollective.com/joesmall
-Developed By Miller Design
+Developed By Jack Miller
 https://jackmiller.design/
 
 -->
@@ -16,8 +16,21 @@ https://jackmiller.design/
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 		<?php wp_head(); ?>
 	</head>
+	<?php $headerClass = '';
+	if(is_singular('journal')) {
+		if(get_field('have_black_background', get_the_id()) === false && get_field('spotlight_style', get_the_id()) === 'name-only') {
+			$headerClass = 'white-bg';
+		} else if(get_field('have_black_background', get_the_id()) === true && get_field('spotlight_style', get_the_id()) === 'name-only') {
+			$headerClass = 'black-bg';
+		} else if(get_field('journal_header') === 'full-screen' || get_field('journal_header',  get_the_id()) === 'video' && get_field('background_colour', get_the_id())[0]['colours']['label'] === 'Black') {
+			// want to keep header white
+			$headerClass = '';
+		} else {
+			$headerClass = 'dark-state';
+		}
+	} ?>
 
-	<body <?php body_class('dark-state'); ?> g-component="BaseTheme"><?php
+	<body <?php body_class([$headerClass]); ?> g-component="BaseTheme"><?php
 
 		$burger_tertiary_pages = [
 			[

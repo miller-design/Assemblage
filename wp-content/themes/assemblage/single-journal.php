@@ -1,75 +1,105 @@
-<?php get_header(); ?>
+<?php get_header();
+
+	if(get_field('journal_header')) {
+
+		$options = [
+			"header_text" 		=> get_the_title(get_the_id()),
+			"excerpt" 				=> get_field('article_excerpt', get_the_id()),
+			"issue_number"		=> Journal::get_post_term(get_the_id(), 'issues')[0],
+			"term"						=> Journal::get_post_term(get_the_id(), 'topic')[0],
+			"read_time"				=> Journal::estimated_reading_time(get_the_id(), true),
+			"header_type"			=> get_field('journal_header', get_the_id()),
+			"type_style"			=> get_field('typography_style', get_the_id())
+		];
+
+		if(get_field('journal_header') === 'half-screen-v1' || get_field('journal_header') === 'half-screen-v2') {
+			$options["additional_text"] = get_field('header_blocks');
+			$options["image"] = get_field('featured_image_square', get_the_id());
+			$options["flip_layout"] = get_field('flip_layout_direction');
+			ArticleSplitHeader::add_options($options)->render();
+		} else if(get_field('journal_header') === 'full-screen' || get_field('journal_header') === 'video') {
+			$options["background_colour"] = get_field('background_colour')[0]['colours'];
+			$options["image"] = get_field('featured_image', get_the_id());
+			$options["video_src"] = get_field('video_src', get_the_id());
+			$options['text_alignment'] = get_field('text_align', get_the_id());
+			ArticleHeader::add_options($options)->render();
+		} else if(get_field('journal_header') === 'interview') {
+			$options["image"] = get_field('featured_image_portrait', get_the_id());
+			$options["header_style"] = get_field('spotlight_style', get_the_id());
+			$options["first_name"] = get_field('first_name', get_the_id());
+			$options["last_name"] = get_field('last_name', get_the_id());
+
+			if(get_field('have_black_background') === true && get_field('spotlight_style', get_the_id()) === 'name-only') {
+				$options["background_colour"] = [
+					"label" => 'Black',
+					"value" => "#1d1d1b",
+				];
+			} else if(get_field('have_black_background', get_the_id()) === false && get_field('spotlight_style', get_the_id()) === 'name-only') {
+
+			} else {
+				$options["background_colour"] = get_field('background_colour')[0]['colours'];
+			}
+			InterviewHeader::add_options($options)->render();
+		}
+
+	} ?>
 
 	<article class="[ l-JournalSingle ]"><?php
 
-		if(get_field('journal_header')) { ?>
-			<div class="[ l-JournalSingle__section ]"><?php
-
-				$options = [
-					"header_text" 		=> get_the_title(get_the_id()),
-					"excerpt" 				=> get_field('article_excerpt', get_the_id()),
-					"issue_number"		=> Journal::get_post_term(get_the_id(), 'issues'),
-					"term"						=> Journal::get_post_term(get_the_id(), 'topic'),
-					"read_time"				=> Journal::estimated_reading_time(get_the_id(), true),
-					"header_type"			=> get_field('journal_header'),
-				];
-
-				if(get_field('journal_header') === 'half-screen-v1' || get_field('journal_header') === 'half-screen-v2' || get_field('journal_header') === 'half-screen-v3') {
-					$options["additional_text"] = get_field('header_blocks');
-					$options["image"] = get_field('featured_image_square', get_the_id());
-					ArticleSplitHeader::add_options($options)->render();
-				} else if(get_field('journal_header') === 'full-screen' || get_field('journal_header') === 'video') {
-					$options["background_colour"] = get_field('background_colour');
-					$options["image"] = get_field('featured_image', get_the_id());
-					$options["video_src"] = get_field('video_src', get_the_id());
-					ArticleHeader::add_options($options)->render();
-				} else if(get_field('journal_header') === 'interview') {
-					$options["background_colour"] = get_field('background_colour');
-					$options["image"] = get_field('featured_image_portrait', get_the_id());
-					$options["header_style"] = get_field('spotlight_style', get_the_id());
-					InterviewHeader::add_options($options)->render();
-				} ?>
-			</div><?php
-
-		}
-
 		// Check value exists.
 		if( have_rows('modules', get_the_id())):
+
+			// checking for the last block so we can out put the share list and term values
+			// needs to be done inside the row, so check for if row index is equal to total count
+			$end_block = end(get_field('modules', get_the_id()));
+			$block_total_count = count(get_field('modules', get_the_id()));
+			$end_block_name = $end_block['acf_fc_layout'];
+			$end_block_alignment = $end_block['block_alignment'];
+			if(empty($end_block_alignment)) {
+				$end_block_alignment = 'full';
+			}
+
 			// Loop through rows.
 			while ( have_rows('modules', get_the_id()) ) : the_row();
 					// Case: Paragraph Block.
 					if( get_row_layout() == 'paragraph_blocks' ):
+
+						// d($end_block_name === 'paragraph_blocks', 0);
 						$side_bar_options = get_sub_field('side_bar_options');
 						$block_alignment = (get_sub_field('block_alignment') === 'right') ? 'l-ParagraphBlocks--right' : 'l-ParagraphBlocks--left';
 						$credit_list = get_field('credit_list');
 						$caption_download = get_sub_field('captions_and_downloads');
 						$quote_text = get_sub_field('quote_text');
 						$image = LazyImage::get_image(get_sub_field('image'), 'l-ParagraphBlocks__sidebar-image');
-						$blocks = get_sub_field('blocks'); ?>
+						$blocks = get_sub_field('blocks');
+						$sidebar_class = (empty($side_bar_options)) ? 'no-content' : '';
+						$block_alignment .= (!empty(get_field('header_blocks'))) ? ' l-ParagraphBlocks--indent-first' : ''; ?>
 
 						<div class="[ l-ParagraphBlocks <?= $block_alignment; ?> ]">
 							<div class="[ l-ParagraphBlocks__inner ]">
-								<div class="[ l-ParagraphBlocks__col-left ]"><?php
+								<div class="[ l-ParagraphBlocks__col-left <?= $sidebar_class; ?> ]"><?php
 									if($side_bar_options === 'v1') {
 										// article details
-										$issue_number = Journal::get_post_term(get_the_id(), 'issues');
+										$issue_number = Journal::get_post_term(get_the_id(), 'issues')[0];
 										$read_time = Journal::estimated_reading_time(get_the_id(), true);
 
 										echo '<div class="[ l-ParagraphBlocks__article-details ]">';
-											echo '<p class="[ l-ParagraphBlocks__downloads-text ]">Issue ' . $issue_number['name'] . ' • ' . $read_time . '</p>';
-											echo '<ul>';
-												foreach($credit_list as $credit) {
-													echo '<li class="[ l-ParagraphBlocks__download-link ]">';
-														Credit::add_acf($credit['credit'][0])->render();
-													echo '</li>';
-												}
-											echo '</ul>';
+											echo '<div class="[ l-ParagraphBlocks__article-details-wrap ]">';
+												echo '<p class="[ l-ParagraphBlocks__details-text ]">Issue ' . $issue_number['name'] . '&nbsp;&nbsp;<span class="dot"></span>&nbsp;&nbsp;' . $read_time . '</p>';
+												echo '<ul>';
+													foreach($credit_list as $credit) {
+														echo '<li class="[ l-ParagraphBlocks__credit-list ]">';
+															Credit::add_acf($credit['credit'][0])->render();
+														echo '</li>';
+													}
+												echo '</ul>';
+											echo '</div>';
 											Journal::share_buttons(get_the_id());
 										echo '</div>';
 
 									} else if($side_bar_options === 'v2') {
 										// caption and download
-										echo '<div class="[ l-ParagraphBlocks__downloads ]">';
+										echo '<div class="[ l-ParagraphBlocks__downloads-wrap ]">';
 											echo '<p class="[ l-ParagraphBlocks__downloads-text ]">' . $caption_download['text'] . '</p>';
 											if(!empty($caption_download['downloads'])) {
 												echo '<ul class="[ l-ParagraphBlocks__downloads ]">';
@@ -87,7 +117,7 @@
 										echo $image;
 									} else if($side_bar_options === 'v4') {
 										// quote
-										echo '<p class="[ l-ParagraphBlocks__sidebar-quote ]">' . $quote_text . '</p>';
+										echo '<p class="[ l-ParagraphBlocks__sidebar-quote ]"><q>' . $quote_text . '</q></p>';
 									} ?>
 								</div>
 								<div class="[ l-ParagraphBlocks__col-right ]"><?php
@@ -99,9 +129,10 @@
 
 										} else if($block['acf_fc_layout'] === 'large_text') {
 
-											$classes = ($block['quote'] === true) ? 'l-ParagraphBlocks--quote ' : '';
+											$quote_open = ($block['quote'] === true) ? '<q>' : '';
+											$quote_close = ($block['quote'] === true) ? '</q>' : '';
 											$classes .= ($block['align_text_center'] === true) ? 'l-ParagraphBlocks--text-center ' : '';
-											echo '<p class="[ l-ParagraphBlocks__large-text ' . $alignment . ']">' . $block['text_area'] . '</p>';
+											echo '<p class="[ l-ParagraphBlocks__large-text ' . $classes . ']">' . $quote_open . $block['text_area'] . $quote_close .'</p>';
 
 										} else if($block['acf_fc_layout'] === 'interview_paragraph') {
 
@@ -111,6 +142,9 @@
 									} ?>
 								</div>
 							</div>
+							<?php if(get_row_index() === $block_total_count) {
+								Journal::add_article_end_section(get_the_id(), $end_block_alignment);
+							} ?>
 						</div><?php
 
 					// Case: Large Text Block.
@@ -124,10 +158,10 @@
 
 					// Case: Large Quote Block.
 					elseif( get_row_layout() == 'large_quote_block' ):
-						$quote = get_sub_field('file');
+						$quote = get_sub_field('text');
 						echo '<div class="[ l-LargeQuote ]">';
 							echo '<div class="[ l-LargeQuote__inner ]">';
-								echo '<p class="[ l-LargeQuote__text ]">' . $quote . '</p>';
+								echo '<p class="[ l-LargeQuote__text ]"><q>' . $quote . '</q></p>';
 							echo '</div>';
 						echo '</div>';
 
@@ -146,29 +180,36 @@
 						$discovery_layout = get_sub_field('discovery_layout');
 						$discovery_items = get_sub_field('discoveries');
 						$discovery_class = ($discovery_layout === 'list') ? 'l-Discoveries--list' : 'l-Discoveries--grid';
+						$dicovery_section = (get_row_index() === 1) ? 'first-on-page' : '';
 						$i = 1;
 
-						echo '<div class="[ l-Discoveries ' . $discovery_class . ' ]">';
-							echo '<div class="[ l-Discoveries__inner ]">';
-								if(!empty($discovery_items)) {
-									echo '<ul class="[ l-Discoveries__items ]">';
-										foreach($discovery_items as $discover) {
-											echo '<li class="[ l-Discoveries__item ]">';
-												echo '<div class="[ l-Discoveries__item-top ]">';
-													echo '<p class="[ l-Discoveries__item-name ]"><span>' . $i  . '</span>' . $discover['title'] . '</p>';
+						echo '<div class="[ l-Discoveries ' . $discovery_class . ' ' . $dicovery_section . ' ]">';
+							if(!empty($discovery_items)) {
+								echo '<ul class="[ l-Discoveries__items ]">';
+									foreach($discovery_items as $discover) {
+										echo '<li class="[ l-Discoveries__item ]">';
+											echo '<div class="[ l-Discoveries__item-top ]">';
+												echo '<p class="[ l-Discoveries__item-name ]"><span>' . $i  . '</span>' . $discover['title'] . '</p>';
+												echo '<div class="[ l-Discoveries__item-image-wrap ]">';
 													echo LazyImage::get_image($discover['image'], [20, 30, 50],'l-Discoveries__item-image');
 												echo '</div>';
-												echo '<div class="[ l-Discoveries__item-bottom ]">';
-													echo '<p class="[ l-Discoveries__item-name ]">' . $discover['content'] . '</p>';
-													echo '<p>Shop Now <a href="' . $discover['link']. '">' . $discover['link_text'] . '</a></p>';
-												echo '</div>';
-											echo '</li>';
-											$i++;
-										}
-									echo '</ul>';
-								}
-							echo '</div>';
+											echo '</div>';
+											echo '<div class="[ l-Discoveries__item-bottom ]">';
+												echo '<p class="[ l-Discoveries__item-text ]">' . $discover['content'] . '</p>';
+												echo '<p class="[ l-Discoveries__item-link ]">Shop Now <a href="' . $discover['link']. '">' . $discover['link_text'] . '</a></p>';
+											echo '</div>';
+										echo '</li>';
+										$i++;
+									}
+								echo '</ul>';
+							}
 						echo '</div>';
+
+						if(get_row_index() === $block_total_count) {
+							Journal::add_article_end_section(get_the_id(), $end_block_alignment);
+						} ?><?php
+
+
 
 					endif;
 			// End loop.

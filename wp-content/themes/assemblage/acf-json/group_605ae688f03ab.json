@@ -1,0 +1,54 @@
+{
+    "key": "group_605ae688f03ab",
+    "title": "Background Swatches",
+    "fields": [
+        {
+            "key": "field_605ae690276db",
+            "label": "Colours",
+            "name": "colours",
+            "type": "swatch",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "#0079a3": "Blue",
+                "#e66c37": "Orange",
+                "#f7ca46": "Yellow",
+                "#459967": "Green",
+                "#ffffff": "White",
+                "#1d1d1b": "Black",
+                "none": "Transparent"
+            },
+            "allow_null": 1,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "array",
+            "other_choice": 0,
+            "save_other_choice": 0
+        }
+    ],
+    "location": [],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "is_acf_component": 1,
+    "acf_component_defaults": {
+        "repeatable": "0",
+        "min": "",
+        "max": "",
+        "layout": "block",
+        "button_label": "",
+        "appearances": ""
+    },
+    "modified": 1616570400
+}

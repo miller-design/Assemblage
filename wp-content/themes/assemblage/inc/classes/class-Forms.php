@@ -18,4 +18,9 @@ class Forms {
 			<?php echo do_shortcode('[contact-form-7 id="51" title="Contact Form"]'); ?>
 		</div><?php
 	}
+
+	public static function output_email_signup_form() { ?>
+
+		<?php echo do_shortcode('[contact-form-7 id="289" title="Email Signup"]');
+	}
 }

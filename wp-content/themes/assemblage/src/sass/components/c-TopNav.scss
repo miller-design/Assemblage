@@ -12,10 +12,77 @@
 	padding-left: var(--site-margin);
 	padding-right: var(--site-margin);
 	transition:
-		300ms top linear,
-		300ms padding $standard-curve;
+		400ms top $standard-curve,
+		200ms background-color linear;
 
-	@include v-spacing(padding-top, $VSM1, $VSD2);
+	@include v-spacing(padding-top, $VSM2, $VSD2);
+
+	.white-bg & {
+		background-color: $c-white;
+
+		.c-TopNav__inner::after {
+			background-color: $c-black;
+		}
+
+		.c-TopNav__logo {
+			color: $c-black;
+		}
+
+		.c-TopNav__menu,
+		.c-TopNav__sub-menu {
+			color: $c-black;
+
+			a {
+				color: $c-black;
+			}
+		}
+	}
+
+	.black-bg & {
+		background-color: $c-black;
+
+		.c-TopNav__inner::after {
+			background-color: $c-white;
+		}
+
+		.c-TopNav__logo {
+			color: $c-white;
+		}
+
+		.c-TopNav__menu,
+		.c-TopNav__sub-menu {
+			color: $c-white;
+
+			a {
+				color: $c-white;
+			}
+		}
+	}
+
+	.burger-menu-active &,
+	.header-is-pinned & {
+		background-color: $c-white;
+		transition:
+			400ms top $standard-curve,
+			200ms background-color $standard-curve;
+
+		.c-TopNav__inner::after {
+			background-color: $c-black !important;
+		}
+
+		.c-TopNav__logo {
+			color: $c-black !important;
+		}
+
+		.c-TopNav__menu,
+		.c-TopNav__sub-menu {
+			color: $c-black !important;
+
+			a {
+				color: $c-black !important;
+			}
+		}
+	}
 }
 
 .c-TopNav__inner {
@@ -23,8 +90,29 @@
 	align-items: center;
 	align-content: center;
 	justify-content: space-between;
-	padding-bottom: 10px;
-	border-bottom: 1px solid $c-black;
+	position: relative;
+
+	@include v-spacing(padding-bottom, $VSM2, $VSD2);
+
+	&::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 1px;
+		background-color: $c-white;
+		transition: 500ms background-color $standard-curve;
+
+		@include media("<medium") {
+			left: calc(#{var(--site-margin)} * -1);
+			width: calc(100% + (#{var(--site-margin)} * 2));
+		}
+
+		.dark-state & {
+			background-color: $c-black;
+		}
+	}
 
 	.c-TopNav__left {
 		float: left;
@@ -32,8 +120,16 @@
 
 	.c-TopNav__center {
 		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
+
+		@include media("<medium") {
+			left: 0;
+		}
+
+		@include media(">=medium") {
+			top: -1px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
 	}
 
 	.c-TopNav__right {
@@ -46,6 +142,7 @@
 .c-TopNav__logo {
 	display: flex;
 	color: $c-white;
+	transition: 500ms color $standard-curve;
 
 	.dark-state & {
 		color: $c-black;
@@ -54,8 +151,8 @@
 	> svg {
 		display: flex;
 
-		@include v-spacing(width, 128px, 250px);
-		@include v-spacing(height, 12px, 20px);
+		@include v-spacing(width, 180px, 250px);
+		@include v-spacing(height, 15px, 20px);
 	}
 }
 
@@ -67,9 +164,9 @@
 		display: flex;
 		color: $c-white;
 		text-decoration: none;
+		transition: 500ms color $standard-curve;
 
-		@include P3;
-		font-size: 15px;
+		@include P2;
 
 		.dark-state & {
 			color: $c-black;
@@ -79,6 +176,7 @@
 	a {
 		color: $c-white;
 		text-decoration: none;
+		transition: 500ms color $standard-curve;
 
 		@include site-transition(opacity, 500ms);
 
@@ -110,47 +208,6 @@
 		@include v-spacing(padding-right, $VSM2, $VSD4);
 	}
 
-}
-
-.c-TopNav__search {
-	display: flex;
-	cursor: pointer;
-
-	@include site-transition(opacity, 500ms);
-
-	@media (hover: hover) {
-
-		&:hover {
-			opacity: 0.3;
-		}
-	}
-
-	span {
-		display: none;
-
-		@include media(">=medium") {
-			display: flex;
-			color: $c-white;
-			text-decoration: none;
-
-			@include P3;
-
-			.dark-state & {
-				color: $c-black;
-			}
-		}
-
-		a {
-			color: $c-white;
-			text-decoration: none;
-
-			@include P3;
-
-			.dark-state & {
-				color: $c-black;
-			}
-		}
-	}
 }
 
 // modifiers

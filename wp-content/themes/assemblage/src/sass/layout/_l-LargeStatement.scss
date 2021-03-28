@@ -1,0 +1,26 @@
+.l-LargeStatement {
+	width: 100%;
+
+	@include v-spacing(margin-bottom, 60px, 120px);
+}
+
+.l-LargeStatement__inner {
+
+	@include grid-container(true);
+}
+
+.l-LargeStatement__text {
+
+	@include H3;
+	@include grid-col(1, -1);
+
+	@include media(">=medium") {
+
+		@include grid-col(2, 20);
+	}
+
+	@include media(">=large") {
+
+		@include grid-col(2, 24);
+	}
+}

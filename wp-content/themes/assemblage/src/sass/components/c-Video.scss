@@ -15,92 +15,60 @@
 	position: relative;
 	overflow: hidden;
 	max-width: 100%;
-}
 
-/* elements */
-.video-js {
-	display: none;
-	width: 100%;
-	height: auto !important;
-
-	&.is-loaded {
-		display: block;
-	}
-
-	.vjs-poster {
-		background-size: cover;
-	}
-
-	video,
-	object,
-	embed {
+	.video-js {
+		display: none;
 		width: 100%;
-		display: flex;
-	}
+		height: auto !important;
 
-	video:focus {
-		outline: none;
-	}
+		&.is-loaded {
+			display: block;
+		}
 
-	.vjs-tech {
-		position: unset;
-		top: unset;
-		left: unset;
-		width: 100%;
-		height: auto;
-	}
+		.vjs-poster {
+			background-size: cover;
+		}
 
-	.vjs-big-play-button {
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-		border: 0;
-		width: 100%;
-		height: 100%;
-		background-color: rgba(29, 29, 27, 0.2);
+		video,
+		object,
+		embed {
+			width: 100%;
+			display: flex;
+		}
 
-		&::before {
-			top: 50%;
+		video:focus {
+			outline: none;
+		}
+
+		.vjs-tech {
+			object-fit: cover;
 		}
 	}
+}
 
-	.vjs-slider {
-		background-color: unset;
-	}
 
-	.vjs-big-play-button:focus {
-		background: transparent;
-	}
-
-	.vjs-control-bar {
-		visibility: hidden;
-	}
-
-	.vjs-slider:focus {
-		text-shadow: 0 0 0 $c-white;
-		box-shadow: 0 0 0 $c-white;
-	}
-
-	.vjs-load-progress {
-		background: $c-black;
-		mix-blend-mode: multiply;
-		opacity: 0.6;
-	}
-
-	.vjs-load-progress div {
-		display: none;
-	}
-
-	.vjs-resize-manager {
-		display: none;
-	}
+.c-Video__playIcon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 28px;
+	height: 30px;
+	color: $c-white;
+	cursor: pointer;
+	transition: 500ms opacity $standard-curve;
 
 	@media (hover: hover) {
 
-		&:hover .vjs-big-play-button {
-			background-color: rgba(29, 29, 27, 0.2);
+		&:hover {
+			opacity: 0.4;
 		}
 	}
+}
+
+.vjs-playing + .c-Video__playIcon {
+	opacity: 0;
+	pointer-events: none;
 }
 
 .c-Video__overlay {
@@ -130,17 +98,9 @@
 }
 
 /* stylelint-disable no-descending-specificity */
-.video-js .vjs-time-tooltip,
 .video-js .vjs-text-track-display,
 .video-js .vjs-loading-spinner,
-.video-js .vjs-big-play-button,
-.video-js .vjs-control-bar,
-.video-js .vjs-error-display,
-.video-js .vjs-modal-dialog,
-.video-js .vjs-progress-control:hover .vjs-progress-holder:focus .vjs-time-tooltip,
-.video-js .vjs-mouse-display,
-.video-js .vjs-control-bar .vjs-seek-to-live-control,
-.video-js .vjs-fullscreen-control {
+.video-js .vjs-big-play-button {
 	display: none !important;
 }
 

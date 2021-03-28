@@ -47,9 +47,11 @@ class BurgerMenu extends Component {
 
 			if(this.state.menuOpen) {
 				this.element.classList.add('is-active')
+				document.body.classList.add('burger-menu-active')
 				disablePageScroll(this.element)
 			} else {
 				this.element.classList.remove('is-active')
+				document.body.classList.remove('burger-menu-active')
 				enablePageScroll(this.element)
       }
 		}

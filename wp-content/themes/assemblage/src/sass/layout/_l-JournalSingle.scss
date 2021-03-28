@@ -4,6 +4,6 @@
 
 /* Blocks */
 .l-JournalSingle {
-	//
-	grid-column: 1/-1;
+
+	@include grid-col(1, -1);
 }

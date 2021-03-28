@@ -3,25 +3,23 @@
 ========================================================================== */
 
 @font-face {
-	font-family: FaktPro-Normal;
+	font-family: "NeueHaasUnicaW1GRegular";
 	font-style: normal;
 	font-display: fallback;
 	font-weight: 400;
 	src:
-		url(../fonts/fakPro/FaktPro-Normal.ttf) format("ttf"),
-		url(../fonts/fakPro/FaktPro-Normal.woff2) format("woff2"),
-		url(../fonts/fakPro/FaktPro-Normal.woff) format("woff");
+		url(../fonts/NeueHaasUnicaW1GRegular/NeueHaasUnicaW1GRegular.woff) format("woff"),
+		url(../fonts/NeueHaasUnicaW1GRegular/NeueHaasUnicaW1GRegular.woff2) format("woff2");
 }
 
 @font-face {
-	font-family: FaktPro-Blond;
+	font-family: RecklessNeue-Book;
 	font-style: normal;
 	font-display: fallback;
 	font-weight: 400;
 	src:
-		url(../fonts/fakPro/FaktPro-Blond.ttf) format("ttf"),
-		url(../fonts/fakPro/FaktPro-Blond.woff2) format("woff2"),
-		url(../fonts/fakPro/FaktPro-Blond.woff) format("woff");
+		url(../fonts/RecklessNeue-Book/RecklessNeue-Book.woff) format("woff"),
+		url(../fonts/RecklessNeue-Book/RecklessNeue-Book.woff2) format("woff2");
 }
 
 
@@ -35,6 +33,9 @@
 
 		@include site-get-var-loop("#{$breakpoint-key}");
 	}
+
+	/* @link https://utopia.fyi/type/calculator?c=320,50,1.067,1900,150,1.067,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+	--type-scale: clamp(3.13rem, 1.86rem + 6.33vw, 9.38rem);
 }
 
 

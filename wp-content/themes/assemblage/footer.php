@@ -36,7 +36,7 @@
 					<p class="[ l-Footer__statement ]"><?= get_field('footer_statement', 'options'); ?></p>
 				</div>
 				<div class="[ l-Footer__right ]">
-					<p>Contact Form</p>
+					<?php NewsletterSignup::add_options()->render(); ?>
 				</div>
 			</div>
 

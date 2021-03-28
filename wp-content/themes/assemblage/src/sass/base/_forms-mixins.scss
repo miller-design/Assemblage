@@ -138,8 +138,8 @@ Create mixins first so they can be reused on Woo forms or other places where you
 		border-bottom: none;
 
 		&.wpcf7-not-valid {
-			color: $c-red;
-			border-bottom: 1px solid $c-red;
+			color: $c-orange;
+			border-bottom: 1px solid $c-orange;
 		}
 	}
 

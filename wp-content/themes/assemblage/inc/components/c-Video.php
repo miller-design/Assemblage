@@ -37,12 +37,14 @@ class Video {
 	public function render() {
 
 		$output = '';
+		$autoplay_var = ($this->options['autoplay'] === true) ? 'js-autoplay' : '';
 
 		$output .= '<section class="[ c-Video ] ' . $this->options['classes'] . '" g-component="Video">';
 			$output .= '<div class="[ c-Video__wrap ]">';
-				$output .= '<video id="myVid_' . uniqid() . '" playsinline preload="auto" muted="video" class="[ video-js vjs-custom ] js-autoplay">';
-					$output .= '<source src="' . $this->options['video_url'] . '#t=0.5" type="video/mp4">';
+				$output .= '<video id="myVid_' . uniqid() . '" preload="auto" class="[ video-js vjs-custom ] ' . $autoplay_var . '" g-ref="videoPlayer">';
+					$output .= '<source src="' . $this->options['video_url'] . '#t=0.2" type="video/mp4">';
 				$output .= '</video>';
+				$output .= '<svg g-ref="playIcon" class="[ c-Video__playIcon ]" role="img"><use xlink:href="' . get_template_directory_uri() . '/dist/sprite.svg#play-icon"></use></svg>';
 			$output .= '</div>';
 		$output .= '</section>';
 
