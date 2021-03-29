@@ -6,17 +6,28 @@
 .c-ImageSlider {
 	width: 100%;
 	position: relative;
-	background-color: $c-yellow;
 	overflow: hidden;
 
 	@include grid-col-full-bleed("both");
+	@include v-spacing(margin-bottom, 60px, 180px);
+}
+
+.c-ImageSlider__col {
+	width: 100%;
+
+	@include grid-container;
 }
 
 .c-ImageSlider__wrapper {
 	width: 100%;
-	padding-left: var(--site-margin);
-	padding-right: var(--site-margin);
 	overflow: initial;
+
+	@include grid-col(1, -1);
+
+	@include media(">=medium") {
+
+		@include grid-col(2, -1);
+	}
 
 	.flickity-viewport {
 		overflow: initial;
@@ -25,13 +36,16 @@
 
 .c-ImageSlider__slide {
 	width: 85%;
-	margin-right: var(--site-margin);
+
+	@include v-spacing(margin-right, 30px, 120px);
 
 	@include media(">=medium") {
-		width: 75%;
+		width: 70%;
 	}
+}
 
-	@include media(">=large") {
-		width: 65%;
-	}
+.l-ParagraphBlocks__image-caption {
+
+	@include P3;
+	@include v-spacing(margin-top, 15px, 20px);
 }

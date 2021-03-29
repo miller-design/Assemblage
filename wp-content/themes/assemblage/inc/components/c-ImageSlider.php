@@ -61,8 +61,10 @@ class ImageSlider {
 	public function render() { ?>
 
 		<div class="[ c-ImageSlider ]" g-component="ImageSlider">
-			<div class="[ c-ImageSlider__wrapper ]" g-ref="slider">
-				<?= $this->options['images']; ?>
+			<div class="[ c-ImageSlider__col ]">
+				<div class="[ c-ImageSlider__wrapper ]" g-ref="slider">
+					<?= $this->options['images']; ?>
+				</div>
 			</div>
 		</div><?php
 	}
