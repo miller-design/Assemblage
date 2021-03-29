@@ -27,6 +27,33 @@
             "save_other_choice": 0
         },
         {
+            "key": "field_60617d08e5ee3",
+            "label": "Reverse Layout",
+            "name": "reverse_layout",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6045e65ae9fe3",
+                        "operator": "==",
+                        "value": "v1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_6044f2da2b2fe",
             "label": "Image Left",
             "name": "image_left",
@@ -147,5 +174,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1615226139
+    "modified": 1617001770
 }

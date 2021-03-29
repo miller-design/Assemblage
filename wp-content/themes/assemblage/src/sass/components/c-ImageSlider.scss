@@ -1,0 +1,37 @@
+@import "../base";
+
+/* ==========================================================================
+	Image Slider Component
+========================================================================== */
+.c-ImageSlider {
+	width: 100%;
+	position: relative;
+	background-color: $c-yellow;
+	overflow: hidden;
+
+	@include grid-col-full-bleed("both");
+}
+
+.c-ImageSlider__wrapper {
+	width: 100%;
+	padding-left: var(--site-margin);
+	padding-right: var(--site-margin);
+	overflow: initial;
+
+	.flickity-viewport {
+		overflow: initial;
+	}
+}
+
+.c-ImageSlider__slide {
+	width: 85%;
+	margin-right: var(--site-margin);
+
+	@include media(">=medium") {
+		width: 75%;
+	}
+
+	@include media(">=large") {
+		width: 65%;
+	}
+}

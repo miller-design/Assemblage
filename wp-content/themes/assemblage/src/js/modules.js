@@ -5,6 +5,8 @@ import TopNav from './c-TopNav'
 import Form from './Form'
 import Video from './c-Video'
 import NewsletterSignup from './c-NewsletterSignup'
+import ProgressBar from './c-ProgressBar'
+import ImageSlider from './c-ImageSlider'
 
 
 // GLOBAL HANDLERs
@@ -21,7 +23,9 @@ const components = {
 	"TopNav": TopNav,
 	"Form": Form,
 	"Video": Video,
-	"NewsletterSignup": NewsletterSignup
+	"NewsletterSignup": NewsletterSignup,
+	"ProgressBar": ProgressBar,
+	"ImageSlider": ImageSlider
 }
 
 export default components;

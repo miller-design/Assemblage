@@ -42,8 +42,10 @@ class TopNav extends Component {
 
     if(currentScrollY > window.innerHeight && global.scrollDirection === 'down') {
 			this.setState({isHidden: true})
-    } else if (this.state.isHidden && global.scrollDirection === 'up') {
+			document.body.classList.remove('header-is-visible')
+    } else if (currentScrollY < window.innerHeight || this.state.isHidden && global.scrollDirection === 'up') {
 			this.setState({isHidden: false})
+			document.body.classList.add('header-is-visible')
     }
 
 		if(currentScrollY > (window.innerHeight + 100) && !document.body.classList.contains('header-is-pinned')) {

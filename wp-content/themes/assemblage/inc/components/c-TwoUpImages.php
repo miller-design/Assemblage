@@ -19,12 +19,13 @@ class TwoUpImages {
 		SiteBase::insert_component_css(Self::class);
 
 		$default_options = array(
-			"layout" 				=> '',
-			"image_left"		=> '',
-			"image_right"		=> '',
-			"caption_left"	=> '',
-			"caption_right"	=> '',
-			"classes"				=> '',
+			"layout" 					=> '',
+			"image_left"			=> '',
+			"image_right"			=> '',
+			"caption_left"		=> '',
+			"caption_right"		=> '',
+			"reverse_layout"	=> '',
+			"classes"					=> '',
 		);
 
 		$this->options = $default_options;
@@ -42,6 +43,10 @@ class TwoUpImages {
 			$this->options["image_left"] = LazyImage::get_image($this->options["image_left"], [50, 100], 'c-TwoUpImages__image', true, false);
 			$this->options["image_right"] = LazyImage::get_image($this->options["image_right"], [50, 100], 'c-TwoUpImages__image', true, false);
 		}
+
+		if($this->options['reverse_layout'] === true) {
+			$this->options["classes"] .= ' c-TwoUpImages--cols-reverse ';
+		}
 	}
 
 	public static function add_options($custom_options = array()) {
@@ -52,11 +57,12 @@ class TwoUpImages {
 	public static function add_acf($acf_item, $acf_override = null) {
 
 		$acf_options = array(
-			"layout" 				=> $acf_item['image_layout'],
-			"image_left"		=> $acf_item['image_left'],
-			"image_right"		=> $acf_item['image_right'],
-			"caption_left"	=> $acf_item['caption_left'],
-			"caption_right"	=> $acf_item['caption_right'],
+			"layout" 					=> $acf_item['image_layout'],
+			"image_left"			=> $acf_item['image_left'],
+			"image_right"			=> $acf_item['image_right'],
+			"caption_left"		=> $acf_item['caption_left'],
+			"caption_right"		=> $acf_item['caption_right'],
+			"reverse_layout"	=> $acf_item['reverse_layout']
 		);
 
 		return new self($acf_options);

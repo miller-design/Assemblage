@@ -286,6 +286,8 @@
 
 		@include media(">=medium") {
 			border: 3px solid $c-black;
+			min-height: unset;
+			height: initial;
 		}
 	}
 }

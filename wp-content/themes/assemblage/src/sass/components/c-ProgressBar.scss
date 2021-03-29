@@ -1,0 +1,92 @@
+@import "../base";
+
+/* ==========================================================================
+	Progressbar Component
+========================================================================== */
+.c-ProgressBar {
+	background-color: $c-white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+	position: fixed;
+	top: 52px;
+	left: 0;
+	width: 100%;
+	z-index: $z-level-two;
+	padding: 20px;
+	opacity: 0;
+	transition:
+		400ms top $standard-curve,
+		400ms opacity $standard-curve,
+		200ms background-color linear;
+
+	@include media(">=medium") {
+		top: 59px;
+	}
+
+	.l-ShareButtons .l-ShareButtons__list {
+		flex-wrap: nowrap;
+	}
+}
+
+.c-ProgressBar__left,
+.c-ProgressBar__right {
+	width: 100%;
+}
+
+.c-ProgressBar__right {
+	flex: 0 1;
+}
+
+// elements
+.c-ProgressBar__header {
+	width: 100%;
+
+	span {
+
+		@include media("<medium") {
+			display: none;
+		}
+
+		@include media(">=medium") {
+			margin-right: 100px;
+		}
+	}
+}
+
+.c-ProgressBr__bar {
+	--scroll-var: 0;
+	position: absolute;
+	bottom: -1px;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(to right, $c-black var(--scroll-var), transparent 0);
+	z-index: $z-level-two;
+	opacity: 0;
+	transition: 400ms opacity $standard-curve;
+}
+
+.c-ProgressBar--is-pinned {
+	top: 0;
+	opacity: 1;
+
+	.c-ProgressBr__bar {
+		opacity: 1;
+	}
+
+	.header-is-visible & {
+
+		top: 52px;
+
+		@include media(">=medium") {
+			top: 59px;
+		}
+	}
+
+	.burger-menu-active & {
+		opacity: 0;
+		pointer-events: none;
+	}
+}

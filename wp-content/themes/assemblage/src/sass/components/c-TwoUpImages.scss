@@ -102,3 +102,15 @@
 		}
 	}
 }
+
+.c-TwoUpImages--cols-reverse {
+
+	.c-TwoUpImages__inner {
+		direction: rtl;
+	}
+
+	.c-TwoUpImages__left,
+	.c-TwoUpImages__right {
+		direction: ltr;
+	}
+}

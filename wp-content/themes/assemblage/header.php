@@ -66,6 +66,14 @@ https://jackmiller.design/
 			"nav"	=> get_field('main_menu', 'options'),
 		])->render();
 
+		if(is_singular('journal')) {
+
+			ProgressBar::add_options([
+				"page_header"		=> get_the_title()
+			])->render();
+
+		}
+
 		BurgerMenu::add_options([
 			"nav"							=> get_field('main_menu', 'options'),
 			"seconday_links"	=> $burger_tertiary_pages,

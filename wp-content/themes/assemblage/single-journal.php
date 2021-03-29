@@ -16,6 +16,7 @@
 			$options["additional_text"] = get_field('header_blocks');
 			$options["image"] = get_field('featured_image_square', get_the_id());
 			$options["flip_layout"] = get_field('flip_layout_direction');
+			$options["classes"] = (get_field('have_white_background') === true) ? ' c-ArticleSplitHeader--white-bg ' : '';
 			ArticleSplitHeader::add_options($options)->render();
 		} else if(get_field('journal_header') === 'full-screen' || get_field('journal_header') === 'video') {
 			$options["background_colour"] = get_field('background_colour')[0]['colours'];
@@ -138,6 +139,13 @@
 
 											echo '<div class="[ l-ParagraphBlocks__interview-block ]"><span class="[ l-ParagraphBlocks__interview-initials ]">' . $block['initials'] . '</span> ' . $block['text_area'] . '</div>';
 
+										} else if($block['acf_fc_layout'] === 'image') {
+
+											echo '<div class="[ l-ParagraphBlocks__image-block ]">';
+												echo LazyImage::get_image($block['image'], [50, 100], 'l-ParagraphBlocks__image', true, false);
+												echo '<p class="[ l-ParagraphBlocks__image-caption ]">' . $block['caption'] . '</p>';
+											echo '</div>';
+
 										}
 									} ?>
 								</div>
@@ -174,6 +182,10 @@
 					elseif( get_row_layout() == 'double_image_block' ):
 						$images = get_sub_field('images')[0];
 						TwoUpImages::add_acf($images)->render();
+
+					elseif( get_row_layout() == 'image_slider' ):
+						$images = get_sub_field('slider')[0];
+						ImageSlider::add_acf($images)->render();
 
 						// Case: Discovery Layout Block.
 					elseif( get_row_layout() == 'discovery_block' ):

@@ -72,6 +72,7 @@
     "glob": "^7.1.6"
   },
   "dependencies": {
+    "flickity": "^2.2.2",
     "gia": "^1.0.1",
     "include-media-export": "^1.0.3",
     "lazysizes": "^5.2.2",

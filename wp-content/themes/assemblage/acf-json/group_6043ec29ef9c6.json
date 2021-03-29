@@ -315,6 +315,33 @@
             "ui_off_text": "No"
         },
         {
+            "key": "field_60617a2edd527",
+            "label": "Have White Background",
+            "name": "have_white_background",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_604913d5f9e36",
+                        "operator": "==",
+                        "value": "half-screen-v2"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No"
+        },
+        {
             "key": "field_6051ab84055d5",
             "label": "Spotlight Style",
             "name": "spotlight_style",
@@ -1056,6 +1083,25 @@
                                             "max_height": "",
                                             "max_size": "",
                                             "mime_types": ""
+                                        },
+                                        {
+                                            "key": "field_6061817daf15e",
+                                            "label": "caption",
+                                            "name": "caption",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
                                         }
                                     ],
                                     "min": "",
@@ -1345,6 +1391,39 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_606184f683263": {
+                    "key": "layout_606184f683263",
+                    "name": "image_slider",
+                    "label": "Image Slider",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_606184ff83264",
+                            "label": "Slider",
+                            "name": "slider",
+                            "type": "component_field",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "field_group_key": "group_606184a8cfad2",
+                            "repeatable": 0,
+                            "layout": "block",
+                            "button_label": "",
+                            "appearances": "",
+                            "min": null,
+                            "max": null,
+                            "collapsed": "",
+                            "sub_fields": []
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Module",
@@ -1385,5 +1464,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1616614173
+    "modified": 1617003799
 }

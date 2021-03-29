@@ -32,6 +32,10 @@ class FeaturedImage {
 			$this->options["classes"] .= ' c-FeaturedImage--left ';
 		} else if($this->options["alignment"] === 'right') {
 			$this->options["classes"] .= ' c-FeaturedImage--right ';
+		} else if($this->options["alignment"] === 'center') {
+			$this->options["classes"] .= ' c-FeaturedImage--center ';
+		} else if($this->options["alignment"] === 'center-small') {
+			$this->options["classes"] .= ' c-FeaturedImage--center-small ';
 		}
 	}
 
@@ -54,7 +58,9 @@ class FeaturedImage {
 
 		<div class="[ c-FeaturedImage <?= $this->options["classes"]; ?>]">
 			<div class="[ c-FeaturedImage__inner ]">
-				<?= LazyImage::get_image($this->options["image"], 100, 'c-FeaturedImage__image', true, false); ?>
+				<div class="[ c-FeaturedImage__image-wrap ]">
+					<?= LazyImage::get_image($this->options["image"], 100, 'c-FeaturedImage__image', true, false); ?>
+				</div>
 			</div>
 		</div><?php
 	}
