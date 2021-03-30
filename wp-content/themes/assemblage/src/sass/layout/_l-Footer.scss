@@ -70,14 +70,14 @@
 	width: 100%;
 	color: $c-white;
 
-	@include H5;
+	@include H5-Serif;
 }
 
 .l-Footer__copyright {
 	color: $c-white;
 	text-decoration: none;
 
-	@include P2;
+	@include P2-SansSerif;
 }
 
 .l-Footer__links {
@@ -109,7 +109,7 @@
 			color: $c-white;
 			text-decoration: none;
 
-			@include P2;
+			@include P2-SansSerif;
 		}
 	}
 }

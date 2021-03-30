@@ -90,7 +90,7 @@
 		width: 100%;
 		margin-bottom: 20px;
 
-		@include P3;
+		@include P3-Mono;
 
 		.dot {
 
@@ -129,7 +129,7 @@
 	width: 100%;
 	margin-bottom: 20px;
 
-	@include P2;
+	@include P2-SansSerif;
 }
 
 .l-ParagraphBlocks__downloads {
@@ -153,7 +153,7 @@
 			color: $c-black;
 			text-decoration: none;
 
-			@include P3;
+			@include P3-Mono;
 
 			@media (hover: hover) {
 
@@ -169,14 +169,14 @@
 	width: 100%;
 	text-indent: 15%;
 
-	@include H5;
+	@include H5-Serif;
 }
 
 .l-ParagraphBlocks__text-block {
 
 	> p {
 
-		@include P1;
+		@include P1-SansSerif;
 
 		&:not(:nth-child(1)) {
 			text-indent: 8%;
@@ -196,18 +196,18 @@
 		left: 0;
 		z-index: +1;
 
-		@include P3;
+		@include P3-Mono;
 	}
 
 	> p {
 
-		@include P1;
+		@include P1-SansSerif;
 	}
 
 	.l-ParagraphBlocks__interview-initials + p {
 		text-indent: 40px;
 
-		@include P1;
+		@include P1-SansSerif;
 	}
 
 	> p + p {
@@ -222,7 +222,7 @@
 
 .l-ParagraphBlocks__large-text {
 
-	@include H5;
+	@include H5-Serif;
 	@include v-spacing(margin-top, 30px, 70px);
 	@include v-spacing(margin-bottom, 25px, 65px);
 
@@ -262,7 +262,7 @@
 
 	.l-ParagraphBlocks__image-caption {
 
-		@include P3;
+		@include P4-Mono;
 	}
 }
 

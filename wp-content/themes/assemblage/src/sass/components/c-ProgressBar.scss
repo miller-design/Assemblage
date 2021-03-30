@@ -43,6 +43,8 @@
 .c-ProgressBar__header {
 	width: 100%;
 
+	@include P2-SansSerif;
+
 	span {
 
 		@include media("<medium") {

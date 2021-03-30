@@ -3,3 +3,50 @@
 /* ==========================================================================
 	Post Card Component
 ========================================================================== */
+.c-PostCard {
+	width: 100%;
+	position: relative;
+}
+
+.c-PostCard__link {
+	display: block;
+	color: $c-black;
+	text-decoration: none;
+}
+
+.c-PostCard__image-wrap,
+.c-PostCard__image {
+	width: 100%;
+}
+
+.c-PostCard__info {
+	width: 100%;
+
+	@include v-spacing(padding-top, 17px, 25px);
+}
+
+.c-PostCard__details {
+	width: 100%;
+	text-transform: uppercase;
+
+	@include P3-Mono();
+	@include v-spacing(margin-bottom, 17px, 25px);
+
+	.dot {
+
+		@include dot;
+	}
+}
+
+.c-PostCard__header {
+	width: 100%;
+	margin-bottom: 10px;
+
+	@include H5-Serif;
+}
+
+.c-PostCard__text {
+	width: 100%;
+
+	@include P2-SansSerif;
+}

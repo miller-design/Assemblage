@@ -28,21 +28,21 @@
 		margin-top: 0;
 		margin-bottom: 2rem;
 
-		@include H1;
+		@include H2-Serif;
 	}
 
 	h2 {
 		margin-top: 0;
 		margin-bottom: 2rem;
 
-		@include H2;
+		@include H2-Serif;
 	}
 
 	h3 {
 		margin-top: 0;
 		margin-bottom: 2rem;
 
-		@include H3;
+		@include H3-Serif;
 	}
 
 	h4,
@@ -51,7 +51,7 @@
 		margin-top: 0;
 		margin-bottom: 2rem;
 
-		@include H5;
+		@include H4-Serif;
 	}
 
 	@include list-styles;

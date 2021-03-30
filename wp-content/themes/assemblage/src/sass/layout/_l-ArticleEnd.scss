@@ -41,23 +41,22 @@
 }
 
 // elements
-.l-ArticleEnd__share-label,
-.l-ArticleEnd__more-label {
-	width: initial;
-
-	@include P3;
-}
-
 .l-ArticleEnd__share-label {
 	text-transform: uppercase;
 	flex: 1 0 auto;
 	align-self: center;
 	margin-right: 20px;
+	width: initial;
+
+	@include P3-Mono;
 }
 
 .l-ArticleEnd__more-label {
 	text-transform: capitalize;
 	margin-right: 15px;
+	width: initial;
+
+	@include P4-Mono;
 }
 
 .l-ArticleEnd__more-list {
@@ -80,7 +79,7 @@
 		text-transform: uppercase;
 
 		@include link;
-		@include P3;
+		@include P3-Mono;
 	}
 }
 

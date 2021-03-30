@@ -141,7 +141,7 @@
 	width: 100%;
 	text-transform: uppercase;
 
-	@include P3;
+	@include P3-Mono;
 
 	.dot {
 
@@ -153,7 +153,7 @@
 	width: 100%;
 	padding-top: 20px;
 
-	@include H5;
+	@include H5-Serif;
 }
 
 .c-ArticleSplitHeader__additional-content {
@@ -182,7 +182,7 @@
 
 	> p {
 
-		@include P1;
+		@include P1-SansSerif;
 
 		&:not(:nth-child(1)) {
 			text-indent: 8%;
@@ -228,7 +228,7 @@
 	.c-ArticleSplitHeader__header,
 	.c-ArticleSplitHeader__header-mobile {
 
-		@include H2;
+		@include H3-Serif;
 	}
 }
 
@@ -237,7 +237,7 @@
 	.c-ArticleSplitHeader__header,
 	.c-ArticleSplitHeader__header-mobile {
 
-		@include H2(false);
+		@include H4-SansSerif;
 	}
 }
 

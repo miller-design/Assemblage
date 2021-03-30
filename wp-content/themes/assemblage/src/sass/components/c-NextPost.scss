@@ -47,7 +47,7 @@
 
 	@include media(">=medium") {
 
-		@include grid-col(8, 18);
+		@include grid-col(8, 20);
 	}
 
 	@include media(">=large") {
@@ -61,7 +61,7 @@
 	text-transform: capitalize;
 	margin: 0;
 
-	@include H4(false);
+	@include H6-SansSerif;
 
 	@include media("<medium") {
 		margin-bottom: 25px;
@@ -72,11 +72,7 @@
 	width: 100%;
 
 	@include media(">=medium") {
-		width: 40%;
-	}
-
-	@include media(">=large") {
-		width: 30%;
+		max-width: 280px;
 	}
 }
 
@@ -99,6 +95,7 @@
 
 	@include media(">=medium") {
 		width: 60%;
+		height: 100%;
 	}
 
 	@include media(">=large") {
@@ -109,7 +106,7 @@
 .c-NextPost__details {
 	text-transform: uppercase;
 
-	@include P3;
+	@include P3-Mono;
 
 	@include media("<small") {
 		margin-bottom: 25px;
@@ -118,12 +115,12 @@
 
 .c-NextPost__header {
 
-	@include H5;
+	@include H5-Serif;
 }
 
 .c-NextPost__text {
 
-	@include P1;
+	@include P1-SansSerif;
 	@include v-spacing(margin-bottom, 15px, 30px);
 }
 

@@ -168,7 +168,7 @@
 		text-decoration: none;
 		transition: 500ms color $standard-curve;
 
-		@include P2;
+		@include P2-SansSerif;
 
 		.dark-state & {
 			color: $c-black;

@@ -47,13 +47,16 @@ class IssueHeader {
 						<p class="[ c-IssueHeader__name ]"><?= $this->options['name']; ?></p>
 						<p class="[ c-IssueHeader__intro ]"><?= $this->options['excerpt']; ?></p>
 						<div class="[ c-IssueHeader__cta-wrap ]">
-							<button>Table of contents</button>
-							<button>Read the editor's letter</button>
+							<button class="[ c-IssueHeader__btn ]">Table of contents</button>
+							<button class="[ c-IssueHeader__btn ]">Read the editor's letter</button>
 						</div>
 					</div>
 				</div>
 				<div class="[ c-IssueHeader__right ]">
-					<?= LazyImage::get_image($this->options['image'], [50, 100], 'c-IssueHeader__image', true, false); ?>
+					<div class="[ c-IssueHeader__image-wrap ]">
+						<?= LazyImage::get_image($this->options['image'], [50, 100], 'c-IssueHeader__img', true, false); ?>
+						<h1 class="[ c-IssueHeader__header-mobile ]">Issue <span><?= $this->options['number']; ?></span></h1>
+					</div>
 				</div>
 			</div>
 		</section><?php

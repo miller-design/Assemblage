@@ -1,10 +1,6 @@
 /* ==========================================================================================================
 	Character Style Mixins
 =========================================================================================================== */
-
-$f-body: $NeueHaasUnicaW1GRegular;
-$f-header: $RecklessNeue-Book;
-
 // font setups
 @mixin RecklessNeue-Book() {
 	font-family: $RecklessNeue-Book;
@@ -26,145 +22,131 @@ $f-header: $RecklessNeue-Book;
 	}
 }
 
-// header base
-@mixin H1($serif: true) {
+@mixin DmMono() {
+	font-family: $DmMono;
+	font-style: normal;
+	font-weight: 400;
 
-	@include v-type(40px, 100px, 170px);
+	em {
+		font-style: normal;
+	}
+}
+
+// serif header base
+@mixin H1-Serif {
+
+	@include v-type(50px, 150px, 150px);
 	@include tracking(-40);
-
-	@if $serif == true {
-
-		@include RecklessNeue-Book;
-
-	} @else {
-
-		@include NeueHaasUnicaW1GRegular;
-
-	}
+	@include RecklessNeue-Book;
 }
 
-@mixin H2($serif: true) {
+@mixin H2-Serif {
 
-	@include v-type(40px, 60px, 68px);
+	@include v-type(40px, 100px, 100px);
+	@include tracking(-30);
+	@include RecklessNeue-Book;
+}
+
+@mixin H3-Serif {
+
+	@include v-type(40px, 60px, 88px);
 	@include tracking(-20);
-
-	@if $serif == true {
-
-		@include RecklessNeue-Book;
-
-	} @else {
-
-		@include NeueHaasUnicaW1GRegular;
-
-	}
+	@include RecklessNeue-Book;
 }
 
-@mixin H3($serif: true) {
+@mixin H4-Serif {
 
 	@include v-type(25px, 50px, 58px);
 	@include tracking(-20);
-
-	@if $serif == true {
-
-		@include RecklessNeue-Book;
-
-	} @else {
-
-		@include NeueHaasUnicaW1GRegular;
-
-	}
+	@include RecklessNeue-Book;
 }
 
-@mixin H4($serif: true) {
-
-	@include v-type(25px, 40px, 48px);
-	@include tracking(-10);
-
-	@if $serif == true {
-
-		@include RecklessNeue-Book;
-
-	} @else {
-
-		@include NeueHaasUnicaW1GRegular;
-
-	}
-}
-
-@mixin H5($serif: true) {
+@mixin H5-Serif {
 
 	@include v-type(25px, 30px, 38px);
-	@include tracking(0);
+	@include tracking(-20);
+	@include RecklessNeue-Book;
+}
 
-	@if $serif == true {
+// Sans Serif Header Based
+@mixin H1-SansSerif() {
 
-		@include RecklessNeue-Book;
+	@include v-type(60px, 150px, 150px);
+	@include tracking(10);
+	@include NeueHaasUnicaW1GRegular;
+}
 
-	} @else {
+@mixin H2-SansSerif() {
 
-		@include NeueHaasUnicaW1GRegular;
+	@include v-type(40px, 100px, 100px);
+	@include tracking(-20);
+	@include NeueHaasUnicaW1GRegular;
+}
 
-	}
+@mixin H3-SansSerif() {
+
+	@include v-type(40px, 100px, 100px);
+	@include tracking(-40);
+	@include NeueHaasUnicaW1GRegular;
 }
 
 
-// paragraph setups
-@mixin P1($serif: false) {
+@mixin H4-SansSerif() {
+
+	@include v-type(40px, 60px, 68px);
+	@include tracking(-20);
+	@include NeueHaasUnicaW1GRegular;
+}
+
+@mixin H5-SansSerif() {
+
+	@include v-type(25px, 50px, 58px);
+	@include tracking(-20);
+	@include NeueHaasUnicaW1GRegular;
+}
+
+@mixin H6-SansSerif() {
+
+	@include v-type(25px, 40px, 48px);
+	@include tracking(-20);
+	@include NeueHaasUnicaW1GRegular;
+}
+
+// Paragraph stylings Mono & Sans Serif
+@mixin P1-SansSerif() {
 
 	@include v-type(18px, 20px, 30px);
 	@include tracking(10);
-
-	@if $serif == true {
-
-		@include RecklessNeue-Book;
-
-	} @else {
-
-		@include NeueHaasUnicaW1GRegular;
-
-	}
+	@include NeueHaasUnicaW1GRegular;
 }
 
-@mixin P2($serif: false) {
+@mixin P2-SansSerif() {
 
 	@include v-type(14px, 15px, 20px);
-	@include tracking(0);
-
-	@if $serif == true {
-
-		@include RecklessNeue-Book;
-
-	} @else {
-
-		@include NeueHaasUnicaW1GRegular;
-
-	}
+	@include tracking(10);
+	@include NeueHaasUnicaW1GRegular;
 }
 
-@mixin P3($serif: false) {
+@mixin P3-Mono() {
 
 	@include v-type(10px, 12px, 22px);
 	@include tracking(90);
+	@include DmMono;
+}
 
-	@if $serif == true {
+@mixin P4-Mono() {
 
-		@include RecklessNeue-Book;
-
-	} @else {
-
-		@include NeueHaasUnicaW1GRegular;
-
-	}
+	@include v-type(10px, 12px, 22px);
+	@include tracking(0);
+	@include DmMono;
 }
 
 @mixin body() {
 
-	@include P1;
+	@include P1-SansSerif;
 
 	strong {
 		text-transform: uppercase;
-
-		@include P1;
 	}
 
 	em {
@@ -207,34 +189,27 @@ $f-header: $RecklessNeue-Book;
 
 
 // pill styles
-@mixin pill($large: false) {
+@mixin pill() {
+	--lh-t-adjust: 0.9;
+	--lh-b-adjust: 1;
 	outline: none;
 	color: $c-black;
 	border-radius: 60px;
 	border: 1px solid $c-grey;
 	text-decoration: none;
 	cursor: pointer;
+	display: inline-flex;
+	justify-content: center;
+	text-align: center;
+	text-transform: capitalize;
 
-	@include NeueHaasUnicaW1GRegular;
+	@include P1-SansSerif;
+	@include lhCrop(1.5, 1.5);
 	@include site-transition(border, 500ms);
-
-	@if $large == true {
-		font-size: 20px;
-
-		@include v-spacing(padding-top, 8px, 10px);
-		@include v-spacing(padding-right, 20px, 30px);
-		@include v-spacing(padding-bottom, 7px, 6px);
-		@include v-spacing(padding-left, 20px, 30px);
-
-	} @else {
-		padding-top: 4px;
-		padding-right: 12px;
-		padding-bottom: 4px;
-		padding-left: 12px;
-		font-size: 15px;
-	}
-
-	line-height: 1; // line height override
+	@include v-spacing(padding-top, 11px, 12px);
+	@include v-spacing(padding-right, 20px, 20px);
+	@include v-spacing(padding-bottom, 11px, 12px);
+	@include v-spacing(padding-left, 20px, 20px);
 
 	@media (hover: hover) {
 
@@ -255,7 +230,7 @@ $f-header: $RecklessNeue-Book;
 		> li {
 			position: relative;
 
-			@include P1;
+			@include P1-SansSerif;
 			@include v-spacing(padding-left, $VSM2, $VSD3);
 		}
 	}

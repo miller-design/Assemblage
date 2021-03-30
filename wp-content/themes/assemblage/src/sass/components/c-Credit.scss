@@ -12,9 +12,11 @@
 .c-Credit__text {
 	text-transform: uppercase;
 
-	@include P3;
+	@include P3-Mono;
 
 	span {
 		text-transform: capitalize;
+
+		@include P4-Mono;
 	}
 }

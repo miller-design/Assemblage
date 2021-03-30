@@ -24,11 +24,11 @@ $resolution-range-top: map-get($breakpoints, xxlarge);
 @mixin v-spacing($field, $mobile-size, $desktop-size) {
 	#{$field}: get-linear-size($mobile-size, $desktop-size);
 
-	@include media(">xxlarge") {
+	@include media(">xlarge") {
 		#{$field}: $desktop-size;
 	}
 
-	@include media("<=xsmall") {
+	@include media("<=small") {
 		#{$field}: $mobile-size;
 	}
 }

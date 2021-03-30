@@ -27,6 +27,9 @@ class FeaturedArticle {
 			"excerpt" 					=> '',
 			"issue_number"			=> '',
 			"term"							=> '',
+			"read_time"					=> '',
+			"flip_layout"				=> '',
+			"type_style"				=> '',
 			"classes"						=> '',
 		);
 
@@ -45,6 +48,16 @@ class FeaturedArticle {
 					break;
 			}
 		}
+
+		if($this->options['type_style'] === 'serif') {
+			$this->options['classes'] .= 'c-FeaturedArticle--serif ';
+		} else {
+			$this->options['classes'] .= 'c-FeaturedArticle--sans-serif ';
+		}
+
+		if($this->options['flip_layout'] === true && $this->options['header_type'] === 'split-screen' ) {
+			$this->options['classes'] .= 'c-FeaturedArticle--reverse ';
+		}
 	}
 
 	public static function add_options($custom_options = array()) {
@@ -59,7 +72,8 @@ class FeaturedArticle {
 		$output .= '<p class="[ c-FeaturedArticle__type ]">' . $options['term']['name'] . '</p>';
 		$output .= '<div class="[ c-FeaturedArticle__content ]">';
 			$output .= '<p class="[ c-FeaturedArticle__header ]">' . $options['header_text'] . '</p>';
-			$output .= '<p class="[ c-FeaturedArticle__details ]">' . $options['term']['name'] . ', Issue ' . $options['issue_number']['name'] . '</p>';
+			$output .= '<p class="[ c-FeaturedArticle__details ]">Issue ' . $options['issue_number']['name'] . '&nbsp;<span class="dot"></span>&nbsp;' . $options['read_time'] . '</p>';
+
 		$output .= '</div>';
 
 		return $output;
@@ -72,7 +86,7 @@ class FeaturedArticle {
 			$output .= '<p class="[ c-FeaturedArticle__type ]">' . $options['term']['name'] . '</p>';
 			$output .= '<div class="[ c-FeaturedArticle__content ]">';
 				$output .= '<p class="[ c-FeaturedArticle__header ]">' . $options['header_text'] . '</p>';
-				$output .= '<p class="[ c-FeaturedArticle__details ]">' . $options['term']['name'] . ', Issue ' . $options['issue_number']['name'] . '</p>';
+				$output .= '<p class="[ c-FeaturedArticle__details ]">Issue ' . $options['issue_number']['name'] . '&nbsp;<span class="dot"></span>&nbsp;' . $options['read_time'] . '</p>';
 				$output .= '<p class="[ c-FeaturedArticle__excerpt ]">' . $options['excerpt'] . '</p>';
 			$output .= '</div>';
 		$output .= '</div>';

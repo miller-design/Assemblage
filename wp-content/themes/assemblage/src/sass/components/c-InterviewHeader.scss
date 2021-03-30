@@ -109,6 +109,9 @@
 	@include media(">=medium") {
 		height: 100vh;
 		min-height: 700px;
+		// position: sticky;
+		// position: -webkit-sticky;
+		// top: 0;
 	}
 
 	&.standard {
@@ -170,7 +173,7 @@
 	width: 100%;
 	text-transform: uppercase;
 
-	@include P3;
+	@include P3-Mono;
 
 	.dot {
 
@@ -182,7 +185,7 @@
 	width: 100%;
 	padding-top: 20px;
 
-	@include H5;
+	@include H5-Serif;
 }
 
 .c-InterviewHeader__name {
@@ -298,8 +301,7 @@
 	.c-InterviewHeader__header-mobile,
 	.c-InterviewHeader__name {
 
-		@include H1;
-		line-height: 1.2;
+		@include H1-SansSerif;
 	}
 
 	.c-InterviewHeader__name {
@@ -314,8 +316,7 @@
 	.c-InterviewHeader__header-mobile,
 	.c-InterviewHeader__name {
 
-		@include H1(false);
-		line-height: 1.2;
+		@include H2-SansSerif;
 	}
 
 	.c-InterviewHeader__header {

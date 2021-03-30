@@ -28,7 +28,9 @@ https://jackmiller.design/
 		} else {
 			$headerClass = 'dark-state';
 		}
-	} ?>
+	} else {
+		$headerClass = 'dark-state';
+	}?>
 
 	<body <?php body_class([$headerClass]); ?> g-component="BaseTheme"><?php
 

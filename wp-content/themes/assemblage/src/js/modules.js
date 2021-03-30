@@ -7,6 +7,7 @@ import Video from './c-Video'
 import NewsletterSignup from './c-NewsletterSignup'
 import ProgressBar from './c-ProgressBar'
 import ImageSlider from './c-ImageSlider'
+import PostSlider from './c-PostSlider'
 
 
 // GLOBAL HANDLERs
@@ -25,7 +26,8 @@ const components = {
 	"Video": Video,
 	"NewsletterSignup": NewsletterSignup,
 	"ProgressBar": ProgressBar,
-	"ImageSlider": ImageSlider
+	"ImageSlider": ImageSlider,
+	"PostSlider": PostSlider
 }
 
 export default components;

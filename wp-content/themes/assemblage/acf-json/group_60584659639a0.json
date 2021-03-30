@@ -91,6 +91,58 @@
                     "save_other_choice": 0
                 },
                 {
+                    "key": "field_6063770137a29",
+                    "label": "Font style",
+                    "name": "font_style",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "serif": "Serif",
+                        "sans-serif": "Sans Serif"
+                    },
+                    "default_value": "serif",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "return_format": "value",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_606376d737a28",
+                    "label": "Flip Layout",
+                    "name": "flip_layout",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_60584818e4a34",
+                                "operator": "==",
+                                "value": "split-screen"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
                     "key": "field_60584862e4a35",
                     "label": "Article",
                     "name": "article",
@@ -153,5 +205,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1616440569
+    "modified": 1617131330
 }

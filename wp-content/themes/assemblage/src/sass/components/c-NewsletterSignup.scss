@@ -19,7 +19,7 @@
 	color: $c-white;
 	margin-bottom: 15px;
 
-	@include P2;
+	@include P2-SansSerif;
 }
 
 .c-NewsletterSignup__form {
@@ -56,7 +56,7 @@
 				top 500ms $standard-curve,
 				opacity 500ms $standard-curve;
 
-			@include H5;
+			@include H5-Serif;
 
 			> span {
 				display: none;
@@ -82,7 +82,7 @@
 			resize: none;
 			color: $c-white;
 
-			@include H5;
+			@include H5-Serif;
 			@include site-transition(color, 500ms);
 
 			&:focus {
@@ -100,7 +100,7 @@
 			cursor: pointer;
 			color: $c-white;
 
-			@include P2;
+			@include P2-SansSerif;
 			@include site-transition(opacity, 500ms);
 
 			@media (hover: hover) {
@@ -110,8 +110,6 @@
 				}
 			}
 		}
-
-
 	}
 
 	.submit-wrap {
@@ -129,7 +127,7 @@
 			justify-content: center;
 			text-align: center;
 
-			@include pill(true);
+			@include pill;
 		}
 
 		@include media(">=large") {
@@ -149,12 +147,12 @@
 
 		input[type="email"] {
 
-			@include P2;
+			@include P2-SansSerif;
 		}
 
 		label {
 
-			@include P2;
+			@include P2-SansSerif;
 		}
 	}
 }

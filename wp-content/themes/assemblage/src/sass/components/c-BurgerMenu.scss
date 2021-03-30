@@ -102,7 +102,7 @@
 	display: flex;
 	overflow: hidden;
 
-	@include H1(false);
+	@include H2-SansSerif;
 	line-height: 1;
 
 	> a {
@@ -128,7 +128,7 @@
 
 .c-BurgerMenu__secondary-item {
 
-	@include P1;
+	@include P1-SansSerif;
 
 	> a {
 		text-decoration: none;

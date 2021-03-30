@@ -1,0 +1,88 @@
+@import "../base";
+
+/* ==========================================================================
+	Image Slider Component
+========================================================================== */
+// blocks
+.c-PostSlider {
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+
+	@include grid-col(1, -1);
+	@include grid-col-full-bleed("both");
+	@include v-spacing(margin-bottom, 70px, 130px);
+}
+
+.c-PostSlider__col {
+	width: 100%;
+
+	@include grid-container;
+}
+
+.c-PostSlider__header-wrap {
+	width: 100%;
+	border-top: 2px solid $c-black;
+	display: flex;
+	justify-content: space-between;
+
+	@include grid-col(1, -1);
+	@include v-spacing(padding-top, 10px, 25px);
+	@include v-spacing(margin-bottom, 40px, 65px);
+}
+
+.c-PostSlider__wrapper {
+	width: 100%;
+	overflow: initial;
+
+	@include grid-col(1, -1);
+
+	.flickity-viewport {
+		overflow: initial;
+	}
+}
+
+.c-PostSlider__slide {
+	width: 90%;
+	margin-right: var(--site-gutter);
+
+	@include media(">=small") {
+		width: 35%;
+	}
+
+	@include media(">=large") {
+		width: 27%;
+	}
+}
+
+// elements
+.c-PostSlider__header {
+
+	@include H6-SansSerif;
+}
+
+.c-PostSlider__link {
+	position: relative;
+	top: -2px;
+
+	@include pill;
+
+	@include media("<small") {
+		display: none;
+	}
+}
+
+// modifiers
+.c-PostSlider--small-slides {
+
+	.c-PostSlider__slide {
+
+		@include media(">=small") {
+			width: 22%;
+		}
+
+		@include media(">=large") {
+			width: 19%;
+		}
+	}
+}

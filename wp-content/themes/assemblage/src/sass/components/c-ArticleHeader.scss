@@ -67,7 +67,7 @@
 		width: 100%;
 		text-transform: uppercase;
 
-		@include P3;
+		@include P3-Mono;
 
 		.dot {
 
@@ -174,7 +174,7 @@
 		color: $c-white;
 		text-transform: uppercase;
 
-		@include P3;
+		@include P3-Mono;
 
 		.dot {
 
@@ -223,7 +223,7 @@
 
 	.c-ArticleHeader__header {
 
-		@include H2;
+		@include H3-Serif;
 	}
 }
 
@@ -231,7 +231,7 @@
 
 	.c-ArticleHeader__header {
 
-		@include H2(false);
+		@include H4-SansSerif;
 	}
 }
 
@@ -239,7 +239,7 @@
 
 	.c-ArticleHeader__header {
 
-		@include H1;
+		@include H2-Serif;
 	}
 }
 
@@ -247,6 +247,6 @@
 
 	.c-ArticleHeader__header {
 
-		@include H1(false);
+		@include H2-SansSerif;
 	}
 }
