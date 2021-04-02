@@ -4,8 +4,14 @@
 
 get_header();
 
-$active_issue = get_field('set_active_issue');
-$active_issue_acf_id = get_term($active_issue)->taxonomy . '_' . get_term($active_issue)->term_id;
+	// check if issue url has issue peramiter if not use acf value
+	if(isset($_GET['issue'])) {
+		$active_issue = $_GET['issue'];
+	} else {
+		$active_issue = get_field('set_active_issue');
+	}
+
+	$active_issue_acf_id = get_term($active_issue)->taxonomy . '_' . $active_issue;
 
 	$args = [
 		'post_type' => 'journal',
@@ -27,7 +33,7 @@ $active_issue_acf_id = get_term($active_issue)->taxonomy . '_' . get_term($activ
 		"number"		=> get_term($active_issue)->name,
 		"name"			=> get_field('issue_name', $active_issue_acf_id),
 		"excerpt" 	=> get_field('issue_excerpt', $active_issue_acf_id),
-		"panel_bg" 	=> get_field('table_of_contents_colour', $active_issue_acf_id)[0]['colours']['value'],
+		"panel_bg" 	=> '#fff',
 		"term_id"		=> $active_issue_acf_id
 	];
 
@@ -60,30 +66,33 @@ $active_issue_acf_id = get_term($active_issue)->taxonomy . '_' . get_term($activ
 		"type_style"		=> $spotlight_article['font_style'],
 	];
 
-	FeaturedArticle::add_options($options)->render(); ?>
+	FeaturedArticle::add_options($options)->render();
 
-	<div class="[ l-SectionHeader ]">
-		<p>All stories</p>
-	</div>
-	<div class="[ l-4col ]">
-		<div class="[ l-4col__inner ]"><?php
-			if ($loop->have_posts()) :
-				while ($loop->have_posts()) : $loop->the_post();
-					echo '<div class="[ l-4col__item ]">';
-						$options = [
-							"image" 	=> get_field('featured_image_portrait', get_the_id()),
-							"header" 	=> get_the_title(get_the_id()),
-							"text" 		=> mb_strimwidth(get_field('article_excerpt', get_the_id()), 0, 100, "..."),
-							"link" 		=> get_permalink(get_the_id()),
-							"issue"		=> Journal::get_post_term(get_the_id(), 'issues'),
-							"tax"			=> Journal::get_post_term(get_the_id(), 'topic'),
-						];
+	if(!empty($loop->posts)) { ?>
 
-						PostCard::add_options($options)->render();
-					echo '</div>';
-				endwhile;
-			endif; ?>
+		<div class="[ l-SectionHeader ]">
+			<p>All stories</p>
 		</div>
-	</div><?php
+		<div class="[ l-4col ]">
+			<div class="[ l-4col__inner ]"><?php
+				if ($loop->have_posts()) :
+					while ($loop->have_posts()) : $loop->the_post();
+						echo '<div class="[ l-4col__item ]">';
+							$options = [
+								"image" 	=> get_field('featured_image_portrait', get_the_id()),
+								"header" 	=> get_the_title(get_the_id()),
+								"text" 		=> mb_strimwidth(get_field('article_excerpt', get_the_id()), 0, 100, "..."),
+								"link" 		=> get_permalink(get_the_id()),
+								"issue"		=> Journal::get_post_term(get_the_id(), 'issues'),
+								"tax"			=> Journal::get_post_term(get_the_id(), 'topic'),
+							];
+
+							PostCard::add_options($options)->render();
+						echo '</div>';
+					endwhile;
+				endif; ?>
+			</div>
+		</div><?php
+	}
 
 get_footer(); ?>

@@ -49,7 +49,7 @@ class PostCard {
 		}
 
 		if($this->options['issue'] && $this->options['read_time']) {
-			Self::$post_details = '<p class="[ c-PostCard__details ]">Issue ' . $this->options['issue_number']['name'] . '&nbsp;<span class="dot"></span>&nbsp;' . $this->options['read_time'] . '</p>';
+			Self::$post_details = '<p class="[ c-PostCard__details ]">Issue ' . $this->options['issue']['name'] . '&nbsp;<span class="dot"></span>&nbsp;' . $this->options['read_time'] . '</p>';
 		}
 
 		if($this->options['link']) {

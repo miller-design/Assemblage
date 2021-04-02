@@ -63,7 +63,7 @@
 
 @mixin H5-Serif {
 
-	@include v-type(25px, 30px, 38px);
+	@include v-type(20px, 30px, 38px);
 	@include tracking(-20);
 	@include RecklessNeue-Book;
 }

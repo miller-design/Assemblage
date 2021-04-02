@@ -205,3 +205,98 @@
 		direction: ltr;
 	}
 }
+
+.c-FeaturedArticle--term-headers {
+	border-bottom: 3px solid $c-black;
+
+	@include v-spacing(padding-bottom, 40px, 60px);
+	@include v-spacing(margin-bottom, 40px, 60px);
+
+	&:first-of-type {
+
+		@include v-spacing(margin-top, 95px, 110px);
+	}
+
+	&.next-issue-not-active:nth-last-of-type(1) {
+		border-bottom: none;
+	}
+
+	&.next-issue-active:nth-last-of-type(2) {
+		border-bottom: none;
+	}
+
+	.c-FeaturedArticle__type {
+		padding-top: 0;
+		border-top: none;
+
+		@include H1-SansSerif;
+		line-height: 0.6;
+
+		@include media("<small") {
+			font-size: 40px;
+		}
+	}
+
+	.c-FeaturedArticle__header {
+
+		@include H6-SansSerif;
+		@include v-spacing(margin-bottom, 30px, 15px);
+	}
+
+	.c-FeaturedArticle__details {
+		display: none;
+	}
+
+	.c-FeaturedArticle__content-wrap {
+
+		.c-FeaturedArticle__type,
+		.c-FeaturedArticle__header {
+
+			@include media("<medium") {
+				display: none;
+			}
+		}
+	}
+
+	.c-FeaturedArticle__image-wrap {
+
+		@include media("<medium") {
+			display: flex;
+			margin-bottom: 30px;
+		}
+	}
+
+	.c-FeaturedArticle__content-mobile-wrap {
+
+		@include media("<medium") {
+			width: 50%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		@include media(">=medium") {
+			display: none;
+		}
+
+		> p {
+
+			@include media("<medium") {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.c-FeaturedArticle__image-mobile-wrap {
+
+		@include media("<medium") {
+			width: 50%;
+		}
+	}
+
+	.c-FeaturedArticle__link  {
+
+		@include v-spacing(margin-top, 20px, 45px);
+		@include pill;
+	}
+}

@@ -30,6 +30,9 @@ class FeaturedArticle {
 			"read_time"					=> '',
 			"flip_layout"				=> '',
 			"type_style"				=> '',
+			"link"							=> [],
+			"release_date"  		=> '',
+			"white_bg"					=> false,
 			"classes"						=> '',
 		);
 
@@ -46,6 +49,14 @@ class FeaturedArticle {
 					$this->options['classes'] .= 'c-FeaturedArticle--split ';
 					Self::$header = Self::build_split_screen($this->options);
 					break;
+				case 'split-screen-alt':
+					$this->options['classes'] .= 'c-FeaturedArticle--split c-FeaturedArticle--term-headers ';
+					Self::$header = Self::build_split_screen_alt($this->options);
+					break;
+				case 'next-issue':
+					$this->options['classes'] .= 'c-FeaturedArticle--split c-FeaturedArticle--next-issue ';
+					Self::$header = Self::build_split_screen($this->options, true);
+					break;
 			}
 		}
 
@@ -57,6 +68,10 @@ class FeaturedArticle {
 
 		if($this->options['flip_layout'] === true && $this->options['header_type'] === 'split-screen' ) {
 			$this->options['classes'] .= 'c-FeaturedArticle--reverse ';
+		}
+
+		if($this->options['white_bg'] === true) {
+			$this->options['classes'] .= 'c-FeaturedArticle--white-bg ';
 		}
 	}
 
@@ -79,19 +94,53 @@ class FeaturedArticle {
 		return $output;
 	}
 
-	private static function build_split_screen($options) {
+	private static function build_split_screen($options, $next_issue = false) {
 
 		$output = '';
 		$output .= '<div class="[ c-FeaturedArticle__content-wrap ]">';
-			$output .= '<p class="[ c-FeaturedArticle__type ]">' . $options['term']['name'] . '</p>';
+			if($next_issue === true) {
+				$output .= '<p class="[ c-FeaturedArticle__type ]">' . $options['term'] . '</p>';
+			} else {
+				$output .= '<p class="[ c-FeaturedArticle__type ]">' . $options['term']['name'] . '</p>';
+			}
 			$output .= '<div class="[ c-FeaturedArticle__content ]">';
 				$output .= '<p class="[ c-FeaturedArticle__header ]">' . $options['header_text'] . '</p>';
-				$output .= '<p class="[ c-FeaturedArticle__details ]">Issue ' . $options['issue_number']['name'] . '&nbsp;<span class="dot"></span>&nbsp;' . $options['read_time'] . '</p>';
+				if($next_issue === true) {
+					$output .= '<p class="[ c-FeaturedArticle__details ]">Coming: ' . $options['release_date'] . '</p>';
+				} else {
+					$output .= '<p class="[ c-FeaturedArticle__details ]">Issue ' . $options['issue_number']['name'] . '&nbsp;<span class="dot"></span>&nbsp;' . $options['read_time'] . '</p>';
+				}
 				$output .= '<p class="[ c-FeaturedArticle__excerpt ]">' . $options['excerpt'] . '</p>';
 			$output .= '</div>';
 		$output .= '</div>';
 		$output .= '<div class="[ c-FeaturedArticle__image-wrap ]">';
 			$output .= LazyImage::get_image($options['image'], [50, 100], 'c-FeaturedArticle__image');
+		$output .= '</div>';
+
+		return $output;
+	}
+
+	private static function build_split_screen_alt($options) {
+
+		$output = '';
+		$output .= '<div class="[ c-FeaturedArticle__content-wrap ]">';
+			$output .= '<p class="[ c-FeaturedArticle__type ]">' . $options['term'] . '</p>';
+			$output .= '<div class="[ c-FeaturedArticle__content ]">';
+				$output .= '<p class="[ c-FeaturedArticle__header ]">' . $options['header_text'] . '</p>';
+				$output .= '<p class="[ c-FeaturedArticle__details ]">Issue ' . $options['issue_number']['name'] . '&nbsp;<span class="dot"></span>&nbsp;' . $options['read_time'] . '</p>';
+				$output .= '<p class="[ c-FeaturedArticle__excerpt ]">' . $options['excerpt'] . '</p>';
+				$output .= '<a href="' . $options['link']['url'] . '" class="[ c-FeaturedArticle__link ]">' . $options['link']['name'] . '</a>';
+			$output .= '</div>';
+		$output .= '</div>';
+		$output .= '<div class="[ c-FeaturedArticle__image-wrap ]">';
+
+			$output .= '<div class="[ c-FeaturedArticle__content-mobile-wrap ]">';
+				$output .= '<p class="[ c-FeaturedArticle__type ]">' . $options['term'] . '</p>';
+				$output .= '<p class="[ c-FeaturedArticle__header ]">' . $options['header_text'] . '</p>';
+			$output .= '</div>';
+			$output .= '<div class="[ c-FeaturedArticle__image-mobile-wrap ]">';
+				$output .= LazyImage::get_image($options['image'], [50, 100], 'c-FeaturedArticle__image');
+			$output .= '</div>';
 		$output .= '</div>';
 
 		return $output;

@@ -84,10 +84,10 @@
             "new_lines": ""
         },
         {
-            "key": "field_606426be6082d",
-            "label": "Table of Contents Colour",
-            "name": "table_of_contents_colour",
-            "type": "component_field",
+            "key": "field_60675f41093c3",
+            "label": "Release Date",
+            "name": "release_date",
+            "type": "date_picker",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -96,15 +96,9 @@
                 "class": "",
                 "id": ""
             },
-            "field_group_key": "group_605ae688f03ab",
-            "repeatable": 0,
-            "layout": "block",
-            "button_label": "",
-            "appearances": "",
-            "min": null,
-            "max": null,
-            "collapsed": "",
-            "sub_fields": []
+            "display_format": "F j, Y",
+            "return_format": "F Y",
+            "first_day": 1
         },
         {
             "key": "field_60584d551d38b",
@@ -483,5 +477,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1617176350
+    "modified": 1617387393
 }
