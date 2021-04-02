@@ -61,10 +61,16 @@ p {
 	position: fixed;
 	top: 0;
 	left: 0;
-	background-color: $c-black;
-	z-index: $z-level-one;
+	background-color: #000;
+	z-index: $z-level-two;
 	pointer-events: none;
 	opacity: 0;
+	transition: 800ms opacity $standard-curve;
+
+	&.is-active {
+		opacity: 0.2;
+		pointer-events: auto;
+	}
 }
 
 .u-close-icon {

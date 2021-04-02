@@ -7,6 +7,7 @@
 	position: relative;
 	display: flex;
 	justify-content: space-between;
+	margin-bottom: 70px;
 
 	@include grid-col(1, -1);
 
@@ -37,6 +38,22 @@
 
 	@include grid-col(1, -1);
 
+	@include media(">767px", "<medium") {
+
+		@include last-grid-row(2, ".l-4col__item") {
+
+			&::after {
+				content: none;
+			}
+
+			.c-PostCard {
+
+				margin: 0;
+				padding: 0;
+			}
+		}
+	}
+
 	@include media(">=small") {
 
 		@include grid-col(span, 4);
@@ -51,12 +68,7 @@
 
 	@include media(">=medium") {
 
-		@include grid-col(span, 10);
-	}
-
-	@include media(">=large") {
-
-		@include grid-col(span, 6);
+		@include grid-col(span, 5);
 
 		&:nth-of-type(3n+2) {
 
@@ -64,8 +76,27 @@
 				width: calc(100% + #{var(--site-gutter)});
 			}
 		}
+
+		@include last-grid-row(4, ".l-4col__item") {
+
+			&::after {
+				content: none;
+			}
+
+			.c-PostCard {
+
+				margin: 0;
+				padding: 0;
+			}
+		}
 	}
 
+	@include media(">=large") {
+
+		@include grid-col(span, 6);
+	}
+
+	// modifing PostCard for spacing and image size in layout
 	.c-PostCard {
 
 		@include v-spacing(padding-bottom, 45px, 70px);

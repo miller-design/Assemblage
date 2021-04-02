@@ -257,11 +257,7 @@ $resolution-range-top: map-get($breakpoints, xxlarge);
 	close icon mixin (needs somehwere else to sit)
 =================================================================================== */
 @mixin close-icon() {
-	width: 20px;
-	height: 20px;
-	background-color: #f00;
 	cursor: pointer;
-	transition: 300ms transform $standard-curve;
 
 	&::before,
 	&::after {
@@ -272,6 +268,7 @@ $resolution-range-top: map-get($breakpoints, xxlarge);
 		width: 20px;
 		height: 2px;
 		background-color: $c-black;
+		transition: 400ms transform $standard-curve;
 	}
 
 	&::before {
@@ -285,7 +282,14 @@ $resolution-range-top: map-get($breakpoints, xxlarge);
 	@media (hover: hover) {
 
 		&:hover {
-			transform: rotate(90deg);
+
+			&::before {
+				transform: translate(-50%, -50%) rotate(135deg);
+			}
+
+			&::after {
+				transform: translate(-50%, -50%) rotate(45deg);
+			}
 		}
 	}
 }
@@ -303,5 +307,19 @@ $resolution-range-top: map-get($breakpoints, xxlarge);
 		background-color: $c-black;
 	} @else {
 		background-color: $c-white;
+	}
+}
+
+/* ==================================================================================
+	Get the last row of your grid
+	$coloumns: amount of coloumns in a row
+	$siblingType: the sibling selector you want to use to target the row
+=================================================================================== */
+@mixin last-grid-row($columns, $siblingType) {
+
+	&:nth-child(#{$columns}n+1):nth-last-child(-n+#{$columns}),
+	&:nth-child(#{$columns}n+1):nth-last-child(-n+#{$columns}) ~ #{$siblingType} {
+
+		@content;
 	}
 }

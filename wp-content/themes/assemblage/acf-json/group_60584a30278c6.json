@@ -84,6 +84,29 @@
             "new_lines": ""
         },
         {
+            "key": "field_606426be6082d",
+            "label": "Table of Contents Colour",
+            "name": "table_of_contents_colour",
+            "type": "component_field",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "field_group_key": "group_605ae688f03ab",
+            "repeatable": 0,
+            "layout": "block",
+            "button_label": "",
+            "appearances": "",
+            "min": null,
+            "max": null,
+            "collapsed": "",
+            "sub_fields": []
+        },
+        {
             "key": "field_60584d551d38b",
             "label": "Editors Letter",
             "name": "",
@@ -460,5 +483,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1616400117
+    "modified": 1617176350
 }

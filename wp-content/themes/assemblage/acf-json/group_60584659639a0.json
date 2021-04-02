@@ -76,12 +76,12 @@
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
-                        "class": "",
+                        "class": "article-header-icons",
                         "id": ""
                     },
                     "choices": {
-                        "split-screen": "Split 50\/50",
-                        "full-screen": "Full Screen"
+                        "split-screen": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/fifty-fifty.svg'>",
+                        "full-screen": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/full-screen-alt.svg'>"
                     },
                     "allow_null": 0,
                     "other_choice": 0,
@@ -205,5 +205,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1617131330
+    "modified": 1617173761
 }

@@ -23,10 +23,12 @@ $active_issue_acf_id = get_term($active_issue)->taxonomy . '_' . get_term($activ
 	$loop = new WP_Query( $args );
 
 	$options = [
-		"image" 	=> get_field('featured_image', $active_issue_acf_id),
-		"number"	=> get_term($active_issue)->name,
-		"name"		=> get_field('issue_name', $active_issue_acf_id),
-		"excerpt" => get_field('issue_excerpt', $active_issue_acf_id),
+		"image" 		=> get_field('featured_image', $active_issue_acf_id),
+		"number"		=> get_term($active_issue)->name,
+		"name"			=> get_field('issue_name', $active_issue_acf_id),
+		"excerpt" 	=> get_field('issue_excerpt', $active_issue_acf_id),
+		"panel_bg" 	=> get_field('table_of_contents_colour', $active_issue_acf_id)[0]['colours']['value'],
+		"term_id"		=> $active_issue_acf_id
 	];
 
 	IssueHeader::add_options($options)->render();
@@ -60,6 +62,9 @@ $active_issue_acf_id = get_term($active_issue)->taxonomy . '_' . get_term($activ
 
 	FeaturedArticle::add_options($options)->render(); ?>
 
+	<div class="[ l-SectionHeader ]">
+		<p>All stories</p>
+	</div>
 	<div class="[ l-4col ]">
 		<div class="[ l-4col__inner ]"><?php
 			if ($loop->have_posts()) :

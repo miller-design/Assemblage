@@ -8,6 +8,7 @@ import NewsletterSignup from './c-NewsletterSignup'
 import ProgressBar from './c-ProgressBar'
 import ImageSlider from './c-ImageSlider'
 import PostSlider from './c-PostSlider'
+import IssueHeader from './c-IssueHeader'
 
 
 // GLOBAL HANDLERs
@@ -27,7 +28,8 @@ const components = {
 	"NewsletterSignup": NewsletterSignup,
 	"ProgressBar": ProgressBar,
 	"ImageSlider": ImageSlider,
-	"PostSlider": PostSlider
+	"PostSlider": PostSlider,
+	"IssueHeader": IssueHeader
 }
 
 export default components;

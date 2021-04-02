@@ -10,9 +10,4 @@
 	min-height: 100vh;
 
 	@include grid-container;
-	@include v-spacing(padding-bottom, 80px, 100px);
-
-	.single-journal & {
-		padding-bottom: 0;
-	}
 }

@@ -1,0 +1,159 @@
+// blocks
+.l-EditorsLetter {
+	width: 100%;
+	position: relative;
+
+	@include v-spacing(padding-top, 40px, 110px);
+	@include v-spacing(padding-bottom, 90px, 130px);
+	@include v-spacing(padding-left, 20px, 115px);
+	@include v-spacing(padding-right, 21px, 115px);
+}
+
+.l-EditorsLetter__header {
+	width: 100%;
+	display: flex;
+
+	@include v-spacing(margin-bottom, 60px, 70px);
+
+	h2 {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		text-transform: capitalize;
+		text-align: center;
+
+		@include H3-SansSerif;
+	}
+}
+
+.l-EditorsLetter__image-wrap {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	padding-left: 25%;
+	padding-right: 25%;
+
+	@include v-spacing(margin-bottom, 40px, 80px);
+
+	.l-EditorsLetter__image {
+		width: 100%;
+	}
+}
+
+.l-EditorsLetter__intro {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+
+	@include H5-Serif;
+	@include v-spacing(margin-bottom, 40px, 60px);
+}
+
+.l-EditorsLetter__text {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+
+	@include v-spacing(margin-bottom, 40px, 60px);
+
+	> p {
+		width: 100%;
+
+		@include P1-SansSerif;
+
+		&:not(:nth-child(1)) {
+			text-indent: 8%;
+		}
+	}
+
+	> .l-EditorsLetter__link {
+
+		@include pill;
+		@include v-spacing(margin-top, 50px, 55px);
+	}
+}
+
+.l-EditorsLetter__contributors-wrap {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	border-top: 1px solid $c-black;
+
+	@include v-spacing(padding-top, 40px, 55px);
+
+}
+
+.l-EditorsLetter__contributors-left,
+.l-EditorsLetter__contributors-right {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.l-EditorsLetter__contributors-left {
+
+	@include media(">=medium") {
+		justify-content: flex-start;
+		width: 30%;
+	}
+}
+
+.l-EditorsLetter__contributors-right {
+
+	@include media(">=medium") {
+		justify-content: space-between;
+		width: 65%;
+	}
+}
+
+.l-EditorsLetter__contributors-header {
+	width: 100%;
+	text-align: center;
+
+	@include H5-Serif;
+
+	@include media("<medium") {
+		margin-bottom: 40px;
+	}
+
+	@include media(">=medium") {
+		text-align: left;
+	}
+}
+
+.l-EditorsLetter__contributors-col {
+	width: 100%;
+	justify-content: center;
+
+	&:not(:last-of-type) {
+
+		@include v-spacing(margin-bottom, 40px, 50px);
+	}
+
+	@include media(">=medium") {
+		width: 45%;
+		justify-content: flex-start;
+	}
+
+	> ul > li {
+		text-transform: capitalize;
+		text-align: center;
+
+		@include P1-SansSerif;
+
+		&:first-child {
+			text-transform: uppercase;
+
+			@include P3-Mono;
+			@include v-spacing(margin-bottom, 13px, 14px);
+		}
+
+		@include media(">=medium") {
+			text-align: left;
+		}
+	}
+}

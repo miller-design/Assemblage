@@ -20,11 +20,13 @@ class IssueHeader {
 		SiteBase::insert_component_css(Self::class);
 
 		$default_options = array(
-			"image" 	=> '',
-			"number"	=> '',
-			"name"		=> '',
-			"excerpt" => '',
-			"classes"	=> '',
+			"image" 		=> '',
+			"number"		=> '',
+			"name"			=> '',
+			"excerpt" 	=> '',
+			"panel_bg" 	=> '',
+			"classes"		=> '',
+			"term_id"		=> '',
 		);
 
 		$this->options = $default_options;
@@ -39,7 +41,7 @@ class IssueHeader {
 
 	public function render() { ?>
 
-		<section class="[ c-IssueHeader <?= $this->options['classes']; ?> ]">
+		<section class="[ c-IssueHeader <?= $this->options['classes']; ?> ]" g-component="IssueHeader" g-options='{"panelBg": "<?= $this->options['panel_bg']; ?>"}'>
 			<div class="[ c-IssueHeader__inner ]">
 				<div class="[ c-IssueHeader__left ]">
 					<h1 class="[ c-IssueHeader__header ]">Issue <span><?= $this->options['number']; ?></span></h1>
@@ -47,8 +49,8 @@ class IssueHeader {
 						<p class="[ c-IssueHeader__name ]"><?= $this->options['name']; ?></p>
 						<p class="[ c-IssueHeader__intro ]"><?= $this->options['excerpt']; ?></p>
 						<div class="[ c-IssueHeader__cta-wrap ]">
-							<button class="[ c-IssueHeader__btn ]">Table of contents</button>
-							<button class="[ c-IssueHeader__btn ]">Read the editor's letter</button>
+							<button class="[ c-IssueHeader__btn ]" g-ref="tableTrigger" data-term-id="<?= $this->options['term_id']; ?>" data-number="<?= $this->options['number']; ?>"><svg role="img"><use xlink:href="<?=get_template_directory_uri(); ?>/dist/sprite.svg#contents"></use></svg> Table of Contents</button>
+							<button class="[ c-IssueHeader__btn ]" g-ref="editorTrigger" data-term-id="<?= $this->options['term_id']; ?>" data-number="<?= $this->options['number']; ?>">Read the Editor's Letter</button>
 						</div>
 					</div>
 				</div>

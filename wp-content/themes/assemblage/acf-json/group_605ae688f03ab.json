@@ -25,7 +25,7 @@
                 "none": "Transparent"
             },
             "allow_null": 1,
-            "default_value": "",
+            "default_value": "#ffffff",
             "layout": "horizontal",
             "return_format": "array",
             "other_choice": 0,
@@ -50,5 +50,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1616570400
+    "modified": 1617176433
 }

@@ -20,6 +20,13 @@ class Journal {
 		add_action('pre_get_posts', 'Journal::limit_posts_per_page');
 		add_action( "issues_edit_form", 'Journal::hide_description_row');
 		add_action( "issues_add_form", 'Journal::hide_description_row');
+
+		// Ajax Functions
+		add_action( "wp_ajax_load_editors_letter", 'Journal::get_editors_letter_panel');
+		add_action( "wp_ajax_nopriv_load_editors_letter", 'Journal::get_editors_letter_panel');
+
+		add_action( "wp_ajax_load_content_list", 'Journal::get_issue_content_list_panel');
+		add_action( "wp_ajax_nopriv_load_content_list", 'Journal::get_issue_content_list_panel');
 	}
 
 	public static function set_up_post_type() {
@@ -240,5 +247,156 @@ class Journal {
 				echo '</div>';
 			echo '</div>';
 		echo '</div>';
+	}
+
+	public static function get_editors_letter_panel() {
+
+		$term_id = $_POST['term'];
+		$term_number = $_POST['number'];
+		$image = get_field('editor_image', $term_id);
+		$intro = get_field('introduction', $term_id);
+		$content = get_field('editors_content', $term_id);
+		$contributors = get_field('contributors', $term_id);
+
+		// echo $_POST['text'];
+		echo "<div class='[ l-EditorsLetter ]'>";
+			echo "<div class='[ l-EditorsLetter__inner ]'>";
+				echo "<div class='[ l-EditorsLetter__header ]'>";
+					echo "<h2>Editor's letter</h2>";
+				echo "</div>";
+				if($image) {
+					echo "<div class='[ l-EditorsLetter__image-wrap ]'>";
+						echo LazyImage::get_image($image, [50, 100], 'l-EditorsLetter__image', true, false);
+					echo "</div>";
+				}
+				echo "<div class='[ l-EditorsLetter__content ]'>";
+					echo "<h4 class='[ l-EditorsLetter__intro ]'>" . $intro ."</h4>";
+					echo "<div class='[ l-EditorsLetter__text ]'>";
+						echo $content;
+						echo "<span class='[ l-EditorsLetter__link ][ js-read-issue ]'>Read Issue " . $term_number . "</span>";
+					echo "</div>";
+					echo "<div class='[ l-EditorsLetter__contributors-wrap ]'>";
+						echo "<div class='[ l-EditorsLetter__contributors-left ]'>";
+							echo "<h4 class='[ l-EditorsLetter__contributors-header ]'>Contributors</h4>";
+						echo "</div>";
+						echo "<div class='[ l-EditorsLetter__contributors-right ]'>";
+							if(!empty($contributors['editors'])) {
+								echo "<div class='[ l-EditorsLetter__contributors-col ]'>";
+									echo "<ul>";
+										echo "<li>Editors</li>";
+										foreach ($contributors['editors'] as $editor) {
+											echo "<li>" . $editor['name'] . "</li>";
+										}
+									echo "</ul>";
+								echo "</div>";
+							}
+							if(!empty($contributors['art_direction'])) {
+								echo "<div class='[ l-EditorsLetter__contributors-col ]'>";
+									echo "<ul>";
+										echo "<li>Art Direction</li>";
+										foreach ($contributors['art_direction'] as $editor) {
+											echo "<li>" . $editor['name'] . "</li>";
+										}
+									echo "</ul>";
+								echo "</div>";
+							}
+							if(!empty($contributors['articles'])) {
+								echo "<div class='[ l-EditorsLetter__contributors-col ]'>";
+									echo "<ul>";
+										echo "<li>Articles</li>";
+										foreach ($contributors['articles'] as $editor) {
+											echo "<li>" . $editor['name'] . "</li>";
+										}
+									echo "</ul>";
+								echo "</div>";
+							}
+							if(!empty($contributors['images'])) {
+								echo "<div class='[ l-EditorsLetter__contributors-col ]'>";
+									echo "<ul>";
+										echo "<li>Images</li>";
+										foreach ($contributors['images'] as $editor) {
+											echo "<li>" . $editor['name'] . "</li>";
+										}
+									echo "</ul>";
+								echo "</div>";
+							}
+							if(!empty($contributors['stylelist'])) {
+								echo "<div class='[ l-EditorsLetter__contributors-col ]'>";
+									echo "<ul>";
+										echo "<li>Stylist</li>";
+										foreach ($contributors['stylelist'] as $editor) {
+											echo "<li>" . $editor['name'] . "</li>";
+										}
+									echo "</ul>";
+								echo "</div>";
+							}
+							if(!empty($contributors['special_thanks'])) {
+								echo "<div class='[ l-EditorsLetter__contributors-col ]'>";
+									echo "<ul>";
+										echo "<li>Special thanks</li>";
+										foreach ($contributors['special_thanks'] as $editor) {
+											echo "<li>" . $editor['name'] . "</li>";
+										}
+									echo "</ul>";
+								echo "</div>";
+							}
+						echo "</div>";
+					echo "</div>";
+				echo "</div>";
+			echo "</div>";
+		echo "</div>";
+
+		die();
+	}
+
+	public static function get_issue_content_list_panel() {
+
+		$term_id = $_POST['term'];
+		$term_number = $_POST['number'];
+		$index = 2;
+
+		$args = array(
+			'post_type' 	=> Self::PostType,
+			'post_status' => 'publish',
+			'tax_query' 	=> array(
+				array(
+					'taxonomy' 	=> 'issues',
+					'field' 		=> 'slug',
+					'terms' 		=> $term_number
+				),
+			),
+		);
+
+		$loop = new WP_Query( $args );
+
+		echo '<div class="[ l-ContentsList ]">';
+			echo '<div class="[ l-ContentsList__inner ]">';
+				echo '<ul class="[ l-ContentsList__list ]">';
+					if(!empty($loop->posts)) {
+						echo '<li>';
+							echo '<div class="[  l-ContentsList__left ]">';
+								echo '<span class="[  l-ContentsList__index ]">01</span>';
+							echo '</div>';
+							echo '<div class="[  l-ContentsList__right ]">';
+								echo '<span class="[ js-trigger-letter ]">Editor’s Letter<span>3 Min Read</span></span>';
+							echo '</div>';
+						echo '</li>';
+						foreach($loop->posts as $article) {
+							echo '<li>';
+								echo '<div class="[  l-ContentsList__left ]">';
+									echo '<span class="[  l-ContentsList__index ]">' . sprintf("%02d", $index)  . '</span>';
+								echo '</div>';
+								echo '<div class="[  l-ContentsList__right ]">';
+									echo '<a href="' . get_permalink($article->ID) . '">' . get_the_title($article->ID) . '<span>' . Self::estimated_reading_time($article->ID, true) . '</span></a>';
+								echo '</div>';
+							echo '</li>';
+							$index++;
+						}
+					}
+				echo '</ul>';
+			echo '</div>';
+		echo '</div>';
+
+		die();
 	}
 }

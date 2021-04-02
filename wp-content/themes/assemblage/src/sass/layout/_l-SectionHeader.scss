@@ -1,0 +1,23 @@
+/* ==========================================================================
+	Section Header Layout
+========================================================================== */
+
+.l-SectionHeader {
+	width: 100%;
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: flex-start;
+	border-top: 2px solid $c-black;
+
+	@include v-spacing(padding-top, 10px, 25px);
+	@include v-spacing(margin-bottom, 40px, 35px);
+	@include grid-col(1, -1);
+
+	> p {
+		text-transform: capitalize;
+
+		@include H6-SansSerif;
+	}
+}
