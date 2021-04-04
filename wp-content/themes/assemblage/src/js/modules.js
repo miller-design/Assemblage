@@ -9,6 +9,7 @@ import ProgressBar from './c-ProgressBar'
 import ImageSlider from './c-ImageSlider'
 import PostSlider from './c-PostSlider'
 import IssueHeader from './c-IssueHeader'
+import AjaxLoadMore from './AjaxLoadMore'
 
 
 // GLOBAL HANDLERs
@@ -29,7 +30,8 @@ const components = {
 	"ProgressBar": ProgressBar,
 	"ImageSlider": ImageSlider,
 	"PostSlider": PostSlider,
-	"IssueHeader": IssueHeader
+	"IssueHeader": IssueHeader,
+	"AjaxLoadMore": AjaxLoadMore,
 }
 
 export default components;

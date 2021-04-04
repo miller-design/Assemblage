@@ -27,6 +27,9 @@ class Journal {
 
 		add_action( "wp_ajax_load_content_list", 'Journal::get_issue_content_list_panel');
 		add_action( "wp_ajax_nopriv_load_content_list", 'Journal::get_issue_content_list_panel');
+
+		add_action( "wp_ajax_load_more_posts", 'Journal::get_more_posts');
+		add_action( "wp_ajax_nopriv_load_more_posts", 'Journal::get_more_posts');
 	}
 
 	public static function set_up_post_type() {
@@ -401,6 +404,59 @@ class Journal {
 				echo '</ul>';
 			echo '</div>';
 		echo '</div>';
+
+		die();
+	}
+
+	public static function get_more_posts() {
+
+		$paged = $_POST['paged'] + 1;
+		$posts_per_page = $_POST['postsPerPage'];
+		$term = $_POST['termSlug'];
+
+		$args = array(
+			'post_type' => self::PostType,
+			'post_status' => 'publish',
+			'posts_per_page' => $posts_per_page,
+			'paged' => $paged,
+			'tax_query' 	=> array(
+				'relation' => 'AND',
+			),
+		);
+
+		if(!empty($term)) {
+			$args['tax_query'][] = array(
+				'taxonomy' 	=> 'tags',
+				'field' 		=> 'slug',
+				'terms' 		=> $term,
+			);
+		}
+
+		$loop = new WP_Query($args);
+
+		if ( $loop->have_posts() ) {
+			while ($loop->have_posts()) : $loop->the_post();
+				echo '<div class="[ l-4col__item ]">';
+
+					$options = [
+						"image" 		=> get_field('featured_image_portrait', get_the_id()),
+						"header" 		=> get_the_title(get_the_id()),
+						"text" 			=> mb_strimwidth(get_field('article_excerpt', get_the_id()), 0, 100, "..."),
+						"link" 			=> get_permalink(get_the_id()),
+						"issue"			=> Journal::get_post_term(get_the_id(), 'issues')[0],
+						"tax"				=> Journal::get_post_term(get_the_id(), 'topic')[0],
+						"read_time"	=> Journal::estimated_reading_time(get_the_id(), true),
+					];
+
+					PostCard::add_options($options)->render();
+				echo '</div>';
+			endwhile;
+
+			wp_reset_query();
+
+		} else {
+			echo 'empty';
+		}
 
 		die();
 	}
