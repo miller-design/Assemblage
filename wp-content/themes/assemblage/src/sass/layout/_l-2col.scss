@@ -15,11 +15,33 @@
 	}
 }
 
+.l-2col__header {
+
+	@include H6-SansSerif;
+}
+
 .l-2col__col {
 	width: 100%;
 	display: flex;
 	justify-content: flex-start;
 	flex-direction: column;
+}
+
+.l-2col__sticky {
+	position: sticky;
+	position: -webkit-sticky;
+
+	@include v-spacing(top, 60px, 80px);
+}
+
+.l-2col__header--large {
+
+	@include H2-SansSerif;
+}
+
+.l-2col--top {
+
+	@include v-spacing(padding-top, 110px, 115px);
 }
 
 .l-2col__col--space-between {

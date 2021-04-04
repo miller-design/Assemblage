@@ -1,0 +1,28 @@
+.privacy-content {
+
+	@include list-styles;
+	@include v-spacing(margin-bottom, 70px, 120px);
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5 {
+		text-indent: 8%;
+		text-transform: uppercase;
+		margin-bottom: 25px;
+
+		@include P2-SansSerif;
+	}
+
+	p {
+		margin-bottom: 25px;
+
+		@include P2-SansSerif;
+	}
+
+	ul,
+	ol {
+		margin-bottom: 25px;
+	}
+}

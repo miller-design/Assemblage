@@ -142,10 +142,15 @@ class Journal {
 			foreach($modules as $module) {
 
 				$blocks = $module['blocks'];
+				$discoveries = $module['discoveries'];
 				// loop through all nested text blocks
 				foreach($blocks as $block) {
 					// add blocks to the content variable
 					$content .= $block['text_area'];
+				}
+
+				foreach ($discoveries as $discover) {
+					$content .= $discover['content'];
 				}
 			}
 

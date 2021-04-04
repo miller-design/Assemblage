@@ -79,12 +79,13 @@ get_header();
 					while ($loop->have_posts()) : $loop->the_post();
 						echo '<div class="[ l-4col__item ]">';
 							$options = [
-								"image" 	=> get_field('featured_image_portrait', get_the_id()),
-								"header" 	=> get_the_title(get_the_id()),
-								"text" 		=> mb_strimwidth(get_field('article_excerpt', get_the_id()), 0, 100, "..."),
-								"link" 		=> get_permalink(get_the_id()),
-								"issue"		=> Journal::get_post_term(get_the_id(), 'issues'),
-								"tax"			=> Journal::get_post_term(get_the_id(), 'topic'),
+								"image" 		=> get_field('featured_image_portrait', get_the_id()),
+								"header" 		=> get_the_title(get_the_id()),
+								"text" 			=> mb_strimwidth(get_field('article_excerpt', get_the_id()), 0, 100, "..."),
+								"link" 			=> get_permalink(get_the_id()),
+								"issue"			=> Journal::get_post_term(get_the_id(), 'issues')[0],
+								"tax"				=> Journal::get_post_term(get_the_id(), 'topic')[0],
+								"read_time"	=> Journal::estimated_reading_time(get_the_id(), true),
 							];
 
 							PostCard::add_options($options)->render();

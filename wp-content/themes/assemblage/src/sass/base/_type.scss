@@ -231,8 +231,12 @@
 		> li {
 			position: relative;
 
-			@include P1-SansSerif;
+			@include P2-SansSerif;
 			@include v-spacing(padding-left, $VSM2, $VSD3);
+
+			p {
+				margin-bottom: 0;
+			}
 		}
 	}
 
@@ -258,7 +262,17 @@
 			background-color: $c-black;
 			position: absolute;
 			left: 0;
-			top: 16px;
+			top: 8px;
 		}
+
+		ul {
+			margin-bottom: 0;
+
+			> li::before {
+				background-color: unset;
+				border: 1px solid $c-black;
+			}
+		}
+
 	}
 }

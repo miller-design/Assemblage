@@ -21,3 +21,22 @@
 		@include H6-SansSerif;
 	}
 }
+
+.l-SectionHeader--large > p {
+
+	@include H2-SansSerif;
+
+	sup {
+
+		@include v-type(20px, 50px, 50px);
+	}
+}
+
+.l-SectionHeader--top {
+	border-top: none;
+	border-bottom: 1px solid $c-black;
+
+	@include v-spacing(padding-top, 110px, 115px);
+	@include v-spacing(padding-bottom, 15px, 45px);
+	@include v-spacing(margin-bottom, 40px, 60px);
+}

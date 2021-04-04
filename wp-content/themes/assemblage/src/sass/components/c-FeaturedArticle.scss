@@ -20,6 +20,11 @@
 	text-transform: capitalize;
 
 	@include H6-SansSerif;
+
+	sup {
+
+		@include v-type(12px, 20px, 20px);
+	}
 }
 
 .c-FeaturedArticle__header {
@@ -294,7 +299,7 @@
 		}
 	}
 
-	.c-FeaturedArticle__link  {
+	.c-FeaturedArticle__link {
 
 		@include v-spacing(margin-top, 20px, 45px);
 		@include pill;
