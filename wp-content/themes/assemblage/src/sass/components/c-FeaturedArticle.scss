@@ -52,8 +52,13 @@
 }
 
 .c-FeaturedArticle--split {
+	height: 100vh;
+	min-height: 700px;
+	overflow: hidden;
+	position: relative;
 
 	.c-FeaturedArticle__inner {
+		height: 100%;
 
 		@include grid-container(true);
 	}
@@ -65,6 +70,7 @@
 		align-items: flex-start;
 		align-content: flex-start;
 		flex-wrap: wrap;
+		height: 100%;
 
 		@include grid-col(1, -1);
 
@@ -84,6 +90,7 @@
 
 	.c-FeaturedArticle__image-wrap {
 		order: 1;
+		overflow: hidden;
 
 		@include grid-col(1, -1);
 
@@ -96,6 +103,21 @@
 		@include media(">=large") {
 
 			@include grid-col(14, -1);
+		}
+	}
+
+	.c-FeaturedArticle__image {
+
+		@include media(">=medium") {
+			height: 100%;
+
+			img {
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+				top: 50%;
+				transform: translateY(-50%);
+			}
 		}
 	}
 
@@ -114,6 +136,10 @@
 }
 
 .c-FeaturedArticle--full-screen {
+	height: 100vh;
+	min-height: 700px;
+	overflow: hidden;
+	position: relative;
 
 	@include grid-col-full-bleed("both");
 
@@ -217,18 +243,9 @@
 	@include v-spacing(padding-bottom, 40px, 60px);
 	@include v-spacing(margin-bottom, 40px, 60px);
 
-	&:first-of-type {
-
-		@include v-spacing(margin-top, 95px, 110px);
-	}
-
-	&.next-issue-not-active:nth-last-of-type(1) {
-		border-bottom: none;
-	}
-
-	&.next-issue-active:nth-last-of-type(2) {
-		border-bottom: none;
-	}
+		@include media(">=medium") {
+			height: calc(100vh - 100px);
+		}
 
 	.c-FeaturedArticle__type {
 		padding-top: 0;
@@ -269,6 +286,12 @@
 			display: flex;
 			margin-bottom: 30px;
 		}
+
+		// @include media(">=medium") {
+		// 	overflow: hidden;
+		// 	position: relative;
+		// 	height: calc(100vh - 120px);
+		// }
 	}
 
 	.c-FeaturedArticle__content-mobile-wrap {
@@ -304,4 +327,15 @@
 		@include v-spacing(margin-top, 20px, 45px);
 		@include pill;
 	}
+}
+
+.c-FeaturedArticle--white-bg {
+	background-color: $c-white;
+	padding-left: var(--site-margin);
+	padding-right: var(--site-margin);
+	margin-bottom: 0;
+
+	@include grid-col-full-bleed("both");
+	@include v-spacing(padding-top, 60px, 120px);
+	@include v-spacing(padding-bottom, 60px, 120px);
 }

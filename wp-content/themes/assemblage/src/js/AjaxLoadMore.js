@@ -10,6 +10,8 @@ class AjaxLoadMore extends Component {
 		super(element)
 
 		this.options = {
+			loadposts: null,
+			loadterms: null,
 			ajaxCall: '',
 			postsPerPage: '',
 			paged: '',
@@ -26,16 +28,18 @@ class AjaxLoadMore extends Component {
 
 	mount() {
 
-		if(this.options.paged < this.options.maxPages) {
-			this.ajaxLoadMoreScroll()
-		} else {
-			this.canBeLoaded = false
+		if(this.options.loadposts) {
+			this.ajaxLoadMorePostsScroll()
+		}
+
+		if(this.options.loadterms) {
+			this.ajaxLoadMoreTermsScroll()
 		}
 	}
 
-	ajaxLoadMoreScroll() {
+	ajaxLoadMorePostsScroll() {
 
-		const bottomOffset = 800
+		const bottomOffset = 1000
 		const self = this
 		const AjaxScroll = () => {
 
@@ -72,6 +76,51 @@ class AjaxLoadMore extends Component {
 				}
 
 				request.send('action=' + self.options.ajaxCall + '&nonce=' + assemblage.nonce + '&postsPerPage=' + self.options.postsPerPage + '&paged=' + self.options.paged + '&termSlug=' + self.options.termSlug)
+			}
+		}
+
+		window.addEventListener('scroll', AjaxScroll)
+	}
+
+	ajaxLoadMoreTermsScroll() {
+
+		const bottomOffset = 1000
+		const self = this
+		const AjaxScroll = () => {
+
+			// need this to monitor height as new elements get added
+			const targetHeight = self.element.getBoundingClientRect().height
+
+			if(window.pageYOffset > ( targetHeight - bottomOffset ) && self.canBeLoaded === true) {
+
+				self.canBeLoaded = false
+				// vanilla ajax request
+				var request = new XMLHttpRequest()
+				request.open('POST', assemblage.ajaxurl, true)
+				request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
+				request.onload = function () {
+					if (this.status >= 200 && this.status < 400) {
+
+						if(this.response != 'empty') {
+							self.options.paged++
+							self.canBeLoaded = true
+							self.ref.contentArea.insertAdjacentHTML('beforeend', this.response)
+							if(self.options.paged >= self.options.maxPages) {
+								self.canBeLoaded = false
+							}
+						}
+
+					} else {
+						// Response error
+						console.log('response error')
+					}
+				}
+				request.onerror = function () {
+					console.log('Connection error')
+					// Connection error
+				}
+
+				request.send('action=' + self.options.ajaxCall + '&nonce=' + assemblage.nonce + '&postsPerPage=' + self.options.postsPerPage + '&paged=' + self.options.paged)
 			}
 		}
 

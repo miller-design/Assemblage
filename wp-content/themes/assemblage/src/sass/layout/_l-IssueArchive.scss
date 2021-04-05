@@ -4,6 +4,51 @@
 
 /* Blocks */
 .l-IssueArchive {
-	//
-	grid-column: 1/-1;
+	width: 100%;
+	position: relative;
+
+	@include grid-col(1, -1);
+	@include v-spacing(margin-bottom, 60px, 120px);
+
+	&.next-active {
+		margin-bottom: 0;
+	}
+}
+
+.l-IssueArchive__inner {
+	width: 100%;
+	position: relative;
+}
+
+.l-IssueArchive__item {
+	opacity: 0;
+	animation: 1000ms fadeIn $standard-curve forwards;
+
+	&:first-of-type .c-FeaturedArticle--term-headers {
+
+		@include v-spacing(margin-top, 95px, 110px);
+
+		// .c-FeaturedArticle__image-wrap {
+
+		// 	@include media(">=medium") {
+		// 		height: calc(100vh - 170px);
+		// 	}
+		// }
+	}
+
+	&:last-of-type .c-FeaturedArticle--term-headers {
+		border-bottom: unset;
+		margin-bottom: 0;
+	}
+}
+
+@keyframes fadeIn {
+
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
 }

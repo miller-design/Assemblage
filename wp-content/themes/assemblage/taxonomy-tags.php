@@ -34,6 +34,8 @@ $loop = new WP_Query( $args ); ?>
 	<div class="[ l-4col ]"
 	g-component="AjaxLoadMore"
 	g-options='{
+		"loadposts": true,
+		"loadterms": false,
 		"ajaxCall":"load_more_posts",
 		"postsPerPage": "<?= $post_count; ?>",
 		"paged": "<?= $paged; ?>",
