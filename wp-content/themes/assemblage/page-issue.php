@@ -8,7 +8,7 @@ get_header();
 	if(isset($_GET['issue'])) {
 		$active_issue = $_GET['issue'];
 	} else {
-		$active_issue = get_field('set_active_issue');
+		$active_issue = get_field('set_active_issue', 'options');
 	}
 
 	$active_issue_acf_id = get_term($active_issue)->taxonomy . '_' . $active_issue;
@@ -44,12 +44,12 @@ get_header();
 		"link"				=> [
 			"active"	=> false,
 		],
-		"posts" 			=> get_field('featured_stories'),
+		"posts" 			=> get_field('featured_stories', $active_issue_acf_id),
 		"slide-size"	=> 'large',
 	];
 	PostSlider::add_options($options)->render();
 
-	$spotlight_article = get_field('spotlight_article');
+	$spotlight_article = get_field('spotlight_article', $active_issue_acf_id);
 	$spotlight_id = $spotlight_article['article'];
 	$image_type = ($spotlight_article['layout'] === 'split-screen') ? 'featured_image_portrait' : 'featured_image';
 	$layout_dir = ($spotlight_article['flip_layout'] === true) ? 'c-FeaturedArticle--flip' : '';
