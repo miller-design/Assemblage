@@ -27,13 +27,6 @@
 	&:first-of-type .c-FeaturedArticle--term-headers {
 
 		@include v-spacing(margin-top, 95px, 110px);
-
-		// .c-FeaturedArticle__image-wrap {
-
-		// 	@include media(">=medium") {
-		// 		height: calc(100vh - 170px);
-		// 	}
-		// }
 	}
 
 	&:last-of-type .c-FeaturedArticle--term-headers {

@@ -243,9 +243,9 @@
 	@include v-spacing(padding-bottom, 40px, 60px);
 	@include v-spacing(margin-bottom, 40px, 60px);
 
-		@include media(">=medium") {
-			height: calc(100vh - 100px);
-		}
+	@include media(">=medium") {
+		height: calc(100vh - 100px);
+	}
 
 	.c-FeaturedArticle__type {
 		padding-top: 0;

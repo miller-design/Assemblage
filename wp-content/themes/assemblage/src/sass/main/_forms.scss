@@ -12,6 +12,7 @@
 
 	.wpcf7-form-control-wrap {
 		width: 100%;
+		background-color: transparent;
 	}
 }
 
@@ -48,17 +49,26 @@ input[type="tel"].form-control {
 	}
 }
 
+
+
 .your-message + label {
-	padding-top: 5px;
-	left: 5px;
+	pointer-events: none;
+
+	@include v-spacing(padding-top, 15px, 20px);
+	@include v-spacing(left, 10px, 12px);
 }
 
 textarea {
 	width: 100%;
-	font-size: 16px;
 	background: $c-white;
 	resize: none;
-	padding: 5px;
+	border: unset;
+
+	@include v-spacing(padding-top, 15px, 20px);
+	@include v-spacing(padding-right, 10px, 12px);
+	@include v-spacing(padding-bottom, 10px, 12px);
+	@include v-spacing(padding-left, 10px, 12px);
+	@include P2-SansSerif;
 
 	&:focus {
 		outline: none;
@@ -87,15 +97,19 @@ textarea {
 
 label {
 	z-index: 1;
-	font-size: 16px;
-	font-style: italic;
 	color: $c-black;
 	position: absolute;
-	transition: all 0.2s ease;
+	transition: 500ms opacity $standard-curve;
+
+	@include P2-SansSerif;
 
 	span:not(.wpcf7-list-item-label) {
 		color: $c-orange;
 		margin-left: 3px;
+	}
+
+	&.js-fake-placeholder {
+		opacity: 0;
 	}
 }
 
@@ -110,18 +124,23 @@ label {
 	display: none;
 }
 
-.wpcf7-response-output {
+.wpcf7 form .wpcf7-response-output {
 	position: fixed;
-	bottom: 10px;
-	left: 10px;
-	width: calc(100% - 20px);
+	bottom: 20px;
+	left: 20px;
+	width: calc(100% - 40px);
 	color: $c-white;
 	border: none;
-	font-size: 16px;
 	margin: 0;
 	z-index: $z-level-three;
-	padding: 10px 20px;
 	animation: 500ms fadeOut 5000ms ease forwards;
+	border: unset !important;
+
+	@include P2-SansSerif;
+	@include v-spacing(padding-top, 15px, 25px);
+	@include v-spacing(padding-right, 10px, 20px);
+	@include v-spacing(padding-bottom, 15px, 25px);
+	@include v-spacing(padding-left, 10px, 20px);
 }
 
 form.invalid {
@@ -138,9 +157,15 @@ form.sent {
 	}
 }
 
-input[type="submit"].btn {
+form input[type="submit"].btn {
+	background-color: $c-off-white;
 
+	@include v-spacing(margin-top, 47px, 25px);
 	@include pill;
+
+	@include media("<small") {
+		width: 100%;
+	}
 }
 
 @keyframes fadeOut {

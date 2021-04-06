@@ -1,11 +1,71 @@
 /* ==========================================================================
 	Contact Page
 =========================================================================== */
+.contact-content-wrap {
+	margin-bottom: 45px;
+	order: 2;
+
+	@include media(">=medium") {
+		margin-top: 110px;
+		margin-bottom: 60px;
+		order: 1;
+	}
+}
+
+.contact-image-wrap {
+	width: 100%;
+
+	overflow: hidden;
+	margin-top: 75px;
+	margin-bottom: 45px;
+	order: 1;
+
+	@include media(">=medium") {
+		width: 48%;
+		margin-top: 110px;
+		margin-bottom: 60px;
+		min-height: 700px;
+		height: calc(100vh - 170px);
+		order: 2;
+	}
+
+	img {
+
+		@include media(">=medium") {
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+}
+
+.contact-header,
+.contact-header-mobile {
+	width: 100%;
+	margin-bottom: 45px;
+	display: flex;
+
+	@include media(">=medium") {
+		margin-bottom: 80px;
+	}
+
+	> h1 {
+
+		@include H2-SansSerif;
+	}
+}
+
+.contact-header-mobile {
+
+	@include media(">=medium") {
+		display: none;
+	}
+}
 
 .contact-header {
-	width: 100%;
-	margin-bottom: 30px;
-	display: flex;
+
+	@include media("<medium") {
+		display: none;
+	}
 }
 
 .contact-form {
@@ -34,8 +94,4 @@
 			}
 		}
 	}
-}
-
-.contact-image {
-	width: 100%;
 }

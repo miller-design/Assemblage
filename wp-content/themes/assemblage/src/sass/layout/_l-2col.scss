@@ -25,6 +25,10 @@
 	display: flex;
 	justify-content: flex-start;
 	flex-direction: column;
+
+	@include media(">=medium") {
+		width: 50%;
+	}
 }
 
 .l-2col__sticky {
