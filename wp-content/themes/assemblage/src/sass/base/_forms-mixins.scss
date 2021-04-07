@@ -135,9 +135,8 @@ Create mixins first so they can be reused on Woo forms or other places where you
 		border-top: none;
 		border-left: none;
 		border-right: none;
-		border-bottom: none;
 		background-color: $c-off-white;
-		border-bottom: 1px solid #CBCAC8;
+		border-bottom: 1px solid #cbcac8;
 
 		@include P2-SansSerif;
 

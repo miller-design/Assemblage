@@ -52,12 +52,21 @@ class BurgerMenu {
 
 		$output .= '<ul class="[ c-BurgerMenu__main ]">';
 			foreach ($links as $link) {
+
+				if(get_the_title($link) === 'Issue') {
+					$title = get_the_title($link) . ' ' . get_term(get_field('set_active_issue', 'options'))->name;
+					$active_issue_acf_id = get_term(get_field('set_active_issue', 'options'))->taxonomy . '_' . get_field('set_active_issue', 'options');
+					$image = get_field('featured_image', $active_issue_acf_id);
+					$url = wp_get_attachment_image_src($image, 'large_size_w' )[0];
+				} else {
+					$title = get_the_title($link);
+					$url = wp_get_attachment_image_src( get_post_thumbnail_id($link), 'large_size_w' )[0];
+				}
 				$animation_number = '0.' . $i;
 				$animation_var = ((1000 * $animation_number) + 300) . 'ms';
-				$url = wp_get_attachment_image_src( get_post_thumbnail_id($link), 'large_size_w' )[0];
 
 				$output .= '<li class="[ c-BurgerMenu__main-item ]" g-ref="hoverLinks" data-img-src="' . $url . '" style="--animation-delay: ' . $animation_var . ';">';
-					$output .= '<a href="' . get_permalink($link) . '">' . get_the_title($link) . '</a>';
+					$output .= '<a href="' . get_permalink($link) . '">' . $title . '</a>';
 				$output .= '</li>';
 				$i++;
 			}

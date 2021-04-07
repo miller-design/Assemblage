@@ -42,7 +42,12 @@ class TopNav {
 		$output .= '<ul class="[ c-TopNav__menu ]">';
 			foreach ($links as $link) {
 				$output .= '<li class="[ c-TopNav__menu-item ]">';
-					$output .= '<a href="' . get_permalink($link) . '">' . get_the_title($link) . '</a>';
+					if(get_the_title($link) === 'Issue') {
+						$title = get_the_title($link) . ' ' . get_term(get_field('set_active_issue', 'options'))->name;
+					} else {
+						$title = get_the_title($link);
+					}
+					$output .= '<a href="' . get_permalink($link) . '">' . $title . '</a>';
 				$output .= '</li>';
 			}
 			$output .= '<li class="[ c-TopNav__menu-item ]">';

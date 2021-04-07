@@ -49,8 +49,6 @@ input[type="tel"].form-control {
 	}
 }
 
-
-
 .your-message + label {
 	pointer-events: none;
 
@@ -130,7 +128,6 @@ label {
 	left: 20px;
 	width: calc(100% - 40px);
 	color: $c-white;
-	border: none;
 	margin: 0;
 	z-index: $z-level-three;
 	animation: 500ms fadeOut 5000ms ease forwards;

@@ -62,7 +62,6 @@ class ArticleSplitHeader {
 
 		if($this->options['additional_text']) {
 			$this->options['additional_text'] = Self::additional_text($this->options['additional_text']);
-			$this->options['classes'] .= ' c-ArticleSplitHeader--no-margin  ';
 		}
 
 		if($this->options['flip_layout']) {

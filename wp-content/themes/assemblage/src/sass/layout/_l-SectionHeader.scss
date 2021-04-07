@@ -27,6 +27,7 @@
 	@include H2-SansSerif;
 
 	sup {
+		margin-left: 10px;
 
 		@include v-type(20px, 50px, 50px);
 	}
