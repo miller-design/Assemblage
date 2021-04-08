@@ -51,7 +51,7 @@ class TopNav {
 				$output .= '</li>';
 			}
 			$output .= '<li class="[ c-TopNav__menu-item ]">';
-					$output .= '<span>Subscribe</span>';
+					$output .= '<span g-ref="subscribeTrigger">Subscribe</span>';
 				$output .= '</li>';
 		$output .= '</ul>';
 

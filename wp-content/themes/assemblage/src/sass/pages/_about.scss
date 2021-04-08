@@ -5,37 +5,114 @@
 .about-header-wrap {
 	width: 100%;
 
+	@include v-spacing(margin-bottom, 40px, 130px);
+
 	@include media(">=medium") {
 		width: 90%;
-		position: sticky;
-		position: -webkit-sticky;
-		top: 50px;
-		height: calc(100vh - 100px);
+		height: calc(100vh - 120px);
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+
+		@include media(">=medium") {
+			height: calc(100vh - 160px);
+			position: sticky;
+			position: -webkit-sticky;
+			top: 70px;
+		}
+	}
+}
+
+.about-image-wrap {
+	display: none;
+
+	@include v-spacing(margin-bottom, 40px, 130px);
+
+	@include media(">=medium") {
+		display: flex;
+		height: calc(100vh - 160px);
+		min-height: 600px;
+	}
+}
+
+.about-image-wrap-mobile {
+	margin-bottom: 20px;
+
+	@include media(">=medium") {
+		display: none;
 	}
 }
 
 .about-header {
 	width: 100%;
-	margin-bottom: 30px;
+	margin-bottom: 45px;
 	display: flex;
+
+	@include media(">=medium") {
+		margin-bottom: 80px;
+	}
+
+	> h1 {
+
+		@include H2-SansSerif;
+	}
 }
 
 .about-intro {
 	width: 100%;
 	display: flex;
+
+	> p {
+
+		@include H5-Serif;
+	}
+
+	a {
+		color: $c-black;
+
+		@include link;
+	}
 }
 
 .about-image {
 	width: 100%;
+	height: 100%;
+
+	img {
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.about-content {
+
+	@include v-spacing(margin-bottom, 112px, 130px);
+
+	> p {
+
+		@include P1-SansSerif;
+
+		&:not(:nth-child(1)) {
+			text-indent: 8%;
+		}
+	}
+}
+
+.about-featured-image-wrap {
+
+	@include grid-col(1, -1);
+	@include v-spacing(margin-bottom, 60px, 120px);
+
+	.c-FeaturedImage {
+		margin-bottom: 0;
+	}
 }
 
 .about-team-grid {
 	width: 100%;
 
 	@include grid-col(1, -1);
+	@include v-spacing(margin-bottom, 40px, 130px);
 }
 
 .about-team-grid__header,
@@ -53,8 +130,10 @@
 .about-team-grid__col {
 
 	&:nth-child(1) {
+		margin-bottom: 33px;
 
 		@include grid-col(1, -1);
+		@include H6-SansSerif;
 
 		@include media(">=medium") {
 
@@ -73,7 +152,7 @@
 
 		@include media(">=small") {
 
-			@include grid-col(1, 4);
+			@include grid-col(1, 5);
 		}
 
 		@include media(">=medium") {
@@ -93,7 +172,7 @@
 
 		@include media(">=small") {
 
-			@include grid-col(4, -1);
+			@include grid-col(5, -1);
 		}
 
 		@include media(">=medium") {
@@ -106,4 +185,26 @@
 			@include grid-col(18, 24);
 		}
 	}
+}
+
+.about-team-grid__item-image {
+	margin-bottom: 20px;
+}
+
+.about-team-grid__item-name {
+	width: 100%;
+	padding-bottom: 30px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid $c-black;
+
+	@include P1-SansSerif;
+
+	span {
+		margin-left: 30px;
+	}
+}
+
+.about-team-grid__item-bio {
+
+	@include P1-SansSerif;
 }

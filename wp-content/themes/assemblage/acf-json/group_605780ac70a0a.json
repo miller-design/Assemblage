@@ -194,7 +194,7 @@
                     "aspect_ratio_width": 1,
                     "aspect_ratio_height": 1,
                     "return_format": "id",
-                    "preview_size": "medium",
+                    "preview_size": "thumbnail",
                     "library": "all",
                     "min_width": "",
                     "min_height": "",
@@ -296,5 +296,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1616348481
+    "modified": 1617858074
 }

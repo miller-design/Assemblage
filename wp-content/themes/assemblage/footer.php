@@ -3,7 +3,7 @@
 
 		$footer_small_links = [
 			[
-				"link" => '#',
+				"link" => get_permalink(get_page_by_path('contact')),
 				"link_text" => 'Contact',
 			],
 			[
@@ -19,11 +19,11 @@
 				"link_text" => 'Instagram',
 			],
 			[
-				"link" => '#',
+				"link" => get_permalink(get_page_by_path('privacy-policy')),
 				"link_text" => 'Privacy Policy',
 			],
 			[
-				"link" => '#',
+				"link" => get_permalink(get_page_by_path('terms-conditions')),
 				"link_text" => 'Terms & Conditions',
 			],
 		]; ?>

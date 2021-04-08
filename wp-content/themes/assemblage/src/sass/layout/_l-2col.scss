@@ -5,6 +5,12 @@
 .l-2col {
 	width: 100%;
 	position: relative;
+
+	@include grid-col(1, -1);
+}
+
+.l-2col__inner {
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
 
@@ -32,10 +38,12 @@
 }
 
 .l-2col__sticky {
-	position: sticky;
-	position: -webkit-sticky;
 
-	@include v-spacing(top, 60px, 80px);
+	@include media(">=medium") {
+		position: sticky;
+		position: -webkit-sticky;
+		top: 100px;
+	}
 }
 
 .l-2col__header--large {
@@ -50,4 +58,44 @@
 
 .l-2col__col--space-between {
 	justify-content: space-between;
+}
+
+.l-2col--on-grid {
+
+	.l-2col__inner {
+
+		@include grid-container(true);
+	}
+
+	.l-2col__col:first-of-type {
+		width: 100%;
+
+		@include grid-col(1, -1);
+
+		@include media(">=medium") {
+
+			@include grid-col(1, 11);
+		}
+
+		@include media(">=large") {
+
+			@include grid-col(1, 12);
+		}
+	}
+
+	.l-2col__col:last-of-type {
+		width: 100%;
+
+		@include grid-col(1, -1);
+
+		@include media(">=medium") {
+
+			@include grid-col(12, -1);
+		}
+
+		@include media(">=large") {
+
+			@include grid-col(13, -1);
+		}
+	}
 }

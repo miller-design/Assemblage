@@ -139,7 +139,7 @@ class Journal {
 
 	public static function estimated_reading_time($ID, $short_hand = false) {
 
-		if (get_field('modules', $ID)) {
+		if (get_field('modules', $ID)|| get_field('header_blocks', $ID)) {
 
 			$modules = get_field('modules', $ID);
 			$header_modules = get_field('header_blocks', $ID);

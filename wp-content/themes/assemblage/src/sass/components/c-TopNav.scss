@@ -175,17 +175,19 @@
 		}
 	}
 
-	a {
+	a,
+	span {
 		color: $c-white;
 		text-decoration: none;
-		transition: 500ms color $standard-curve;
-
-		@include site-transition(opacity, 500ms);
+		cursor: pointer;
+		transition:
+			500ms opacity $standard-curve,
+			500ms color $standard-curve;
 
 		@media (hover: hover) {
 
 			&:hover {
-				opacity: 0.3;
+				opacity: 0.5;
 			}
 		}
 

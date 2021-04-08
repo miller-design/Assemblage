@@ -4,30 +4,39 @@
 
 get_header(); ?>
 
-<div class="[ l-2col ]">
-	<div class="[ l-2col__col l-2col__col--space-between ]">
-		<div class="[	about-header-wrap ]">
-			<div class="[	about-header ]">
-				<h1><?= (get_field('page_title')) ? get_field('page_title') : get_the_title(); ?></h1>
+<div class="[ l-2col l-2col--on-grid l-2col--top ]">
+	<div class="[ l-2col__inner ]">
+		<div class="[ l-2col__col l-2col__col--space-between ]">
+			<div class="[	about-header-wrap ]">
+				<div class="[	about-header ]">
+					<h1><?= (get_field('page_title')) ? get_field('page_title') : get_the_title(); ?></h1>
+				</div>
+				<div class="[ about-image-wrap-mobile ]">
+					<?= LazyImage::get_image(get_field('featured_image'), [50, 100], 'about-image', true, false); ?>
+				</div>
+				<div class="[ about-intro ]">
+					<?= get_field('intro_text'); ?>
+				</div>
 			</div>
-			<div class="[ about-intro ]">
-				<?= get_field('intro_text'); ?>
+		</div>
+		<div class="[ l-2col__col ]">
+			<div class="[ about-image-wrap ]">
+				<?= LazyImage::get_image(get_field('featured_image'), [50, 100], 'about-image', true, false); ?>
+			</div>
+			<div class="[ about-content ]">
+				<?= get_field('page_copy'); ?>
 			</div>
 		</div>
 	</div>
-	<div class="[ l-2col__col ]">
-		<?= LazyImage::get_image(get_field('featured_image'), [50, 100], 'about-image', true, false); ?>
-		<div class="[ about-content ]">
-			<?= get_field('page_copy'); ?>
-		</div>
-	</div>
-</div><?php
+</div>
 
-$options = [
-	"image" => get_field('image'),
-	"alignment" 	=> 'left',
-];
-FeaturedImage::add_options($options)->render(); ?>
+<div class="about-featured-image-wrap"><?php
+	$options = [
+		"image" => get_field('image'),
+		"alignment" 	=> 'left',
+	];
+	FeaturedImage::add_options($options)->render(); ?>
+</div>
 
 <div class="[ about-team-grid ]">
 	<div class="[ about-team-grid__row ]">

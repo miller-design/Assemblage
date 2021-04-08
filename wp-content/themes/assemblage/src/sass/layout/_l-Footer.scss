@@ -110,6 +110,14 @@
 			text-decoration: none;
 
 			@include P2-SansSerif;
+			@include site-transition(opacity, 500ms);
+
+			@media (hover: hover) {
+
+				&:hover {
+					opacity: 0.5;
+				}
+			}
 		}
 	}
 }
