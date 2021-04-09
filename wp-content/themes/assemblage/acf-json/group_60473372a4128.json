@@ -331,7 +331,7 @@
         {
             "key": "field_606ea23610e8c",
             "label": "Show Recommended",
-            "name": "show_recommended_",
+            "name": "show_recommended",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -417,5 +417,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1617950776
+    "modified": 1617952921
 }

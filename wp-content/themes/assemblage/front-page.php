@@ -99,67 +99,75 @@ $post_slider_loop = new WP_Query( $args );
 	</div>
 </section>
 
-<section class="[ home-full-block ]">
-	<div class="[ ]">
-		<div class="[ l-SectionHeader ]">
-			<p>Featured stories</p>
-		</div>
-		<div class="[ l-4col ]">
-			<div class="[ l-4col__inner ]"><?php
-				$articles = get_field('featured_stories_list');
+<?php if(get_field('show_featured')) { ?>
 
-				foreach($articles as $article) {
-					echo '<div class="[ l-4col__item ]">';
-						$options = [
-							"image" 		=> get_field('featured_image_portrait', $article->ID),
-							"header" 		=> get_the_title($article->ID),
-							"text" 			=> mb_strimwidth(get_field('article_excerpt', $article->ID), 0, 100, "..."),
-							"link" 			=> get_permalink($article->ID),
-							"issue"			=> Journal::get_post_term($article->ID, 'issues')[0],
-							"tax"				=> Journal::get_post_term($article->ID, 'topic')[0],
-							"read_time"	=> Journal::estimated_reading_time($article->ID, true),
-						];
+	<section class="[ home-full-block ]">
+		<div class="[ ]">
+			<div class="[ l-SectionHeader ]">
+				<p>Featured stories</p>
+			</div>
+			<div class="[ l-4col ]">
+				<div class="[ l-4col__inner ]"><?php
+					$articles = get_field('featured_stories_list');
 
-						PostCard::add_options($options)->render();
-					echo '</div>';
-				} ?>
+					foreach($articles as $article) {
+						echo '<div class="[ l-4col__item ]">';
+							$options = [
+								"image" 		=> get_field('featured_image_portrait', $article->ID),
+								"header" 		=> get_the_title($article->ID),
+								"text" 			=> mb_strimwidth(get_field('article_excerpt', $article->ID), 0, 100, "..."),
+								"link" 			=> get_permalink($article->ID),
+								"issue"			=> Journal::get_post_term($article->ID, 'issues')[0],
+								"tax"				=> Journal::get_post_term($article->ID, 'topic')[0],
+								"read_time"	=> Journal::estimated_reading_time($article->ID, true),
+							];
+
+							PostCard::add_options($options)->render();
+						echo '</div>';
+					} ?>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="[ ]"><?php
-		$featured_id = get_field('featured_story')->ID;
-		$featured_type_style = get_field('featured_typography_style');
+		<div class="[ ]"><?php
+			$featured_id = get_field('featured_story')->ID;
+			$featured_type_style = get_field('featured_typography_style');
 
-		$options = [
-			"header_type"		=> 'full-screen',
-			"image" 				=> get_field('featured_image', $featured_id),
-			"header_text"		=> get_the_title($featured_id),
-			"excerpt" 			=> get_field('article_excerpt', $featured_id),
-			"issue_number"	=> Journal::get_post_term($featured_id, 'issues')[0],
-			"term"					=> Journal::get_post_term($featured_id, 'topic')[0],
-			"read_time"			=> Journal::estimated_reading_time($featured_id, true),
-			"flip_layout"		=> true,
-			"type_style"		=> $featured_type_style
-		];
+			$options = [
+				"header_type"		=> 'full-screen',
+				"image" 				=> get_field('featured_image', $featured_id),
+				"header_text"		=> get_the_title($featured_id),
+				"excerpt" 			=> get_field('article_excerpt', $featured_id),
+				"issue_number"	=> Journal::get_post_term($featured_id, 'issues')[0],
+				"term"					=> Journal::get_post_term($featured_id, 'topic')[0],
+				"read_time"			=> Journal::estimated_reading_time($featured_id, true),
+				"flip_layout"		=> true,
+				"type_style"		=> $featured_type_style
+			];
 
-		FeaturedArticle::add_options($options)->render(); ?>
-	</div>
-</section>
+			FeaturedArticle::add_options($options)->render(); ?>
+		</div>
+	</section>
 
-<section class="[ home-full-block ]">
-	<div class="[ ]"><?php
+<?php } ?>
 
-		$options = [
-			"title"				=> 'Recommended Reads',
-			"link"				=> [
-				"active"	=> false,
-			],
-			"posts" 			=> get_field('recommended_reads'),
-			"slide-size"	=> 'small',
-		];
-		PostSlider::add_options($options)->render(); ?>
-	</div>
-</section>
+<?php if(get_field('show_recommended')) { ?>
+
+	<section class="[ home-full-block ]">
+		<div class="[ ]"><?php
+
+			$options = [
+				"title"				=> 'Recommended Reads',
+				"link"				=> [
+					"active"	=> false,
+				],
+				"posts" 			=> get_field('recommended_reads'),
+				"slide-size"	=> 'small',
+			];
+			PostSlider::add_options($options)->render(); ?>
+		</div>
+	</section>
+
+<?php } ?>
 
 
 <?php get_footer(); ?>
