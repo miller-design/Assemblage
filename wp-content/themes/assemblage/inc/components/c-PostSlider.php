@@ -14,6 +14,7 @@ class PostSlider {
 	// setup
 	private $options;
 	private static $link;
+	private static $link_mobile;
 
 	public function __construct($custom_options) {
 
@@ -46,8 +47,12 @@ class PostSlider {
 			$this->options['classes'] .= 'c-PostSlider--small-slides ';
 		}
 
-		if($this->options['link']['active'] == true) {
+		if($this->options['link']['active'] === true && !empty($this->options['link']['url']) && !empty($this->options['link']['text'])) {
 			Self::$link = '<a class="[ c-PostSlider__link ]" href="' . $this->options['link']['url'] . '">' . $this->options['link']['text'] . '</a>';
+			Self::$link_mobile = '<a class="[ c-PostSlider__link-mobile ]" href="' . $this->options['link']['url'] . '">' . $this->options['link']['text'] . '</a>';
+		} else {
+			Self::$link = '';
+			Self::$link_mobile = '';
 		}
 	}
 
@@ -101,6 +106,7 @@ class PostSlider {
 				<div class="[ c-PostSlider__wrapper ]" g-ref="slider">
 					<?= $this->options['posts']; ?>
 				</div>
+				<?= Self::$link_mobile; ?>
 			</div>
 		</div><?php
 	}

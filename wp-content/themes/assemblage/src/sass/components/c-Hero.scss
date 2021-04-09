@@ -1,0 +1,110 @@
+@import "../base";
+
+/* ==========================================================================
+	Hero Component
+========================================================================== */
+.c-Hero {
+	width: 100%;
+	display: block;
+	position: relative;
+
+	@include grid-col-full-bleed("both");
+	@include v-spacing(margin-bottom, 60px, 120px);
+}
+
+.c-Hero__inner {
+	width: 100%;
+
+	@include grid-container;
+}
+
+.c-Hero__left {
+
+	@include grid-col(1, -1);
+	@include grid-col-full-bleed("both");
+
+	@include media(">=medium") {
+
+		@include grid-col-full-bleed("left");
+		@include grid-col(1, 15);
+	}
+
+	@include media(">=large") {
+
+		@include grid-col(1, 18);
+	}
+}
+
+.c-Hero__right {
+
+	@include grid-col(1, -1);
+	@include grid-col-full-bleed("left");
+
+	@include media("<medium") {
+		padding-left: var(--site-margin);
+		padding-right: var(--site-margin);
+		padding-top: 20px;
+	}
+
+	@include media(">=medium") {
+		position: -webkit-sticky;
+		position: sticky;
+		top: 0;
+		right: var(--site-margin);
+		height: calc(100vh - 60px);
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+
+		@include grid-col(16, -1);
+	}
+
+	@include media(">=large") {
+
+		@include grid-col(19, -1);
+	}
+}
+
+.c-Hero__image-wrap,
+.c-Hero__image {
+
+	@include media(">=medium") {
+		min-height: 125vh;
+	}
+}
+
+.c-Hero__image img {
+
+	@include media(">=medium") {
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.c-Hero__content-wrap {
+	width: 100%;
+	position: relative;
+}
+
+//elements
+.c-Hero__header {
+	width: 100%;
+
+	@include H6-SansSerif;
+	@include v-spacing(margin-bottom, 25px, 30px);
+}
+
+.c-Hero__excerpt {
+
+	@include P2-SansSerif;
+	@include v-spacing(margin-bottom, 25px, 30px);
+}
+
+.c-Hero__link {
+
+	@include pill;
+
+	@include media("<small") {
+		width: 100%;
+	}
+}

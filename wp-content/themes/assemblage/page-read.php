@@ -56,14 +56,14 @@ get_header();
 
 		$options = [
 		 "header_type"		=> 'next-issue',
-		 "image" 				=> get_field('featured_image', $next_issue_acf_id),
-		 "term"					=> 'Next Issue <sup>' . get_term($next_issue)->name . '</sup>',
+		 "image" 					=> get_field('featured_image', $next_issue_acf_id),
+		 "term"						=> 'Next Issue <sup>' . get_term($next_issue)->name . '</sup>',
 		 "header_text"		=> get_field('issue_name', $next_issue_acf_id),
-		 "excerpt" 			=> get_field('issue_excerpt', $next_issue_acf_id),
-		 "release_date"  => get_field('release_date', $next_issue_acf_id),
+		 "excerpt" 				=> get_field('issue_excerpt', $next_issue_acf_id),
+		 "release_date"  	=> get_field('release_date', $next_issue_acf_id),
 		 "flip_layout"		=> false,
-		 "type_style"		=> 'sans-serif',
-		 "white_bg"			=> true,
+		 "type_style"			=> 'sans-serif',
+		 "white_bg"				=> true,
 	 ];
 
 	 FeaturedArticle::add_options($options)->render();

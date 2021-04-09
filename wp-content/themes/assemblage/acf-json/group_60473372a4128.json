@@ -3,13 +3,121 @@
     "title": "Front Page",
     "fields": [
         {
-            "key": "field_604733896c837",
-            "label": "Hero Featured Article",
-            "name": "hero_featured_article",
-            "type": "post_object",
-            "instructions": "Select the article you would like to feature at the top of your home page",
+            "key": "field_606ea13910e87",
+            "label": "Header Section",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_606ea15310e88",
+            "label": "Select Active Issue",
+            "name": "select_active_issue",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "issues",
+            "field_type": "select",
+            "allow_null": 0,
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "multiple": 0
+        },
+        {
+            "key": "field_606ea1ab10e8a",
+            "label": "Hero Image",
+            "name": "hero_image",
+            "type": "image_aspect_ratio_crop",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "crop_type": "aspect_ratio",
+            "aspect_ratio_width": 133,
+            "aspect_ratio_height": 144,
+            "return_format": "id",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_606ea45b10e91",
+            "label": "Current Issue Section",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_606ea4b710e93",
+            "label": "Display Next Issue",
+            "name": "display_next_issue",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_606ea47310e92",
+            "label": "Current Featured Article",
+            "name": "current_featured_article",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_606ea4b710e93",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -21,15 +129,45 @@
             "taxonomy": "",
             "allow_null": 0,
             "multiple": 0,
-            "return_format": "id",
+            "return_format": "object",
             "ui": 1
         },
         {
-            "key": "field_604733aa6c838",
-            "label": "Featured Article",
-            "name": "featured_article",
-            "type": "component_field",
-            "instructions": "select the featured article you would like to appear",
+            "key": "field_606ea4ea10e94",
+            "label": "Next Issue",
+            "name": "next_issue",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_606ea4b710e93",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "issues",
+            "field_type": "select",
+            "allow_null": 0,
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "multiple": 0
+        },
+        {
+            "key": "field_606eaaa26fdf9",
+            "label": "Typography Style",
+            "name": "current_typography_style",
+            "type": "select",
+            "instructions": "Select if you would like the headers to be serif or sans serif",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -37,21 +175,23 @@
                 "class": "",
                 "id": ""
             },
-            "field_group_key": "group_6044f3a929944",
-            "repeatable": 0,
-            "layout": "block",
-            "button_label": "",
-            "appearances": "",
-            "min": null,
-            "max": null,
-            "collapsed": "",
-            "sub_fields": []
+            "choices": {
+                "serif": "Serif",
+                "sans-serif": "Sans Serif"
+            },
+            "default_value": "serif",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         },
         {
-            "key": "field_6047344ce5161",
-            "label": "Our Vision",
-            "name": "our_vision",
-            "type": "textarea",
+            "key": "field_606ea26310e8d",
+            "label": "Featured Section",
+            "name": "",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -60,52 +200,15 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 4,
-            "new_lines": "br"
+            "placement": "top",
+            "endpoint": 0
         },
         {
-            "key": "field_6047346de5162",
-            "label": "Our Vision Link",
-            "name": "our_vision_link",
-            "type": "link",
+            "key": "field_606ea2e910e90",
+            "label": "Show featured",
+            "name": "show_featured",
+            "type": "true_false",
             "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
-        },
-        {
-            "key": "field_60473485e5163",
-            "label": "Our Vision Link Text",
-            "name": "our_vision_link_text",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_604734a9e5164",
-            "label": "Featured Article",
-            "name": "featured_article_second",
-            "type": "component_field",
-            "instructions": "select the featured article you would like to appear",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -113,15 +216,136 @@
                 "class": "",
                 "id": ""
             },
-            "field_group_key": "group_6044f3a929944",
-            "repeatable": 0,
-            "layout": "block",
-            "button_label": "",
-            "appearances": "",
-            "min": null,
-            "max": null,
-            "collapsed": "",
-            "sub_fields": []
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_606ea27010e8e",
+            "label": "Featured Stories List",
+            "name": "featured_stories_list",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_606ea2e910e90",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "journal"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "elements": "",
+            "min": 4,
+            "max": 4,
+            "return_format": "object"
+        },
+        {
+            "key": "field_606ea2bd10e8f",
+            "label": "Featured Story",
+            "name": "featured_story",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_606ea2e910e90",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "journal"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+        },
+        {
+            "key": "field_606eaae26fdfa",
+            "label": "Typography Style",
+            "name": "featured_typography_style",
+            "type": "select",
+            "instructions": "Select if you would like the headers to be serif or sans serif",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "serif": "Serif",
+                "sans-serif": "Sans Serif"
+            },
+            "default_value": "serif",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_606ea21110e8b",
+            "label": "Recommended Section",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_606ea23610e8c",
+            "label": "Show Recommended",
+            "name": "show_recommended_",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         },
         {
             "key": "field_604734fde5165",
@@ -130,7 +354,15 @@
             "type": "relationship",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_606ea23610e8c",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -146,15 +378,15 @@
             "elements": "",
             "min": 6,
             "max": 10,
-            "return_format": "id"
+            "return_format": "object"
         }
     ],
     "location": [
         [
             {
-                "param": "page_type",
+                "param": "page_template",
                 "operator": "==",
-                "value": "front_page"
+                "value": "front-page.php"
             }
         ]
     ],
@@ -185,5 +417,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1615279574
+    "modified": 1617950776
 }

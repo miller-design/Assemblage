@@ -52,7 +52,7 @@
 }
 
 .c-FeaturedArticle--split {
-	height: 100vh;
+	height: 90vh;
 	min-height: 700px;
 	overflow: hidden;
 	position: relative;
@@ -136,8 +136,8 @@
 }
 
 .c-FeaturedArticle--full-screen {
-	height: 100vh;
-	min-height: 700px;
+	height: 90vh;
+	min-height: 600px;
 	overflow: hidden;
 	position: relative;
 
@@ -158,9 +158,10 @@
 
 	.c-FeaturedArticle__image-bg {
 		position: relative;
+		height: 90vh;
+		min-height: 600px;
 
 		@include media("<medium") {
-			min-height: 500px;
 
 			img {
 				position: absolute;
@@ -334,6 +335,7 @@
 	padding-left: var(--site-margin);
 	padding-right: var(--site-margin);
 	margin-bottom: 0;
+	height: 110vh;
 
 	@include grid-col-full-bleed("both");
 	@include v-spacing(padding-top, 60px, 120px);

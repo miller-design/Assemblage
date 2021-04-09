@@ -204,7 +204,7 @@
 	text-align: center;
 	text-transform: capitalize;
 
-	@include P1-SansSerif;
+	@include P2-SansSerif;
 	@include lhCrop(1.5, 1.5);
 	@include site-transition(border, 500ms);
 	@include v-spacing(padding-top, 11px, 12px);

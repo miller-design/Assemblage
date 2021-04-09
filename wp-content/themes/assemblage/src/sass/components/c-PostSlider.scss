@@ -59,6 +59,11 @@
 .c-PostSlider__header {
 
 	@include H6-SansSerif;
+
+	sup {
+
+		@include v-type(12px, 20px, 20px);
+	}
 }
 
 .c-PostSlider__link {
@@ -68,6 +73,18 @@
 	@include pill;
 
 	@include media("<small") {
+		display: none;
+	}
+}
+
+.c-PostSlider__link-mobile {
+	width: 100%;
+	margin-top: 45px;
+
+	@include pill;
+	@include grid-col(1, -1);
+
+	@include media(">=small") {
 		display: none;
 	}
 }

@@ -1,0 +1,14 @@
+.home-full-block {
+
+	@include grid-col(1, -1);
+
+	.l-4col {
+
+		@include v-spacing(margin-bottom, 60px, 120px);
+	}
+
+	.c-PostSlider {
+
+		@include v-spacing(margin-bottom, 70px, 130px);
+	}
+}
