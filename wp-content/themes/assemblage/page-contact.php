@@ -4,7 +4,7 @@
 
 get_header(); ?>
 
-<div class="[ l-2col ]">
+<div class="[ l-2col ][ contact-page ]">
 	<div class="[ l-2col__col l-2col__col--space-between ][ contact-content-wrap ]">
 		<div class="[ contact-header ]">
 			<h1><?= (get_field('page_title')) ? get_field('page_title') : get_the_title(); ?></h1>

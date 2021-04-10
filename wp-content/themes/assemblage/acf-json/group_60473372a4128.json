@@ -68,6 +68,25 @@
             "mime_types": ""
         },
         {
+            "key": "field_607155d193a54",
+            "label": "Mobile Intro text",
+            "name": "mobile_intro_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_606ea45b10e91",
             "label": "Current Issue Section",
             "name": "",
@@ -417,5 +436,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1617952921
+    "modified": 1618040296
 }

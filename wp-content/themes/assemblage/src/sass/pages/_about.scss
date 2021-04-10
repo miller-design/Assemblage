@@ -151,6 +151,10 @@
 
 		@include grid-col(1, -1);
 
+		@include media("<small") {
+			margin-bottom: 60px;
+		}
+
 		@include media(">=small") {
 
 			@include grid-col(1, 5);

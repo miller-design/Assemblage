@@ -108,3 +108,17 @@
 		width: 100%;
 	}
 }
+
+.c-Hero__intro {
+	width: calc(100% - (#{var(--site-margin)} * 2));
+	position: absolute;
+	top: 80px;
+	left: var(--site-margin);
+	color: $c-white;
+
+	@include H4-Serif;
+
+	@include media(">=small") {
+		display: none;
+	}
+}

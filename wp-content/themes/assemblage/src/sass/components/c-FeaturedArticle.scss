@@ -247,6 +247,8 @@
 }
 
 .c-FeaturedArticle--term-headers {
+	height: initial;
+	min-height: initial;
 	border-bottom: 3px solid $c-black;
 
 	@include v-spacing(padding-bottom, 40px, 60px);

@@ -1,6 +1,13 @@
 /* ==========================================================================
 	Contact Page
 =========================================================================== */
+.contact-page {
+	width: 100%;
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+}
+
 .contact-content-wrap {
 	margin-bottom: 45px;
 	order: 2;

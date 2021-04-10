@@ -49,7 +49,7 @@ class Hero {
 		}
 
 		if($this->options['bio_text']) {
-			$this->options['bio_text'] = '<p class="[ c-Hero__excerpt ]">Issue ' . $this->options['bio_text'] . '</p>';
+			$this->options['bio_text'] = '<p class="[ c-Hero__intro ]">Issue ' . $this->options['bio_text'] . '</p>';
 		}
 	}
 
