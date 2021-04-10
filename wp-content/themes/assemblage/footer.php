@@ -30,6 +30,8 @@
 
 		<span class="[ u-site-overlay ][ js-overlay ]"></span>
 
+		<?php Forms::output_subscribe_panel(); ?>
+
 		<footer class="[ l-Footer ]">
 			<div class="[ l-Footer__top ]">
 				<div class="[ l-Footer__left ]">

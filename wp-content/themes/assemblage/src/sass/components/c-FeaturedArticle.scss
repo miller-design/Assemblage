@@ -136,7 +136,7 @@
 }
 
 .c-FeaturedArticle--full-screen {
-	height: 90vh;
+	height: 95vh;
 	min-height: 600px;
 	overflow: hidden;
 	position: relative;
@@ -154,11 +154,19 @@
 		position: absolute;
 		left: var(--site-margin);
 		bottom: var(--site-margin);
+
+		@include media(">=large") {
+			width: 60%;
+		}
+
+		@include media(">=xlarge") {
+			width: 50%;
+		}
 	}
 
 	.c-FeaturedArticle__image-bg {
 		position: relative;
-		height: 90vh;
+		height: 95vh;
 		min-height: 600px;
 
 		@include media("<medium") {

@@ -157,6 +157,30 @@
 	}
 }
 
+.c-NewsletterSignup--dark {
+
+	.c-NewsletterSignup__header {
+		color: $c-black;
+	}
+
+	.c-NewsletterSignup__form {
+
+		form.wpcf7-form {
+
+			label,
+			input[type="email"].form-control,
+			button[type="submit"],
+			input[type="submit"] {
+				color: $c-black;
+			}
+
+			input[type="email"].form-control {
+				border-bottom: 1px solid $c-black;
+			}
+		}
+	}
+}
+
 @keyframes fadeInUp {
 
 	0% {

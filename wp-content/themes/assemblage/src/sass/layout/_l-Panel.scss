@@ -1,0 +1,102 @@
+.l-Panel {
+	width: 100vw;
+	height: 100%;
+	position: fixed;
+	right: 0;
+	top: 0;
+	background-color: $c-white;
+	transform: translate3d(102vw, 0, 0);
+	transition: 400ms transform $standard-curve;
+	z-index: $z-level-three;
+	overflow-y: auto;
+
+	@include media(">=small") {
+		width: 75vw;
+		transform: translate3d(77vw, 0, 0);
+	}
+
+	@include media(">=medium") {
+		width: 51vw;
+		transform: translate3d(52vw, 0, 0);
+	}
+
+	&.is-active {
+		transform: translate3d(0, 0, 0);
+		transition: 400ms transform 500ms $standard-curve;
+	}
+
+	.l-Panel__header {
+		width: 100%;
+		display: flex;
+		position: relative;
+
+		@include v-spacing(padding-top, $VSM2, $VSD2);
+		@include v-spacing(padding-right, $VSM2, $VSD4);
+		@include v-spacing(padding-bottom, $VSM2, $VSD2);
+		@include v-spacing(padding-left, $VSM2, $VSD4);
+
+		&::after {
+			content: "";
+			width: calc(100% - (#{$VSM2} * 2));
+			position: absolute;
+			left: $VSM2;
+			bottom: 0;
+			height: 1px;
+			background-color: $c-black;
+
+			@include media(">=medium") {
+				left: $VSD4;
+				width: calc(100% - (#{$VSD4} * 2));
+			}
+
+		}
+	}
+
+	.l-Panel__close {
+		position: relative;
+		padding-left: 25px;
+
+		@include close-icon;
+		@include P2-SansSerif;
+
+		&::before,
+		&::after {
+			left: 10px;
+		}
+	}
+
+	.l-Panel__content {
+		position: relative;
+		top: 0;
+		opacity: 1;
+		transition:
+			500ms opacity 1000ms $standard-curve,
+			500ms top 1000ms $standard-curve;
+
+		&.fade-out {
+			top: 5px;
+			opacity: 0;
+			transition:
+				500ms opacity $standard-curve,
+				500ms top $standard-curve;
+		}
+	}
+}
+
+.l-Panel__subscribe {
+
+	@include v-spacing(padding-left, 20px, 40px);
+	@include v-spacing(padding-right, 20px, 40px);
+}
+
+.l-Panel__subscribe-header {
+
+	@include H6-SansSerif;
+	@include v-spacing(margin-bottom, 10px, 15px);
+}
+
+.l-Panel__subscribe-text {
+
+	@include H5-Serif;
+	@include v-spacing(margin-bottom, 60px, 120px);
+}

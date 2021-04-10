@@ -1,6 +1,7 @@
 // import GIA dependancy
 import Component from 'gia/Component'
-
+import { disablePageScroll, enablePageScroll, addFillGapTarget } from 'scroll-lock';
+import eventbus from 'gia/eventbus'
 
 // Extend the GIA component
 class TopNav extends Component {
@@ -9,14 +10,30 @@ class TopNav extends Component {
 	constructor(element) {
 		super(element)
 
+		this.ref = {
+			subscribeTrigger: null
+		}
+
 
 		global.scrollEvents.push(this.hideBar.bind(this))
+		this.subscribePanel = document.querySelector('.js-subscribe-panel')
+		this.closePanel = document.querySelector('.js-subscribe-close')
+		this.overlay = document.querySelector('.js-overlay')
 	}
 
 	mount() {
 
+		this.ref.subscribeTrigger.addEventListener('click', this.triggerSubscribe.bind(this))
+		this.closePanel.addEventListener('click', this.triggerSubscribe.bind(this))
+		this.overlay.addEventListener('click', this.triggerSubscribe.bind(this))
+		eventbus.on('newsletterSubmitted', this.triggerSubscribe.bind(this))
+	}
 
+	triggerSubscribe() {
 
+		this.setState({
+			subscribeActive: !this.state.subscribeActive
+		})
 	}
 
 	stateChange(stateChanges) {
@@ -34,6 +51,17 @@ class TopNav extends Component {
 				this.element.classList.add('c-TopNav--is-pinned')
 			} else {
 				this.element.classList.remove('c-TopNav--is-pinned')
+			}
+		} else if('subscribeActive' in stateChanges) {
+
+			if(this.state.subscribeActive) {
+				this.subscribePanel.classList.add('is-active')
+				this.overlay.classList.add('is-active')
+				disablePageScroll(this.subscribePanel)
+			} else {
+				this.subscribePanel.classList.remove('is-active')
+				this.overlay.classList.remove('is-active')
+				enablePageScroll(this.subscribePanel)
 			}
 		}
   }

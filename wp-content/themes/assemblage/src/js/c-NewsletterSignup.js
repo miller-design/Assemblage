@@ -1,6 +1,6 @@
 // import GIA dependancy
 import Component from 'gia/Component'
-import getComponentFromElement from 'gia/getComponentFromElement'
+import eventbus from 'gia/eventbus'
 
 // Extend the GIA component
 class NewsletterSignup extends Component {
@@ -32,6 +32,18 @@ class NewsletterSignup extends Component {
 		this.input.addEventListener('keyup', eventBase)
 		this.input.addEventListener('focus', eventBase)
 		this.input.addEventListener('blur', eventBase)
+
+		this.submitBtn.addEventListener('click', (e) => {
+
+			if(this.inModal) {
+
+				setTimeout(() => {
+					if(this.form.classList.contains('sent')) {
+						eventbus.emit('newsletterSubmitted')
+					}
+				}, 2000)
+			}
+		})
 	}
 
 	getLabel(el) {
@@ -56,19 +68,6 @@ class NewsletterSignup extends Component {
 		this.myTimeVar.forEach((timer) => {
 			clearTimeout(timer)
 		})
-	}
-
-	setModalCookie() {
-
-		if(this.inModal) {
-
-			const modalEl = document.querySelector('.js-site-modal')
-			const giaComponent = getComponentFromElement(modalEl)
-
-			setTimeout(() => {
-				giaComponent.submitModal()
-			}, 1200)
-		}
 	}
 }
 

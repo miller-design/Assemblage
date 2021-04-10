@@ -1,6 +1,5 @@
 // import GIA dependancy
 import Component from 'gia/Component'
-
 import { disablePageScroll, enablePageScroll, addFillGapTarget } from 'scroll-lock';
 
 
@@ -96,20 +95,20 @@ class IssueHeader extends Component {
 
 		const panel = document.createElement('div')
 		panel.classList.add('js-issue-panel')
-		panel.classList.add('c-IssueHeader__panel')
+		panel.classList.add('l-Panel')
 		panel.style.setProperty("--panel-bg-color", this.options.panelBg)
 		document.body.appendChild(panel)
 
 		const panelHeader = document.createElement("div")
-		panelHeader.classList.add('c-IssueHeader__panel-header')
+		panelHeader.classList.add('l-Panel__header')
 
 		const closeIcon = document.createElement("span")
 		closeIcon.innerHTML = 'Close'
-		closeIcon.classList.add('c-IssueHeader__panel-close')
+		closeIcon.classList.add('l-Panel__close')
 		closeIcon.classList.add('js-issue-panel-close')
 
 		const panelContent = document.createElement("div")
-		panelContent.classList.add('c-IssueHeader__panel-content')
+		panelContent.classList.add('l-Panel__content')
 		panelContent.classList.add('js-issue-panel-content')
 		panelHeader.appendChild(closeIcon)
 		panel.appendChild(panelHeader)
