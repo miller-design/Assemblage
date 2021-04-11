@@ -17,6 +17,10 @@ class BaseTheme extends Component {
 		this.latestKnownScrollY = 0
 		this.lastScrollTop = 0
 
+		this.imageEls = document.querySelectorAll('.js-parralax-image')
+		this.scrollY = 0
+		this.lastScrollPosition = -1
+
 		// create global object of this special component instance
 		global.base = getComponentFromElement(document.body)
 	}
@@ -27,6 +31,7 @@ class BaseTheme extends Component {
 
 		this.initScrollHandler()
 		this.initResizeHandler()
+		this.updateAnimation()
 	}
 
 	initScrollHandler() {
@@ -51,7 +56,6 @@ class BaseTheme extends Component {
 			tick = true
 		})
 	}
-
 
 	initResizeHandler() {
 
@@ -92,6 +96,36 @@ class BaseTheme extends Component {
 
 		global.scrollDirection = (currentScrollY < this.lastScrollTop) ? 'up' : 'down'
     this.lastScrollTop = currentScrollY
+	}
+
+	updateAnimation() {
+
+		this.scrollY = document.documentElement.scrollTop || document.body.scrollTop
+
+		if(	this.lastScrollPosition != this.scrollY) {
+			this.lastScrollPosition = this.scrollY
+			this.updateMethods(this.scrollY)
+		}
+
+		window.requestAnimationFrame(this.updateAnimation.bind(this))
+	}
+
+	updateMethods(scrollY) {
+
+		const parralaxEls = Array.from(this.imageEls)
+
+		parralaxEls.forEach((el) => {
+			let st = scrollY
+			let elTop = el.parentNode.getBoundingClientRect().top
+			let amountScrolled = st - elTop
+			let scroll = (elTop === 0) ? st : elTop
+
+			this.parralaxEffect(0, scroll * 0.1, el)
+		})
+	}
+
+	parralaxEffect(x, y, el) {
+		el.style.transform = `translate3d(0px, ${y.toFixed(2)}px, 0px) scale(1.2)`
 	}
 }
 

@@ -56,7 +56,7 @@ class IssueHeader {
 				</div>
 				<div class="[ c-IssueHeader__right ]">
 					<div class="[ c-IssueHeader__image-wrap ]">
-						<?= LazyImage::get_image($this->options['image'], [50, 100], 'c-IssueHeader__img', true, false); ?>
+						<?= LazyImage::get_image($this->options['image'], [50, 100], 'c-IssueHeader__img js-parralax-image', true, false); ?>
 						<h1 class="[ c-IssueHeader__header-mobile ]">Issue <span><?= $this->options['number']; ?></span></h1>
 					</div>
 				</div>

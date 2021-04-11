@@ -59,7 +59,7 @@ class FeaturedImage {
 		<div class="[ c-FeaturedImage <?= $this->options["classes"]; ?>]">
 			<div class="[ c-FeaturedImage__inner ]">
 				<div class="[ c-FeaturedImage__image-wrap ]">
-					<?= LazyImage::get_image($this->options["image"], 100, 'c-FeaturedImage__image', true, false); ?>
+					<?= LazyImage::get_image($this->options["image"], 100, 'c-FeaturedImage__image js-parralax-image', true, false); ?>
 				</div>
 			</div>
 		</div><?php

@@ -67,6 +67,7 @@
 
 .c-Hero__image-wrap,
 .c-Hero__image {
+	overflow: hidden;
 
 	@include media(">=medium") {
 		min-height: 125vh;
@@ -78,6 +79,7 @@
 	@include media(">=medium") {
 		height: 100%;
 		object-fit: cover;
+		transform: translate3d(0, 0, 0) scale(1.2);
 	}
 }
 

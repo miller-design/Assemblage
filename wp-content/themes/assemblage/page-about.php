@@ -21,7 +21,7 @@ get_header(); ?>
 		</div>
 		<div class="[ l-2col__col ]">
 			<div class="[ about-image-wrap ]">
-				<?= LazyImage::get_image(get_field('featured_image'), [50, 100], 'about-image', true, false); ?>
+				<?= LazyImage::get_image(get_field('featured_image'), [50, 100], 'about-image js-parralax-image', true, false); ?>
 			</div>
 			<div class="[ about-content ]">
 				<?= get_field('page_copy'); ?>

@@ -215,19 +215,23 @@ class Journal {
 	 	Next post Link
 	================================================================ */
 
-	public static function get_next_story($postID) {
+	public static function get_next_story() {
 
-		$options = [
-			"image" 	=> get_field('featured_image_portrait', $postID),
-			"header" 	=> get_the_title($postID),
-			"text" 		=> mb_strimwidth(get_field('article_excerpt', $postID), 0, 100, "..."),
-			"link" 		=> get_permalink($postID),
-			"issue"		=> Self::get_post_term(get_the_id(), 'issues')[0],
-			"tax"			=> Self::get_post_term(get_the_id(), 'topic')[0],
-		];
+		$next_post_id = get_next_post(true, '', 'issues')->ID;
 
-		NextPost::add_options($options)->render();
+		if(!empty($next_post_id)) {
 
+			$options = [
+				"image" 	=> get_field('featured_image_portrait', $next_post_id),
+				"header" 	=> get_the_title($next_post_id),
+				"text" 		=> mb_strimwidth(get_field('article_excerpt', $next_post_id), 0, 100, "..."),
+				"link" 		=> get_permalink($next_post_id),
+				"issue"		=> Self::get_post_term($next_post_id, 'issues')[0],
+				"tax"			=> Self::get_post_term($next_post_id, 'topic')[0],
+			];
+
+			NextPost::add_options($options)->render();
+		}
 	}
 
 

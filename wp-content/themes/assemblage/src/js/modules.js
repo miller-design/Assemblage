@@ -31,7 +31,7 @@ const components = {
 	"ImageSlider": ImageSlider,
 	"PostSlider": PostSlider,
 	"IssueHeader": IssueHeader,
-	"AjaxLoadMore": AjaxLoadMore,
+	"AjaxLoadMore": AjaxLoadMore
 }
 
 export default components;

@@ -229,7 +229,7 @@
 		endif; ?>
 
 		<div class="[ l-JournalSingle__next ]">
-			<?php Journal::get_next_story(get_the_id()); ?>
+			<?php Journal::get_next_story(); ?>
 		</div>
 	</article>
 

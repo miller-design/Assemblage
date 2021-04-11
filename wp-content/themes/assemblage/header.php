@@ -30,7 +30,11 @@ https://jackmiller.design/
 		}
 	} else {
 		$headerClass = 'dark-state';
-	}?>
+	}
+
+	if(is_front_page() && !isset($_COOKIE['Preloader'])) {
+		include get_template_directory() . '/templates/preloader.php';
+	}	?>
 
 	<body <?php body_class([$headerClass]); ?> g-component="BaseTheme"><?php
 

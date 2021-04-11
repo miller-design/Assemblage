@@ -18,7 +18,7 @@ get_header(); ?>
 		<div class="[ contact-header-mobile ]">
 			<h1><?= (get_field('page_title')) ? get_field('page_title') : get_the_title(); ?></h1>
 		</div>
-		<?= LazyImage::get_image(get_post_thumbnail_id(), [50, 100], 'contact-image', true, false); ?>
+		<?= LazyImage::get_image(get_post_thumbnail_id(), [50, 100], 'contact-image js-parralax-image', true, false); ?>
 	</div>
 </div>
 

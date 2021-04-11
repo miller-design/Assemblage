@@ -17,6 +17,14 @@
 	@include grid-container(true);
 }
 
+.c-FeaturedImage__image-wrap {
+	overflow: hidden;
+}
+
+.c-FeaturedImage__image {
+	transform: scale(1.2);
+}
+
 .c-FeaturedImage--left {
 
 	.c-FeaturedImage__image-wrap {

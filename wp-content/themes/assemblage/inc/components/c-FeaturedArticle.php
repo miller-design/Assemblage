@@ -83,7 +83,7 @@ class FeaturedArticle {
 	private static function build_full_screen($options) {
 
 		$output = '';
-		$output .= LazyImage::get_image($options['image'], 100, 'c-FeaturedArticle__image-bg');
+		$output .= LazyImage::get_image($options['image'], 100, 'c-FeaturedArticle__image-bg js-parralax-image');
 		$output .= '<p class="[ c-FeaturedArticle__type ]">' . $options['term']['name'] . '</p>';
 		$output .= '<div class="[ c-FeaturedArticle__content ]">';
 			$output .= '<p class="[ c-FeaturedArticle__header ]">' . $options['header_text'] . '</p>';

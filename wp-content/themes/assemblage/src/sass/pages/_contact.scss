@@ -36,6 +36,10 @@
 		order: 2;
 	}
 
+	.contact-image {
+		transform: scale(1.2);
+	}
+
 	img {
 
 		@include media(">=medium") {
