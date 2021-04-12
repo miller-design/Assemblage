@@ -21,7 +21,6 @@
 
 .contact-image-wrap {
 	width: 100%;
-
 	overflow: hidden;
 	margin-top: 75px;
 	margin-bottom: 45px;
@@ -103,6 +102,10 @@
 					padding-left: 15px;
 				}
 			}
+		}
+
+		&.last {
+			margin-bottom: 0;
 		}
 	}
 }

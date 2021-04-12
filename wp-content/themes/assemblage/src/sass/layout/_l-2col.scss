@@ -32,6 +32,13 @@
 	justify-content: flex-start;
 	flex-direction: column;
 
+	@include media("<medium") {
+
+		&:first-of-type {
+			margin-bottom: 45px;
+		}
+	}
+
 	@include media(">=medium") {
 		width: 48%;
 	}

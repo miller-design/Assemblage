@@ -38,6 +38,7 @@
 
 .about-image-wrap-mobile {
 	margin-bottom: 20px;
+	overflow: hidden;
 
 	@include media(">=medium") {
 		display: none;
