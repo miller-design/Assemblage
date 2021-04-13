@@ -10,7 +10,7 @@
 	padding-right: var(--site-margin);
 
 	@include v-spacing(padding-top, 30px, 40px);
-	@include v-spacing(padding-bottom, 20px, 10px);
+	@include v-spacing(padding-bottom, 20px, 30px);
 }
 
 .l-Footer__top,

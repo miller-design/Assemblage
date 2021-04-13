@@ -6,6 +6,16 @@
 .c-PostCard {
 	width: 100%;
 	position: relative;
+
+	@media (hover: hover) {
+
+		&:hover {
+
+			.c-PostCard__image {
+				transform: scale(1.05);
+			}
+		}
+	}
 }
 
 .c-PostCard__link {
@@ -14,9 +24,14 @@
 	text-decoration: none;
 }
 
-.c-PostCard__image-wrap,
+.c-PostCard__image-wrap {
+	width: 100%;
+	overflow: hidden;
+}
+
 .c-PostCard__image {
 	width: 100%;
+	transition: 1200ms transform ease;
 }
 
 .c-PostCard__info {
@@ -28,9 +43,9 @@
 .c-PostCard__details {
 	width: 100%;
 	text-transform: uppercase;
+	padding-bottom: 17px;
 
 	@include P3-Mono();
-	@include v-spacing(margin-bottom, 17px, 25px);
 
 	.dot {
 

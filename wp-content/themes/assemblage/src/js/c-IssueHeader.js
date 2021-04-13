@@ -146,7 +146,9 @@ class IssueHeader extends Component {
 				if(!fadeContentIn) {
 					self.panelState()
 				} else {
-					panelElement.classList.remove('fade-out')
+					setTimeout(() => {
+						panelElement.classList.remove('fade-out')
+					}, 300)
 				}
 
 			} else {
@@ -177,16 +179,13 @@ class IssueHeader extends Component {
 				// reinit components and add a class to target CSS :hover show/hide
 
 				panelElement.innerHTML = this.response
-				const closeLink = panelElement.querySelector('.js-trigger-letter')
-				closeLink.addEventListener('click', () => {
+				const letterLink = panelElement.querySelector('.js-trigger-letter')
+				letterLink.addEventListener('click', () => {
 					panelElement.classList.add('fade-out')
-					setTimeout(() => {
-						self.IssuePanel.scrollTop = 0
-						console.log('now trigger other ajax call')
-						self.EditorsDataLoaded = true
-						self.TableDataLoaded = false
-						self.editorsLetterAjax(activeTermId, activeTermNumber, true)
-					}, 600)
+					self.IssuePanel.scrollTop = 0
+					self.EditorsDataLoaded = true
+					self.TableDataLoaded = false
+					self.editorsLetterAjax(activeTermId, activeTermNumber, true)
 				})
 				self.panelState()
 

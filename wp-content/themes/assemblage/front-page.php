@@ -91,6 +91,9 @@ $post_slider_loop = new WP_Query( $args );
 				"read_time"			=> Journal::estimated_reading_time($current_featured, true),
 				"flip_layout"		=> true,
 				"type_style"		=> $current_type_style,
+				"link"					=> [
+					"url"	=> get_permalink($current_featured),
+				],
 			];
 
 			FeaturedArticle::add_options($options)->render();
@@ -141,7 +144,10 @@ $post_slider_loop = new WP_Query( $args );
 				"term"					=> Journal::get_post_term($featured_id, 'topic')[0],
 				"read_time"			=> Journal::estimated_reading_time($featured_id, true),
 				"flip_layout"		=> true,
-				"type_style"		=> $featured_type_style
+				"type_style"		=> $featured_type_style,
+				"link"					=> [
+					"url"	=> get_permalink($featured_id),
+				],
 			];
 
 			FeaturedArticle::add_options($options)->render(); ?>
@@ -156,9 +162,11 @@ $post_slider_loop = new WP_Query( $args );
 		<div class="[ ]"><?php
 
 			$options = [
-				"title"				=> 'Recommended Reads',
+				"title"				=> 'Recommended Readsss',
 				"link"				=> [
-					"active"	=> false,
+					"active"	=> true,
+					"url"			=> get_post_type_archive_link('journal'),
+					"text"		=> 'All Stroies',
 				],
 				"posts" 			=> get_field('recommended_reads'),
 				"slide-size"	=> 'small',

@@ -9,6 +9,11 @@
 
 	@include grid-col(1, -1);
 	@include v-spacing(margin-bottom, 60px, 120px);
+
+	> a {
+		color: $c-black;
+		text-decoration: none;
+	}
 }
 
 .c-FeaturedArticle__inner {

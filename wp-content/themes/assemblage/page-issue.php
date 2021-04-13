@@ -64,6 +64,9 @@ get_header();
 		"read_time"			=> Journal::estimated_reading_time($spotlight_id, true),
 		"flip_layout"		=> $spotlight_article['flip_layout'],
 		"type_style"		=> $spotlight_article['font_style'],
+		"link"					=> [
+			"url"	=> get_permalink($spotlight_id),
+		],
 	];
 
 	FeaturedArticle::add_options($options)->render();

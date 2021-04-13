@@ -16,8 +16,8 @@ $args = array(
 	'post_type' 			=> 'journal',
 	'post_status' 		=> 'publish',
 	"posts_per_page"	=> $post_count * $paged,
-	'paged' => $paged,
-	'tax_query' 	=> array(
+	'paged' 					=> $paged,
+	'tax_query' 			=> array(
 		array(
 			'taxonomy' 	=> 'tags',
 			'field' 		=> 'slug',

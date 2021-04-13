@@ -42,6 +42,10 @@ class Forms {
 					])->render(); ?>
 				</div>
 			</div>
+			<div class="[ l-Panel__footer ]">
+				<a href="<?= get_permalink(get_page_by_path('privacy-policy')); ?>">Privacy Policy</a>
+				<a href="<?= get_permalink(get_page_by_path('terms-conditions')); ?>">Terms & Conditions</a>
+			</div>
 		</div><?php
 	}
 }

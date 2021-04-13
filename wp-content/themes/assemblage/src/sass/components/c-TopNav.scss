@@ -83,6 +83,14 @@
 			}
 		}
 	}
+
+	.header-is-pinned & {
+
+		.c-TopNav__inner::after {
+			left: calc(#{var(--site-margin)} * -1);
+			width: calc(100% + (#{var(--site-margin)} * 2));
+		}
+	}
 }
 
 .c-TopNav__inner {
@@ -103,6 +111,8 @@
 		height: 1px;
 		background-color: $c-white;
 		transition:
+			500ms width 500ms $standard-curve,
+			500ms left 500ms $standard-curve,
 			500ms background-color $standard-curve,
 			400ms opacity $standard-curve;
 

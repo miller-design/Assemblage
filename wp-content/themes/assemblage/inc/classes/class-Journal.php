@@ -43,7 +43,7 @@ class Journal {
 				'singular_name' => 'Journal',
 			),
 			'public' => true,
-			'has_archive' => false,
+			'has_archive' => true,
 			'rewrite' => array('slug' => 'issues'),
 			'menu_icon' => 'dashicons-edit-large',
 			'menu_position' => 10,

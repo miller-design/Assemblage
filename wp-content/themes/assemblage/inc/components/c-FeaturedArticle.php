@@ -15,6 +15,8 @@ class FeaturedArticle {
 
 	private $options;
 	private static $header;
+	private static $link_open;
+	private static $link_close;
 
 	public function __construct($custom_options) {
 
@@ -44,19 +46,20 @@ class FeaturedArticle {
 				case 'full-screen':
 					$this->options['classes'] .= 'c-FeaturedArticle--full-screen ';
 					Self::$header = Self::build_full_screen($this->options);
-					break;
+
+				break;
 				case 'split-screen':
 					$this->options['classes'] .= 'c-FeaturedArticle--split ';
 					Self::$header = Self::build_split_screen($this->options);
-					break;
+				break;
 				case 'split-screen-alt':
 					$this->options['classes'] .= 'c-FeaturedArticle--split c-FeaturedArticle--term-headers ';
 					Self::$header = Self::build_split_screen_alt($this->options);
-					break;
+				break;
 				case 'next-issue':
 					$this->options['classes'] .= 'c-FeaturedArticle--split c-FeaturedArticle--next-issue ';
 					Self::$header = Self::build_split_screen($this->options, true);
-					break;
+				break;
 			}
 		}
 
@@ -72,6 +75,14 @@ class FeaturedArticle {
 
 		if($this->options['white_bg'] === true) {
 			$this->options['classes'] .= 'c-FeaturedArticle--white-bg ';
+		}
+
+		if($this->options['link']['url'] && $this->options['header_type'] != 'next-issue' && $this->options['header_type'] != 'split-screen-alt') {
+			Self::$link_open = '<a href="' . $this->options['link']['url'] . '">';
+			Self::$link_close = '</a>';
+		} else {
+			Self::$link_open = '';
+			Self::$link_close = '';
 		}
 	}
 
@@ -114,7 +125,7 @@ class FeaturedArticle {
 			$output .= '</div>';
 		$output .= '</div>';
 		$output .= '<div class="[ c-FeaturedArticle__image-wrap ]">';
-			$output .= LazyImage::get_image($options['image'], [50, 100], 'c-FeaturedArticle__image');
+			$output .= LazyImage::get_image($options['image'], [50, 100], 'c-FeaturedArticle__image js-parralax-image');
 		$output .= '</div>';
 
 		return $output;
@@ -150,9 +161,11 @@ class FeaturedArticle {
 	public function render() { ?>
 
 		<div class="[ c-FeaturedArticle <?= $this->options['classes']; ?> ]">
-			<div class="[ c-FeaturedArticle__inner ]">
-				<?= Self::$header; ?>
-			</div>
+			<?= Self::$link_open; ?>
+				<div class="[ c-FeaturedArticle__inner ]">
+					<?= Self::$header; ?>
+				</div>
+			<?= Self::$link_close; ?>
 		</div><?php
 	}
 }

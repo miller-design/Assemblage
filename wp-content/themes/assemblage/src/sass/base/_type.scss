@@ -203,10 +203,10 @@
 	align-items: center;
 	text-align: center;
 	text-transform: capitalize;
+	transition: 500ms all $standard-curve;
 
 	@include P2-SansSerif;
 	@include lhCrop(1.5, 1.5);
-	@include site-transition(border, 500ms);
 	@include v-spacing(padding-top, 11px, 12px);
 	@include v-spacing(padding-right, 20px, 20px);
 	@include v-spacing(padding-bottom, 11px, 12px);
@@ -216,6 +216,8 @@
 
 		&:hover {
 			border: 1px solid $c-black;
+			color: $c-white;
+			background-color: $c-black;
 		}
 	}
 }

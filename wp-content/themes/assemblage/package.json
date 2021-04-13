@@ -73,6 +73,7 @@
   },
   "dependencies": {
     "flickity": "^2.2.2",
+    "flickity-imagesloaded": "^2.0.0",
     "gia": "^1.0.1",
     "include-media-export": "^1.0.3",
     "lazysizes": "^5.2.2",

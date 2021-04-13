@@ -1,1 +1,192 @@
-@media (min-width:320px){body:after{content:'{"xsmall":{"value": "320px", "active": true},"small":{"value": "768px", "active": false},"medium":{"value": "1024px", "active": false},"large":{"value": "1440px", "active": false},"xlarge":{"value": "1920px", "active": false},"xxlarge":{"value": "2000px", "active": false}}';display:block;height:0;overflow:hidden;width:0}}@media (min-width:768px){body:after{content:'{"xsmall":{"value": "320px", "active": true},"small":{"value": "768px", "active": true},"medium":{"value": "1024px", "active": false},"large":{"value": "1440px", "active": false},"xlarge":{"value": "1920px", "active": false},"xxlarge":{"value": "2000px", "active": false}}';display:block;height:0;overflow:hidden;width:0}}@media (min-width:1024px){body:after{content:'{"xsmall":{"value": "320px", "active": true},"small":{"value": "768px", "active": true},"medium":{"value": "1024px", "active": true},"large":{"value": "1440px", "active": false},"xlarge":{"value": "1920px", "active": false},"xxlarge":{"value": "2000px", "active": false}}';display:block;height:0;overflow:hidden;width:0}}@media (min-width:1440px){body:after{content:'{"xsmall":{"value": "320px", "active": true},"small":{"value": "768px", "active": true},"medium":{"value": "1024px", "active": true},"large":{"value": "1440px", "active": true},"xlarge":{"value": "1920px", "active": false},"xxlarge":{"value": "2000px", "active": false}}';display:block;height:0;overflow:hidden;width:0}}@media (min-width:1920px){body:after{content:'{"xsmall":{"value": "320px", "active": true},"small":{"value": "768px", "active": true},"medium":{"value": "1024px", "active": true},"large":{"value": "1440px", "active": true},"xlarge":{"value": "1920px", "active": true},"xxlarge":{"value": "2000px", "active": false}}';display:block;height:0;overflow:hidden;width:0}}@media (min-width:2000px){body:after{content:'{"xsmall":{"value": "320px", "active": true},"small":{"value": "768px", "active": true},"medium":{"value": "1024px", "active": true},"large":{"value": "1440px", "active": true},"xlarge":{"value": "1920px", "active": true},"xxlarge":{"value": "2000px", "active": true}}';display:block;height:0;overflow:hidden;width:0}}.c-Example{background:url(img/texture.jpg) no-repeat;background-size:cover;color:#2d2d2a;text-align:center;font-weight:800;padding:50px;width:300px;position:absolute;z-index:1;left:50%;margin-left:-150px;top:20%;transition:all 1s linear}.c-Example:before{content:"c-Example component, powered by GIA JS"}.c-Example .c-Example__button{background-color:#2d2d2a;color:#cecebf;border:none;font-size:14px}.c-Example.c-Example--expanded{transform:scale(1.5)}
+/*
+Base mixins and Functions ONLY in here
+No CSS output!
+Remember these tools/utilities will be made availabe to all your components,
+any CSS you output in here will add massive bloat to your project.
+If you need common css, add to main.scss
+========================================================================== */
+/* ============================================================================================
+	Vertical Spacing (for use with v-spacing mixin)
+============================================================================================= */
+/* ============================================================================================
+	Breakpoints
+============================================================================================= */
+/* ============================================================================================
+	Colours
+============================================================================================= */
+/* ============================================================================================
+	Z-Index
+============================================================================================= */
+/* =========================================================================
+  cubic-bezier curve variables
+========================================================================== */
+/* =========================================================================
+  Font variables
+========================================================================== */
+/* =========================================================================
+  Grid Variables (size vars must match the breakpoint vars)
+========================================================================== */
+@media (min-width: 320px) {
+  body::after {
+    content: '{"xsmall":{"value": "320px", "active": true}, "small":{"value": "768px", "active": false}, "medium":{"value": "1024px", "active": false}, "large":{"value": "1440px", "active": false}, "xlarge":{"value": "1920px", "active": false}, "xxlarge":{"value": "2000px", "active": false}}';
+    display: block;
+    height: 0;
+    overflow: hidden;
+    width: 0; } }
+
+@media (min-width: 768px) {
+  body::after {
+    content: '{"xsmall":{"value": "320px", "active": true}, "small":{"value": "768px", "active": true}, "medium":{"value": "1024px", "active": false}, "large":{"value": "1440px", "active": false}, "xlarge":{"value": "1920px", "active": false}, "xxlarge":{"value": "2000px", "active": false}}';
+    display: block;
+    height: 0;
+    overflow: hidden;
+    width: 0; } }
+
+@media (min-width: 1024px) {
+  body::after {
+    content: '{"xsmall":{"value": "320px", "active": true}, "small":{"value": "768px", "active": true}, "medium":{"value": "1024px", "active": true}, "large":{"value": "1440px", "active": false}, "xlarge":{"value": "1920px", "active": false}, "xxlarge":{"value": "2000px", "active": false}}';
+    display: block;
+    height: 0;
+    overflow: hidden;
+    width: 0; } }
+
+@media (min-width: 1440px) {
+  body::after {
+    content: '{"xsmall":{"value": "320px", "active": true}, "small":{"value": "768px", "active": true}, "medium":{"value": "1024px", "active": true}, "large":{"value": "1440px", "active": true}, "xlarge":{"value": "1920px", "active": false}, "xxlarge":{"value": "2000px", "active": false}}';
+    display: block;
+    height: 0;
+    overflow: hidden;
+    width: 0; } }
+
+@media (min-width: 1920px) {
+  body::after {
+    content: '{"xsmall":{"value": "320px", "active": true}, "small":{"value": "768px", "active": true}, "medium":{"value": "1024px", "active": true}, "large":{"value": "1440px", "active": true}, "xlarge":{"value": "1920px", "active": true}, "xxlarge":{"value": "2000px", "active": false}}';
+    display: block;
+    height: 0;
+    overflow: hidden;
+    width: 0; } }
+
+@media (min-width: 2000px) {
+  body::after {
+    content: '{"xsmall":{"value": "320px", "active": true}, "small":{"value": "768px", "active": true}, "medium":{"value": "1024px", "active": true}, "large":{"value": "1440px", "active": true}, "xlarge":{"value": "1920px", "active": true}, "xxlarge":{"value": "2000px", "active": true}}';
+    display: block;
+    height: 0;
+    overflow: hidden;
+    width: 0; } }
+
+/* ==========================================================================================================
+	Grid Mixins
+=========================================================================================================== */
+/* ==========================================================================
+	Site Transition
+	Apply transitions consistently across the project
+========================================================================== */
+/* ==========================================================================
+	Variable Spacing (v-spacing)
+	Use with values set in _config.scss
+========================================================================== */
+/* ==========================================================================
+	Tracking
+	Convert XD, illustrator, indesign and
+	photoshop tracking into letter spacing.
+========================================================================== */
+/* ============================================================================================================
+	Line Height Crop (lhCrop)
+	Removes the additional line height from top of text - https://codyhouse.co/blog/post/line-height-crop
+	Use to make sure the top of your text lines up with other elements along side it.
+	Enter a unitless line height (same as the type line hight)
+============================================================================================================= */
+/* ===========================================================================================
+	Unitless Line Height
+	Converts a pixel, percentage, rem or em value to a unitless value based on a given font size.
+	Ideal for working out unitless line heights.
+	Stolen from Foundation https://get.foundation/sites/docs/sass-functions.html#unitless-calc
+
+	@param {Number} $value - Value to convert to a unitless line height
+	@param {Number} $base - The font size to use to work out the line height - defaults to $global-font-size
+	@return {Number} - Unitless number
+=========================================================================================== */
+/* ==================================================================================
+	Removes the unit (e.g. px, em, rem) from a value, returning the number only.
+
+	@param {Number} $num - Number to strip unit from.
+	@returns {Number} The same number, sans unit.
+=================================================================================== */
+/* ==================================================================================
+	used to create resonsive type
+
+	@param {Number} $min-font-size - Number of the miniumum font size with units.
+	@param {Number} $max-font-size - Number of the maximum font size with units.
+	@param {Number} $line-height - Number of the lineheight with units.
+	@returns font size using the v-space mixin and a unitless lineheight.
+=================================================================================== */
+/* ==================================================================================
+	used to retreive varbailes from the $site-ccs-variables array
+
+	$type = type is the name you set for your nested varaible array
+	$size = is the nested variable you wish to get.
+	@returns the value of teh specified variable
+=================================================================================== */
+/* ==================================================================================
+	loops through varbailes from the $site-ccs-variables array & out put css var
+
+	$value = used to get the correct value
+=================================================================================== */
+/* ==================================================================================
+	used to retreive css var based on the breakpoint passed
+
+	$breakpoint = used to specify media query
+=================================================================================== */
+/* ==================================================================================
+	SIBLING FADE: fade out siblings around a hovered item
+=================================================================================== */
+/* ==================================================================================
+	close icon mixin (needs somehwere else to sit)
+=================================================================================== */
+/* ==================================================================================
+	Get the last row of your grid
+	$coloumns: amount of coloumns in a row
+	$siblingType: the sibling selector you want to use to target the row
+=================================================================================== */
+/* ==========================================================================================================
+	Character Style Mixins
+=========================================================================================================== */
+/* ==============================================================================================
+	WYSIWYG Mixin and class
+	Apply to content that is using a WYSIWYG editor field.
+	Redefines all the typographic HTML elements that TinyMce outputs. (h1,img,p,ul etc.)
+=============================================================================================== */
+/*
+Form Mixins
+Create mixins first so they can be reused on Woo forms or other places where you can't add your own classes
+========================================================================== */
+/* ==========================================================================
+	Example
+========================================================================== */
+/* Blocks */
+.c-Example {
+  background: url(img/texture.jpg) no-repeat;
+  background-size: cover;
+  color: #2d2d2a;
+  text-align: center;
+  font-weight: 800;
+  padding: 50px;
+  width: 300px;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  margin-left: -150px;
+  top: 20%;
+  transition: all 1s linear; }
+  .c-Example::before {
+    content: "c-Example component, powered by GIA JS"; }
+  .c-Example .c-Example__button {
+    background-color: #2d2d2a;
+    color: #cecebf;
+    border: none;
+    font-size: 14px; }
+  .c-Example.c-Example--expanded {
+    transform: scale(1.5); }
+
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvc2Fzcy9jb21wb25lbnRzL2MtRXhhbXBsZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLGVBQWUsVUFBVSxpQ0FBaUMsV0FBVyxrQ0FBa0MsWUFBWSxtQ0FBbUMsV0FBVyxtQ0FBbUMsWUFBWSxtQ0FBbUMsYUFBYSxvQ0FBb0M7QUFDcFM7QUFDQTtBQUNBO0FBQ0EsYUFBYSxFQUFFOztBQUVmO0FBQ0E7QUFDQSxlQUFlLFVBQVUsaUNBQWlDLFdBQVcsaUNBQWlDLFlBQVksbUNBQW1DLFdBQVcsbUNBQW1DLFlBQVksbUNBQW1DLGFBQWEsb0NBQW9DO0FBQ25TO0FBQ0E7QUFDQTtBQUNBLGFBQWEsRUFBRTs7QUFFZjtBQUNBO0FBQ0EsZUFBZSxVQUFVLGlDQUFpQyxXQUFXLGlDQUFpQyxZQUFZLGtDQUFrQyxXQUFXLG1DQUFtQyxZQUFZLG1DQUFtQyxhQUFhLG9DQUFvQztBQUNsUztBQUNBO0FBQ0E7QUFDQSxhQUFhLEVBQUU7O0FBRWY7QUFDQTtBQUNBLGVBQWUsVUFBVSxpQ0FBaUMsV0FBVyxpQ0FBaUMsWUFBWSxrQ0FBa0MsV0FBVyxrQ0FBa0MsWUFBWSxtQ0FBbUMsYUFBYSxvQ0FBb0M7QUFDalM7QUFDQTtBQUNBO0FBQ0EsYUFBYSxFQUFFOztBQUVmO0FBQ0E7QUFDQSxlQUFlLFVBQVUsaUNBQWlDLFdBQVcsaUNBQWlDLFlBQVksa0NBQWtDLFdBQVcsa0NBQWtDLFlBQVksa0NBQWtDLGFBQWEsb0NBQW9DO0FBQ2hTO0FBQ0E7QUFDQTtBQUNBLGFBQWEsRUFBRTs7QUFFZjtBQUNBO0FBQ0EsZUFBZSxVQUFVLGlDQUFpQyxXQUFXLGlDQUFpQyxZQUFZLGtDQUFrQyxXQUFXLGtDQUFrQyxZQUFZLGtDQUFrQyxhQUFhLG1DQUFtQztBQUMvUjtBQUNBO0FBQ0E7QUFDQSxhQUFhLEVBQUU7O0FBRWY7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUVBLFNBQVMsT0FBTztBQUNoQixTQUFTLE9BQU87QUFDaEIsVUFBVSxPQUFPO0FBQ2pCO0FBQ0E7QUFDQTs7QUFFQSxTQUFTLE9BQU87QUFDaEIsV0FBVyxPQUFPO0FBQ2xCO0FBQ0E7QUFDQTs7QUFFQSxTQUFTLE9BQU87QUFDaEIsU0FBUyxPQUFPO0FBQ2hCLFNBQVMsT0FBTztBQUNoQjtBQUNBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsNEJBQTRCO0FBQzVCO0FBQ0Esc0RBQXNEO0FBQ3REO0FBQ0E7QUFDQTtBQUNBO0FBQ0Esb0JBQW9CO0FBQ3BCO0FBQ0EsMEJBQTBCIiwiZmlsZSI6ImMtRXhhbXBsZS5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuQmFzZSBtaXhpbnMgYW5kIEZ1bmN0aW9ucyBPTkxZIGluIGhlcmVcbk5vIENTUyBvdXRwdXQhXG5SZW1lbWJlciB0aGVzZSB0b29scy91dGlsaXRpZXMgd2lsbCBiZSBtYWRlIGF2YWlsYWJlIHRvIGFsbCB5b3VyIGNvbXBvbmVudHMsXG5hbnkgQ1NTIHlvdSBvdXRwdXQgaW4gaGVyZSB3aWxsIGFkZCBtYXNzaXZlIGJsb2F0IHRvIHlvdXIgcHJvamVjdC5cbklmIHlvdSBuZWVkIGNvbW1vbiBjc3MsIGFkZCB0byBtYWluLnNjc3Ncbj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09ICovXG4vKiA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuXHRWZXJ0aWNhbCBTcGFjaW5nIChmb3IgdXNlIHdpdGggdi1zcGFjaW5nIG1peGluKVxuPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09ICovXG4vKiA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuXHRCcmVha3BvaW50c1xuPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09ICovXG4vKiA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuXHRDb2xvdXJzXG49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0gKi9cbi8qID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG5cdFotSW5kZXhcbj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSAqL1xuLyogPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuICBjdWJpYy1iZXppZXIgY3VydmUgdmFyaWFibGVzXG49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSAqL1xuLyogPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuICBGb250IHZhcmlhYmxlc1xuPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0gKi9cbi8qID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cbiAgR3JpZCBWYXJpYWJsZXMgKHNpemUgdmFycyBtdXN0IG1hdGNoIHRoZSBicmVha3BvaW50IHZhcnMpXG49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSAqL1xuQG1lZGlhIChtaW4td2lkdGg6IDMyMHB4KSB7XG4gIGJvZHk6OmFmdGVyIHtcbiAgICBjb250ZW50OiAne1wieHNtYWxsXCI6e1widmFsdWVcIjogXCIzMjBweFwiLCBcImFjdGl2ZVwiOiB0cnVlfSwgXCJzbWFsbFwiOntcInZhbHVlXCI6IFwiNzY4cHhcIiwgXCJhY3RpdmVcIjogZmFsc2V9LCBcIm1lZGl1bVwiOntcInZhbHVlXCI6IFwiMTAyNHB4XCIsIFwiYWN0aXZlXCI6IGZhbHNlfSwgXCJsYXJnZVwiOntcInZhbHVlXCI6IFwiMTQ0MHB4XCIsIFwiYWN0aXZlXCI6IGZhbHNlfSwgXCJ4bGFyZ2VcIjp7XCJ2YWx1ZVwiOiBcIjE5MjBweFwiLCBcImFjdGl2ZVwiOiBmYWxzZX0sIFwieHhsYXJnZVwiOntcInZhbHVlXCI6IFwiMjAwMHB4XCIsIFwiYWN0aXZlXCI6IGZhbHNlfX0nO1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIGhlaWdodDogMDtcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xuICAgIHdpZHRoOiAwOyB9IH1cblxuQG1lZGlhIChtaW4td2lkdGg6IDc2OHB4KSB7XG4gIGJvZHk6OmFmdGVyIHtcbiAgICBjb250ZW50OiAne1wieHNtYWxsXCI6e1widmFsdWVcIjogXCIzMjBweFwiLCBcImFjdGl2ZVwiOiB0cnVlfSwgXCJzbWFsbFwiOntcInZhbHVlXCI6IFwiNzY4cHhcIiwgXCJhY3RpdmVcIjogdHJ1ZX0sIFwibWVkaXVtXCI6e1widmFsdWVcIjogXCIxMDI0cHhcIiwgXCJhY3RpdmVcIjogZmFsc2V9LCBcImxhcmdlXCI6e1widmFsdWVcIjogXCIxNDQwcHhcIiwgXCJhY3RpdmVcIjogZmFsc2V9LCBcInhsYXJnZVwiOntcInZhbHVlXCI6IFwiMTkyMHB4XCIsIFwiYWN0aXZlXCI6IGZhbHNlfSwgXCJ4eGxhcmdlXCI6e1widmFsdWVcIjogXCIyMDAwcHhcIiwgXCJhY3RpdmVcIjogZmFsc2V9fSc7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgaGVpZ2h0OiAwO1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG4gICAgd2lkdGg6IDA7IH0gfVxuXG5AbWVkaWEgKG1pbi13aWR0aDogMTAyNHB4KSB7XG4gIGJvZHk6OmFmdGVyIHtcbiAgICBjb250ZW50OiAne1wieHNtYWxsXCI6e1widmFsdWVcIjogXCIzMjBweFwiLCBcImFjdGl2ZVwiOiB0cnVlfSwgXCJzbWFsbFwiOntcInZhbHVlXCI6IFwiNzY4cHhcIiwgXCJhY3RpdmVcIjogdHJ1ZX0sIFwibWVkaXVtXCI6e1widmFsdWVcIjogXCIxMDI0cHhcIiwgXCJhY3RpdmVcIjogdHJ1ZX0sIFwibGFyZ2VcIjp7XCJ2YWx1ZVwiOiBcIjE0NDBweFwiLCBcImFjdGl2ZVwiOiBmYWxzZX0sIFwieGxhcmdlXCI6e1widmFsdWVcIjogXCIxOTIwcHhcIiwgXCJhY3RpdmVcIjogZmFsc2V9LCBcInh4bGFyZ2VcIjp7XCJ2YWx1ZVwiOiBcIjIwMDBweFwiLCBcImFjdGl2ZVwiOiBmYWxzZX19JztcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBoZWlnaHQ6IDA7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgICB3aWR0aDogMDsgfSB9XG5cbkBtZWRpYSAobWluLXdpZHRoOiAxNDQwcHgpIHtcbiAgYm9keTo6YWZ0ZXIge1xuICAgIGNvbnRlbnQ6ICd7XCJ4c21hbGxcIjp7XCJ2YWx1ZVwiOiBcIjMyMHB4XCIsIFwiYWN0aXZlXCI6IHRydWV9LCBcInNtYWxsXCI6e1widmFsdWVcIjogXCI3NjhweFwiLCBcImFjdGl2ZVwiOiB0cnVlfSwgXCJtZWRpdW1cIjp7XCJ2YWx1ZVwiOiBcIjEwMjRweFwiLCBcImFjdGl2ZVwiOiB0cnVlfSwgXCJsYXJnZVwiOntcInZhbHVlXCI6IFwiMTQ0MHB4XCIsIFwiYWN0aXZlXCI6IHRydWV9LCBcInhsYXJnZVwiOntcInZhbHVlXCI6IFwiMTkyMHB4XCIsIFwiYWN0aXZlXCI6IGZhbHNlfSwgXCJ4eGxhcmdlXCI6e1widmFsdWVcIjogXCIyMDAwcHhcIiwgXCJhY3RpdmVcIjogZmFsc2V9fSc7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgaGVpZ2h0OiAwO1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG4gICAgd2lkdGg6IDA7IH0gfVxuXG5AbWVkaWEgKG1pbi13aWR0aDogMTkyMHB4KSB7XG4gIGJvZHk6OmFmdGVyIHtcbiAgICBjb250ZW50OiAne1wieHNtYWxsXCI6e1widmFsdWVcIjogXCIzMjBweFwiLCBcImFjdGl2ZVwiOiB0cnVlfSwgXCJzbWFsbFwiOntcInZhbHVlXCI6IFwiNzY4cHhcIiwgXCJhY3RpdmVcIjogdHJ1ZX0sIFwibWVkaXVtXCI6e1widmFsdWVcIjogXCIxMDI0cHhcIiwgXCJhY3RpdmVcIjogdHJ1ZX0sIFwibGFyZ2VcIjp7XCJ2YWx1ZVwiOiBcIjE0NDBweFwiLCBcImFjdGl2ZVwiOiB0cnVlfSwgXCJ4bGFyZ2VcIjp7XCJ2YWx1ZVwiOiBcIjE5MjBweFwiLCBcImFjdGl2ZVwiOiB0cnVlfSwgXCJ4eGxhcmdlXCI6e1widmFsdWVcIjogXCIyMDAwcHhcIiwgXCJhY3RpdmVcIjogZmFsc2V9fSc7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgaGVpZ2h0OiAwO1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG4gICAgd2lkdGg6IDA7IH0gfVxuXG5AbWVkaWEgKG1pbi13aWR0aDogMjAwMHB4KSB7XG4gIGJvZHk6OmFmdGVyIHtcbiAgICBjb250ZW50OiAne1wieHNtYWxsXCI6e1widmFsdWVcIjogXCIzMjBweFwiLCBcImFjdGl2ZVwiOiB0cnVlfSwgXCJzbWFsbFwiOntcInZhbHVlXCI6IFwiNzY4cHhcIiwgXCJhY3RpdmVcIjogdHJ1ZX0sIFwibWVkaXVtXCI6e1widmFsdWVcIjogXCIxMDI0cHhcIiwgXCJhY3RpdmVcIjogdHJ1ZX0sIFwibGFyZ2VcIjp7XCJ2YWx1ZVwiOiBcIjE0NDBweFwiLCBcImFjdGl2ZVwiOiB0cnVlfSwgXCJ4bGFyZ2VcIjp7XCJ2YWx1ZVwiOiBcIjE5MjBweFwiLCBcImFjdGl2ZVwiOiB0cnVlfSwgXCJ4eGxhcmdlXCI6e1widmFsdWVcIjogXCIyMDAwcHhcIiwgXCJhY3RpdmVcIjogdHJ1ZX19JztcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBoZWlnaHQ6IDA7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgICB3aWR0aDogMDsgfSB9XG5cbi8qID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cblx0R3JpZCBNaXhpbnNcbj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09ICovXG4vKiA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuXHRTaXRlIFRyYW5zaXRpb25cblx0QXBwbHkgdHJhbnNpdGlvbnMgY29uc2lzdGVudGx5IGFjcm9zcyB0aGUgcHJvamVjdFxuPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0gKi9cbi8qID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG5cdFZhcmlhYmxlIFNwYWNpbmcgKHYtc3BhY2luZylcblx0VXNlIHdpdGggdmFsdWVzIHNldCBpbiBfY29uZmlnLnNjc3Ncbj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09ICovXG4vKiA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuXHRUcmFja2luZ1xuXHRDb252ZXJ0IFhELCBpbGx1c3RyYXRvciwgaW5kZXNpZ24gYW5kXG5cdHBob3Rvc2hvcCB0cmFja2luZyBpbnRvIGxldHRlciBzcGFjaW5nLlxuPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0gKi9cbi8qID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuXHRMaW5lIEhlaWdodCBDcm9wIChsaENyb3ApXG5cdFJlbW92ZXMgdGhlIGFkZGl0aW9uYWwgbGluZSBoZWlnaHQgZnJvbSB0b3Agb2YgdGV4dCAtIGh0dHBzOi8vY29keWhvdXNlLmNvL2Jsb2cvcG9zdC9saW5lLWhlaWdodC1jcm9wXG5cdFVzZSB0byBtYWtlIHN1cmUgdGhlIHRvcCBvZiB5b3VyIHRleHQgbGluZXMgdXAgd2l0aCBvdGhlciBlbGVtZW50cyBhbG9uZyBzaWRlIGl0LlxuXHRFbnRlciBhIHVuaXRsZXNzIGxpbmUgaGVpZ2h0IChzYW1lIGFzIHRoZSB0eXBlIGxpbmUgaGlnaHQpXG49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09ICovXG4vKiA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG5cdFVuaXRsZXNzIExpbmUgSGVpZ2h0XG5cdENvbnZlcnRzIGEgcGl4ZWwsIHBlcmNlbnRhZ2UsIHJlbSBvciBlbSB2YWx1ZSB0byBhIHVuaXRsZXNzIHZhbHVlIGJhc2VkIG9uIGEgZ2l2ZW4gZm9udCBzaXplLlxuXHRJZGVhbCBmb3Igd29ya2luZyBvdXQgdW5pdGxlc3MgbGluZSBoZWlnaHRzLlxuXHRTdG9sZW4gZnJvbSBGb3VuZGF0aW9uIGh0dHBzOi8vZ2V0LmZvdW5kYXRpb24vc2l0ZXMvZG9jcy9zYXNzLWZ1bmN0aW9ucy5odG1sI3VuaXRsZXNzLWNhbGNcblxuXHRAcGFyYW0ge051bWJlcn0gJHZhbHVlIC0gVmFsdWUgdG8gY29udmVydCB0byBhIHVuaXRsZXNzIGxpbmUgaGVpZ2h0XG5cdEBwYXJhbSB7TnVtYmVyfSAkYmFzZSAtIFRoZSBmb250IHNpemUgdG8gdXNlIHRvIHdvcmsgb3V0IHRoZSBsaW5lIGhlaWdodCAtIGRlZmF1bHRzIHRvICRnbG9iYWwtZm9udC1zaXplXG5cdEByZXR1cm4ge051bWJlcn0gLSBVbml0bGVzcyBudW1iZXJcbj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0gKi9cbi8qID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cblx0UmVtb3ZlcyB0aGUgdW5pdCAoZS5nLiBweCwgZW0sIHJlbSkgZnJvbSBhIHZhbHVlLCByZXR1cm5pbmcgdGhlIG51bWJlciBvbmx5LlxuXG5cdEBwYXJhbSB7TnVtYmVyfSAkbnVtIC0gTnVtYmVyIHRvIHN0cmlwIHVuaXQgZnJvbS5cblx0QHJldHVybnMge051bWJlcn0gVGhlIHNhbWUgbnVtYmVyLCBzYW5zIHVuaXQuXG49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSAqL1xuLyogPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuXHR1c2VkIHRvIGNyZWF0ZSByZXNvbnNpdmUgdHlwZVxuXG5cdEBwYXJhbSB7TnVtYmVyfSAkbWluLWZvbnQtc2l6ZSAtIE51bWJlciBvZiB0aGUgbWluaXVtdW0gZm9udCBzaXplIHdpdGggdW5pdHMuXG5cdEBwYXJhbSB7TnVtYmVyfSAkbWF4LWZvbnQtc2l6ZSAtIE51bWJlciBvZiB0aGUgbWF4aW11bSBmb250IHNpemUgd2l0aCB1bml0cy5cblx0QHBhcmFtIHtOdW1iZXJ9ICRsaW5lLWhlaWdodCAtIE51bWJlciBvZiB0aGUgbGluZWhlaWdodCB3aXRoIHVuaXRzLlxuXHRAcmV0dXJucyBmb250IHNpemUgdXNpbmcgdGhlIHYtc3BhY2UgbWl4aW4gYW5kIGEgdW5pdGxlc3MgbGluZWhlaWdodC5cbj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09ICovXG4vKiA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG5cdHVzZWQgdG8gcmV0cmVpdmUgdmFyYmFpbGVzIGZyb20gdGhlICRzaXRlLWNjcy12YXJpYWJsZXMgYXJyYXlcblxuXHQkdHlwZSA9IHR5cGUgaXMgdGhlIG5hbWUgeW91IHNldCBmb3IgeW91ciBuZXN0ZWQgdmFyYWlibGUgYXJyYXlcblx0JHNpemUgPSBpcyB0aGUgbmVzdGVkIHZhcmlhYmxlIHlvdSB3aXNoIHRvIGdldC5cblx0QHJldHVybnMgdGhlIHZhbHVlIG9mIHRlaCBzcGVjaWZpZWQgdmFyaWFibGVcbj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09ICovXG4vKiA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG5cdGxvb3BzIHRocm91Z2ggdmFyYmFpbGVzIGZyb20gdGhlICRzaXRlLWNjcy12YXJpYWJsZXMgYXJyYXkgJiBvdXQgcHV0IGNzcyB2YXJcblxuXHQkdmFsdWUgPSB1c2VkIHRvIGdldCB0aGUgY29ycmVjdCB2YWx1ZVxuPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0gKi9cbi8qID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cblx0dXNlZCB0byByZXRyZWl2ZSBjc3MgdmFyIGJhc2VkIG9uIHRoZSBicmVha3BvaW50IHBhc3NlZFxuXG5cdCRicmVha3BvaW50ID0gdXNlZCB0byBzcGVjaWZ5IG1lZGlhIHF1ZXJ5XG49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSAqL1xuLyogPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuXHRTSUJMSU5HIEZBREU6IGZhZGUgb3V0IHNpYmxpbmdzIGFyb3VuZCBhIGhvdmVyZWQgaXRlbVxuPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0gKi9cbi8qID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cblx0Y2xvc2UgaWNvbiBtaXhpbiAobmVlZHMgc29tZWh3ZXJlIGVsc2UgdG8gc2l0KVxuPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0gKi9cbi8qID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cblx0R2V0IHRoZSBsYXN0IHJvdyBvZiB5b3VyIGdyaWRcblx0JGNvbG91bW5zOiBhbW91bnQgb2YgY29sb3VtbnMgaW4gYSByb3dcblx0JHNpYmxpbmdUeXBlOiB0aGUgc2libGluZyBzZWxlY3RvciB5b3Ugd2FudCB0byB1c2UgdG8gdGFyZ2V0IHRoZSByb3dcbj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09ICovXG4vKiA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG5cdENoYXJhY3RlciBTdHlsZSBNaXhpbnNcbj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09ICovXG4vKiA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG5cdFdZU0lXWUcgTWl4aW4gYW5kIGNsYXNzXG5cdEFwcGx5IHRvIGNvbnRlbnQgdGhhdCBpcyB1c2luZyBhIFdZU0lXWUcgZWRpdG9yIGZpZWxkLlxuXHRSZWRlZmluZXMgYWxsIHRoZSB0eXBvZ3JhcGhpYyBIVE1MIGVsZW1lbnRzIHRoYXQgVGlueU1jZSBvdXRwdXRzLiAoaDEsaW1nLHAsdWwgZXRjLilcbj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09ICovXG4vKlxuRm9ybSBNaXhpbnNcbkNyZWF0ZSBtaXhpbnMgZmlyc3Qgc28gdGhleSBjYW4gYmUgcmV1c2VkIG9uIFdvbyBmb3JtcyBvciBvdGhlciBwbGFjZXMgd2hlcmUgeW91IGNhbid0IGFkZCB5b3VyIG93biBjbGFzc2VzXG49PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSAqL1xuLyogPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cblx0RXhhbXBsZVxuPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0gKi9cbi8qIEJsb2NrcyAqL1xuLmMtRXhhbXBsZSB7XG4gIGJhY2tncm91bmQ6IHVybChpbWcvdGV4dHVyZS5qcGcpIG5vLXJlcGVhdDtcbiAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcbiAgY29sb3I6ICMyZDJkMmE7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgZm9udC13ZWlnaHQ6IDgwMDtcbiAgcGFkZGluZzogNTBweDtcbiAgd2lkdGg6IDMwMHB4O1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHotaW5kZXg6IDE7XG4gIGxlZnQ6IDUwJTtcbiAgbWFyZ2luLWxlZnQ6IC0xNTBweDtcbiAgdG9wOiAyMCU7XG4gIHRyYW5zaXRpb246IGFsbCAxcyBsaW5lYXI7IH1cbiAgLmMtRXhhbXBsZTo6YmVmb3JlIHtcbiAgICBjb250ZW50OiBcImMtRXhhbXBsZSBjb21wb25lbnQsIHBvd2VyZWQgYnkgR0lBIEpTXCI7IH1cbiAgLmMtRXhhbXBsZSAuYy1FeGFtcGxlX19idXR0b24ge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICMyZDJkMmE7XG4gICAgY29sb3I6ICNjZWNlYmY7XG4gICAgYm9yZGVyOiBub25lO1xuICAgIGZvbnQtc2l6ZTogMTRweDsgfVxuICAuYy1FeGFtcGxlLmMtRXhhbXBsZS0tZXhwYW5kZWQge1xuICAgIHRyYW5zZm9ybTogc2NhbGUoMS41KTsgfVxuIl0sInNvdXJjZVJvb3QiOiIifQ==*/
