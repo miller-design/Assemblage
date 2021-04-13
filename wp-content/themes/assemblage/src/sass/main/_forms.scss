@@ -165,6 +165,11 @@ form input[type="submit"].btn {
 	}
 }
 
+.grecaptcha-badge {
+	visibility: hidden !important;
+	opacity: 0 !important;
+}
+
 @keyframes fadeOut {
 
 	0% {
