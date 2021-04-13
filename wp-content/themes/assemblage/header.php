@@ -15,6 +15,16 @@ https://jackmiller.design/
 		<title><?php wp_title(); ?></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 		<?php wp_head(); ?>
+
+		<link rel="apple-touch-icon" sizes="180x180" href="<?= get_template_directory_uri(); ?>/src/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="<?= get_template_directory_uri(); ?>/src/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="<?= get_template_directory_uri(); ?>/src/favicon/favicon-16x16.png">
+		<link rel="manifest" href="<?= get_template_directory_uri(); ?>/src/favicon/site.webmanifest">
+		<link rel="mask-icon" href="<?= get_template_directory_uri(); ?>/src/favicon/safari-pinned-tab.svg" color="#000000">
+		<link rel="shortcut icon" href="<?= get_template_directory_uri(); ?>/src/favicon/favicon.ico">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-config" content="<?= get_template_directory_uri(); ?>/src/favicon/browserconfig.xml">
+		<meta name="theme-color" content="#ffffff">
 	</head>
 	<?php $headerClass = '';
 	if(is_singular('journal')) {
