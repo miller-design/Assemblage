@@ -25,7 +25,11 @@ class TopNav extends Component {
 
 		this.ref.subscribeTrigger.addEventListener('click', this.triggerSubscribe.bind(this))
 		this.closePanel.addEventListener('click', this.triggerSubscribe.bind(this))
-		this.overlay.addEventListener('click', this.triggerSubscribe.bind(this))
+		this.overlay.addEventListener('click', () => {
+			this.setState({
+				subscribeActive: false
+			})
+		})
 		eventbus.on('newsletterSubmitted', this.triggerSubscribe.bind(this))
 	}
 

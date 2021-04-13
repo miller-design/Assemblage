@@ -34,7 +34,12 @@ class IssueHeader extends Component {
 			this.createPanel()
 		}
 
-		this.overlay.addEventListener('click', this.panelState.bind(this))
+		this.overlay.addEventListener('click', () => {
+
+			this.setState({
+				panelIsActive: false
+			})
+		})
 
 		this.tableTrigger.addEventListener('click', (e) => {
 			const data = e.target.getAttribute('data-term-id')
