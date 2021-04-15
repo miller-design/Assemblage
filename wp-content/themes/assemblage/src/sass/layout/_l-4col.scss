@@ -74,7 +74,7 @@
 		&:nth-of-type(4n+2) {
 
 			&::after {
-				width: calc(100% + #{var(--site-gutter)});
+				width: calc(100% + #{var(--site-gutter)} + 2px);
 			}
 		}
 

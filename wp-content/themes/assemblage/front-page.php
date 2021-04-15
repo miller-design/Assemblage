@@ -161,7 +161,7 @@ $post_slider_loop = new WP_Query( $args );
 		<div class="[ ]"><?php
 
 			$options = [
-				"title"				=> 'Recommended Readsss',
+				"title"				=> 'Recommended Reads',
 				"link"				=> [
 					"active"	=> true,
 					"url"			=> get_post_type_archive_link('journal'),

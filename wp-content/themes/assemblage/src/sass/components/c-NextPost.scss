@@ -39,6 +39,13 @@
 	align-items: flex-start;
 	align-content: flex-start;
 
+	@media not all and (min-resolution: 0.001dpcm) {
+
+		@supports (-webkit-appearance: none) {
+			align-items: stretch;
+		}
+	}
+
 	@include grid-col(1, -1);
 
 	@include media("<small") {
@@ -95,11 +102,22 @@
 
 	@include media(">=medium") {
 		width: 60%;
+		display: flex;
 		height: 100%;
 	}
 
 	@include media(">=large") {
 		width: 70%;
+	}
+
+	@media not all and (min-resolution: 0.001dpcm) {
+
+		@supports (-webkit-appearance: none) {
+
+			@include media(">=medium") {
+				height: initial;
+			}
+		}
 	}
 }
 

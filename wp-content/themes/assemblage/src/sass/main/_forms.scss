@@ -156,6 +156,7 @@ form.sent {
 
 form input[type="submit"].btn {
 	background-color: $c-off-white;
+	-webkit-appearance: none;
 
 	@include v-spacing(margin-top, 47px, 25px);
 	@include pill;

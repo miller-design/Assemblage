@@ -136,8 +136,6 @@ class IssueHeader extends Component {
 		request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
 		request.onload = function () {
 			if (this.status >= 200 && this.status < 400) {
-				// if it worked, insert the el before the link text
-				// reinit components and add a class to target CSS :hover show/hide
 
 				panelElement.innerHTML = this.response
 				const closeLink = panelElement.querySelector('.js-read-issue')
@@ -175,8 +173,6 @@ class IssueHeader extends Component {
 		request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
 		request.onload = function () {
 			if (this.status >= 200 && this.status < 400) {
-				// if it worked, insert the el before the link text
-				// reinit components and add a class to target CSS :hover show/hide
 
 				panelElement.innerHTML = this.response
 				const letterLink = panelElement.querySelector('.js-trigger-letter')
@@ -187,6 +183,7 @@ class IssueHeader extends Component {
 					self.TableDataLoaded = false
 					self.editorsLetterAjax(activeTermId, activeTermNumber, true)
 				})
+
 				self.panelState()
 
 			} else {

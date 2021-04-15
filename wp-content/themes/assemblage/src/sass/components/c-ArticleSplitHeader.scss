@@ -36,6 +36,13 @@
 	position: sticky;
 	top: 0;
 
+	@media not all and (min-resolution: 0.001dpcm) {
+
+		@supports (-webkit-appearance: none) {
+			height: initial;
+		}
+	}
+
 	@include media("<medium") {
 		height: 50vh;
 		position: relative;
