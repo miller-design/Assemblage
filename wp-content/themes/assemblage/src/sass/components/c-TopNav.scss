@@ -91,6 +91,29 @@
 			width: calc(100% + (#{var(--site-margin)} * 2));
 		}
 	}
+
+	.home.dark-state & {
+
+		@include media("<medium") {
+
+			.c-TopNav__inner::after {
+				background-color: $c-white;
+			}
+
+			.c-TopNav__logo {
+				color: $c-white;
+			}
+
+			.c-TopNav__menu,
+			.c-TopNav__sub-menu {
+				color: $c-white;
+
+				a {
+					color: $c-white;
+				}
+			}
+		}
+	}
 }
 
 .c-TopNav__inner {

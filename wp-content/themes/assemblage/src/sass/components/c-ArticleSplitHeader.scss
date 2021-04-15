@@ -110,6 +110,12 @@
 .c-ArticleSplitHeader__header {
 	width: 100%;
 	margin-bottom: 20px;
+
+	@include media(">=xxlarge") {
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 .c-ArticleSplitHeader__detail-wrap {
@@ -233,6 +239,7 @@
 	.c-ArticleSplitHeader__header-mobile {
 
 		@include H3-Serif;
+		line-height: 1.2;
 	}
 }
 
@@ -240,6 +247,7 @@
 
 	.c-ArticleSplitHeader__header,
 	.c-ArticleSplitHeader__header-mobile {
+		text-transform: uppercase;
 
 		@include H4-SansSerif;
 	}

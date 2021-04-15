@@ -130,7 +130,7 @@ class ArticleSplitHeader {
 					echo '<p class="[ c-ArticleSplitHeader__header-mobile ]">' . $this->options['header_text'] . '</p>';
 				} ?>
 				<div class="[ c-ArticleSplitHeader__image ]">
-					<?php echo LazyImage::get_image($this->options['image'], 'c-ArticleSplitHeader__image-half'); ?>
+					<?php echo LazyImage::get_image($this->options['image'], [50, 100], 'c-ArticleSplitHeader__image-half', true, false); ?>
 				</div>
 				<div class="[ c-ArticleSplitHeader__right ]">
 					<?= Self::$header_content; ?>

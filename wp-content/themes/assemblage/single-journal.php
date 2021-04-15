@@ -194,14 +194,15 @@
 						$discovery_class = ($discovery_layout === 'list') ? 'l-Discoveries--list' : 'l-Discoveries--grid';
 						$dicovery_section = (get_row_index() === 1) ? 'first-on-page' : '';
 						$i = 1;
-
+						// if($discovery_layout === 'list')
 						echo '<div class="[ l-Discoveries ' . $discovery_class . ' ' . $dicovery_section . ' ]">';
 							if(!empty($discovery_items)) {
 								echo '<ul class="[ l-Discoveries__items ]">';
 									foreach($discovery_items as $discover) {
 										echo '<li class="[ l-Discoveries__item ]">';
 											echo '<div class="[ l-Discoveries__item-top ]">';
-												echo '<p class="[ l-Discoveries__item-name ]"><span>' . $i  . '</span>' . $discover['title'] . '</p>';
+												$leading_digit = ($discovery_layout === 'list' && $i <= 9) ? '0' : '';
+												echo '<p class="[ l-Discoveries__item-name ]"><span>'. $leading_digit . $i  . '</span>' . $discover['title'] . '</p>';
 												echo '<div class="[ l-Discoveries__item-image-wrap ]">';
 													echo LazyImage::get_image($discover['image'], [20, 30, 50],'l-Discoveries__item-image');
 												echo '</div>';

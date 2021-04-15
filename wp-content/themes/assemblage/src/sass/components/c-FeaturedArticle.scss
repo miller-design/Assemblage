@@ -62,6 +62,14 @@
 	overflow: hidden;
 	position: relative;
 
+	@include media(">=small", "<1240px") {
+		height: 120vh;
+	}
+
+	@include media(">=1240px") {
+		height: 90vh;
+	}
+
 	.c-FeaturedArticle__inner {
 		height: 100%;
 
@@ -79,7 +87,7 @@
 
 		@include grid-col(1, -1);
 
-		@include media(">=medium") {
+		@include media(">=1240px") {
 			flex-direction: column;
 			justify-content: space-between;
 			order: 1;
@@ -99,7 +107,7 @@
 
 		@include grid-col(1, -1);
 
-		@include media(">=medium") {
+		@include media(">=1240px") {
 			order: 2;
 
 			@include grid-col(12, -1);
@@ -112,17 +120,14 @@
 	}
 
 	.c-FeaturedArticle__image {
+		height: 100%;
 
-		@include media(">=medium") {
+		img {
 			height: 100%;
-
-			img {
-				height: 100%;
-				object-fit: cover;
-				object-position: center;
-				top: 50%;
-				transform: translateY(-50%);
-			}
+			object-fit: cover;
+			object-position: center;
+			top: 50%;
+			transform: translateY(-50%);
 		}
 	}
 
@@ -130,11 +135,11 @@
 
 		@include v-spacing(padding-top, 20px, 25px);
 
-		@include media("<medium") {
+		@include media("<1240px") {
 			margin-bottom: 20px;
 		}
 
-		@include media(">=medium") {
+		@include media(">=1240px") {
 			border-top: 2px solid $c-black;
 		}
 	}
@@ -175,16 +180,13 @@
 		min-height: 600px;
 		transform: scale(1.2);
 
-		@include media("<medium") {
-
-			img {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				height: 100%;
-				transform: translate(-50%, -50%);
-				object-fit: cover;
-			}
+		img {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			height: 100%;
+			transform: translate(-50%, -50%);
+			object-fit: cover;
 		}
 
 		&::after {
@@ -232,6 +234,7 @@
 .c-FeaturedArticle--sans-serif {
 
 	.c-FeaturedArticle__header {
+		text-transform: capitalize;
 
 		@include H2-SansSerif;
 	}

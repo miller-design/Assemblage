@@ -142,7 +142,7 @@
 	.c-ArticleHeader__content {
 		position: sticky;
 		position: -webkit-sticky;
-		bottom: 30px;
+		bottom: 80px;
 		width: 90%;
 
 		@include media(">=medium") {
@@ -230,6 +230,7 @@
 .c-ArticleHeader--video.c-ArticleHeader--sans-serif {
 
 	.c-ArticleHeader__header {
+		text-transform: uppercase;
 
 		@include H4-SansSerif;
 	}
@@ -246,6 +247,7 @@
 .c-ArticleHeader--full-screen.c-ArticleHeader--sans-serif {
 
 	.c-ArticleHeader__header {
+		text-transform: uppercase;
 
 		@include H2-SansSerif;
 	}

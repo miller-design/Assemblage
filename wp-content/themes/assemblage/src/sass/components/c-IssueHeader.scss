@@ -168,6 +168,10 @@
 
 	@include H5-Serif;
 	@include v-spacing(margin-bottom, 20px, 45px);
+
+	@include media(">=xxlarge") {
+		padding-right: 10%;
+	}
 }
 
 .c-IssueHeader__btn {

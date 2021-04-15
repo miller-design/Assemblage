@@ -39,7 +39,7 @@ class ProgressBar extends Component {
 	hideBar() {
 		let currentScrollY = window.pageYOffset
 
-    if(currentScrollY > (window.innerHeight + 100)) {
+    if(currentScrollY > (window.innerHeight / 2)) {
 			this.setState({isActive: true})
     } else {
 			this.setState({isActive: false})

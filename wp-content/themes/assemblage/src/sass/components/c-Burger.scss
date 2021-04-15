@@ -83,6 +83,13 @@
 	.header-is-pinned & {
 		background-color: $c-black !important;
 	}
+
+	.home.dark-state & {
+
+		@include media("<medium") {
+			background-color: $c-white;
+		}
+	}
 }
 
 .js-menu-active-dark-state {

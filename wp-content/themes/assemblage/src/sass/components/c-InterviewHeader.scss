@@ -315,6 +315,7 @@
 	.c-InterviewHeader__header,
 	.c-InterviewHeader__header-mobile,
 	.c-InterviewHeader__name {
+		text-transform: uppercase;
 
 		@include H2-SansSerif;
 	}

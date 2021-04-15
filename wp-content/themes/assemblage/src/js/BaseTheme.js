@@ -31,6 +31,7 @@ class BaseTheme extends Component {
 
 		this.initScrollHandler()
 		this.initResizeHandler()
+		this.checkParallaxOffsets()
 		this.updateAnimation()
 	}
 
@@ -110,17 +111,31 @@ class BaseTheme extends Component {
 		window.requestAnimationFrame(this.updateAnimation.bind(this))
 	}
 
+	checkParallaxOffsets() {
+		const parralaxEls = Array.from(this.imageEls)
+
+		parralaxEls.forEach((el) => {
+			let elTop = el.parentNode.getBoundingClientRect().top
+
+			if(elTop <= 0) {
+				el.setAttribute('data-top', true)
+			} else {
+				el.setAttribute('data-top', false)
+			}
+		})
+	}
+
 	updateMethods(scrollY) {
 
 		const parralaxEls = Array.from(this.imageEls)
 
-		parralaxEls.forEach((el) => {
+		parralaxEls.forEach((el, index) => {
 			let st = scrollY
-			let elTop = el.parentNode.getBoundingClientRect().top
+			let elTop = el.parentNode.getBoundingClientRect().top + window.pageYOffset
 			let amountScrolled = st - elTop
-			let scroll = (elTop === 0) ? st : elTop
-
-			this.parralaxEffect(0, scroll * 0.1, el)
+			const isTop = el.getAttribute('data-top')
+			let scroll = (isTop == 'true') ? st : amountScrolled
+			this.parralaxEffect(0, 1 - (scroll / 10), el)
 		})
 	}
 

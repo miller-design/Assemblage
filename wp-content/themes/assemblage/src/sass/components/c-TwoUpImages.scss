@@ -113,4 +113,11 @@
 	.c-TwoUpImages__right {
 		direction: ltr;
 	}
+
+	.c-TwoUpImages__right {
+
+		@include media("<medium") {
+			left: calc(#{var(--site-margin)} * 1);
+		}
+	}
 }

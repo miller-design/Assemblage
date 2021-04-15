@@ -33,7 +33,6 @@ $post_slider_loop = new WP_Query( $args );
 		"issue_name"				=> get_field('issue_name', $active_issue_acf_id),
 		"issue_text"				=> get_field('issue_excerpt', $active_issue_acf_id),
 		"issue_link"				=> get_permalink( get_page_by_path( 'issue' ) ) . '?issue=' . $active_issue,
-		"bio_text"					=> get_field('mobile_intro_text'),
 		"classes"						=> '',
 	];
 

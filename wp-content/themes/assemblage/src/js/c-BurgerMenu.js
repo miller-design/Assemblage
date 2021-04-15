@@ -63,34 +63,37 @@ class BurgerMenu extends Component {
 
 	hoverStateSetup() {
 
-		this.hoverTriggers.forEach((item) => {
-			const imageUrl = item.getAttribute('data-img-src')
-			let imgCreated = false
-			let imgElement
+		if(global.base.mediaQuery.greaterThan('small')) {
 
-			item.addEventListener('mouseover', () => {
+			this.hoverTriggers.forEach((item) => {
+				const imageUrl = item.getAttribute('data-img-src')
+				let imgCreated = false
+				let imgElement
 
-				if(!imgCreated) {
-					imgElement = document.createElement('img')
-					imgElement.src = imageUrl
-					imgElement.classList.add('c-BurgerMenu__featured-image')
-					this.imageArea.append(imgElement)
-					imgCreated = true
-				}
+				item.addEventListener('mouseover', () => {
 
-				imgElement.classList.add('is-active')
-				// generating random co-ordinates for each hover
-				imgElement.style.top = (window.screen.height / 2) * Math.random() + 'px';
-  			imgElement.style.right = (window.screen.width / 2) * Math.random() + 'px';
+					if(!imgCreated) {
+						imgElement = document.createElement('img')
+						imgElement.src = imageUrl
+						imgElement.classList.add('c-BurgerMenu__featured-image')
+						this.imageArea.append(imgElement)
+						imgCreated = true
+					}
+
+					imgElement.classList.add('is-active')
+					// generating random co-ordinates for each hover
+					imgElement.style.top = (window.screen.height / 2) * Math.random() + 'px';
+					imgElement.style.right = (window.screen.width / 2) * Math.random() + 'px';
+				})
+
+				item.addEventListener('mouseleave', () => {
+
+					if(imgCreated) {
+						imgElement.classList.remove('is-active')
+					}
+				})
 			})
-
-			item.addEventListener('mouseleave', () => {
-
-				if(imgCreated) {
-					imgElement.classList.remove('is-active')
-				}
-			})
-		})
+		}
 	}
 }
 

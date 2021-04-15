@@ -18,7 +18,7 @@
 	opacity: 0;
 	transition:
 		400ms top $standard-curve,
-		400ms opacity $standard-curve,
+		400ms opacity 500ms $standard-curve,
 		200ms background-color linear;
 
 	@include media(">=medium") {
@@ -37,6 +37,10 @@
 
 .c-ProgressBar__right {
 	flex: 0 1;
+
+	@include media("<small") {
+		display: none;
+	}
 }
 
 // elements

@@ -70,6 +70,10 @@ class BurgerMenu {
 				$output .= '</li>';
 				$i++;
 			}
+
+			$output .= '<li class="[ c-BurgerMenu__main-item ]" style="--animation-delay: ' . $animation_var . ';">';
+				$output .= '<a href="https://www.assemblageworld.com/" target="_blank" rel="noopener">World</a>';
+			$output .= '</li>';
 		$output .= '</ul>';
 
 		return $output;
