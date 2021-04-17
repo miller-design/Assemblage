@@ -10,6 +10,10 @@ Create mixins first so they can be reused on Woo forms or other places where you
 	align-items: flex-start;
 	align-content: flex-start;
 	flex-wrap: wrap;
+
+	@include media("<small") {
+		justify-content: space-between;
+	}
 }
 
 @mixin form-row($row: "full") {
@@ -20,6 +24,7 @@ Create mixins first so they can be reused on Woo forms or other places where you
 	position: relative;
 	margin-bottom: 30px;
 
+
 	@if $row == "fill" {
 		width: 100%;
 		flex-wrap: wrap;
@@ -28,6 +33,10 @@ Create mixins first so they can be reused on Woo forms or other places where you
 	@if $row == "split" {
 		width: 50%;
 		flex-wrap: nowrap;
+
+		@include media("<small") {
+			width: 46%;
+		}
 	}
 }
 
@@ -144,6 +153,10 @@ Create mixins first so they can be reused on Woo forms or other places where you
 			color: $c-orange;
 			border-bottom: 1px solid $c-orange;
 		}
+	}
+
+	select {
+		height: 40px;
 	}
 
 	.ss-single-selected {

@@ -17,16 +17,23 @@ class Form extends Component {
 		// setting up first empty option with the needed data attributes from slim select
 		const selectTag = this.element.querySelector('select')
 		const firstOption = selectTag.querySelector('option:nth-child(1)')
-		firstOption.setAttribute('data-placeholder', 'true')
-		firstOption.removeAttribute('value')
 
-		const select = new SlimSelect({
-			select: '.wpcf7-select',
-			showSearch: false,
-			showContent: 'down',
-			hideSelectedOption: true,
-			placeholder: 'Nature of Enquirey*',
-		})
+		if(!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+			// true for mobile device
+			const select = new SlimSelect({
+				select: '.wpcf7-select',
+				showSearch: false,
+				showContent: 'down',
+				hideSelectedOption: true,
+				placeholder: 'Nature of Enquirey*',
+			})
+
+			firstOption.setAttribute('data-placeholder', 'true')
+			firstOption.removeAttribute('value')
+		} else {
+			firstOption.setAttribute('disabled', '')
+			firstOption.innerHTML = 'Nature of Enquirey*'
+		}
 
 		this.placeholders()
 

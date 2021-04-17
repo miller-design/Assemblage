@@ -28,9 +28,15 @@
 			],
 		]; ?>
 
-		<span class="[ u-site-overlay ][ js-overlay ]"></span>
+		<span class="[ u-site-overlay ][ js-overlay ]"></span><?php
 
-		<?php Forms::output_subscribe_panel(); ?>
+		Forms::output_subscribe_panel();
+
+		if(is_page('issue')) {
+			Journal::get_issue_content_list_panel();
+			Journal::get_editors_letter_panel();
+		} ?>
+
 
 		<footer class="[ l-Footer ]">
 			<div class="[ l-Footer__top ]">

@@ -22,11 +22,11 @@ class Journal {
 		add_action( "issues_add_form", 'Journal::hide_description_row');
 
 		// Ajax Functions
-		add_action( "wp_ajax_load_editors_letter", 'Journal::get_editors_letter_panel');
-		add_action( "wp_ajax_nopriv_load_editors_letter", 'Journal::get_editors_letter_panel');
+		// add_action( "wp_ajax_load_editors_letter", 'Journal::get_editors_letter_panel');
+		// add_action( "wp_ajax_nopriv_load_editors_letter", 'Journal::get_editors_letter_panel');
 
-		add_action( "wp_ajax_load_content_list", 'Journal::get_issue_content_list_panel');
-		add_action( "wp_ajax_nopriv_load_content_list", 'Journal::get_issue_content_list_panel');
+		// add_action( "wp_ajax_load_content_list", 'Journal::get_issue_content_list_panel');
+		// add_action( "wp_ajax_nopriv_load_content_list", 'Journal::get_issue_content_list_panel');
 
 		add_action( "wp_ajax_load_more_posts", 'Journal::get_more_posts');
 		add_action( "wp_ajax_nopriv_load_more_posts", 'Journal::get_more_posts');
@@ -185,8 +185,9 @@ class Journal {
 			foreach ($issues_tax as $issue) {
 
 				$output[] = [
-					'link' =>  get_term_link($issue),
-					'name' => $issue->name,
+					'link' 	=>  get_term_link($issue),
+					'name' 	=> $issue->name,
+					'id'		=> $issue->term_id,
 				];
 
 			}
@@ -256,7 +257,7 @@ class Journal {
 					echo '<div class="[ l-ArticleEnd__bottom ]">';
 						echo '<p class="[ l-ArticleEnd__more-label ]">View More:</p>';
 						echo '<ul class="[ l-ArticleEnd__more-list ]">';
-							echo '<li><a href="' . $issue['link'] . '">Issue ' . $issue['name'] . ',</a></li>';
+							echo '<li><a href="' . get_permalink( get_page_by_path( 'issue' ) ) . '?issue=' . $issue['id'] . '">Issue ' . $issue['name'] . ',</a></li>';
 							foreach ($tags as $tag) {
 								$comma = ($count_value < ($max_tags - 1)) ? ' ,' : ''; // want it to finish before last <li>
 								echo '<li><a href="' . $tag['link'] . '">' . $tag['name'] . $comma .'</a></li>';
@@ -271,107 +272,124 @@ class Journal {
 
 	public static function get_editors_letter_panel() {
 
-		$term_id = $_POST['term'];
-		$term_number = $_POST['number'];
+		if(isset($_GET['issue'])) {
+			$active_issue = $_GET['issue'];
+		} else {
+			$active_issue = get_field('set_active_issue', 'options');
+		}
+
+		$term_id = get_term($active_issue)->taxonomy . '_' . $active_issue;
+		$term_number = get_term($active_issue)->name;
 		$image = get_field('editor_image', $term_id);
 		$intro = get_field('introduction', $term_id);
 		$content = get_field('editors_content', $term_id);
 		$contributors = get_field('contributors', $term_id);
 
-		echo '<div class="[ l-EditorsLetter ]">';
-			echo '<div class="[ l-EditorsLetter__inner ]">';
-				echo '<div class="[ l-EditorsLetter__header ]">';
-					echo '<h2>Editors letter</h2>';
-				echo '</div>';
-				if($image) {
-					echo '<div class="[ l-EditorsLetter__image-wrap ]">';
-						echo LazyImage::get_image($image, [50, 100], 'l-EditorsLetter__image', true, false);
-					echo '</div>';
-				}
-				echo '<div class="[ l-EditorsLetter__content ]">';
-					echo '<h4 class="[ l-EditorsLetter__intro ]">' . $intro .'</h4>';
-					echo '<div class="[ l-EditorsLetter__text ]">';
-						echo $content;
-						echo '<span class="[ l-EditorsLetter__link ][ js-read-issue ]">Read Issue ' . $term_number . '</span>';
-					echo '</div>';
-					echo '<div class="[ l-EditorsLetter__contributors-wrap ]">';
-						echo '<div class="[ l-EditorsLetter__contributors-left ]">';
-							echo '<h4 class="[ l-EditorsLetter__contributors-header ]">Contributors</h4>';
+		echo '<div class="[ l-Panel ][ js-editors-panel ]">';
+			echo '<div class="[ l-Panel__header ]">';
+				echo '<span class="[ l-Panel__close ][ js-editors-close ]">Close</span>';
+			echo '</div>';
+			echo '<div class="[ l-Panel__content ]">';
+				echo '<div class="[ l-EditorsLetter ]">';
+					echo '<div class="[ l-EditorsLetter__inner ]">';
+						echo '<div class="[ l-EditorsLetter__header ]">';
+							echo '<h2>Editors letter</h2>';
 						echo '</div>';
-						echo '<div class="[ l-EditorsLetter__contributors-right ]">';
-							if(!empty($contributors['editors'])) {
-								echo '<div class="[ l-EditorsLetter__contributors-col ]">';
-									echo '<ul>';
-										echo '<li>Editors</li>';
-										foreach ($contributors['editors'] as $editor) {
-											echo '<li>' . $editor['name'] . '</li>';
-										}
-									echo '</ul>';
+						if($image) {
+							echo '<div class="[ l-EditorsLetter__image-wrap ]">';
+								echo LazyImage::get_image($image, [50, 100], 'l-EditorsLetter__image', true, false);
+							echo '</div>';
+						}
+						echo '<div class="[ l-EditorsLetter__content ]">';
+							echo '<h4 class="[ l-EditorsLetter__intro ]">' . $intro .'</h4>';
+							echo '<div class="[ l-EditorsLetter__text ]">';
+								echo $content;
+								echo '<span class="[ l-EditorsLetter__link ][ js-read-issue ]">Read Issue ' . $term_number . '</span>';
+							echo '</div>';
+							echo '<div class="[ l-EditorsLetter__contributors-wrap ]">';
+								echo '<div class="[ l-EditorsLetter__contributors-left ]">';
+									echo '<h4 class="[ l-EditorsLetter__contributors-header ]">Contributors</h4>';
 								echo '</div>';
-							}
-							if(!empty($contributors['art_direction'])) {
-								echo '<div class="[ l-EditorsLetter__contributors-col ]">';
-									echo '<ul>';
-										echo '<li>Art Direction</li>';
-										foreach ($contributors['art_direction'] as $editor) {
-											echo '<li>' . $editor['name'] . '</li>';
-										}
-									echo '</ul>';
+								echo '<div class="[ l-EditorsLetter__contributors-right ]">';
+									if(!empty($contributors['editors'])) {
+										echo '<div class="[ l-EditorsLetter__contributors-col ]">';
+											echo '<ul>';
+												echo '<li>Editors</li>';
+												foreach ($contributors['editors'] as $editor) {
+													echo '<li>' . $editor['name'] . '</li>';
+												}
+											echo '</ul>';
+										echo '</div>';
+									}
+									if(!empty($contributors['art_direction'])) {
+										echo '<div class="[ l-EditorsLetter__contributors-col ]">';
+											echo '<ul>';
+												echo '<li>Art Direction</li>';
+												foreach ($contributors['art_direction'] as $editor) {
+													echo '<li>' . $editor['name'] . '</li>';
+												}
+											echo '</ul>';
+										echo '</div>';
+									}
+									if(!empty($contributors['articles'])) {
+										echo '<div class="[ l-EditorsLetter__contributors-col ]">';
+											echo '<ul>';
+												echo '<li>Articles</li>';
+												foreach ($contributors['articles'] as $editor) {
+													echo '<li>' . $editor['name'] . '</li>';
+												}
+											echo '</ul>';
+										echo '</div>';
+									}
+									if(!empty($contributors['images'])) {
+										echo '<div class="[ l-EditorsLetter__contributors-col ]">';
+											echo '<ul>';
+												echo '<li>Images</li>';
+												foreach ($contributors['images'] as $editor) {
+													echo '<li>' . $editor['name'] . '</li>';
+												}
+											echo '</ul>';
+										echo '</div>';
+									}
+									if(!empty($contributors['stylelist'])) {
+										echo '<div class="[ l-EditorsLetter__contributors-col ]">';
+											echo '<ul>';
+												echo '<li>Stylist</li>';
+												foreach ($contributors['stylelist'] as $editor) {
+													echo '<li>' . $editor['name'] . '</li>';
+												}
+											echo '</ul>';
+										echo '</div>';
+									}
+									if(!empty($contributors['special_thanks'])) {
+										echo '<div class="[ l-EditorsLetter__contributors-col ]">';
+											echo '<ul>';
+												echo '<li>Special thanks</li>';
+												foreach ($contributors['special_thanks'] as $editor) {
+													echo '<li>' . $editor['name'] . '</li>';
+												}
+											echo '</ul>';
+										echo '</div>';
+									}
 								echo '</div>';
-							}
-							if(!empty($contributors['articles'])) {
-								echo '<div class="[ l-EditorsLetter__contributors-col ]">';
-									echo '<ul>';
-										echo '<li>Articles</li>';
-										foreach ($contributors['articles'] as $editor) {
-											echo '<li>' . $editor['name'] . '</li>';
-										}
-									echo '</ul>';
-								echo '</div>';
-							}
-							if(!empty($contributors['images'])) {
-								echo '<div class="[ l-EditorsLetter__contributors-col ]">';
-									echo '<ul>';
-										echo '<li>Images</li>';
-										foreach ($contributors['images'] as $editor) {
-											echo '<li>' . $editor['name'] . '</li>';
-										}
-									echo '</ul>';
-								echo '</div>';
-							}
-							if(!empty($contributors['stylelist'])) {
-								echo '<div class="[ l-EditorsLetter__contributors-col ]">';
-									echo '<ul>';
-										echo '<li>Stylist</li>';
-										foreach ($contributors['stylelist'] as $editor) {
-											echo '<li>' . $editor['name'] . '</li>';
-										}
-									echo '</ul>';
-								echo '</div>';
-							}
-							if(!empty($contributors['special_thanks'])) {
-								echo '<div class="[ l-EditorsLetter__contributors-col ]">';
-									echo '<ul>';
-										echo '<li>Special thanks</li>';
-										foreach ($contributors['special_thanks'] as $editor) {
-											echo '<li>' . $editor['name'] . '</li>';
-										}
-									echo '</ul>';
-								echo '</div>';
-							}
+							echo '</div>';
 						echo '</div>';
 					echo '</div>';
 				echo '</div>';
 			echo '</div>';
 		echo '</div>';
-
-		die();
 	}
 
 	public static function get_issue_content_list_panel() {
 
-		$term_id = $_POST['term'];
-		$term_number = $_POST['number'];
+		if(isset($_GET['issue'])) {
+			$active_issue = $_GET['issue'];
+		} else {
+			$active_issue = get_field('set_active_issue', 'options');
+		}
+
+		$term_id = get_term($active_issue)->taxonomy . '_' . $active_issue;
+		$term_number = get_term($active_issue)->name;
 		$index = 2;
 
 		$args = array(
@@ -387,36 +405,40 @@ class Journal {
 		);
 
 		$loop = new WP_Query( $args );
-
-		echo '<div class="[ l-ContentsList ]">';
-			echo '<div class="[ l-ContentsList__inner ]">';
-				echo '<ul class="[ l-ContentsList__list ]">';
-					if(!empty($loop->posts)) {
-						echo '<li>';
-							echo '<div class="[  l-ContentsList__left ]">';
-								echo '<span class="[  l-ContentsList__index ]">01</span>';
-							echo '</div>';
-							echo '<div class="[  l-ContentsList__right ]">';
-								echo '<span class="[ js-trigger-letter ]">Editor’s Letter<span>3 Min Read</span></span>';
-							echo '</div>';
-						echo '</li>';
-						foreach($loop->posts as $article) {
-							echo '<li>';
-								echo '<div class="[  l-ContentsList__left ]">';
-									echo '<span class="[  l-ContentsList__index ]">' . sprintf("%02d", $index)  . '</span>';
-								echo '</div>';
-								echo '<div class="[  l-ContentsList__right ]">';
-									echo '<a href="' . get_permalink($article->ID) . '">' . get_the_title($article->ID) . '<span>' . Self::estimated_reading_time($article->ID, true) . '</span></a>';
-								echo '</div>';
-							echo '</li>';
-							$index++;
-						}
-					}
-				echo '</ul>';
+		echo '<div class="[ l-Panel ][ js-contents-panel ]">';
+			echo '<div class="[ l-Panel__header ]">';
+				echo '<span class="[ l-Panel__close ][ js-contents-close ]">Close</span>';
+			echo '</div>';
+			echo '<div class="[ l-Panel__content ]">';
+				echo '<div class="[ l-ContentsList ]">';
+					echo '<div class="[ l-ContentsList__inner ]">';
+						echo '<ul class="[ l-ContentsList__list ]">';
+							if(!empty($loop->posts)) {
+								echo '<li>';
+									echo '<div class="[  l-ContentsList__left ]">';
+										echo '<span class="[  l-ContentsList__index ]">01</span>';
+									echo '</div>';
+									echo '<div class="[  l-ContentsList__right ]">';
+										echo '<span class="[ js-trigger-letter ]">Editor’s Letter<span>3 Min Read</span></span>';
+									echo '</div>';
+								echo '</li>';
+								foreach($loop->posts as $article) {
+									echo '<li>';
+										echo '<div class="[  l-ContentsList__left ]">';
+											echo '<span class="[  l-ContentsList__index ]">' . sprintf("%02d", $index)  . '</span>';
+										echo '</div>';
+										echo '<div class="[  l-ContentsList__right ]">';
+											echo '<a href="' . get_permalink($article->ID) . '">' . get_the_title($article->ID) . '<span>' . Self::estimated_reading_time($article->ID, true) . '</span></a>';
+										echo '</div>';
+									echo '</li>';
+									$index++;
+								}
+							}
+						echo '</ul>';
+					echo '</div>';
+				echo '</div>';
 			echo '</div>';
 		echo '</div>';
-
-		die();
 	}
 
 	public static function get_more_posts() {
