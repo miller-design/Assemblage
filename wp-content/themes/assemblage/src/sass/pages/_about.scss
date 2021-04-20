@@ -124,6 +124,11 @@
 	display: flex;
 }
 
+.about-team-grid h2 {
+
+	@include H6-SansSerif;
+}
+
 .about-team-grid__row {
 	width: 100%;
 
