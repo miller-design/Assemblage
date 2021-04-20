@@ -46,11 +46,9 @@
 	span {
 		position: relative;
 		margin-right: 30px;
-		top: 12px;
 
 		@include media(">=medium") {
 			margin-right: 100px;
-			top: 20px;
 		}
 	}
 }
