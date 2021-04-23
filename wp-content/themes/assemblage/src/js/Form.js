@@ -25,14 +25,14 @@ class Form extends Component {
 				showSearch: false,
 				showContent: 'down',
 				hideSelectedOption: true,
-				placeholder: 'Nature of Enquirey*',
+				placeholder: 'Nature of Enquiry*',
 			})
 
 			firstOption.setAttribute('data-placeholder', 'true')
 			firstOption.removeAttribute('value')
 		} else {
 			firstOption.setAttribute('disabled', '')
-			firstOption.innerHTML = 'Nature of Enquirey*'
+			firstOption.innerHTML = 'Nature of Enquiry*'
 		}
 
 		this.placeholders()
