@@ -1336,7 +1336,7 @@
                                     "key": "field_60467e28457b6",
                                     "label": "Content",
                                     "name": "content",
-                                    "type": "textarea",
+                                    "type": "wysiwyg",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
@@ -1346,21 +1346,40 @@
                                         "id": ""
                                     },
                                     "default_value": "",
+                                    "tabs": "visual",
+                                    "toolbar": "basic",
+                                    "media_upload": 0,
+                                    "delay": 0
+                                },
+                                {
+                                    "key": "field_60865c7a74453",
+                                    "label": "Label",
+                                    "name": "label",
+                                    "type": "text",
+                                    "instructions": "The label used for the following link e.g. \"Shop Now\"",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "33",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
                                     "placeholder": "",
-                                    "maxlength": 300,
-                                    "rows": 4,
-                                    "new_lines": "br"
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
                                 },
                                 {
                                     "key": "field_60467e4f457b7",
                                     "label": "Link",
                                     "name": "link",
                                     "type": "url",
-                                    "instructions": "",
+                                    "instructions": "This is the URL that you would like to direct the user to",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "50",
+                                        "width": "33",
                                         "class": "",
                                         "id": ""
                                     },
@@ -1372,11 +1391,11 @@
                                     "label": "Link Text",
                                     "name": "link_text",
                                     "type": "text",
-                                    "instructions": "",
+                                    "instructions": "This is the text that would show to the user, this helps neaten up urls",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "50",
+                                        "width": "33",
                                         "class": "",
                                         "id": ""
                                     },
@@ -1464,5 +1483,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1617003799
+    "modified": 1619418710
 }

@@ -208,8 +208,8 @@
 												echo '</div>';
 											echo '</div>';
 											echo '<div class="[ l-Discoveries__item-bottom ]">';
-												echo '<p class="[ l-Discoveries__item-text ]">' . $discover['content'] . '</p>';
-												echo '<p class="[ l-Discoveries__item-link ]">Shop Now <a href="' . $discover['link']. '">' . $discover['link_text'] . '</a></p>';
+												echo '<div class="[ l-Discoveries__item-text ]">' . $discover['content'] . '</div>';
+												echo '<p class="[ l-Discoveries__item-link ]">' . $discover['label'] . ' <a href="' . $discover['link'] . '">' . $discover['link_text'] . '</a></p>';
 											echo '</div>';
 										echo '</li>';
 										$i++;

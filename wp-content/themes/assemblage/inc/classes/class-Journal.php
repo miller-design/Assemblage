@@ -283,7 +283,7 @@ class Journal {
 		$image = get_field('editor_image', $term_id);
 		$intro = get_field('introduction', $term_id);
 		$content = get_field('editors_content', $term_id);
-		$contributors = get_field('contributors', $term_id);
+		$contributors = get_field('contributor', $term_id);
 
 		echo '<div class="[ l-Panel ][ js-editors-panel ]">';
 			echo '<div class="[ l-Panel__header ]">';
@@ -293,7 +293,7 @@ class Journal {
 				echo '<div class="[ l-EditorsLetter ]">';
 					echo '<div class="[ l-EditorsLetter__inner ]">';
 						echo '<div class="[ l-EditorsLetter__header ]">';
-							echo '<h2>Editors letter</h2>';
+							echo '<h2>Founders&#39 letter</h2>';
 						echo '</div>';
 						if($image) {
 							echo '<div class="[ l-EditorsLetter__image-wrap ]">';
@@ -306,73 +306,25 @@ class Journal {
 								echo $content;
 								echo '<span class="[ l-EditorsLetter__link ][ js-read-issue ]">Read Issue ' . $term_number . '</span>';
 							echo '</div>';
-							echo '<div class="[ l-EditorsLetter__contributors-wrap ]">';
-								echo '<div class="[ l-EditorsLetter__contributors-left ]">';
-									echo '<h4 class="[ l-EditorsLetter__contributors-header ]">Contributors</h4>';
+							if(!empty($contributors)) {
+								echo '<div class="[ l-EditorsLetter__contributors-wrap ]">';
+									echo '<div class="[ l-EditorsLetter__contributors-left ]">';
+										echo '<h4 class="[ l-EditorsLetter__contributors-header ]">Contributors</h4>';
+									echo '</div>';
+									echo '<div class="[ l-EditorsLetter__contributors-right ]">';
+										foreach($contributors as $contributor) {
+											echo '<div class="[ l-EditorsLetter__contributors-col ]">';
+												echo '<ul>';
+													echo '<li>' . $contributor['type'] . '</li>';
+													foreach ($contributor['names'] as $person) {
+														echo '<li>' . $person['name'] . '</li>';
+													}
+												echo '</ul>';
+											echo '</div>';
+										}
+									echo '</div>';
 								echo '</div>';
-								echo '<div class="[ l-EditorsLetter__contributors-right ]">';
-									if(!empty($contributors['editors'])) {
-										echo '<div class="[ l-EditorsLetter__contributors-col ]">';
-											echo '<ul>';
-												echo '<li>Editors</li>';
-												foreach ($contributors['editors'] as $editor) {
-													echo '<li>' . $editor['name'] . '</li>';
-												}
-											echo '</ul>';
-										echo '</div>';
-									}
-									if(!empty($contributors['art_direction'])) {
-										echo '<div class="[ l-EditorsLetter__contributors-col ]">';
-											echo '<ul>';
-												echo '<li>Art Direction</li>';
-												foreach ($contributors['art_direction'] as $editor) {
-													echo '<li>' . $editor['name'] . '</li>';
-												}
-											echo '</ul>';
-										echo '</div>';
-									}
-									if(!empty($contributors['articles'])) {
-										echo '<div class="[ l-EditorsLetter__contributors-col ]">';
-											echo '<ul>';
-												echo '<li>Articles</li>';
-												foreach ($contributors['articles'] as $editor) {
-													echo '<li>' . $editor['name'] . '</li>';
-												}
-											echo '</ul>';
-										echo '</div>';
-									}
-									if(!empty($contributors['images'])) {
-										echo '<div class="[ l-EditorsLetter__contributors-col ]">';
-											echo '<ul>';
-												echo '<li>Images</li>';
-												foreach ($contributors['images'] as $editor) {
-													echo '<li>' . $editor['name'] . '</li>';
-												}
-											echo '</ul>';
-										echo '</div>';
-									}
-									if(!empty($contributors['stylelist'])) {
-										echo '<div class="[ l-EditorsLetter__contributors-col ]">';
-											echo '<ul>';
-												echo '<li>Stylist</li>';
-												foreach ($contributors['stylelist'] as $editor) {
-													echo '<li>' . $editor['name'] . '</li>';
-												}
-											echo '</ul>';
-										echo '</div>';
-									}
-									if(!empty($contributors['special_thanks'])) {
-										echo '<div class="[ l-EditorsLetter__contributors-col ]">';
-											echo '<ul>';
-												echo '<li>Special thanks</li>';
-												foreach ($contributors['special_thanks'] as $editor) {
-													echo '<li>' . $editor['name'] . '</li>';
-												}
-											echo '</ul>';
-										echo '</div>';
-									}
-								echo '</div>';
-							echo '</div>';
+							}
 						echo '</div>';
 					echo '</div>';
 				echo '</div>';

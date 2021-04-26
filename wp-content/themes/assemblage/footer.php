@@ -55,7 +55,9 @@
 				<div class="[ l-Footer__right ]">
 					<ul class="[ l-Footer__links ]"><?php
 						foreach($footer_small_links as $link) {
-							echo '<li class="[ l-Footer__link ]"><a href="' . $link['link'] . '">' . $link['link_text'] . '</a></li>';
+							if(!empty($link['link'])) {
+								echo '<li class="[ l-Footer__link ]"><a href="' . $link['link'] . '">' . $link['link_text'] . '</a></li>';
+							}
 						} ?>
 					</ul>
 				</div>

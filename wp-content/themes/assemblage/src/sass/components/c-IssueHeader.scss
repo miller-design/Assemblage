@@ -159,12 +159,14 @@
 }
 
 .c-IssueHeader__name {
+	width: 100%;
 
 	@include H6-SansSerif;
 	@include v-spacing(margin-bottom, 33px, 15px);
 }
 
 .c-IssueHeader__intro {
+	width: 100%;
 
 	@include H5-Serif;
 	@include v-spacing(margin-bottom, 20px, 45px);

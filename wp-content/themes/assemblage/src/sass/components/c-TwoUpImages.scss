@@ -105,19 +105,43 @@
 
 .c-TwoUpImages--cols-reverse {
 
-	.c-TwoUpImages__inner {
-		direction: rtl;
-	}
+	.c-TwoUpImages__left {
 
-	.c-TwoUpImages__left,
-	.c-TwoUpImages__right {
-		direction: ltr;
-	}
-
-	.c-TwoUpImages__right {
+		@include grid-col(1, -1);
 
 		@include media("<medium") {
-			left: calc(#{var(--site-margin)} * 1);
+
+			@include grid-col-full-bleed("both");
+
+			.c-TwoUpImages__caption {
+				padding-left: var(--site-margin);
+				padding-right: var(--site-margin);
+			}
+		}
+
+		@include media(">=medium") {
+
+			@include grid-col(1, 11);
+		}
+
+		@include media(">=large") {
+
+			@include grid-col(1, 14);
+		}
+	}
+
+	.c-TwoUpImages__right {
+
+		@include grid-col(2, 8);
+
+		@include media(">=medium") {
+
+			@include grid-col(14, -1);
+		}
+
+		@include media(">=large") {
+
+			@include grid-col(16, -1);
 		}
 	}
 }

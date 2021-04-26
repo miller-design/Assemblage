@@ -85,9 +85,11 @@ class BurgerMenu {
 
 		$output .= '<ul class="[ c-BurgerMenu__secondary ]">';
 			foreach ($links as $link) {
-				$output .= '<li class="[ c-BurgerMenu__secondary-item ]">';
-					$output .= '<a href="' . $link['link'] . '">' . $link['link_text'] . '</a>';
-				$output .= '</li>';
+				if(!empty($link['link'])) {
+					$output .= '<li class="[ c-BurgerMenu__secondary-item ]">';
+						$output .= '<a href="' . $link['link'] . '">' . $link['link_text'] . '</a>';
+					$output .= '</li>';
+				}
 			}
 		$output .= '</ul>';
 

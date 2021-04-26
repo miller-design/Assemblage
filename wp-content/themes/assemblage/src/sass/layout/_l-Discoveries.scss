@@ -54,12 +54,22 @@
 }
 
 .l-Discoveries__item-text {
-	font-size: 20px;
 
 	@include v-spacing(margin-bottom, 20px, 50px);
+	@include list-styles();
 
-	@include media("<small") {
-		font-size: 18px;
+	p {
+		font-size: 20px;
+		margin-bottom: 10px;
+
+		@include media("<small") {
+			font-size: 18px;
+		}
+	}
+
+	ul,
+	ol {
+		margin-bottom: 10px;
 	}
 }
 
