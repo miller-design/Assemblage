@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="144" height="94" viewBox="0 0 144 94">
+  <defs>
+    <clipPath id="clip-Audio">
+      <rect width="144" height="94"/>
+    </clipPath>
+  </defs>
+  <g id="Audio" clip-path="url(#clip-Audio)">
+    <rect width="144" height="94" fill="#fff"/>
+    <rect id="Rectangle_4" data-name="Rectangle 4" width="148" height="94" fill="#e8e8e8"/>
+    <g id="Group_2" data-name="Group 2" transform="translate(80.426 11)">
+      <g id="Rectangle_1" data-name="Rectangle 1" transform="translate(-0.426 0)" fill="#fff" stroke="#000" stroke-width="1">
+        <rect width="56" height="72" stroke="none"/>
+        <rect x="0.5" y="0.5" width="55" height="71" fill="none"/>
+      </g>
+      <path id="Path_1" data-name="Path 1" d="M314.636,101.589l54.1,70.968" transform="translate(-314.149 -101.138)" fill="none" stroke="#000" stroke-width="1"/>
+      <path id="Path_2" data-name="Path 2" d="M314.555,172.576l20.642-27.4,33.965-43.991" transform="translate(-314.13 -101.044)" fill="none" stroke="#000" stroke-width="1"/>
+    </g>
+    <g id="Group_1" data-name="Group 1" transform="translate(-17 -32.35)">
+      <g id="Rectangle_2" data-name="Rectangle 2" transform="translate(25 43.35)" stroke="#000" stroke-width="1">
+        <rect width="59" height="4" stroke="none"/>
+        <rect x="0.5" y="0.5" width="58" height="3" fill="none"/>
+      </g>
+      <g id="Rectangle_15" data-name="Rectangle 15" transform="translate(25 50.35)" stroke="#000" stroke-width="1">
+        <rect width="48" height="4" stroke="none"/>
+        <rect x="0.5" y="0.5" width="47" height="3" fill="none"/>
+      </g>
+      <g id="Rectangle_3" data-name="Rectangle 3" transform="translate(25 59.35)" stroke="#000" stroke-width="1">
+        <rect width="18" height="1" stroke="none"/>
+        <rect x="0.5" y="0.5" width="17" fill="none"/>
+      </g>
+      <g id="Rectangle_13" data-name="Rectangle 13" transform="translate(25 62.35)" stroke="#000" stroke-width="1">
+        <rect width="9" height="1" stroke="none"/>
+        <rect x="0.5" y="0.5" width="8" fill="none"/>
+      </g>
+    </g>
+    <path id="Polygon_2" data-name="Polygon 2" d="M1.5,0,3,3H0Z" transform="translate(11 80) rotate(90)"/>
+    <g id="Rectangle_14" data-name="Rectangle 14" transform="translate(13 81)" stroke="#000" stroke-width="1">
+      <rect width="52" height="1" stroke="none"/>
+      <rect x="0.5" y="0.5" width="51" fill="none"/>
+    </g>
+  </g>
+</svg>

@@ -197,7 +197,7 @@
                 "interview": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/interview.svg'>",
                 "full-screen": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/full-screen.svg'>",
                 "video": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/video.svg'>",
-                "audio": "Audio"
+                "audio": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/audio-header.svg'>"
             },
             "allow_null": 0,
             "other_choice": 0,
@@ -1566,5 +1566,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1620713449
+    "modified": 1621320590
 }
