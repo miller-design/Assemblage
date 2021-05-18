@@ -39,8 +39,17 @@
 
 			} else {
 				$options["background_colour"] = get_field('background_colour')[0]['colours'];
+
 			}
 			InterviewHeader::add_options($options)->render();
+
+		} else if(get_field('journal_header') === 'audio') {
+			$options["image"] = get_field('featured_image_portrait', get_the_id());
+			$options["background_colour"] = get_field('background_colour')[0]['colours'];
+			$options["audio"] = get_field('audio_src', get_the_id());
+			$options["external_links"] = get_field('audio_provider_links', get_the_id());
+
+			AudioHeader::add_options($options)->render();
 		}
 
 	} ?>

@@ -21,7 +21,7 @@ class Video {
 		$default_options = array(
 			"video_url" 				=> '',
 			"autoplay"  				=> false,
-			"echo"							=> true,
+			"audio_player" 			=> false,
 			"classes" 					=> '',
 		);
 
@@ -34,7 +34,7 @@ class Video {
 		return new self($custom_options);
 	}
 
-	public function render() {
+	public function return() {
 
 		$output = '';
 		$autoplay_var = ($this->options['autoplay'] === true) ? 'js-autoplay' : '';
@@ -48,10 +48,11 @@ class Video {
 			$output .= '</div>';
 		$output .= '</section>';
 
-		if($this->options['echo'] == true) {
-			echo $output;
-		} else {
-			return $output;
-		}
+		return $output;
+	}
+
+	public function render() {
+
+		echo Self::return();
 	}
 }

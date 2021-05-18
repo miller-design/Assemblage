@@ -196,7 +196,8 @@
                 "half-screen-v2": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/half-screen-v2.svg'>",
                 "interview": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/interview.svg'>",
                 "full-screen": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/full-screen.svg'>",
-                "video": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/video.svg'>"
+                "video": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/video.svg'>",
+                "audio": "Audio"
             },
             "allow_null": 0,
             "other_choice": 0,
@@ -264,6 +265,13 @@
                         "field": "field_604913d5f9e36",
                         "operator": "==",
                         "value": "video"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_604913d5f9e36",
+                        "operator": "==",
+                        "value": "audio"
                     }
                 ]
             ],
@@ -513,6 +521,81 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_609a1fa1d9307",
+            "label": "Audio Src",
+            "name": "audio_src",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_609a1fb9d9308",
+            "label": "Audio Provider Links",
+            "name": "audio_provider_links",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Link",
+            "sub_fields": [
+                {
+                    "key": "field_609a1fcbd9309",
+                    "label": "url",
+                    "name": "url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_609a1fd7d930a",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
         },
         {
             "key": "field_604914b9f9e45",
@@ -1483,5 +1566,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1619418710
+    "modified": 1620713449
 }

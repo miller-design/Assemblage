@@ -1,7 +1,7 @@
 // import GIA dependancy
 import Component from 'gia/Component'
-import eventbus from 'gia/eventbus'
 import videojs from 'video.js'
+import timeConverter from './helpers/timeConverter'
 
 // Extend the GIA component
 class Video extends Component {
@@ -24,6 +24,7 @@ class Video extends Component {
 
 	mount() {
 		this.videoSetup(this.ref.videoPlayer)
+
 		this.ref.playIcon.addEventListener('click', () => {
 			this.VideoObject.play()
 		})
@@ -47,27 +48,12 @@ class Video extends Component {
 			player.addClass('is-loaded')
 
 			player.on('loadedmetadata', () => {
-				videoDurationLabel.innerHTML = this.secondsToHms(player.duration())
+				videoDurationLabel.innerHTML = timeConverter.secondsToHms(player.duration())
 			})
 
 			this.VideoObject = player
 		}
 	}
-
-
-	secondsToHms(d) {
-
-		d = Number(d)
-		var h = Math.floor(d / 3600)
-		var m = Math.floor(d % 3600 / 60)
-		var s = Math.floor(d % 3600 % 60)
-
-		var hDisplay = h > 0 ? h + ":" : ""
-		var mDisplay = m > 0 ? m + ":" : ""
-		var sDisplay = m <= 0 ? 0 + ":" + s : ""
-
-		return hDisplay + mDisplay + sDisplay;
-  }
 }
 
 // Export ES6 module

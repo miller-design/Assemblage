@@ -21,7 +21,8 @@
                 "half-screen-v3": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/half-screen-v3.svg'>",
                 "interview": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/interview.svg'>",
                 "full-screen": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/full-screen.svg'>",
-                "video": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/video.svg'>"
+                "video": "<img src='\/wp-content\/themes\/assemblage\/dist\/img\/acf-icons\/video.svg'>",
+                "audio": "audio"
             },
             "allow_null": 0,
             "other_choice": 0,
@@ -99,5 +100,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1615233182
+    "modified": 1620713267
 }

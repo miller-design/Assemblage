@@ -10,6 +10,7 @@ import ImageSlider from './c-ImageSlider'
 import PostSlider from './c-PostSlider'
 import IssueHeader from './c-IssueHeader'
 import AjaxLoadMore from './AjaxLoadMore'
+import AudioHeader from './c-AudioHeader'
 
 
 // GLOBAL HANDLERs
@@ -31,7 +32,8 @@ const components = {
 	"ImageSlider": ImageSlider,
 	"PostSlider": PostSlider,
 	"IssueHeader": IssueHeader,
-	"AjaxLoadMore": AjaxLoadMore
+	"AjaxLoadMore": AjaxLoadMore,
+	"AudioHeader": AudioHeader
 }
 
 export default components;

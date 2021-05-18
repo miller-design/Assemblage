@@ -105,8 +105,7 @@ class ArticleHeader {
 
 		$vid_options = [
 			"video_url" 				=> $options['video_src'],
-			"autoplay"  				=> false,
-			"echo"							=> false
+			"autoplay"  				=> false
 		];
 
 		$output = '';
@@ -116,7 +115,7 @@ class ArticleHeader {
 				$output .= '<p class="[ c-ArticleHeader__details ]">Issue ' . $options['issue_number']['name'] . '&nbsp;&nbsp;<span class="dot"></span>&nbsp;&nbsp;Video [<span class="[ js-video-duration ]"></span>]</p>';
 			$output .= '</div>';
 			$output .= '<div class="[ c-ArticleHeader__video ]">';
-				$output .= Video::add_options($vid_options)->render();
+				$output .= Video::add_options($vid_options)->return();
 			$output .= '</div>';
 		$output .= '</div>';
 

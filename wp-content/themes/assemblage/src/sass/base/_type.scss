@@ -156,15 +156,21 @@
 
 
 // default hyperlink - with draw in underline fx
-@mixin link($underline:true) {
+@mixin link($underline:true, $color: $c-orange, $reverse: false) {
 	text-decoration: none;
 	cursor: pointer;
 
 	@if $underline == true {
-		background-image: linear-gradient($c-orange, $c-orange);
+		background-image: linear-gradient($color, $color);
 		background-position: 0% 100%;
 		background-repeat: no-repeat;
 		background-size: 100% 1px;
+
+		@if $reverse == true {
+			background-size: 0% 1px;
+		} @else {
+			background-size: 100% 1px;
+		}
 		transition: background-size 300ms $standard-curve;
 
 	} @else {
@@ -178,10 +184,15 @@
 		&:focus {
 
 			@if $underline == true {
-				background-size: 0% 1px;
+
+				@if $reverse == true {
+					background-size: 100% 1px;
+				} @else {
+					background-size: 0% 1px;
+				}
 
 			} @else {
-				color: $c-orange;
+				color: $color;
 			}
 		}
 	}
