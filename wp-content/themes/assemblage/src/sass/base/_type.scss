@@ -54,11 +54,16 @@
 	@include RecklessNeue-Book;
 }
 
-@mixin H4-Serif {
+@mixin H4-Serif($alt: false) {
 
 	@include v-type(25px, 50px, 58px);
 	@include tracking(-20);
 	@include RecklessNeue-Book;
+
+	@if ($alt == true) {
+
+		@include v-type(25px, 40px, 48px);
+	}
 }
 
 @mixin H5-Serif {
