@@ -38,23 +38,25 @@ get_header(); ?>
 	FeaturedImage::add_options($options)->render(); ?>
 </div>
 
-<div class="[ about-team-grid ]">
-	<div class="[ about-team-grid__row ]">
-		<div class="[ about-team-grid__col ]">
-			<h2>Our Team</h2>
-		</div><?php
-		$memebers = get_field('our_team_grid');
-		foreach($memebers as $memeber) {
-			echo '<div class="[ about-team-grid__col ]">';
-				echo '<div class="[ about-team-grid__item ]">';
-					echo LazyImage::get_image($memeber['image'], [50, 100], 'about-team-grid__item-image', true, false);
-					echo '<p class="[ about-team-grid__item-name ]">' . $memeber['name'] . '<span>' . $memeber['position'] .'</span></p>';
-					echo '<p class="[ about-team-grid__item-bio ]">' . $memeber['bio'] . '</p>';
+<?php if(!empty(get_field('our_team_grid'))) {
+	$memebers = get_field('our_team_grid'); ?>
+	<div class="[ about-team-grid ]">
+		<div class="[ about-team-grid__row ]">
+			<div class="[ about-team-grid__col ]">
+				<h2>Our Team</h2>
+			</div><?php
+			foreach($memebers as $memeber) {
+				echo '<div class="[ about-team-grid__col ]">';
+					echo '<div class="[ about-team-grid__item ]">';
+						echo LazyImage::get_image($memeber['image'], [50, 100], 'about-team-grid__item-image', true, false);
+						echo '<p class="[ about-team-grid__item-name ]">' . $memeber['name'] . '<span>' . $memeber['position'] .'</span></p>';
+						echo '<p class="[ about-team-grid__item-bio ]">' . $memeber['bio'] . '</p>';
+					echo '</div>';
 				echo '</div>';
-			echo '</div>';
-		} ?>
-	</div>
-</div>
+			} ?>
+		</div>
+	</div><?php
+} ?>
 
 
 <?php get_footer(); ?>
