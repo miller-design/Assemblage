@@ -43,6 +43,7 @@
 	width: 100%;
 	border-top: 1px solid $c-black;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: flex-start;
 	align-items: center;
 	align-content: center;
@@ -63,7 +64,6 @@
 
 .l-ArticleEnd__more-label {
 	text-transform: capitalize;
-	margin-right: 15px;
 	width: initial;
 
 	@include P4-Mono;
@@ -74,13 +74,11 @@
 	justify-content: flex-start;
 	align-items: flex-start;
 	align-content: flex-start;
+	flex-wrap: wrap;
 
 	li {
 		display: flex;
-
-		&:not(:first-child) {
-			margin-left: 13px;
-		}
+		margin-right: 13px;
 	}
 
 	li > a {

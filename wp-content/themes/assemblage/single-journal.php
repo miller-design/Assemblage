@@ -141,7 +141,8 @@
 
 											$quote_open = ($block['quote'] === true) ? '<q>' : '';
 											$quote_close = ($block['quote'] === true) ? '</q>' : '';
-											$classes .= ($block['align_text_center'] === true) ? 'l-ParagraphBlocks--text-center ' : '';
+											$classes = ($block['align_text_center'] === true) ? 'l-ParagraphBlocks--text-center ' : '';
+
 											echo '<p class="[ l-ParagraphBlocks__large-text ' . $classes . ']">' . $quote_open . $block['text_area'] . $quote_close .'</p>';
 
 										} else if($block['acf_fc_layout'] === 'interview_paragraph') {

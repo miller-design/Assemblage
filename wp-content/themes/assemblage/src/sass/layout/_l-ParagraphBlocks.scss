@@ -7,6 +7,11 @@
 
 	@include grid-col(1, -1);
 	@include v-spacing(margin-bottom, 65px, 120px);
+
+	+ .l-ParagraphBlocks {
+
+		@include v-spacing(margin-top, -30px, -50px);
+	}
 }
 
 .l-ParagraphBlocks__inner {
@@ -248,6 +253,10 @@
 		@include media(">=medium") {
 			width: 90%;
 		}
+	}
+
+	&:last-child {
+		margin-bottom: 0;
 	}
 }
 

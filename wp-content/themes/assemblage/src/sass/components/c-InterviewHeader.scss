@@ -266,6 +266,10 @@
 
 	.c-InterviewHeader__header {
 		margin-bottom: 60px;
+
+		@include media("<medium") {
+			display: block;
+		}
 	}
 
 	.c-InterviewHeader__excerpt {
@@ -286,6 +290,11 @@
 		margin: 0 auto;
 		border: 1px solid $c-black;
 		margin-bottom: 40px;
+
+		@include media("<medium") {
+			padding-left: 0;
+			padding-right: 0;
+		}
 
 		@include media(">=medium") {
 			border: 3px solid $c-black;

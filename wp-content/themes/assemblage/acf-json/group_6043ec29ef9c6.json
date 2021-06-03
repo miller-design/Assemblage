@@ -529,7 +529,15 @@
             "type": "file",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_604913d5f9e36",
+                        "operator": "==",
+                        "value": "audio"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -548,7 +556,15 @@
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_604913d5f9e36",
+                        "operator": "==",
+                        "value": "audio"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -1566,5 +1582,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1621320590
+    "modified": 1622270171
 }

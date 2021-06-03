@@ -255,8 +255,8 @@ class Journal {
 						Self::share_buttons($postID);
 					echo '</div>';
 					echo '<div class="[ l-ArticleEnd__bottom ]">';
-						echo '<p class="[ l-ArticleEnd__more-label ]">View More:</p>';
 						echo '<ul class="[ l-ArticleEnd__more-list ]">';
+							echo '<li><p class="[ l-ArticleEnd__more-label ]">View More:</p></li>';
 							echo '<li><a href="' . get_permalink( get_page_by_path( 'issue' ) ) . '?issue=' . $issue['id'] . '">Issue ' . $issue['name'] . ',</a></li>';
 							foreach ($tags as $tag) {
 								$comma = ($count_value < ($max_tags - 1)) ? ' ,' : ''; // want it to finish before last <li>
