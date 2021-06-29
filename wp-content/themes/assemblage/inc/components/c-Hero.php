@@ -41,7 +41,7 @@ class Hero {
 		}
 
 		if($this->options['issue_text']) {
-			$this->options['issue_text'] = '<p class="[ c-Hero__excerpt ]">Issue ' . $this->options['issue_text'] . '</p>';
+			$this->options['issue_text'] = '<p class="[ c-Hero__excerpt ]">' . $this->options['issue_text'] . '</p>';
 		}
 
 		if($this->options['issue_link']) {
@@ -49,7 +49,7 @@ class Hero {
 		}
 
 		if($this->options['bio_text']) {
-			$this->options['bio_text'] = '<p class="[ c-Hero__intro ]">Issue ' . $this->options['bio_text'] . '</p>';
+			$this->options['bio_text'] = '<p class="[ c-Hero__intro ]">' . $this->options['bio_text'] . '</p>';
 		}
 	}
 
