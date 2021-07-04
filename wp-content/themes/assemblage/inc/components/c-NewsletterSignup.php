@@ -30,7 +30,7 @@ class NewsletterSignup {
 		$this->options = array_merge($defaultOptions, $customOptions);
 
 		if($this->options['show_header'] === true) {
-			$this->options['header'] = '<p class="[ c-NewsletterSignup__header ]">Register for updates</p>';
+			$this->options['header'] = '<p class="[ c-NewsletterSignup__header ]">Register for news and upcoming issues</p>';
 		}
 
 		if($this->options['small_label'] === true) {

@@ -371,7 +371,7 @@ class Journal {
 										echo '<span class="[  l-ContentsList__index ]">01</span>';
 									echo '</div>';
 									echo '<div class="[  l-ContentsList__right ]">';
-										echo '<span class="[ js-trigger-letter ]">Editor’s Letter<span>3 Min Read</span></span>';
+										echo '<span class="[ js-trigger-letter ]">Founders’ Letter<span>3 Min Read</span></span>';
 									echo '</div>';
 								echo '</li>';
 								foreach($loop->posts as $article) {
