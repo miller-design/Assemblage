@@ -45,6 +45,12 @@ $loop = new WP_Query( $args ); ?>
 		<div class="[ l-4col__inner ]" g-ref="contentArea"><?php
 			if ($loop->have_posts()):
 				while ($loop->have_posts()) : $loop->the_post();
+					$caption = '';
+					if(get_field('read_time', get_the_id())) {
+						$caption = get_field('read_time', get_the_id());
+					} else {
+						$caption = Journal::estimated_reading_time(get_the_id(), true);
+					}
 
 					echo '<div class="[ l-4col__item ]">';
 						$options = [
@@ -54,7 +60,7 @@ $loop = new WP_Query( $args ); ?>
 							"link" 			=> get_permalink(get_the_id()),
 							"issue"			=> Journal::get_post_term(get_the_id(), 'issues')[0],
 							"tax"				=> Journal::get_post_term(get_the_id(), 'topic')[0],
-							"read_time"	=> Journal::estimated_reading_time(get_the_id(), true),
+							"read_time"	=> $caption,
 						];
 
 						PostCard::add_options($options)->render();

@@ -75,6 +75,13 @@ class PostSlider {
 		ob_start();
 		foreach ($data as $slide) {
 
+			$caption = '';
+			if(get_field('read_time', $slide->ID)) {
+				$caption = get_field('read_time', $slide->ID);
+			} else {
+				$caption = Journal::estimated_reading_time($slide->ID, true);
+			}
+
 			echo '<div class="[ c-PostSlider__slide ]" g-ref="slide">';
 				$options = [
 					"image" 		=> get_field('featured_image_portrait', $slide->ID),
@@ -83,7 +90,7 @@ class PostSlider {
 					"link" 			=> get_permalink($slide->ID),
 					"issue"			=> Journal::get_post_term($slide->ID, 'issues')[0],
 					"tax"				=> Journal::get_post_term($slide->ID, 'topic')[0],
-					"read_time"	=> Journal::estimated_reading_time($slide->ID, true),
+					"read_time"	=> $caption,
 					"slider" 		=> true,
 				];
 				PostCard::add_options($options)->render();

@@ -54,6 +54,13 @@ get_header();
 	$image_type = ($spotlight_article['layout'] === 'split-screen') ? 'featured_image_portrait' : 'featured_image';
 	$layout_dir = ($spotlight_article['flip_layout'] === true) ? 'c-FeaturedArticle--flip' : '';
 
+	$caption = '';
+	if(get_field('read_time', $spotlight_id)) {
+		$caption = get_field('read_time', $spotlight_id);
+	} else {
+		$caption = Journal::estimated_reading_time($spotlight_id, true);
+	}
+
 	$options = [
 		"header_type"		=> $spotlight_article['layout'],
 		"image" 				=> get_field($image_type, $spotlight_id),
@@ -61,7 +68,7 @@ get_header();
 		"excerpt" 			=> get_field('article_excerpt', $spotlight_id),
 		"issue_number"	=> Journal::get_post_term($spotlight_id, 'issues')[0],
 		"term"					=> Journal::get_post_term($spotlight_id, 'topic')[0],
-		"read_time"			=> Journal::estimated_reading_time($spotlight_id, true),
+		"read_time"			=> $caption,
 		"flip_layout"		=> $spotlight_article['flip_layout'],
 		"type_style"		=> $spotlight_article['font_style'],
 		"link"					=> [
@@ -80,6 +87,12 @@ get_header();
 			<div class="[ l-4col__inner ]"><?php
 				if ($loop->have_posts()) :
 					while ($loop->have_posts()) : $loop->the_post();
+					$caption = '';
+					if(get_field('read_time', get_the_id())) {
+						$caption = get_field('read_time', get_the_id());
+					} else {
+						$caption = Journal::estimated_reading_time(get_the_id(), true);
+					}
 						echo '<div class="[ l-4col__item ]">';
 							$options = [
 								"image" 		=> get_field('featured_image_portrait', get_the_id()),
@@ -88,7 +101,7 @@ get_header();
 								"link" 			=> get_permalink(get_the_id()),
 								"issue"			=> Journal::get_post_term(get_the_id(), 'issues')[0],
 								"tax"				=> Journal::get_post_term(get_the_id(), 'topic')[0],
-								"read_time"	=> Journal::estimated_reading_time(get_the_id(), true),
+								"read_time"	=> $caption,
 							];
 
 							PostCard::add_options($options)->render();

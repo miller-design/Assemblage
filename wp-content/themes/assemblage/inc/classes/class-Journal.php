@@ -380,7 +380,14 @@ class Journal {
 											echo '<span class="[  l-ContentsList__index ]">' . sprintf("%02d", $index)  . '</span>';
 										echo '</div>';
 										echo '<div class="[  l-ContentsList__right ]">';
-											echo '<a href="' . get_permalink($article->ID) . '">' . get_the_title($article->ID) . '<span>' . Self::estimated_reading_time($article->ID, true) . '</span></a>';
+
+											$caption = '';
+											if(get_field('read_time', $article->ID)) {
+												$caption = get_field('read_time', $article->ID);
+											} else {
+												$caption = Self::estimated_reading_time($article->ID, true);
+											}
+											echo '<a href="' . get_permalink($article->ID) . '">' . get_the_title($article->ID) . '<span>' . $caption . '</span></a>';
 										echo '</div>';
 									echo '</li>';
 									$index++;
@@ -421,6 +428,14 @@ class Journal {
 
 		if ($loop->have_posts()) {
 			while ($loop->have_posts()) : $loop->the_post();
+
+				$caption = '';
+				if(get_field('read_time', get_the_id())) {
+					$caption = get_field('read_time', get_the_id());
+				} else {
+					$caption = Journal::estimated_reading_time(get_the_id(), true);
+				}
+
 				echo '<div class="[ l-4col__item ]">';
 
 					$options = [
@@ -430,7 +445,7 @@ class Journal {
 						"link" 			=> get_permalink(get_the_id()),
 						"issue"			=> Journal::get_post_term(get_the_id(), 'issues')[0],
 						"tax"				=> Journal::get_post_term(get_the_id(), 'topic')[0],
-						"read_time"	=> Journal::estimated_reading_time(get_the_id(), true),
+						"read_time"	=> $caption,
 					];
 
 					PostCard::add_options($options)->render();

@@ -2,12 +2,19 @@
 
 	if(get_field('journal_header')) {
 
+		$caption = '';
+		if(get_field('read_time', get_the_id())) {
+			$caption = get_field('read_time', get_the_id());
+		} else {
+			$caption = Journal::estimated_reading_time(get_the_id(), true);
+		}
+
 		$options = [
 			"header_text" 		=> get_the_title(get_the_id()),
 			"excerpt" 				=> get_field('article_excerpt', get_the_id()),
 			"issue_number"		=> Journal::get_post_term(get_the_id(), 'issues')[0],
 			"term"						=> Journal::get_post_term(get_the_id(), 'topic')[0],
-			"read_time"				=> Journal::estimated_reading_time(get_the_id(), true),
+			"read_time"				=> $caption,
 			"header_type"			=> get_field('journal_header', get_the_id()),
 			"type_style"			=> get_field('typography_style', get_the_id())
 		];
@@ -90,8 +97,14 @@
 								<div class="[ l-ParagraphBlocks__col-left <?= $sidebar_class; ?> ]"><?php
 									if($side_bar_options === 'v1') {
 										// article details
+										$caption = '';
+										if(get_field('read_time', get_the_id())) {
+											$caption = get_field('read_time', get_the_id());
+										} else {
+											$caption = Journal::estimated_reading_time(get_the_id(), true);
+										}
 										$issue_number = Journal::get_post_term(get_the_id(), 'issues')[0];
-										$read_time = Journal::estimated_reading_time(get_the_id(), true);
+										$read_time = $caption;
 
 										echo '<div class="[ l-ParagraphBlocks__article-details ]">';
 											echo '<div class="[ l-ParagraphBlocks__article-details-wrap ]">';

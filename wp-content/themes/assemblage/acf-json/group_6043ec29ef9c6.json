@@ -163,6 +163,25 @@
             ]
         },
         {
+            "key": "field_60e1eb4dcccd7",
+            "label": "Read Time",
+            "name": "read_time",
+            "type": "text",
+            "instructions": "this field will manually override the read times for this article",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "e.g. 2 Min Read",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_6044f0f6e564b",
             "label": "Journal Content",
             "name": "",
@@ -1582,5 +1601,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1622270171
+    "modified": 1625418866
 }

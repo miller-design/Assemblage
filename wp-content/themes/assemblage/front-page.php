@@ -114,6 +114,14 @@ $post_slider_loop = new WP_Query( $args );
 
 					foreach($articles as $article) {
 						echo '<div class="[ l-4col__item ]">';
+
+							$caption = '';
+							if(get_field('read_time', $article->ID)) {
+								$caption = get_field('read_time', $article->ID);
+							} else {
+								$caption = Journal::estimated_reading_time($article->ID, true);
+							}
+
 							$options = [
 								"image" 		=> get_field('featured_image_portrait', $article->ID),
 								"header" 		=> get_the_title($article->ID),
@@ -121,7 +129,7 @@ $post_slider_loop = new WP_Query( $args );
 								"link" 			=> get_permalink($article->ID),
 								"issue"			=> Journal::get_post_term($article->ID, 'issues')[0],
 								"tax"				=> Journal::get_post_term($article->ID, 'topic')[0],
-								"read_time"	=> Journal::estimated_reading_time($article->ID, true),
+								"read_time"	=> $caption,
 							];
 
 							PostCard::add_options($options)->render();
@@ -133,6 +141,12 @@ $post_slider_loop = new WP_Query( $args );
 		<div class="[ ]"><?php
 			$featured_id = get_field('featured_story')->ID;
 			$featured_type_style = get_field('featured_typography_style');
+			$caption = '';
+			if(get_field('read_time', $featured_id)) {
+				$caption = get_field('read_time', $featured_id);
+			} else {
+				$caption = Journal::estimated_reading_time($featured_id, true);
+			}
 
 			$options = [
 				"header_type"		=> 'full-screen',
@@ -141,7 +155,7 @@ $post_slider_loop = new WP_Query( $args );
 				"excerpt" 			=> get_field('article_excerpt', $featured_id),
 				"issue_number"	=> Journal::get_post_term($featured_id, 'issues')[0],
 				"term"					=> Journal::get_post_term($featured_id, 'topic')[0],
-				"read_time"			=> Journal::estimated_reading_time($featured_id, true),
+				"read_time"			=> $caption,
 				"flip_layout"		=> true,
 				"type_style"		=> $featured_type_style,
 				"link"					=> [
