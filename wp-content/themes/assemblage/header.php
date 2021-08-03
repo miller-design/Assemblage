@@ -25,6 +25,13 @@ https://jackmiller.design/
 		<meta name="msapplication-TileColor" content="#ffffff">
 		<meta name="msapplication-config" content="<?= get_template_directory_uri(); ?>/src/favicon/browserconfig.xml">
 		<meta name="theme-color" content="#ffffff">
+
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="Assemblage Views">
+		<meta name="twitter:description" content="Assemblage Views is a magazine. We explore what it means to be a responsible global citizen of the 21st century. Together with you, we bring varied perspectives across creative, innovative and evolutionary pursuits to inspire and effect positive change.">
+		<meta name="twitter:image" content="<?= get_template_directory_uri(); ?>/src/favicon/AV_meta_card.jpg">
+		<meta name="twitter:image:alt" content="Assemblage views cover image">
+
 	</head>
 	<?php $headerClass = '';
 	if(is_singular('journal')) {
