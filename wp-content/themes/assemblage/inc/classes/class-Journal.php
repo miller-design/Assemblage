@@ -347,6 +347,7 @@ class Journal {
 		$args = array(
 			'post_type' 	=> Self::PostType,
 			'post_status' => 'publish',
+			'posts_per_page'	=> -1,
 			'tax_query' 	=> array(
 				array(
 					'taxonomy' 	=> 'issues',
