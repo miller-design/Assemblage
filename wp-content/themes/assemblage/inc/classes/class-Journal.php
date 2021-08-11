@@ -218,7 +218,8 @@ class Journal {
 
 	public static function get_next_story() {
 
-		$next_post_id = get_next_post(true, '', 'issues')->ID;
+		// $next_post_id = get_next_post(true, '', 'issues')->ID;
+		$next_post_id = get_previous_post(true, '', 'issues')->ID;
 
 		if(!empty($next_post_id)) {
 
@@ -293,7 +294,7 @@ class Journal {
 				echo '<div class="[ l-EditorsLetter ]">';
 					echo '<div class="[ l-EditorsLetter__inner ]">';
 						echo '<div class="[ l-EditorsLetter__header ]">';
-							echo '<h2>Founders&#39 letter</h2>';
+							echo '<h2>Editors&#39 Note</h2>';
 						echo '</div>';
 						if($image) {
 							echo '<div class="[ l-EditorsLetter__image-wrap ]">';

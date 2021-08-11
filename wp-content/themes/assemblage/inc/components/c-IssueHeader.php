@@ -50,7 +50,7 @@ class IssueHeader {
 						<p class="[ c-IssueHeader__intro ]"><?= $this->options['excerpt']; ?></p>
 						<div class="[ c-IssueHeader__cta-wrap ]">
 							<button class="[ c-IssueHeader__btn ]" g-ref="tableTrigger" data-term-id="<?= $this->options['term_id']; ?>" data-number="<?= $this->options['number']; ?>"><svg role="img"><use xlink:href="<?=get_template_directory_uri(); ?>/dist/sprite.svg#contents"></use></svg> Table of Contents</button>
-							<button class="[ c-IssueHeader__btn ]" g-ref="editorTrigger" data-term-id="<?= $this->options['term_id']; ?>" data-number="<?= $this->options['number']; ?>">Read the Founders' Letter</button>
+							<button class="[ c-IssueHeader__btn ]" g-ref="editorTrigger" data-term-id="<?= $this->options['term_id']; ?>" data-number="<?= $this->options['number']; ?>">Read the Editors’ Note</button>
 						</div>
 					</div>
 				</div>

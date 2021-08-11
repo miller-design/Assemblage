@@ -188,6 +188,31 @@
             "placeholder": ""
         },
         {
+            "key": "field_611374041e2ca",
+            "label": "Current Issue List",
+            "name": "current_issue_list",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "journal"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "taxonomy"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        },
+        {
             "key": "field_606ea26310e8d",
             "label": "Featured Section",
             "name": "",
@@ -417,5 +442,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1618384937
+    "modified": 1628664898
 }

@@ -42,6 +42,11 @@ $post_slider_loop = new WP_Query( $args );
 
 <section class="[ home-full-block ]">
 	<div class="[ home-row ]"><?php
+	if(get_field('current_issue_list')) {
+		$current_issue_posts = get_field('current_issue_list');
+	} else {
+		$current_issue_posts = $post_slider_loop->posts;
+	}
 		$options = [
 			"title"				=> 'Current Issue <sup>' . $active_issue_number .'</sup>',
 			"link"				=> [
@@ -49,7 +54,7 @@ $post_slider_loop = new WP_Query( $args );
 				"url"			=> get_permalink( get_page_by_path( 'issue' ) ) . '?issue=' . $active_issue,
 				"text"		=> 'Read Issue ' . $active_issue_number,
 			],
-			"posts" 			=> $post_slider_loop->posts,
+			"posts" 			=> $current_issue_posts,
 			"slide-size"	=> 'large',
 		];
 		PostSlider::add_options($options)->render(); ?>
