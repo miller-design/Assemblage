@@ -186,6 +186,10 @@
 								echo '<p class="[ l-LargeStatement__text ]">' . $large_text . '</p>';
 							echo '</div>';
 						echo '</div>';
+						if(get_row_index() === $block_total_count) {
+							Journal::add_article_end_section(get_the_id(), $end_block_alignment);
+						} ?><?php
+
 
 					// Case: Large Quote Block.
 					elseif( get_row_layout() == 'large_quote_block' ):
@@ -195,20 +199,33 @@
 								echo '<p class="[ l-LargeQuote__text ]"><q>' . $quote . '</q></p>';
 							echo '</div>';
 						echo '</div>';
+						if(get_row_index() === $block_total_count) {
+							Journal::add_article_end_section(get_the_id(), $end_block_alignment);
+						} ?><?php
+
 
 					// Case: Full Width Image Block.
 					elseif( get_row_layout() == 'full_width_image_block' ):
 						$image = get_sub_field('image')[0];
 						FeaturedImage::add_acf($image)->render();
+						if(get_row_index() === $block_total_count) {
+							Journal::add_article_end_section(get_the_id(), $end_block_alignment);
+						} ?><?php
 
 					// Case: Double Image Block.
 					elseif( get_row_layout() == 'double_image_block' ):
 						$images = get_sub_field('images')[0];
 						TwoUpImages::add_acf($images)->render();
+						if(get_row_index() === $block_total_count) {
+							Journal::add_article_end_section(get_the_id(), $end_block_alignment);
+						} ?><?php
 
 					elseif( get_row_layout() == 'image_slider' ):
 						$images = get_sub_field('slider')[0];
 						ImageSlider::add_acf($images)->render();
+						if(get_row_index() === $block_total_count) {
+							Journal::add_article_end_section(get_the_id(), $end_block_alignment);
+						} ?><?php
 
 						// Case: Discovery Layout Block.
 					elseif( get_row_layout() == 'discovery_block' ):
