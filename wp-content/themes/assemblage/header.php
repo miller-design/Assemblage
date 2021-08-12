@@ -32,6 +32,15 @@ https://jackmiller.design/
 		<meta name="twitter:image" content="<?= get_template_directory_uri(); ?>/src/favicon/AV_meta_card.jpg">
 		<meta name="twitter:image:alt" content="Assemblage views cover image">
 
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-QZF0FCYJQ1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-QZF0FCYJQ1');
+		</script>
+
 	</head>
 	<?php $headerClass = '';
 	if(is_singular('journal')) {
