@@ -105,21 +105,32 @@ class ArticleSplitHeader {
 
 	private static function additional_text($data) {
 
+		$output = '';
+
 		foreach ($data as $row) {
 
 			if($row['acf_fc_layout'] === 'paragraph') {
 
-				return '<div class="[ c-ArticleSplitHeader__additional-content-text ]">' . $row['text_area'] . '</div>';
+				$sign_off = '';
+
+				if($row['add_sign_off_block']) {
+					$sign_off = '<p class="[ no-indent ]">' . $row['sign_off_block'] . '</p>';
+				}
+
+				$output .= '<div class="[ c-ArticleSplitHeader__additional-content-text ]">' . $row['text_area'] . $sign_off . '</div>';
 
 			} else if($row['acf_fc_layout'] === 'large_text') {
 
 				$quote_open = ($row['quote'] === true) ? '<q>' : '';
 				$quote_close = ($row['quote'] === true) ? '</q>' : '';
 				$classes .= ($row['align_text_center'] === true) ? 'l-ParagraphBlocks--text-center ' : '';
-				return '<p class="[ l-ParagraphBlocks__large-text ' . $classes . ']">' . $quote_open . $row['text_area'] . $quote_close .'</p>';
+
+				$output .= '<p class="[ l-ParagraphBlocks__large-text ' . $classes . ']">' . $quote_open . $row['text_area'] . $quote_close .'</p>';
 
 			}
 		}
+
+		return $output;
 	}
 
 	public function render() { ?>

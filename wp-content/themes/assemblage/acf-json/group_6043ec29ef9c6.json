@@ -692,6 +692,52 @@
                             "toolbar": "custom",
                             "media_upload": 0,
                             "delay": 0
+                        },
+                        {
+                            "key": "field_6114c24f3c493",
+                            "label": "Add Sign Off Block",
+                            "name": "add_sign_off_block",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6114c27e3c494",
+                            "label": "Sign Off Block",
+                            "name": "sign_off_block",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6114c24f3c493",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": "",
+                            "rows": "",
+                            "new_lines": "br"
                         }
                     ],
                     "min": "",
@@ -1052,6 +1098,52 @@
                                             "toolbar": "custom",
                                             "media_upload": 0,
                                             "delay": 0
+                                        },
+                                        {
+                                            "key": "field_6114c2ef3c495",
+                                            "label": "Add Sign Off Block",
+                                            "name": "add_sign_off_block",
+                                            "type": "true_false",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "message": "",
+                                            "default_value": 0,
+                                            "ui": 1,
+                                            "ui_on_text": "",
+                                            "ui_off_text": ""
+                                        },
+                                        {
+                                            "key": "field_6114c3073c496",
+                                            "label": "Sign Off Block",
+                                            "name": "sign_off_block",
+                                            "type": "textarea",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_6114c2ef3c495",
+                                                        "operator": "==",
+                                                        "value": "1"
+                                                    }
+                                                ]
+                                            ],
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "maxlength": "",
+                                            "rows": "",
+                                            "new_lines": "br"
                                         }
                                     ],
                                     "min": "",
@@ -1601,5 +1693,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1625418866
+    "modified": 1628752088
 }

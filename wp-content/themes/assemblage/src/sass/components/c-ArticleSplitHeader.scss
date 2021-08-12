@@ -162,6 +162,21 @@
 		column-gap: var(--site-gutter);
 		box-sizing: border-box;
 	}
+
+	.l-ParagraphBlocks__large-text {
+		width: 100%;
+		margin-left: 0;
+
+		@include media("<medium") {
+			padding-left: var(--site-margin);
+			padding-right: var(--site-margin);
+		}
+
+		@include media(">=medium") {
+
+			@include grid-col(2, 9);
+		}
+	}
 }
 
 .c-ArticleSplitHeader__additional-content-text {
@@ -183,6 +198,10 @@
 
 		&:not(:nth-child(1)) {
 			text-indent: 8%;
+		}
+
+		&.no-indent {
+			text-indent: 0 !important;
 		}
 	}
 }

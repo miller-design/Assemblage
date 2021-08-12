@@ -148,7 +148,13 @@
 
 										if($block['acf_fc_layout'] === 'paragraph') {
 
-											echo '<div class="[ l-ParagraphBlocks__text-block ]">' . $block['text_area'] . '</div>';
+											$sign_off = '';
+
+											if($block['add_sign_off_block']) {
+												$sign_off = '<p class="[ no-indent ]">' . $block['sign_off_block'] . '</p>';
+											}
+
+											echo '<div class="[ l-ParagraphBlocks__text-block ]">' . $block['text_area'] . $sign_off . '</div>';
 
 										} else if($block['acf_fc_layout'] === 'large_text') {
 

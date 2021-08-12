@@ -187,6 +187,10 @@
 		&:not(:nth-child(1)) {
 			text-indent: 8%;
 		}
+
+		&.no-indent {
+			text-indent: 0 !important;
+		}
 	}
 }
 
