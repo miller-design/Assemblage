@@ -138,7 +138,7 @@ class FeaturedArticle {
 			$output .= '<p class="[ c-FeaturedArticle__type ]">' . $options['term'] . '</p>';
 			$output .= '<div class="[ c-FeaturedArticle__content ]">';
 				$output .= '<p class="[ c-FeaturedArticle__header ]">' . $options['header_text'] . '</p>';
-				$output .= '<p class="[ c-FeaturedArticle__details ]">Issue ' . $options['issue_number']['name'] . '&nbsp;<span class="dot"></span>&nbsp;' . $options['read_time'] . '</p>';
+				// $output .= '<p class="[ c-FeaturedArticle__details ]">Issue ' . $options['issue_number']['name'] . '&nbsp;<span class="dot"></span>&nbsp;' . $options['read_time'] . '</p>';
 				$output .= '<p class="[ c-FeaturedArticle__excerpt ]">' . $options['excerpt'] . '</p>';
 				$output .= '<a href="' . $options['link']['url'] . '" class="[ c-FeaturedArticle__link ]">' . $options['link']['name'] . '</a>';
 			$output .= '</div>';
