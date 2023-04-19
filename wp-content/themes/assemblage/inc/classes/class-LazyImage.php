@@ -90,6 +90,15 @@ class LazyImage {
 		if ($intrinsic) {
 			// figure out aspect ratio for intrinsic-image wrapper
 			$img_data = wp_get_attachment_image_src($img_id, $img_size);
+			
+			if ($img_data[1] <= 0) {
+				$img_data[1] = 1;
+			}
+
+			if ($img_data[2] <= 0) {
+				$img_data[2] = 1;
+			}
+			
 			$aspect_percentage = $img_data[2] / $img_data[1] * 100;
 
 			return sprintf('<div class="%s intrinsic-image" style="padding-bottom: %s%%;">%s %s</div>', $wrapper_class, $aspect_percentage, $img_fallback, $img_element);
